@@ -15,7 +15,7 @@ from P_DPF5 import P_DPF5
 from ENGINE import ENGINE
 
 
-class PROBLEM:    
+class Benchmark:    
     """  
     - Instância:    
       problem = PROBLEM(Engine)  

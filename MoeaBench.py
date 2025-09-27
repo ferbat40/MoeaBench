@@ -1,4 +1,14 @@
-class MoeaBench:
+#from ANALYSE import ANALYSE
+from Benchmark import Benchmark
+from RUN import RUN
 
-    def __init__(self,var):
-        self.var = var
+
+class MoeaBench:
+    
+    def benchmark(self):
+        return Benchmark()
+    
+    
+    def run(self):
+        return RUN()
+    

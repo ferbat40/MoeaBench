@@ -3,23 +3,28 @@ from DTLZ1 import DTLZ1
 
 class P_DTLZ1(DTLZ1):
 
-    def __init__(self, ENGINE, M, K , P, **kwargs):
+    def __init__(self, ENGINE, M, K , P, CACHE, **kwargs):
         self.ENGINE=ENGINE
+        self.CACHE=CACHE
         self.M = M
         self.K = K
         self.P = P
         ENGINE.allowed_call(self)
-        super().__init__(ENGINE=ENGINE, **kwargs)
+        super().__init__(ENGINE=ENGINE,CACHE=CACHE, **kwargs)
 
     
     def get_ENGINE(self):
         return self.ENGINE
+    
+
+    def get_CACHE(self):
+        return self.CACHE
 
 
     def set_BENCH_conf(self):
         self.set_Penalty_param(0.65)   
-        self.get_ENGINE().set_BENCH_CI(self.M,0,10,self.P,self.K,1,1) 
-        self.get_ENGINE().get_BENCH_CI().set_Nvar()
+        self.get_CACHE().set_BENCH_CI(self.M,0,10,self.P,self.K,1,1) 
+        self.get_CACHE().get_BENCH_CI().set_Nvar()
         self.get_ENGINE().set_Point()
         self.get_ENGINE().set_POF(0.5)
         self.set_Pareto(0.5)
@@ -38,10 +43,11 @@ class P_DTLZ1(DTLZ1):
 
         """   
         try:
-            if self.get_ENGINE().K_validate(self.get_ENGINE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().M_validate(self.get_ENGINE().get_BENCH_CI().get_M()) == True:
+            if self.get_ENGINE().K_validate(self.get_CACHE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().M_validate(self.get_CACHE().get_BENCH_CI().get_M()) == True:
                 F,X = self.minimize()
                 for key,value in F.items():
-                    self.get_ENGINE().SAMPLES_add(key,0,0,value,X,0)  
+                    self.get_CACHE().SAMPLES_add(key,0,0,value,X,0,self)  
+            return self.get_CACHE()
         except Exception as e:
             print(e)
                                           
@@ -56,7 +62,7 @@ class P_DTLZ1(DTLZ1):
 
         """  
         try:
-            if self.get_ENGINE().K_validate(self.get_ENGINE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().M_validate(self.get_ENGINE().get_BENCH_CI().get_M()) == True:
+            if self.get_ENGINE().K_validate(self.get_CACHE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().M_validate(self.get_CACHE().get_BENCH_CI().get_M()) == True:
                 F,X = self.maximize()
                 for key,value in F.items():
                     self.get_ENGINE().SAMPLES_add(key,0,0,value,X,0) 

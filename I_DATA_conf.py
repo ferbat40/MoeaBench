@@ -27,6 +27,22 @@ class I_DATA_conf(ABC):
     def get_METRIC_gen(self):
         pass
 
+
+    @abstractmethod
+    def get_problem(self):
+        pass
+
+    
+    @abstractmethod
+    def set_DATA_MOEA(self):
+        pass
+
+
+    @abstractmethod
+    def get_DATA_MOEA(self):
+        pass
+
+
    
 
     

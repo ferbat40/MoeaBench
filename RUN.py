@@ -5,9 +5,14 @@ from RVEA_pymoo import RVEApymoo
 from NSGA_pymoo import NSGAPymoo
 from I_MOEA import I_MOEA
 from SOLUTION import SOLUTION
-import inspect
+from CACHE import CACHE
 
-class RUN:
+
+class RUN(I_MOEA):
+
+    def __init__(self):
+        self.CACHE=CACHE()
+
     """  
     - Instância:    
       runner = RUN()  
@@ -24,12 +29,6 @@ class RUN:
               - runner.SAVE(args)
     """   
 
-    def MOEA_allowed(self,MOEA):
-        method = I_MOEA.__abstractmethods__
-        for mt in method:
-           if not hasattr(self,mt) and not hasattr(MOEA,mt):
-               raise NotImplementedError(f'No {mt} method implememnted')
-           I_MOEA.register(MOEA)
 
 
     def runner_MOEA(self,OBJ,method):
@@ -70,7 +69,6 @@ class RUN:
         """
 
         try:
-            self.MOEA_allowed(SOLUTION)
             runner = self.runner_MOEA(MOEA,method)
             solutions = runner()
             population = MOEA.population
@@ -89,68 +87,40 @@ class RUN:
 
     def MOEA_execute(self,MOEA,problem):
         data = MOEA.exec()
-        problem.get_ENGINE().SAMPLES_add([key for key,value in data[0].items()][0],
+        self.CACHE.SAMPLES_add([key for key,value in data[0].items()][0],
                                     data[1],
                                     data[2],
                                     [value for key,value in data[0].items()][0],
                                     data[4],
-                                    data[3])
-        
-          
+                                    data[3],
+                                    problem)
+
+
     def NSGA3(self,problem, *, population = 100, generations = 300,seed = 1):
-        try:
-            self.MOEA_allowed(NSGAPymoo)  
-            try:
-                self.MOEA_execute(NSGAPymoo(problem,population,generations,seed),problem)
-            except Exception as e:
-                pass
-                print(e)
-        except Exception as e:
-            print(e)
-       
+        self.DT_CONF=self.CACHE.get_DATA_conf()
+        self.DT_CONF.set_DATA_MOEA(NSGAPymoo(problem,population,generations,seed),problem)
+             
 
     def U_NSGA3(self,problem, *, population = 100, generations = 300,seed = 1):
-        try:
-            self.MOEA_allowed(UNSGAPymoo)
-            try:
-                self.MOEA_execute(UNSGAPymoo(problem,population,generations,seed),problem)
-            except Exception as e:
-                pass
-        except Exception as e:
-            print(e)
-           
+        self.DT_CONF=self.CACHE.get_DATA_conf()
+        self.DT_CONF.set_DATA_MOEA(UNSGAPymoo(problem,population,generations,seed),problem)
+      
 
     def SPEA2(self,problem, *,  population = 100, generations = 300,seed = 1):
-        try:
-            self.MOEA_allowed(SPEAPymoo)
-            try:
-                self.MOEA_execute(SPEAPymoo(problem,population,generations,seed),problem)
-            except Exception as e:
-                pass
-        except Exception as e:
-            print(e)
+        self.DT_CONF=self.CACHE.get_DATA_conf()
+        self.DT_CONF.set_DATA_MOEA(SPEAPymoo(problem,population,generations,seed),problem)
+      
                      
-
     def MOEAD(self,problem, *, population = 100, generations = 300,seed = 1):
-        try:
-            self.MOEA_allowed(MOEADpymoo)
-            try:
-                self.MOEA_execute(MOEADpymoo(problem,population ,generations,seed),problem)
-            except Exception as e:
-                pass
-        except Exception as e:
-            print(e)
-               
+        self.DT_CONF=self.CACHE.get_DATA_conf()
+        self.DT_CONF.set_DATA_MOEA(MOEADpymoo(problem,population ,generations,seed),problem)
+                 
 
     def RVEA(self,problem, *, population = 100, generations = 300,seed = 1):
-        try:
-            self.MOEA_allowed(RVEApymoo)
-            try:
-                self.MOEA_execute(RVEApymoo(problem,population,generations,seed),problem)
-            except Exception as e:
-                pass
-        except Exception as e:
-            print(e)
+        self.DT_CONF=self.CACHE.get_DATA_conf()
+        self.DT_CONF.set_DATA_MOEA(RVEApymoo(problem,population,generations,seed),problem)
+      
+      
 
 
 

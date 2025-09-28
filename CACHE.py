@@ -2,12 +2,68 @@ import numpy as np
 from BENCH_conf import BENCH_conf
 from DATA_conf import DATA_conf
 from DATA_arr import DATA_arr
+from FILE_reference import FILE_reference
+from GEN_history import GEN_history
+from GEN_hypervolume import GEN_hypervolume
+from GEN_gd import GEN_gd
+from GEN_gdplus import GEN_gdplus
+from GEN_igd import GEN_igd
+from GEN_igdplus import GEN_igdplus
 
 
-class CACHE(DATA_arr):
+class CACHE(DATA_arr,FILE_reference):
   
   def __init__(self,**kwargs):
        super().__init__(list_g=[],**kwargs)
+
+
+  def set_BENCH_CI(self,M,D,BENCH,P,K,n_ieq_constr,BENCH_Nvar):
+        BENk=self.get_BENCH_conf()
+        BENk.set(M,D,BENCH,P,K,n_ieq_constr,BENCH_Nvar)
+        self.__BENCH_CI=BENk
+
+  
+  def get_BENCH_CI(self):
+        return self.__BENCH_CI 
+  
+
+  def SAMPLES_add(self,KEY,GEN,POP,F,X,history,problem=None):
+        DT_CONF=self.get_DATA_conf()
+        DT_CONF.set(KEY,GEN,POP,F)
+        DT_CONF.set_METRIC_gen(self.METRIC_gen_evalue(F,X,history))      
+        BENCH=self.get_BENCH_conf()
+        BENCH.set(problem.get_CACHE().get_BENCH_CI().get_M(),
+                                  problem.get_CACHE().get_BENCH_CI().get_D(),
+                                  [key for key,value in self.STR_bench().items() if value == problem.get_CACHE().get_BENCH_CI().get_BENCH()][0],
+                                  problem.get_CACHE().get_BENCH_CI().get_P(),
+                                  problem.get_CACHE().get_BENCH_CI().get_K(),
+                                  problem.get_CACHE().get_BENCH_CI().get_n_ieq_constr(),
+                                  problem.get_CACHE().get_BENCH_CI().get_BENCH_Nvar())
+        BENCH.set_Nvar(problem.get_CACHE().get_BENCH_CI().get_Nvar())
+        self.add_T([DT_CONF,BENCH])
+
+
+  def METRIC_gen_evalue(self,F,X,history):
+        M_GEN=[X,[0],[0],[0],[0],[0],[0]]
+        try:
+            GEN_Hist = GEN_history(history,F)
+            approx_ideal,approx_nadir,hist_F,n_evals,hist_n = GEN_Hist.evaluate()
+            print(hist_F[0].shape,"sss",hist_n[0].shape)
+            GEN_HV=GEN_hypervolume(hist_F,self.get_BENCH_CI().get_M(),approx_ideal,approx_nadir)
+            GEN_GD=GEN_gd(hist_F,F)
+            GEN_GDplus=GEN_gdplus(hist_F,F)
+            GEN_IGD=GEN_igd(hist_F,F)
+            GEN_IGDplus=GEN_igdplus(hist_F,F)    
+            M_GEN = ([X,
+                                GEN_HV.evaluate(),
+                                GEN_GD.evaluate(),
+                                GEN_GDplus.evaluate(),
+                                GEN_IGD.evaluate(),
+                                GEN_IGDplus.evaluate(),
+                                n_evals])        
+        except Exception as e:
+            pass
+        return M_GEN
           
 
   def BENCH_conf_recursive(self,OBJ):

@@ -13,6 +13,7 @@ from P_DPF3 import P_DPF3
 from P_DPF4 import P_DPF4
 from P_DPF5 import P_DPF5
 from ENGINE import ENGINE
+from CACHE import CACHE
 
 
 class Benchmark:    
@@ -25,8 +26,9 @@ class Benchmark:
       - Para informações sobre a classe:
       https://evobench.github.io/benchmark/problems/DTLZ1/DTLZ1/  
     """   
-
-
+   
+    def __init__(self):
+        self.CACHE=CACHE()
 
 
     def DTLZ1(self, *, M = 3, K = 5, P = 700):
@@ -54,8 +56,9 @@ class Benchmark:
 
         """
         
-        bk = P_DTLZ1(ENGINE(), M, K, P)
+        bk = P_DTLZ1(ENGINE(self.CACHE), M, K, P,self.CACHE)
         bk.set_BENCH_conf() 
+        bk.POFsamples()
         return bk
        
 

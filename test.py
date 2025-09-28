@@ -6,11 +6,20 @@ import numpy as np
 
 
 os.system("cls")   
-moeabench = MoeaBench()
+exp = MoeaBench()
+exp.problem = exp.Benchmark.DTLZ1(K=10)
+exp.moea = exp.Moea.NSGA3(problem=exp.problem, population = 140, generations = 300)
+exp.RUN()
 
 
-dtlz1 = moeabench.benchmark().DTLZ1()
-nsga3 = moeabench.run().NSGA3(problem=dtlz1, population = 140, generations = 300)
+
+
+
+
+#for i in exp.problem.get_CACHE().get_elements():
+    #print(i)
+#for i in exp.moea:
+    #print(i)
 
 
 

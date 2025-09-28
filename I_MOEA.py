@@ -1,12 +1,6 @@
 from abc import ABC, abstractmethod
 
 class I_MOEA(ABC):
-    
- 
-    @abstractmethod 
-    def exec(self):
-        pass
-
 
     @abstractmethod 
     def NSGA3(self):
@@ -31,11 +25,6 @@ class I_MOEA(ABC):
     @abstractmethod 
     def RVEA(self):
         pass
-    
-
-    @abstractmethod
-    def MOEA_allowed(self):
-        pass
    
 
     @abstractmethod
@@ -53,9 +42,9 @@ class I_MOEA(ABC):
         pass
     
 
-    @abstractmethod
-    def SOLVER(self):
-        pass
+    #@abstractmethod
+    #def SOLVER(self):
+        #pass
 
 
     

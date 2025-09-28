@@ -4,11 +4,24 @@ from METRIC_gen import METRIC_gen
 
 class DATA_conf(I_DATA_conf):
 
+    def set_DATA_MOEA(self,DATA_MOEA,problem):
+        self.__DATA_MOEA=DATA_MOEA
+        self.__problem=problem
+
+
     def set(self,description,generations,population,arr_DATA):
         self.__description=description
         self.__generations=generations
         self.__population=population
         self.__arr_DATA=arr_DATA
+
+    
+    def get_DATA_MOEA(self):
+        return self.__DATA_MOEA
+    
+    
+    def get_problem(self):
+        return self.__problem
     
 
     def get_description(self):

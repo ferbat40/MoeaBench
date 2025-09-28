@@ -4,12 +4,11 @@ import numpy as np
 import datetime as dt
 import pandas as pd
 from FILE import FILE
-from CACHE import CACHE
 #from ENGINE_external import ENGINE_external
 #from ENGINE_external_lite import ENGINE_external_lite
 
 
-class ENGINE(ALLOWED,FILE):#(ALLOWED,FILE,I_ENGINE):
+class ENGINE(ALLOWED):#(ALLOWED,FILE,I_ENGINE):
 
     """  
     - Instância:    
@@ -22,11 +21,11 @@ class ENGINE(ALLOWED,FILE):#(ALLOWED,FILE,I_ENGINE):
 
     """   
     
-    def __init__(self,**kwargs):
+    def __init__(self,CACHE,**kwargs):
         #self.__ENGINE_full=ENGINE_external(ENGINE=self)
         #self.__ENGINE_lite=ENGINE_external_lite(ENGINE=self)
-        self.__memory=CACHE()
-        super().__init__(CACHE=self.__memory,**kwargs)
+        self.CACHE=CACHE
+        
     
 
     def ENGINE_full(self):
@@ -37,18 +36,8 @@ class ENGINE(ALLOWED,FILE):#(ALLOWED,FILE,I_ENGINE):
         return self.__ENGINE_lite
     
 
-    def memory(self):
-        return self.__memory
-        
-
-    def get_BENCH_CI(self):
-        return self.__BENCH_CI 
-       
-
-    def set_BENCH_CI(self,M,D,BENCH,P,K,n_ieq_constr,BENCH_Nvar):
-        BENk=self.memory().get_BENCH_conf()
-        BENk.set(M,D,BENCH,P,K,n_ieq_constr,BENCH_Nvar)
-        self.__BENCH_CI=BENk
+    #def memory(self):
+       # return self.__memory
        
        
     def get_Point_in_G(self):
@@ -60,20 +49,20 @@ class ENGINE(ALLOWED,FILE):#(ALLOWED,FILE,I_ENGINE):
     
 
     def set_Point(self):
-        self.__Point_in_G=np.array([*np.random.random((self.get_BENCH_CI().get_P(),self.get_BENCH_CI().get_Nvar()))*1.0])
-        self.__Point_out_G=np.array([*np.random.random((self.get_BENCH_CI().get_P(),self.get_BENCH_CI().get_Nvar()))*1.0])
+        self.__Point_in_G=np.array([*np.random.random((self.CACHE.get_BENCH_CI().get_P(),self.CACHE.get_BENCH_CI().get_Nvar()))*1.0])
+        self.__Point_out_G=np.array([*np.random.random((self.CACHE.get_BENCH_CI().get_P(),self.CACHE.get_BENCH_CI().get_Nvar()))*1.0])
         
 
     def set_POF(self,POF):
-        N_Bench = self.get_BENCH_CI().get_BENCH_Nvar()
+        N_Bench = self.CACHE.get_BENCH_CI().get_BENCH_Nvar()
         if N_Bench <=7:
-            self.__Point_in_G[:,self.get_BENCH_CI().get_M()-1:self.get_BENCH_CI().get_Nvar()]=POF
+            self.__Point_in_G[:,self.CACHE.get_BENCH_CI().get_M()-1:self.CACHE.get_BENCH_CI().get_Nvar()]=POF
             self.__POF=POF
         elif N_Bench >= 10 and  N_Bench < 14:
-            self.__Point_in_G[:,self.get_BENCH_CI().get_D()-1:self.get_BENCH_CI().get_Nvar()]=POF
+            self.__Point_in_G[:,self.CACHE.get_BENCH_CI().get_D()-1:self.CACHE.get_BENCH_CI().get_Nvar()]=POF
             self.__POF=POF
         elif N_Bench == 14:
-            self.__Point_in_G[:,self.get_BENCH_CI().get_M()-1:self.get_BENCH_CI().get_Nvar()]=POF
+            self.__Point_in_G[:,self.CACHE.get_BENCH_CI().get_M()-1:self.CACHE.get_BENCH_CI().get_Nvar()]=POF
             self.__POF=POF
 
     

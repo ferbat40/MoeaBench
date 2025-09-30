@@ -4,3 +4,4 @@ from .Benchmark import Benchmark
 from .RUN import RUN
 from .CACHE import CACHE
 
+#moeabench = MoeaBench()

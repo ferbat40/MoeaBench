@@ -1,0 +1,10 @@
+pymoo
+ipywidgets
+plotly
+ipython
+pandas
+ordered_set
+deap
+deepdiff
+
+

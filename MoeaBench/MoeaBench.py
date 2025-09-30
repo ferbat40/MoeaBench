@@ -95,7 +95,7 @@ class MoeaBench:
     def DATA(self,args,generations,metrics):
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
-        evaluate = [[np.array(index) for i in range(0,len(data)) for index,b in enumerate(range(0,generations),start=1)]]
+        evaluate = [np.arange(1,generations+1) for _ in range(len(data))]
         metric = [np.array(i.get_METRIC_gen().get_arr_Metric_gen()[metrics][0:generations]).flatten() for i in data]
         label = [f'{dt.get_description()}     (GEN={dt.get_generations()},POP={dt.get_population()})     (M={bk.get_M()},K={bk.get_K()},N={bk.get_Nvar()},D={bk.get_D()})' if int(dt.get_generations())+int(dt.get_population())>0 
                  else f'{dt.get_description()}' for dt,bk in zip(data,bench)]

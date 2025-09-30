@@ -45,9 +45,27 @@ class MoeaBench:
         self.plot_g.PLT()
 
 
-    def plot_gd(self,*args, generations = None):   
+    def plot_GD(self,*args, generations = None):   
         markers,label,title = self.DATA(args,generations,metrics=2)
         self.plot_g=self.plot_g(markers,label,title, metric = ['GD','Generations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['GD','Generations'])
+        self.plot_g.PLT()
+
+
+    def plot_GDplus(self,*args, generations = None):   
+        markers,label,title = self.DATA(args,generations,metrics=3)
+        self.plot_g=self.plot_g(markers,label,title, metric = ['GD plus','Generations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['GD plus','Generations'])
+        self.plot_g.PLT()
+
+    
+    def plot_IGD(self,*args, generations = None):   
+        markers,label,title = self.DATA(args,generations,metrics=4)
+        self.plot_g=self.plot_g(markers,label,title, metric = ['IGD','Generations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['IGD','Generations'])
+        self.plot_g.PLT()
+
+
+    def plot_IGDplus(self,*args, generations = None):   
+        markers,label,title = self.DATA(args,generations,metrics=4)
+        self.plot_g=self.plot_g(markers,label,title, metric = ['IGD plus','Generations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['IIGD plus','Generations'])
         self.plot_g.PLT()
 
 

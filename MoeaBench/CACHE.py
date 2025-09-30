@@ -14,6 +14,7 @@ from .GEN_igdplus import GEN_igdplus
 class CACHE(DATA_arr,FILE_reference):
   
   def __init__(self,**kwargs):
+       self.data_conf=None
        super().__init__(list_g=[],**kwargs)
 
   
@@ -65,7 +66,6 @@ class CACHE(DATA_arr,FILE_reference):
         self.add_T([DT_CONF,BENCH])
 
 
-
   def METRIC_gen_evalue(self,F,X,history,problem):
         M_GEN=[X,[0],[0],[0],[0],[0],[0],[0],[0]]
         try:
@@ -86,14 +86,18 @@ class CACHE(DATA_arr,FILE_reference):
                                 hist_F,
                                 hist_n])        
         except Exception as e:
-            #print(e)
             pass
         return M_GEN
   
 
   def get_DATA_conf(self):
-       return DATA_conf()
+       self.data_conf=DATA_conf()
+       return self.data_conf
   
+
+  def edit_DATA_conf(self):
+       return self.data_conf
+       
 
   def get_BENCH_conf(self):
        return BENCH_conf()

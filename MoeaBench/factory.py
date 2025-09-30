@@ -1,6 +1,7 @@
 from .MoeaBench import MoeaBench
 
 class _MoeaBenchWrapper:
+    
     def __getattr__(self, name):
         inst = MoeaBench()
         return getattr(inst, name)

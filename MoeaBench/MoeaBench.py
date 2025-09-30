@@ -41,7 +41,7 @@ class MoeaBench:
 
     def plot_hypervolume(self,*args, generations = None):   
         markers,label,title = self.DATA(args,generations,metrics=1)
-        self.plot_g=self.plot_g(markers,label,title, metric = ['Hypervolume','Evaluations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['Hypervolume','Evaluations'])
+        self.plot_g=self.plot_g(markers,label,title, metric = ['Hypervolume','Evaluations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['Hypervolume','Generations'])
         self.plot_g.PLT()
             
 
@@ -95,14 +95,11 @@ class MoeaBench:
     def DATA(self,args,generations,metrics):
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
-        axis_DATA=[]
-        evaluate = [np.array(i.get_METRIC_gen().get_arr_Metric_gen()[6][0:generations]).flatten() for i in data]
+        evaluate = [np.array(i) for i in range(0,generations)]
         metric = [np.array(i.get_METRIC_gen().get_arr_Metric_gen()[metrics][0:generations]).flatten() for i in data]
         label = [f'{dt.get_description()}     (GEN={dt.get_generations()},POP={dt.get_population()})     (M={bk.get_M()},K={bk.get_K()},N={bk.get_Nvar()},D={bk.get_D()})' if int(dt.get_generations())+int(dt.get_population())>0 
                  else f'{dt.get_description()}' for dt,bk in zip(data,bench)]
         title=f'for {bench[0].get_BENCH()}'
-        #for x,y in zip(evaluate,metric):
-           #axis_DATA.append([x,y])
         return [evaluate,metric],label,title
     
 

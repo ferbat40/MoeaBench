@@ -7,10 +7,12 @@ from .I_MOEA import I_MOEA
 from .SOLUTION import SOLUTION
 
 
+
 class RUN(I_MOEA):
 
-    def __init__(self,CACHE):
-        self.CACHE=CACHE
+    def __init__(self,result):
+        self.result=result
+        self.DT_CONF=None
 
     """  
     - Instância:    
@@ -84,9 +86,10 @@ class RUN(I_MOEA):
             print(e)
       
 
-    def MOEA_execute(self,MOEA,problem):
-        data = MOEA.exec()
-        self.CACHE.DATA_store([key for key,value in data[0].items()][0],
+    def MOEA_execute(self):
+            data = self.DT_CONF.get_DATA_MOEA().exec()
+            problem= self.DT_CONF.get_problem()
+            self.result.DATA_store([key for key,value in data[0].items()][0],
                                     data[1],
                                     data[2],
                                     [value for key,value in data[0].items()][0],
@@ -95,30 +98,28 @@ class RUN(I_MOEA):
                                     problem)
        
 
-
     def NSGA3(self,problem, *, population = 100, generations = 300,seed = 1):
-        self.DT_CONF=self.CACHE.get_DATA_conf()
+        self.DT_CONF=self.result.get_DATA_conf()
         self.DT_CONF.set_DATA_MOEA(NSGAPymoo(problem,population,generations,seed),problem)
-        return self.CACHE
-             
+        return self.result       
 
     def U_NSGA3(self,problem, *, population = 100, generations = 300,seed = 1):
-        self.DT_CONF=self.CACHE.get_DATA_conf()
+        self.DT_CONF=self.result.get_DATA_conf()
         self.DT_CONF.set_DATA_MOEA(UNSGAPymoo(problem,population,generations,seed),problem)
-      
+        return self.result  
 
     def SPEA2(self,problem, *,  population = 100, generations = 300,seed = 1):
-        self.DT_CONF=self.CACHE.get_DATA_conf()
+        self.DT_CONF=self.result.get_DATA_conf()
         self.DT_CONF.set_DATA_MOEA(SPEAPymoo(problem,population,generations,seed),problem)
       
                      
     def MOEAD(self,problem, *, population = 100, generations = 300,seed = 1):
-        self.DT_CONF=self.CACHE.get_DATA_conf()
+        self.DT_CONF=self.result.get_DATA_conf()
         self.DT_CONF.set_DATA_MOEA(MOEADpymoo(problem,population ,generations,seed),problem)
                  
 
     def RVEA(self,problem, *, population = 100, generations = 300,seed = 1):
-        self.DT_CONF=self.CACHE.get_DATA_conf()
+        self.DT_CONF=self.result.get_DATA_conf()
         self.DT_CONF.set_DATA_MOEA(RVEApymoo(problem,population,generations,seed),problem)
       
       

@@ -16,6 +16,28 @@ class CACHE(DATA_arr,FILE_reference):
   def __init__(self,**kwargs):
        super().__init__(list_g=[],**kwargs)
 
+  
+  def BENCH_conf_recursive(self,OBJ):
+       if isinstance(OBJ,BENCH_conf):
+            return OBJ
+       elif isinstance(OBJ,tuple):
+            for b in OBJ:
+                result = self.BENCH_conf_recursive(b)
+                if result is not None:
+                    return result
+       return None
+    
+
+  def DATA_conf_recursive(self,OBJ):
+       if isinstance(OBJ,DATA_conf):
+            return OBJ
+       elif isinstance(OBJ,tuple):
+            for b in OBJ:
+                result = self.DATA_conf_recursive(b)
+                if result is not None:
+                    return result
+       return None
+
 
   def set_BENCH_CI(self,M,D,BENCH,P,K,n_ieq_constr,BENCH_Nvar):
         BENk=self.get_BENCH_conf()

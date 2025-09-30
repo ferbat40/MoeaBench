@@ -42,14 +42,13 @@ class P_DTLZ1(DTLZ1):
          https://evobench.github.io/benchmark/problems/DTLZ1/inPOF/
 
         """   
-        #try:
-        if self.get_ENGINE().K_validate(self.get_CACHE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().M_validate(self.get_CACHE().get_BENCH_CI().get_M()) == True:
+        try:
+            if self.get_ENGINE().K_validate(self.get_CACHE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().M_validate(self.get_CACHE().get_BENCH_CI().get_M()) == True:
                 F,X = self.minimize()
                 for key,value in F.items():
                     self.get_CACHE().DATA_store(key,0,0,value,X,0,self)  
-        return self.get_CACHE()
-        #except Exception as e:
-           #print(e)
+        except Exception as e:
+           print(e)
                                           
 
     def samples(self):

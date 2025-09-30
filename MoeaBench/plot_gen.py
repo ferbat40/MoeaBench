@@ -34,7 +34,7 @@ class plot_gen:
          for x,y in zip(self.markers[0],self.markers[1]):
            self.axis_DATA.append([x,y])  
        except Exception as e:
-        msg = json.dumps(str(e))
+        msg = str(e).replace("'", "\\'")
         display(Javascript(f'alert({msg})')) 
 
     
@@ -81,7 +81,7 @@ class plot_gen:
                                      yanchor='middle',
                                      font=dict(size=11, weight='bold')))
        except Exception as e:
-        msg = json.dumps(str(e))
+        msg = str(e).replace("'", "\\'")
         display(Javascript(f'alert({msg})'))
 
 

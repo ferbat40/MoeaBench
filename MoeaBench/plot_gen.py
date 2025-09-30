@@ -22,9 +22,7 @@ class plot_gen:
        
 
     def change_axis(self, b):
-       #try:
-         #if not 0 < len(self.LIST()) < 11:
-           #  raise ValueError(f'Allowed only between one and five matrices ({len(self.LIST())} matrices found)')       
+       try:
          self.axis_DATA=[]
          value = b['new']
          mtc=self.metric
@@ -35,16 +33,14 @@ class plot_gen:
             self.markers=self.markers[::-1]
          for x,y in zip(self.markers[0],self.markers[1]):
            self.axis_DATA.append([x,y])  
-       #except Exception as e:
-        #msg = json.dumps(str(e))
-        #display(Javascript(f'alert({msg})')) 
+       except Exception as e:
+        msg = json.dumps(str(e))
+        display(Javascript(f'alert({msg})')) 
 
     
     def configure(self,b):
-       #try:
-        #if not 0 < len(self.LIST()) < 11:
-              #raise ValueError(f'Allowed only between one and five matrices ({len(self.LIST())} matrices found)')   
-        with self.output:
+       try:
+          with self.output:
              self.output.clear_output()  
              vet_pts=[i for i in self.axis_DATA]
              self.figure.data=()
@@ -84,10 +80,9 @@ class plot_gen:
                                      xanchor='left',
                                      yanchor='middle',
                                      font=dict(size=11, weight='bold')))
-       #except Exception as e:
-        #self.reset(self.figure)
-        #msg = json.dumps(str(e))
-        #display(Javascript(f'alert({msg})'))
+       except Exception as e:
+        msg = json.dumps(str(e))
+        display(Javascript(f'alert({msg})'))
 
 
     def PLT(self):  

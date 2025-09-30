@@ -41,8 +41,18 @@ class MoeaBench:
 
     def plot_hypervolume(self,*args, generations = None):   
         markers,label,title = self.DATA(args,generations,metrics=1)
-        self.plot_g=self.plot_g(markers,label,title, metric = ['Hypervolume','Evaluations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['Hypervolume','Generations'])
+        self.plot_g=self.plot_g(markers,label,title, metric = ['Hypervolume','Generations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['Hypervolume','Generations'])
         self.plot_g.PLT()
+
+
+    def plot_gd(self,*args, generations = None):   
+        markers,label,title = self.DATA(args,generations,metrics=2)
+        self.plot_g=self.plot_g(markers,label,title, metric = ['GD','Generations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['GD','Generations'])
+        self.plot_g.PLT()
+
+
+    #def plot_obj(self,*args, generations = None):
+
             
 
     def pareto(self,*args, objectives):

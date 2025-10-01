@@ -2,7 +2,9 @@ from .Benchmark import Benchmark
 from .RUN import RUN
 from .CACHE import CACHE
 from .plot_gen import plot_gen
+from .plot_solutions_3D import plot_solutions_3D
 import numpy as np
+from itertools import zip_longest
 
 class MoeaBench:
 
@@ -15,6 +17,7 @@ class MoeaBench:
         self.result=CACHE()
         self.Moea=RUN(self.result)
         self.plot_g=None
+        self.plot_sl3D=None
 
 
     @property
@@ -37,6 +40,76 @@ class MoeaBench:
     def problem(self,value):
         self._problem=value
         self.pof=value
+    
+
+    def resize(self,dt,generations):
+        for exp,exp2 in zip(dt[0].get_METRIC_gen().get_arr_Metric_gen()[7][0:generations],dt[1].get_METRIC_gen().get_arr_Metric_gen()[7][0:generations]):
+            exp_aux=None
+            if exp2.size == 0:
+                exp_aux = np.zeros((exp.shape[0],exp2.shape[1]))
+                print(exp.shape,exp,exp_aux.shape,exp_aux)
+            else:
+                 print(exp.shape,exp,exp2.shape,exp2)
+
+
+    def plot_obj(self,*args, generations = None):  
+        data  = [b[0] for i in args for b in i.result.get_elements()]
+        bench = [b[1] for i in args for b in i.result.get_elements()]
+        vet=[]
+        for i in data:
+            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7][0:generations])
+        max = 0
+        for row in zip_longest(*vet,fillvalue=np.nan):
+            #var=0
+            for i in row:
+                if i.shape[0]> max:
+                    max=i.shape[0]
+                #var += 1
+                #print(i)
+            #print(var)
+        #print("max",max)
+
+        vet_aux=[]
+        vet_pt=[]
+
+        for row in zip_longest(*vet,fillvalue=np.nan):
+            #var = 0
+            vet_aux=[]
+            for i in row:
+                #var+=1
+                if i.shape[0]<max:
+                    pad = np.zeros((max-i.shape[0],i.shape[1]))
+                    arr = np.vstack([i,pad])
+                    #print(arr)
+                    vet_aux.append(arr)
+                else:
+                    vet_aux.append(i)
+                    #print(i)
+                #print(var)
+                    
+            vet_pt.append(vet_aux)
+     
+        var = 0
+        for i in vet_pt:
+            var+=1
+            for b in i:
+                print(b,"ger",var)
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #print(vet_pt)
+        self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
+        self.plot_3DSO.parameters() 
 
 
     def plot_hypervolume(self,*args, generations = None):   
@@ -67,10 +140,6 @@ class MoeaBench:
         markers,label,title = self.DATA(args,generations,metrics=4)
         self.plot_g=self.plot_g(markers,label,title, metric = ['IGD plus','Generations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['IIGD plus','Generations'])
         self.plot_g.PLT()
-
-
-    #def plot_obj(self,*args, generations = None):
-
             
 
     def pareto(self,*args, objectives):

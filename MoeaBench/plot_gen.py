@@ -4,12 +4,6 @@ import numpy as np
 import plotly.graph_objects as go
 import numpy as np
 import json
-try:
-    import google.colab
-    from google.colab import output
-    output.enable_custom_widget_manager()
-except ImportError:
-    pass
 
 
 class plot_gen:
@@ -34,7 +28,7 @@ class plot_gen:
          for x,y in zip(self.markers[0],self.markers[1]):
            self.axis_DATA.append([x,y])  
        except Exception as e:
-        msg = str(e).replace("'", "\\'")
+        msg = json.dumps(str(e))
         display(Javascript(f'alert({msg})')) 
 
     
@@ -81,7 +75,7 @@ class plot_gen:
                                      yanchor='middle',
                                      font=dict(size=11, weight='bold')))
        except Exception as e:
-        msg = str(e).replace("'", "\\'")
+        msg = json.dumps(str(e))
         display(Javascript(f'alert({msg})'))
 
 

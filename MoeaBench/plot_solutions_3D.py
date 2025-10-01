@@ -16,7 +16,7 @@ class plot_solutions_3D:
     
 
      def __init__(self,DATA,BENCH,vet_pt):
-         self.vet_pt=vet_pt
+         self.vet_pts=vet_pt
          self.BENCH=BENCH
          self.DATA=DATA
          self.output=widgets.Output()
@@ -25,7 +25,7 @@ class plot_solutions_3D:
      
 
      def parameters(self):
-         self.vet_pts=[ (i - np.min(i,axis = 0)) / (np.max(i,axis = 0)-np.min(i,axis = 0))   for i in self.vet_pt]  
+         #self.vet_pts=[ (i - np.min(i,axis = 0)) / (np.max(i,axis = 0)-np.min(i,axis = 0))   for i in self.vet_pt]  
          self.list_axis = np.array([[0,1,2] if i > 0 else [None,None,None] for i in range(0,len(self.BENCH)+1)])
          self.configure(0)
      

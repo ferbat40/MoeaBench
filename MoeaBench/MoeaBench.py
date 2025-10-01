@@ -89,11 +89,11 @@ class MoeaBench:
                     
             vet_pt.append(vet_aux)
      
-        var = 0
-        for i in vet_pt:
-            var+=1
-            for b in i:
-                print(b,"ger",var)
+        #var = 0
+        #for i in vet_pt:
+           # var+=1
+            #for b in i:
+              #  print(b,"ger",var)
 
 
 
@@ -108,7 +108,7 @@ class MoeaBench:
 
 
         #print(vet_pt)
-        self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
+        self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt[0]) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
         self.plot_3DSO.parameters() 
 
 

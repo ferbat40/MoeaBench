@@ -88,12 +88,28 @@ class MoeaBench:
                 #print(var)
                     
             vet_pt.append(vet_aux)
+        var=0
+        
+        lg = [i for i in range(1,len(vet_pt)) ]
+        vt = [b  for i in vet_pt for b in i]
+       # for i in vet_pt:
+           # var += 1
+            #print(var,"posioc")
+            #for z in i:
+              #  print(z[:,0:1])
+        #print(pl)
+        #print("vt",vt)
      
-        #var = 0
-        #for i in vet_pt:
-           # var+=1
-            #for b in i:
-              #  print(b,"ger",var)
+        #colors = ['red', 'blue', 'green','orange','purple','black','brown','yellow','cyan','gray']
+       # for pts, gr in zip(vt , lg):
+          # ax_0=pts[:, 0].reshape(pts[:, 0].shape[0],1)
+           # ax_1=pts[:, 1].reshape(pts[:, 0].shape[0],1)
+           # ax_2=pts[:, 2].reshape(pts[:, 0].shape[0],1)
+           # x=[ax_0,ax_1,ax_2]
+           # print( x,gr)
+           
+                
+          
 
 
 
@@ -107,8 +123,7 @@ class MoeaBench:
 
 
 
-        #print(vet_pt)
-        self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt[0]) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
+        self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
         self.plot_3DSO.parameters() 
 
 

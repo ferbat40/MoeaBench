@@ -33,19 +33,24 @@ class plot_solutions_3D:
      def configure(self,b):
          with self.output:
              self.output.clear_output()  
+         lg = [i for i in range(1,len(self.vet_pts)) ]
+         vt = [b  for i in self.vet_pts for b in i]
          colors = ['red', 'blue', 'green','orange','purple','black','brown','yellow','cyan','gray']
          self.figure.data=()
-         for index,(ax,pts, color) in enumerate(zip(self.list_axis[1:],self.vet_pts, colors), start=1):
+         for pts, gr in zip(vt , lg):
+             ax_0=pts[:, 0].reshape(pts[:, 0].shape[0],1)
+             ax_1=pts[:, 1].reshape(pts[:, 0].shape[0],1)
+             ax_2=pts[:, 2].reshape(pts[:, 0].shape[0],1)
              self.figure.add_trace(go.Scatter3d(
-                 x=pts[:, ax[0]], y=pts[:, ax[1]], z=pts[:, ax[2]],
+                 x=ax_0, y=ax_1, z=ax_2,
                  mode='markers',
-                 marker=dict(size=3, color=color),  
-                 name=f'Item {index}',                       
+                 marker=dict(size=3),  
+                 name=f'Item {gr}',                       
                  showlegend=True,
-                 hovertemplate = (f"Item {index}<br>"
-                                  f"{ax[0]+1}: %{{x}}<br>"
-                                  f"{ax[1]+1}: %{{y}}<br>"
-                                  f"{ax[2]+1}: %{{z}}<br><extra></extra>"),
+                 hovertemplate = (f"Item {gr}<br>"
+                                  f"{ax_0+1}: %{{x}}<br>"
+                                  f"{ax_1+1}: %{{y}}<br>"
+                                  f"{ax_2+1}: %{{z}}<br><extra></extra>"),
                  ))   
        
       

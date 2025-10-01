@@ -40,7 +40,7 @@ class plot_solutions_3D:
          for pts, gr in zip(vt , lg):
             
              self.figure.add_trace(go.Scatter3d(
-                 x=pts[:, pts[:, 0]], y=pts[:, pts[:, 1]], z=pts[:, pts[:, 2]],
+                 x=pts[:, 0], y=pts[:, 1], z=pts[:, 2],
                  mode='markers',
                  marker=dict(size=3),  
                  name=f'Item {gr}',                       

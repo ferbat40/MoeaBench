@@ -38,19 +38,17 @@ class plot_solutions_3D:
          colors = ['red', 'blue', 'green','orange','purple','black','brown','yellow','cyan','gray']
          self.figure.data=()
          for pts, gr in zip(vt , lg):
-             ax_0=pts[:, 0].reshape(pts[:, 0].shape[0],1)
-             ax_1=pts[:, 1].reshape(pts[:, 0].shape[0],1)
-             ax_2=pts[:, 2].reshape(pts[:, 0].shape[0],1)
+            
              self.figure.add_trace(go.Scatter3d(
-                 x=ax_0, y=ax_1, z=ax_2,
+                 x=pts[:, pts[:, 0]], y=pts[:, pts[:, 1]], z=pts[:, pts[:, 2]],
                  mode='markers',
                  marker=dict(size=3),  
                  name=f'Item {gr}',                       
                  showlegend=True,
                  hovertemplate = (f"Item {gr}<br>"
-                                  f"{ax_0+1}: %{{x}}<br>"
-                                  f"{ax_1+1}: %{{y}}<br>"
-                                  f"{ax_2+1}: %{{z}}<br><extra></extra>"),
+                                  f"{1}: %{{x}}<br>"
+                                  f"{1}: %{{y}}<br>"
+                                  f"{1}: %{{z}}<br><extra></extra>"),
                  ))   
        
       

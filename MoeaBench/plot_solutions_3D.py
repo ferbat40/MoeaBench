@@ -36,13 +36,10 @@ class plot_solutions_3D:
          
          colors = ['red', 'blue', 'green','orange','purple','black','brown','yellow','cyan','gray']
          self.figure.data=()
-         for i in self.vet_pts:
-            for pt,gen in zip(self.vet_pts, range(0,len(self.vet_pts))):
-                for pts in pt:
-                    #print(pts,gen)
+         for gen,pts in enumerate(self.vet_pts, start = 1):
             
                  self.figure.add_trace(go.Scatter3d(
-                 x=pts[:,0:1], y=pts[:,1:2], z=pts[:,2:3],
+                 x=pts[:,0].flatten(), y=pts[:,1].flatten(), z=pts[:,2].flatten(),
                  mode='markers',
                  marker=dict(size=3),  
                  name=f'Item {gen}',                       

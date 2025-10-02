@@ -74,7 +74,7 @@ class MoeaBench:
 
         for row in zip_longest(*vet,fillvalue=np.nan):
             #var = 0
-            vet_aux=[]
+            #vet_aux=[]
             for i in row:
                 #var+=1
                 if i.shape[0]<max:
@@ -87,13 +87,15 @@ class MoeaBench:
                     #print(i)
                 #print(var)
                     
-            vet_pt.append(vet_aux)
+            #vet_pt.append(vet_aux)
         var=0
-
-        #for i in vet_pt:
-           # for pt,gen in zip(vet_pt, range(0,len(vet_pt))):
-              #  for pts in pt:
-                  # print(pts[:,0:1],gen)
+        
+        #for gen,i in enumerate(vet_aux , start = 1):
+            #for pt  in i:
+                #b  = i.flatten()
+                #print("corte ",i[:,1].flatten() ," gen",gen)
+                #for pts in pt:
+                   #print(type(pts[:,1]),gen)
         
      
            
@@ -112,8 +114,8 @@ class MoeaBench:
 
 
 
-        self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
-        self.plot_3DSO.parameters() 
+        #self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
+        #self.plot_3DSO.parameters() 
 
 
     def plot_hypervolume(self,*args, generations = None):   

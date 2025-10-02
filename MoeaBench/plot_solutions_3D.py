@@ -35,12 +35,11 @@ class plot_solutions_3D:
                  ax = pts[:,0].reshape(pts[:,0].shape[0],1)
                  ay = pts[:,1].reshape(pts[:,1].shape[0],1)
                  az = pts[:,2].reshape(pts[:,2].shape[0],1)
-                 print(ax.shape)
                  self.figure.add_trace(go.Scatter3d(
                  x=ax, y=ay, z=az,
                  mode='markers',
                  marker=dict(size=3),  
-                 name=f'Gen {idx_gen} Moea {self.DATA[idx_moea]}',                       
+                 name=f'Gen {idx_gen} Moea {self.DATA[0][idx_moea].get_description()}',                       
                  showlegend=True,
                  hovertemplate = (f"Item {gen}<br>"
                                   f"{1}: %{{x}}<br>"

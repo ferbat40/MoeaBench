@@ -41,7 +41,7 @@ class plot_solutions_3D:
                  marker=dict(size=3),  
                  name=f'Gen {idx_gen} Moea {self.DATA[idx_moea].get_description()}',                       
                  showlegend=True,
-                 hovertemplate = (f"Item {gen}<br>"
+                 hovertemplate = (f"Gen {idx_gen} Moea {self.DATA[idx_moea].get_description()}<br>"
                                   f"{ax}: %{{x}}<br>"
                                   f"{ay}: %{{y}}<br>"
                                   f"{az}: %{{z}}<br><extra></extra>"),

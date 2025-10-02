@@ -15,10 +15,11 @@ except ImportError:
 class plot_solutions_3D:
     
 
-     def __init__(self,DATA,BENCH,vet_pt):
+     def __init__(self,DATA,BENCH,vet_pt,generations):
          self.vet_pts=vet_pt
          self.BENCH=BENCH
          self.DATA=DATA
+         self.generations=generations
          
 
 
@@ -27,7 +28,7 @@ class plot_solutions_3D:
              self.output.clear_output()  
 
 
-         for idx_gen, gen in enumerate(self.vet_pts, start = 1):
+         for idx_gen, gen in enumerate(self.vet_pts, start = self.generations[0]):
               for idx_moea, pts in enumerate(gen, start = 0):
                  ax = pts[:,0]
                  ay = pts[:,1]

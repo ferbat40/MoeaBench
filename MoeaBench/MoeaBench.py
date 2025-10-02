@@ -97,9 +97,9 @@ class MoeaBench:
                     
             vet_pt.append(vet_aux)
 
-        #for gen ,i in enumerate(vet_pt, start = 1):
-            #for idx_moea, b in enumerate(i, start = 0):
-               # print(b,data[idx_moea].get_description(), "gen ",idx)
+        #for idx_gen, gen in enumerate(vet_pt, start = 1):
+              #for idx_moea, pts in enumerate(gen, start = 0):
+               # print(pts[:,0].shape,data[idx_moea].get_description(), "gen ",idx_gen)
 
             #var = 0
             #for b in i:
@@ -126,9 +126,9 @@ class MoeaBench:
 
 
 
-        self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
-        self.plot_3DSO.PLT()
-        self.plot_3DSO.configure(data)
+        #self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
+        #self.plot_3DSO.PLT()
+        #self.plot_3DSO.configure(data)
 
 
 

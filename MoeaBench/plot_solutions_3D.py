@@ -28,13 +28,17 @@ class plot_solutions_3D:
      def configure(self):
          with self.output:
              self.output.clear_output()  
+
+
+         for idx_gen, gen in enumerate(self.vet_pts, start = 1):
+              for idx_moea, pts in enumerate(gen, start = 0):
          
-         for gen,pts in enumerate(self.vet_pts, start = 1):
+        # for gen,pts in enumerate(self.vet_pts, start = 1):
                  self.figure.add_trace(go.Scatter3d(
                  x=pts[:,0], y=pts[:,1], z=pts[:,2],
                  mode='markers',
                  marker=dict(size=3),  
-                 name=f'Item {gen}',                       
+                 name=f'Gen {idx_gen} Moea {idx_moea}',                       
                  showlegend=True,
                  hovertemplate = (f"Item {gen}<br>"
                                   f"{1}: %{{x}}<br>"

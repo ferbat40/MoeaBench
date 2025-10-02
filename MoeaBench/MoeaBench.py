@@ -56,8 +56,10 @@ class MoeaBench:
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
         vet=[]
+        moea=[]
         for i in data:
             vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7][0:generations])
+            moea.append(i.get_description())
         max = 0
         for row in zip_longest(*vet,fillvalue=np.nan):
             #var=0
@@ -71,10 +73,14 @@ class MoeaBench:
 
         vet_aux=[]
         vet_pt=[]
-
+        var = 0
         for row in zip_longest(*vet,fillvalue=np.nan):
             #var = 0
-            #vet_aux=[]
+            vet_aux=[]
+            var += 1
+           
+            #print("cabos ",len(row)," ",var)
+       
             for i in row:
                 #var+=1
                 if i.shape[0]<max:
@@ -87,20 +93,21 @@ class MoeaBench:
                     vet_aux.append(i[:,:3])
                     #print(i)
                 #print(var)
-                    
-            #vet_pt.append(vet_aux)
-        #var=0
 
-        #for i in vet_aux:
-            #print(i.shape)
-        
-        #for gen,i in enumerate(vet_aux , start = 1):
-            #print(i)
-            #for pt  in i:
-                #b  = i.flatten()
-                #print("corte ",i[:,1].flatten() ," gen",gen)
-                #for pts in pt:
-                   #print(type(pts[:,1]),gen)
+                    
+            vet_pt.append(vet_aux)
+
+        #for gen ,i in enumerate(vet_pt, start = 1):
+            #for idx_moea, b in enumerate(i, start = 0):
+               # print(b,data[idx_moea].get_description(), "gen ",idx)
+
+            #var = 0
+            #for b in i:
+              #  var += 1
+                #print(type(b)," array ",b," sddf  ",var)
+   
+
+  
         
      
            
@@ -119,9 +126,9 @@ class MoeaBench:
 
 
 
-        self.plot_3DSO=self.plot_3DSO(data,bench,vet_aux) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_aux)
-        self.plot_3DSO.PLT()
-        self.plot_3DSO.configure()
+        #self.plot_3DSO=self.plot_3DSO(data,bench,vet_aux) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_aux)
+        #self.plot_3DSO.PLT()
+        #self.plot_3DSO.configure()
 
 
 

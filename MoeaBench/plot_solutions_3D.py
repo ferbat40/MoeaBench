@@ -25,7 +25,6 @@ class plot_solutions_3D:
      
 
      def parameters(self):
-         #self.vet_pts=[ (i - np.min(i,axis = 0)) / (np.max(i,axis = 0)-np.min(i,axis = 0))   for i in self.vet_pt]  
          self.list_axis = np.array([[0,1,2] if i > 0 else [None,None,None] for i in range(0,len(self.BENCH)+1)])
          self.configure(0)
      

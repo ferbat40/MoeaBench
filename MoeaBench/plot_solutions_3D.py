@@ -32,9 +32,9 @@ class plot_solutions_3D:
 
          for idx_gen, gen in enumerate(self.vet_pts, start = 1):
               for idx_moea, pts in enumerate(gen, start = 0):
-                 ax = pts[:,0].reshape(pts[:,0].shape[0],1)
-                 ay = pts[:,1].reshape(pts[:,1].shape[0],1)
-                 az = pts[:,2].reshape(pts[:,2].shape[0],1)
+                 ax = pts[:,0].reshape(pts[:,0].shape[0],1).flatten()
+                 ay = pts[:,1].reshape(pts[:,1].shape[0],1).flatten()
+                 az = pts[:,2].reshape(pts[:,2].shape[0],1).flatten()
                  self.figure.add_trace(go.Scatter3d(
                  x=ax, y=ay, z=az,
                  mode='markers',
@@ -42,9 +42,9 @@ class plot_solutions_3D:
                  name=f'Gen {idx_gen} Moea {self.DATA[idx_moea].get_description()}',                       
                  showlegend=True,
                  hovertemplate = (f"Item {gen}<br>"
-                                  f"{1}: %{{x}}<br>"
-                                  f"{1}: %{{y}}<br>"
-                                  f"{1}: %{{z}}<br><extra></extra>"),
+                                  f"{ax}: %{{x}}<br>"
+                                  f"{ay}: %{{y}}<br>"
+                                  f"{az}: %{{z}}<br><extra></extra>"),
                  ))   
        
       

@@ -31,11 +31,11 @@ class plot_solutions_3D:
          with self.output:
              self.output.clear_output()  
          
-         colors = ['red', 'blue', 'green','orange','purple','black','brown','yellow','cyan','gray']
+         #colors = ['red', 'blue', 'green','orange','purple','black','brown','yellow','cyan','gray']
          self.figure.data=()
          for gen,pts in enumerate(self.vet_pts, start = 1):
                  self.figure.add_trace(go.Scatter3d(
-                 x=pts[:,0].flatten(), y=pts[:,1].flatten(), z=pts[:,2].flatten(),
+                 x=pts[:,0], y=pts[:,1], z=pts[:,2],
                  mode='markers',
                  marker=dict(size=3),  
                  name=f'Item {gen}',                       
@@ -82,6 +82,6 @@ class plot_solutions_3D:
          self.ui = widgets.VBox([widgets.HBox([self.figure], layout=widgets.Layout(justify_content='center')),
                             widgets.HBox([self.output], layout=widgets.Layout(justify_content='center'))
                             ],
-                            layout=widgets.Layout(margin='0px', paddin = '0px'))
+                            layout=widgets.Layout(margin='0px', padding = '0px'))
          display(self.ui)
 

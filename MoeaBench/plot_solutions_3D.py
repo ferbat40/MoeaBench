@@ -25,7 +25,7 @@ class plot_solutions_3D:
     
      
 
-     def configure(self,data):
+     def configure(self):
          with self.output:
              self.output.clear_output()  
 
@@ -38,7 +38,7 @@ class plot_solutions_3D:
                  x=pts[:,0], y=pts[:,1], z=pts[:,2],
                  mode='markers',
                  marker=dict(size=3),  
-                 name=f'Gen {idx_gen} Moea {data[idx_moea]}',                       
+                 name=f'Gen {idx_gen} Moea {self.data[idx_moea]}',                       
                  showlegend=True,
                  hovertemplate = (f"Item {gen}<br>"
                                   f"{1}: %{{x}}<br>"

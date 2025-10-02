@@ -33,7 +33,7 @@ class plot_solutions_3D:
          for idx_gen, gen in enumerate(self.vet_pts, start = 1):
               for idx_moea, pts in enumerate(gen, start = 0):
          
-        # for gen,pts in enumerate(self.vet_pts, start = 1):
+      
                  self.figure.add_trace(go.Scatter3d(
                  x=pts[:,0], y=pts[:,1], z=pts[:,2],
                  mode='markers',

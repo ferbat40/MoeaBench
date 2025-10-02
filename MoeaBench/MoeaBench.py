@@ -78,19 +78,23 @@ class MoeaBench:
             for i in row:
                 #var+=1
                 if i.shape[0]<max:
-                    pad = np.zeros((max-i.shape[0],i.shape[1]))
-                    arr = np.vstack([i,pad])
+                    pad = np.zeros((max-i.shape[0],3))
+                    #print("bup",np.zeros((max-i.shape[0],3)))
+                    arr = np.vstack([i[:,:3],pad])
                     #print(arr)
                     vet_aux.append(arr)
                 else:
-                    vet_aux.append(i)
+                    vet_aux.append(i[:,:3])
                     #print(i)
                 #print(var)
                     
             #vet_pt.append(vet_aux)
-        var=0
+        #var=0
+
+       # print(vet_aux)
         
         #for gen,i in enumerate(vet_aux , start = 1):
+            #print(i)
             #for pt  in i:
                 #b  = i.flatten()
                 #print("corte ",i[:,1].flatten() ," gen",gen)

@@ -32,9 +32,9 @@ class plot_solutions_3D:
 
          for idx_gen, gen in enumerate(self.vet_pts, start = 1):
               for idx_moea, pts in enumerate(gen, start = 0):
-                 ax = pts[:,0].reshape(pts[:,0].shape[0],1).flatten()
-                 ay = pts[:,1].reshape(pts[:,1].shape[0],1).flatten()
-                 az = pts[:,2].reshape(pts[:,2].shape[0],1).flatten()
+                 ax = pts[:,0]
+                 ay = pts[:,1]
+                 az = pts[:,2]
                  self.figure.add_trace(go.Scatter3d(
                  x=ax, y=ay, z=az,
                  mode='markers',

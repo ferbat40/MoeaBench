@@ -71,15 +71,19 @@ class MoeaBench:
                 if i.shape[0]<max:
                     pad = np.zeros((max-i.shape[0],3))
                     arr = np.vstack([i[:,:3],pad])
+                    #print("arr",arr.ndim)
                     vet_aux.append(arr)
                 else:
+                    #print("i[:,:3]",i[:,:3].ndim)
                     vet_aux.append(i[:,:3])         
             vet_pt.append(vet_aux)
 
         for idx_gen, gen in enumerate(vet_pt, start = 1):
-              for idx_moea, pts in enumerate(gen, start = 0):
-                ax = pts[:,0].reshape(pts[:,0].shape[0],1).flatten()
-                print(ax.ndim,data[idx_moea].get_description(), "gen ",idx_gen)    
+            for idx_moea, pts in enumerate(gen, start = 0):
+                print(pts.shape)
+              #for idx_moea, pts in enumerate(gen, start = 0):
+                ##ax = pts[:,0].reshape(pts[:,0].shape[0],1).flatten()
+                ##print(pts[:,0].ndim,data[idx_moea].get_description(), "gen ",idx_gen)    
      
            
                 

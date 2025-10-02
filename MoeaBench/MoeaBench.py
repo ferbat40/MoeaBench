@@ -78,9 +78,9 @@ class MoeaBench:
                     vet_aux.append(i[:,:3])         
             vet_pt.append(vet_aux)
 
-        for idx_gen, gen in enumerate(vet_pt, start = 1):
-            for idx_moea, pts in enumerate(gen, start = 0):
-                print(pts.shape)
+       # for idx_gen, gen in enumerate(vet_pt, start = 1):
+           # for idx_moea, pts in enumerate(gen, start = 0):
+                #print(pts.shape)
               #for idx_moea, pts in enumerate(gen, start = 0):
                 ##ax = pts[:,0].reshape(pts[:,0].shape[0],1).flatten()
                 ##print(pts[:,0].ndim,data[idx_moea].get_description(), "gen ",idx_gen)    

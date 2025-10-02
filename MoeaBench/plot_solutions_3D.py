@@ -19,19 +19,8 @@ class plot_solutions_3D:
          self.vet_pts=vet_pt
          self.BENCH=BENCH
          self.DATA=DATA
-         self.output=widgets.Output()
-         self.figure=go.FigureWidget()
-         self.figure.data=() 
-         self.ui = widgets.VBox([widgets.HBox([self.figure], layout=widgets.Layout(justify_content='center')),
-                            widgets.HBox([self.output], layout=widgets.Layout(justify_content='center'))
-                            ],
-                            layout=widgets.Layout(margin='0px', padding = '0px'))
-         display(self.ui)
+         
 
-     
-
-    
-     
 
      def configure(self):
          with self.output:
@@ -49,10 +38,11 @@ class plot_solutions_3D:
                  marker=dict(size=3),  
                  name=f'Gen {idx_gen} Moea {self.DATA[idx_moea].get_description()}',                       
                  showlegend=True,
-                 hovertemplate = (f"Item {idx_gen}<br>"
-                                  f"{ax[0]+1}: %{{x}}<br>"
-                                  f"{ay[1]+1}: %{{y}}<br>"
-                                  f"{az[2]+1}: %{{z}}<br><extra></extra>"),
+                 hovertemplate = (f"gen {idx_gen}<br>"
+                                  f"Moea {self.DATA[idx_moea].get_description()}<br>"
+                                  f"X: %{{x}}<br>"
+                                  f"Y: %{{y}}<br>"
+                                  f"Z: %{{z}}<br><extra></extra>"),
                  ))   
        
       

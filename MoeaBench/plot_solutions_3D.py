@@ -42,7 +42,7 @@ class plot_solutions_3D:
                     #print(pts,gen)
             
                  self.figure.add_trace(go.Scatter3d(
-                 x=pt[:,0:1], y=pt[:,1:2], z=pt[:,2:3],
+                 x=pts[:,0:1], y=pts[:,1:2], z=pts[:,2:3],
                  mode='markers',
                  marker=dict(size=3),  
                  name=f'Item {gen}',                       

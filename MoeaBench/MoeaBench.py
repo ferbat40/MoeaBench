@@ -40,16 +40,6 @@ class MoeaBench:
     def problem(self,value):
         self._problem=value
         self.pof=value
-    
-
-    def resize(self,dt,generations):
-        for exp,exp2 in zip(dt[0].get_METRIC_gen().get_arr_Metric_gen()[7][0:generations],dt[1].get_METRIC_gen().get_arr_Metric_gen()[7][0:generations]):
-            exp_aux=None
-            if exp2.size == 0:
-                exp_aux = np.zeros((exp.shape[0],exp2.shape[1]))
-                print(exp.shape,exp,exp_aux.shape,exp_aux)
-            else:
-                 print(exp.shape,exp,exp2.shape,exp2)
 
 
     def plot_obj(self,*args, generations = []): 
@@ -57,7 +47,7 @@ class MoeaBench:
         bench = [b[1] for i in args for b in i.result.get_elements()]
         vet=[]
         for i in data:
-            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7][generations[0]:generations[1]])
+            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7][generations[0]:generations[1]+1])
         max = 0
         for row in zip_longest(*vet,fillvalue=np.nan):
             for i in row:
@@ -75,13 +65,9 @@ class MoeaBench:
                 else:
                     vet_aux.append(i[:,:3])         
             vet_pt.append(vet_aux)
-
-          
-          
         self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt,generations) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt,generations)
         self.plot_3DSO.PLT()
         self.plot_3DSO.configure(),
-
 
 
     def plot_hypervolume(self,*args, generations = None):   

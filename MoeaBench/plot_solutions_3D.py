@@ -19,7 +19,8 @@ class plot_solutions_3D:
          self.vet_pts=vet_pt
          self.BENCH=BENCH
          self.DATA=DATA
-
+         self.output=widgets.Output()
+         self.figure=go.FigureWidget()
      
 
     
@@ -75,8 +76,6 @@ class plot_solutions_3D:
 
 
      def PLT(self): 
-         self.output=widgets.Output()
-         self.figure=go.FigureWidget()
          self.figure.data=() 
          self.ui = widgets.VBox([widgets.HBox([self.figure], layout=widgets.Layout(justify_content='center')),
                             widgets.HBox([self.output], layout=widgets.Layout(justify_content='center'))

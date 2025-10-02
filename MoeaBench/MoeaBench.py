@@ -56,76 +56,34 @@ class MoeaBench:
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
         vet=[]
-        moea=[]
         for i in data:
             vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7][0:generations])
-            moea.append(i.get_description())
         max = 0
         for row in zip_longest(*vet,fillvalue=np.nan):
-            #var=0
             for i in row:
                 if i.shape[0]> max:
                     max=i.shape[0]
-                #var += 1
-                #print(i)
-            #print(var)
-        #print("max",max)
 
-        vet_aux=[]
         vet_pt=[]
-        var = 0
         for row in zip_longest(*vet,fillvalue=np.nan):
-            #var = 0
             vet_aux=[]
-            var += 1
-           
-            #print("cabos ",len(row)," ",var)
-       
             for i in row:
-                #var+=1
                 if i.shape[0]<max:
                     pad = np.zeros((max-i.shape[0],3))
-                    #print("bup",np.zeros((max-i.shape[0],3)))
                     arr = np.vstack([i[:,:3],pad])
-                    #print(arr)
                     vet_aux.append(arr)
                 else:
-                    vet_aux.append(i[:,:3])
-                    #print(i)
-                #print(var)
-
-                    
+                    vet_aux.append(i[:,:3])         
             vet_pt.append(vet_aux)
 
         #for idx_gen, gen in enumerate(vet_pt, start = 1):
-              #for idx_moea, pts in enumerate(gen, start = 0):
-               # print(pts[:,0].shape,data[idx_moea].get_description(), "gen ",idx_gen)
-
-            #var = 0
-            #for b in i:
-              #  var += 1
-                #print(type(b)," array ",b," sddf  ",var)
-   
-
-  
-        
+             # for idx_moea, pts in enumerate(gen, start = 0):
+               # ax = pts[:,0].reshape(pts[:,0].shape[0],1)
+                #print(ax.shape,data[idx_moea].get_description(), "gen ",idx_gen)    
      
            
                 
           
-
-
-
-
-
-
-
-
-
-
-
-
-
         self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
         self.plot_3DSO.PLT()
         self.plot_3DSO.configure()

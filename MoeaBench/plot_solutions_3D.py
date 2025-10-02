@@ -32,10 +32,12 @@ class plot_solutions_3D:
 
          for idx_gen, gen in enumerate(self.vet_pts, start = 1):
               for idx_moea, pts in enumerate(gen, start = 0):
-         
-                 print(pts[:,0].shape)
+                 ax = pts[:,0].reshape(pts[:,0].shape[0],1)
+                 ay = pts[:,1].reshape(pts[:,1].shape[0],1)
+                 az = pts[:,2].reshape(pts[:,2].shape[0],1)
+                 print(ax.shape)
                  self.figure.add_trace(go.Scatter3d(
-                 x=pts[:,0], y=pts[:,1], z=pts[:,2],
+                 x=ax, y=ay, z=az,
                  mode='markers',
                  marker=dict(size=3),  
                  name=f'Gen {idx_gen} Moea {self.DATA[idx_moea]}',                       

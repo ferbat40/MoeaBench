@@ -19,9 +19,7 @@ class plot_solutions_3D:
          self.vet_pts=vet_pt
          self.BENCH=BENCH
          self.DATA=DATA
-         self.output=widgets.Output()
-         self.figure=go.FigureWidget()
-         self.figure.data=()
+
      
 
     
@@ -31,9 +29,7 @@ class plot_solutions_3D:
          with self.output:
              self.output.clear_output()  
          
-         #colors = ['red', 'blue', 'green','orange','purple','black','brown','yellow','cyan','gray']
-         self.figure.data=()
-         for gen,pts in enumerate(self.vet_pts, start = 1):
+             for gen,pts in enumerate(self.vet_pts, start = 1):
                  self.figure.add_trace(go.Scatter3d(
                  x=pts[:,0], y=pts[:,1], z=pts[:,2],
                  mode='markers',
@@ -78,7 +74,10 @@ class plot_solutions_3D:
 
 
 
-     def PLT(self):  
+     def PLT(self): 
+         self.output=widgets.Output()
+         self.figure=go.FigureWidget()
+         self.figure.data=() 
          self.ui = widgets.VBox([widgets.HBox([self.figure], layout=widgets.Layout(justify_content='center')),
                             widgets.HBox([self.output], layout=widgets.Layout(justify_content='center'))
                             ],

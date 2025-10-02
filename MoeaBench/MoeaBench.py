@@ -57,7 +57,7 @@ class MoeaBench:
         bench = [b[1] for i in args for b in i.result.get_elements()]
         vet=[]
         for i in data:
-            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7][0:generations])
+            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7][90:generations])
         max = 0
         for row in zip_longest(*vet,fillvalue=np.nan):
             for i in row:

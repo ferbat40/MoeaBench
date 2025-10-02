@@ -50,9 +50,9 @@ class plot_solutions_3D:
                  name=f'Gen {idx_gen} Moea {self.DATA[idx_moea].get_description()}',                       
                  showlegend=True,
                  hovertemplate = (f"Item {idx_gen}<br>"
-                                  f"{ax}: %{{x}}<br>"
-                                  f"{ay}: %{{y}}<br>"
-                                  f"{az}: %{{z}}<br><extra></extra>"),
+                                  f"{ax[0]+1}: %{{x}}<br>"
+                                  f"{ay[1]+1}: %{{y}}<br>"
+                                  f"{az[2]+1}: %{{z}}<br><extra></extra>"),
                  ))   
        
       

@@ -89,7 +89,7 @@ class MoeaBench:
                 
           
         self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
-        self.plot_3DSO.PLT()
+        #self.plot_3DSO.PLT()
         self.plot_3DSO.configure()
 
 

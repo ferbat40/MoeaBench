@@ -91,7 +91,8 @@ class MoeaBench:
             #vet_pt.append(vet_aux)
         #var=0
 
-       # print(vet_aux)
+        #for i in vet_aux:
+            #print(i.shape)
         
         #for gen,i in enumerate(vet_aux , start = 1):
             #print(i)

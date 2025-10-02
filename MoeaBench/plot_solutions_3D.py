@@ -29,7 +29,7 @@ class plot_solutions_3D:
          with self.output:
              self.output.clear_output()  
          
-             for gen,pts in enumerate(self.vet_pts, start = 1):
+         for gen,pts in enumerate(self.vet_pts, start = 1):
                  self.figure.add_trace(go.Scatter3d(
                  x=pts[:,0], y=pts[:,1], z=pts[:,2],
                  mode='markers',

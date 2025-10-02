@@ -24,19 +24,17 @@ class plot_solutions_3D:
          self.figure.data=()
      
 
-     def parameters(self):
-         self.list_axis = np.array([[0,1,2] if i > 0 else [None,None,None] for i in range(0,len(self.BENCH)+1)])
-         self.configure(0)
+    
      
 
-     def configure(self,b):
+     def configure(self):
          with self.output:
              self.output.clear_output()  
          
          colors = ['red', 'blue', 'green','orange','purple','black','brown','yellow','cyan','gray']
          self.figure.data=()
          for gen,pts in enumerate(self.vet_pts, start = 1):
-            
+                 print(pts[:,0].flatten(),"gen",gen)
                  self.figure.add_trace(go.Scatter3d(
                  x=pts[:,0].flatten(), y=pts[:,1].flatten(), z=pts[:,2].flatten(),
                  mode='markers',

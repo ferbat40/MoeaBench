@@ -33,19 +33,21 @@ class plot_solutions_3D:
      def configure(self,b):
          with self.output:
              self.output.clear_output()  
-         lg = [i for i in range(1,len(self.vet_pts)) ]
-         vt = [b  for i in self.vet_pts for b in i]
+         
          colors = ['red', 'blue', 'green','orange','purple','black','brown','yellow','cyan','gray']
          self.figure.data=()
-         for pts, gr in zip(vt , lg):
+         for i in self.vet_pts:
+            for pt,gen in zip(self.vet_pts, range(0,len(self.vet_pts))):
+                for pts in pt:
+                    #print(pts,gen)
             
-             self.figure.add_trace(go.Scatter3d(
-                 x=pts[:, 0], y=pts[:, 1], z=pts[:, 2],
+                 self.figure.add_trace(go.Scatter3d(
+                 x=pt[:,0:1], y=pt[:,1:2], z=pt[:,2:3],
                  mode='markers',
                  marker=dict(size=3),  
-                 name=f'Item {gr}',                       
+                 name=f'Item {gen}',                       
                  showlegend=True,
-                 hovertemplate = (f"Item {gr}<br>"
+                 hovertemplate = (f"Item {gen}<br>"
                                   f"{1}: %{{x}}<br>"
                                   f"{1}: %{{y}}<br>"
                                   f"{1}: %{{z}}<br><extra></extra>"),

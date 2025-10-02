@@ -49,7 +49,7 @@ objectives = exp.objectives(3,90)
 #moeabench.plot_hypervolume(exp, exp2, generations = 180)
 
 
-moeabench.plot_obj(exp, exp2,  generations = 299)
+moeabench.plot_obj(exp, exp2,  generations = 90)
 
 
 

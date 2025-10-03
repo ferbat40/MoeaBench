@@ -71,7 +71,8 @@ class plot_solutions_3D:
                      yanchor='middle'
                )
             )
-         self.PLT()
+         #self.PLT()
+         display(self.figure)
 
 
      def PLT(self):  

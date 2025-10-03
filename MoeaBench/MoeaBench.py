@@ -6,6 +6,8 @@ from .plot_solutions_3D import plot_solutions_3D
 import numpy as np
 from itertools import zip_longest
 import inspect
+from IPython.display import display,Javascript
+import json
 
 class MoeaBench:
 
@@ -43,19 +45,20 @@ class MoeaBench:
         self.pof=value
 
 
-    def allowed(self,element,data, obj = ('get_M')):
-        list_valid = list(map(lambda o: [o.get_M()], filter(lambda o: all(hasattr(o,m) for m in obj), element)))
-        print("list",list_valid)
+    def allowed(self,element,data, experiments, obj = ('get_M',)):
+        list_valid = list(map(lambda o: o.get_M(), filter(lambda o: all(hasattr(o,m) for m in obj), element)))
         if not all(np.array_equal(data,arr) for arr in list_valid):
-            print("bose")
-            raise ValueError (f'All selected parameters must be equals')   
+            obj = [f'{experiments[idx]}.problem = {i.get_M()} obj' for idx, i in enumerate(element, start = 0)]
+            raise ValueError (f'{obj} must be equals')   
 
 
     def plot_obj(self,*args, generations = [], objectives = []):  
+      try:
         caller = inspect.currentframe().f_back.f_locals.items()
         experiments = [key for i in args for key, val in caller if i is val]
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
+        self.allowed(bench,bench[0],experiments)
         vet=[]
         for i in data:
             vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7][generations[0]:generations[1]+1])
@@ -86,6 +89,9 @@ class MoeaBench:
             vet_pt.append(vet_aux)  
         self.plot_3DSO =  plot_solutions_3D(data,bench,vet_pt,generations,experiments)
         self.plot_3DSO.configure()
+      except Exception as e:
+        msg = json.dumps(str(e))
+        display(Javascript(f'alert({msg})'))
 
 
     def plot_hypervolume(self,*args, generations = None):   

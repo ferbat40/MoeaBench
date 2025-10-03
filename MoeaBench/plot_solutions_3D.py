@@ -72,11 +72,9 @@ class plot_solutions_3D:
                )
             )
          self.PLT()
-         #display(self.figure)
 
 
      def PLT(self):  
-         #fig =go.FigureWidget(self.figure)
          out = widgets.Output()
          with out:
              display(self.figure)

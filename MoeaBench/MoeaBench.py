@@ -83,7 +83,7 @@ class MoeaBench:
             vet_pt.append(vet_aux)  
         self.plot_3DSO =  plot_solutions_3D(data,bench,vet_pt,generations,experiments)
         self.plot_3DSO.configure()
-        #self.plot_3DSO.sdf()
+        self.plot_3DSO.sdf()
 
 
 

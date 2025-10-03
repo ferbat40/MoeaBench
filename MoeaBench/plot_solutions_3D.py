@@ -25,16 +25,17 @@ class plot_solutions_3D:
          
         for idx_gen, gen in enumerate(self.vet_pts, start = self.generations[0]):
               for idx_moea, pts in enumerate(gen, start = 0):
-                  print(idx_gen,pts,self.experiments[idx_moea])
+                  print(idx_gen,pts,self.experiments[idx_moea], "sdf")
 
 
      def configure(self):
 
 
-         self.figure=go.Figure()
+         #self.figure=go.Figure()
          for idx_gen, gen in enumerate(self.vet_pts, start = self.generations[0]):
               for idx_moea, pts in enumerate(gen, start = 0):
-                 print(idx_gen,pts,self.experiments[idx_moea])
+                  print(idx_gen,pts,self.experiments[idx_moea]," configure")
+
                  
 
 

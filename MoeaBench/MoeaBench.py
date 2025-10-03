@@ -48,26 +48,37 @@ class MoeaBench:
         vet=[]
         for i in data:
             vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7][generations[0]:generations[1]+1])
-            
         max = 0
         for row in zip_longest(*vet,fillvalue=np.nan):
             for i in row:
-                if i.shape[0]> max:
-                    max=i.shape[0]
+                try:
+                    if i.shape[0]> max:
+                        max=i.shape[0]
+                except Exception as e:
+                    continue
 
         vet_pt=[]
         for row in zip_longest(*vet,fillvalue=np.nan):
             vet_aux=[]
             for i in row:
-                if i.shape[0]<max:
-                    pad = np.zeros((max-i.shape[0],3))
-                    arr = np.vstack([i[:,:3],pad])
-                    vet_aux.append(arr)
-                else:
-                    vet_aux.append(i[:,:3])         
-            vet_pt.append(vet_aux)      
+                try:
+                    if i.shape[0]<max:
+                        pad = np.zeros((max-i.shape[0],3))
+                        arr = np.vstack([i[:,:3],pad])
+                        vet_aux.append(arr)
+                    else:
+                        vet_aux.append(i[:,:3])   
+
+                except Exception as e:
+                    pad = np.zeros((max,3))
+                    vet_aux.append(pad)      
+           
+            vet_pt.append(vet_aux)  
+
+    
         self.plot_3DSO =  plot_solutions_3D(data,bench,vet_pt,generations)
         self.plot_3DSO.configure()
+        #self.plot_3DSO.sdf()
 
 
 

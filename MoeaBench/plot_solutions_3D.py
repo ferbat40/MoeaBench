@@ -20,6 +20,11 @@ class plot_solutions_3D:
          self.DATA=DATA
          self.generations=generations
          
+     def sdf(self):
+         
+        for idx_gen, gen in enumerate(self.vet_pts, start = self.generations[0]):
+              for idx_moea, pts in enumerate(gen, start = 0):
+                  print(pts,idx_gen)
 
 
      def configure(self):
@@ -77,13 +82,5 @@ class plot_solutions_3D:
 
 
 
-     def PLT(self): 
-         self.output=widgets.Output()
-         self.figure=go.FigureWidget()
-         self.figure.data=() 
-         self.ui = widgets.VBox([widgets.HBox([self.figure], layout=widgets.Layout(justify_content='center')),
-                            widgets.HBox([self.output], layout=widgets.Layout(justify_content='center'))
-                            ],
-                            layout=widgets.Layout(margin='0px', padding = '0px'))
-         display(self.ui)
+    
 

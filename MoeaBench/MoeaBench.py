@@ -66,7 +66,7 @@ class MoeaBench:
                 else:
                     vet_aux.append(i[:,:3])         
             vet_pt.append(vet_aux)      
-        self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
+        self.plot_3DSO =  plot_solutions_3D(data,bench,vet_pt,generations)
         self.plot_3DSO.configure()
 
 

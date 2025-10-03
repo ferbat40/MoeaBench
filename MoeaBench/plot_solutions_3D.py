@@ -25,7 +25,7 @@ class plot_solutions_3D:
          
         for idx_gen, gen in enumerate(self.vet_pts, start = self.generations[0]):
               for idx_moea, pts in enumerate(gen, start = 0):
-                  print(idx_gen,self.experiments[idx_moea])
+                  print(idx_gen,pts,self.experiments[idx_moea])
 
 
      def configure(self):
@@ -41,7 +41,7 @@ class plot_solutions_3D:
                  x=ax, y=ay, z=az,
                  mode='markers',
                  marker=dict(size=3),  
-                 name=f'Gen {idx_gen} Moea {self.experiments[idx_moea]}',                       
+                 name=f'Gen {idx_gen} {self.experiments[idx_moea]}',                       
                  showlegend=True,
                  hovertemplate = (f"gen {idx_gen}<br>"
                                   f"Moea {self.experiments[idx_moea]}<br>"

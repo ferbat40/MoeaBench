@@ -21,16 +21,8 @@ class plot_solutions_3D:
          self.generations=generations
          self.experiments=experiments
          
-     def sdf(self):
-         
-        for idx_gen, gen in enumerate(self.vet_pts, start = self.generations[0]):
-              for idx_moea, pts in enumerate(gen, start = 0):
-                  print(idx_gen,pts,self.experiments[idx_moea])
-
 
      def configure(self):
-
-
          self.figure=go.Figure()
          for idx_gen, gen in enumerate(self.vet_pts, start = self.generations[0]):
               for idx_moea, pts in enumerate(gen, start = 0):
@@ -41,9 +33,9 @@ class plot_solutions_3D:
                  x=ax, y=ay, z=az,
                  mode='markers',
                  marker=dict(size=3),  
-                 name=f'{self.experiments[idx_moea]} for Generation {idx_gen}',                       
+                 name=f'{self.experiments[idx_moea]} for generation {idx_gen}',                       
                  showlegend=True,
-                 hovertemplate = (f"gen {idx_gen}<br>"
+                 hovertemplate = (f"{self.experiments[idx_moea]} - gen {idx_gen}<br>"
                                   f"Moea {self.experiments[idx_moea]}<br>"
                                   f"X: %{{x}}<br>"
                                   f"Y: %{{y}}<br>"

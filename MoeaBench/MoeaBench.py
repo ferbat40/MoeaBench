@@ -46,11 +46,6 @@ class MoeaBench:
     def plot_obj(self,*args, generations = []):  
         caller = inspect.currentframe().f_back.f_locals.items()
         experiments = [key for i in args for key, val in caller if i is val]
-        
-                
-
-
-
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
         vet=[]
@@ -83,9 +78,6 @@ class MoeaBench:
             vet_pt.append(vet_aux)  
         self.plot_3DSO =  plot_solutions_3D(data,bench,vet_pt,generations,experiments)
         self.plot_3DSO.configure()
-        #self.plot_3DSO.sdf()
-
-
 
 
     def plot_hypervolume(self,*args, generations = None):   

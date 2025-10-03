@@ -71,7 +71,14 @@ class plot_solutions_3D:
                      yanchor='middle'
                )
             )
-         display(self.figure)
+         self.PLT()
+
+
+     def PLT(self):  
+         fig =go.FigureWidget(self.figure)
+         self.ui = widgets.VBox([widgets.HBox([fig], layout=widgets.Layout(justify_content='center')),
+                             ])
+         display(self.ui)
 
 
 

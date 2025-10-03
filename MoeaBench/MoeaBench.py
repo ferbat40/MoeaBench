@@ -5,6 +5,7 @@ from .plot_gen import plot_gen
 from .plot_solutions_3D import plot_solutions_3D
 import numpy as np
 from itertools import zip_longest
+import inspect
 
 class MoeaBench:
 
@@ -43,6 +44,13 @@ class MoeaBench:
 
 
     def plot_obj(self,*args, generations = []):  
+        caller = inspect.currentframe().f_back.f_locals.items()
+        experiments = [key for i in args for key, val in caller if i is val]
+        
+                
+
+
+
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
         vet=[]
@@ -71,14 +79,12 @@ class MoeaBench:
 
                 except Exception as e:
                     pad = np.zeros((max,3))
-                    vet_aux.append(pad)      
-           
+                    vet_aux.append(pad)               
             vet_pt.append(vet_aux)  
-
-    
-        self.plot_3DSO =  plot_solutions_3D(data,bench,vet_pt,generations)
+        self.plot_3DSO =  plot_solutions_3D(data,bench,vet_pt,generations,experiments)
         self.plot_3DSO.configure()
         #self.plot_3DSO.sdf()
+
 
 
 

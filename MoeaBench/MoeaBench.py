@@ -42,13 +42,13 @@ class MoeaBench:
         self.pof=value
 
 
-    def plot_obj(self,*args, generations = []): 
+    def plot_obj(self,*args, generations = []):  
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
         vet=[]
         for i in data:
             vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7][generations[0]:generations[1]+1])
-
+            
         max = 0
         for row in zip_longest(*vet,fillvalue=np.nan):
             for i in row:
@@ -65,11 +65,10 @@ class MoeaBench:
                     vet_aux.append(arr)
                 else:
                     vet_aux.append(i[:,:3])         
-            vet_pt.append(vet_aux)
+            vet_pt.append(vet_aux)      
+        self.plot_3DSO=self.plot_3DSO(data,bench,vet_pt) if self.plot_g is not None else plot_solutions_3D(data,bench,vet_pt)
+        self.plot_3DSO.configure()
 
-        self.plot_3DSO= plot_solutions_3D(data,bench,vet_pt,generations)
-        self.plot_3DSO.PLT()
-        self.plot_3DSO.configure(),
 
 
     def plot_hypervolume(self,*args, generations = None):   

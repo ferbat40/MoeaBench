@@ -1,6 +1,5 @@
 import ipywidgets as widgets
 from IPython.display import display, Javascript
-import numpy as np
 import plotly.graph_objects as go
 import numpy as np
 import json
@@ -24,8 +23,8 @@ class plot_solutions_3D:
 
 
      def configure(self):
-         with self.output:
-             self.output.clear_output()  
+         #with self.output:
+             #self.output.clear_output()  
 
 
          for idx_gen, gen in enumerate(self.vet_pts, start = self.generations[0]):
@@ -75,6 +74,7 @@ class plot_solutions_3D:
                      yanchor='middle'
                )
             )
+         display(self.figure)
 
 
 

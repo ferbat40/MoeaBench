@@ -43,6 +43,14 @@ class MoeaBench:
         self.pof=value
 
 
+    def allowed(self,element,data, obj = ('get_M')):
+        list_valid = list(map(lambda o: [o.get_M()], filter(lambda o: all(hasattr(o,m) for m in obj), element)))
+        print("list",list_valid)
+        if not all(np.array_equal(data,arr) for arr in list_valid):
+            print("bose")
+            raise ValueError (f'All selected parameters must be equals')   
+
+
     def plot_obj(self,*args, generations = [], objectives = []):  
         caller = inspect.currentframe().f_back.f_locals.items()
         experiments = [key for i in args for key, val in caller if i is val]
@@ -66,11 +74,11 @@ class MoeaBench:
             for i in row:
                 try:
                     if i.shape[0]<max:
-                        pad = np.zeros((max-i.shape[0],i.shape[1]))
+                        pad = np.zeros((max-i.shape[0],3))
                         arr = np.vstack([i,pad])
                         vet_aux.append(arr)
                     else:
-                        vet_aux.append(i)   
+                        vet_aux.append(i[:,:3])   
 
                 except Exception as e:
                     pad = np.zeros((max,3))

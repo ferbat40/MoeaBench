@@ -34,6 +34,7 @@ class plot_solutions_3D:
          self.figure=go.Figure()
          for idx_gen, gen in enumerate(self.vet_pts, start = self.generations[0]):
               for idx_moea, pts in enumerate(gen, start = 0):
+                 print(self.experiments[idx_moea])
                  ax = pts[:,0]
                  ay = pts[:,1]
                  az = pts[:,2]

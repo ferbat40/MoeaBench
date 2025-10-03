@@ -41,7 +41,7 @@ class plot_solutions_3D:
                  x=ax, y=ay, z=az,
                  mode='markers',
                  marker=dict(size=3),  
-                 name=f'{self.experiments[idx_moea]} for generation {idx_gen}',                       
+                 name=f'{self.experiments[idx_moea]}',                       
                  showlegend=True,
                  hovertemplate = (f"gen {idx_gen}<br>"
                                   f"Moea {self.experiments[idx_moea]}<br>"

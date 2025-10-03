@@ -43,7 +43,7 @@ class MoeaBench:
         self.pof=value
 
 
-    def plot_obj(self,*args, generations = []):  
+    def plot_obj(self,*args, generations = [], objectives = []):  
         caller = inspect.currentframe().f_back.f_locals.items()
         experiments = [key for i in args for key, val in caller if i is val]
         data  = [b[0] for i in args for b in i.result.get_elements()]
@@ -66,11 +66,11 @@ class MoeaBench:
             for i in row:
                 try:
                     if i.shape[0]<max:
-                        pad = np.zeros((max-i.shape[0],3))
-                        arr = np.vstack([i[:,:3],pad])
+                        pad = np.zeros((max-i.shape[0],i.shape[1]))
+                        arr = np.vstack([i,pad])
                         vet_aux.append(arr)
                     else:
-                        vet_aux.append(i[:,:3])   
+                        vet_aux.append(i)   
 
                 except Exception as e:
                     pad = np.zeros((max,3))

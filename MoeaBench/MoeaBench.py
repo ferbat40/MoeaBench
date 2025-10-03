@@ -47,7 +47,7 @@ class MoeaBench:
 
     def allowed(self,element,data, experiments, obj = ('get_M',)):
         list_valid = list(map(lambda o: o.get_M(), filter(lambda o: all(hasattr(o,m) for m in obj), element)))
-        if not all(np.array_equal(data,arr) for arr in list_valid):
+        if not all(np.array_equal(data.get_M(),arr) for arr in list_valid):
             obj = [f'{experiments[idx]}.problem = {i.get_M()} obj' for idx, i in enumerate(element, start = 0)]
             raise ValueError (f'{obj} must be equals')   
 

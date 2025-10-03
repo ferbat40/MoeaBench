@@ -23,10 +23,9 @@ class plot_solutions_3D:
 
 
      def configure(self):
-         #with self.output:
-             #self.output.clear_output()  
 
-         self.figure=go.FigureWidget()
+
+         self.figure=go.Figure()
          for idx_gen, gen in enumerate(self.vet_pts, start = self.generations[0]):
               for idx_moea, pts in enumerate(gen, start = 0):
                  ax = pts[:,0]
@@ -65,7 +64,7 @@ class plot_solutions_3D:
                      y=0.9,
                      yanchor='bottom',
                      pad=dict(t=0),
-                     font=dict(size=16, weight='bold')
+                     font=dict(size=16)
                  ),
                  legend=dict(
                      x=1,

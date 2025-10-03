@@ -26,7 +26,7 @@ class plot_solutions_3D:
          #with self.output:
              #self.output.clear_output()  
 
-
+         self.figure=go.FigureWidget()
          for idx_gen, gen in enumerate(self.vet_pts, start = self.generations[0]):
               for idx_moea, pts in enumerate(gen, start = 0):
                  ax = pts[:,0]

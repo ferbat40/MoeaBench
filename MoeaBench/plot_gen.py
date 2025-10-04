@@ -13,6 +13,7 @@ class plot_gen:
         self.label=label
         self.title=title
         self.metric=metric
+        self.axis_DATA=[]
        
 
     def change_axis(self, b):

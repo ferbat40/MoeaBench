@@ -14,21 +14,22 @@ except ImportError:
 class plot_solutions_3D:
     
 
-     def __init__(self,DATA,BENCH,vet_pt,generations,experiments):
+     def __init__(self,DATA,BENCH,vet_pt,generations,experiments,axis):
          self.vet_pts=vet_pt
          self.BENCH=BENCH
          self.DATA=DATA
          self.generations=generations
          self.experiments=experiments
-         
+         self.axis = axis
+
 
      def configure(self):
          self.figure=go.Figure()
          for idx_gen, gen in enumerate(self.vet_pts, start = self.generations[0]):
               for idx_moea, pts in enumerate(gen, start = 0):
-                 ax = pts[:,0]
-                 ay = pts[:,1]
-                 az = pts[:,2]
+                 ax = pts[:,self.axis]
+                 ay = pts[:,self.axis]
+                 az = pts[:,self.axis]
                  self.figure.add_trace(go.Scatter3d(
                  x=ax, y=ay, z=az,
                  mode='markers',
@@ -36,7 +37,6 @@ class plot_solutions_3D:
                  name=f'{self.experiments[idx_moea]} for generation {idx_gen}',                       
                  showlegend=True,
                  hovertemplate = (f"{self.experiments[idx_moea]} - gen {idx_gen}<br>"
-                                  f"Moea {self.experiments[idx_moea]}<br>"
                                   f"X: %{{x}}<br>"
                                   f"Y: %{{y}}<br>"
                                   f"Z: %{{z}}<br><extra></extra>"),

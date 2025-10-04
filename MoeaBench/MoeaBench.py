@@ -6,7 +6,6 @@ from .plot_solutions_3D import plot_solutions_3D
 import numpy as np
 from itertools import zip_longest
 import inspect
-from IPython.display import display,Javascript
 import json
 
 class MoeaBench:
@@ -45,20 +44,36 @@ class MoeaBench:
         self.pof=value
 
 
-    def allowed(self,element,data, experiments, obj = ('get_M',)):
+    def allowed_gen(self, generations):
+        if not isinstance(generations, (list)):
+            raise TypeError("Only arrays are allowed in 'generations'")
+        if not len(generations) == 2:
+            raise TypeError(f"generations = {generations} not be allowed. I is necessary to follow the format: generations = [begin, end]" )
+        
+
+    def allowed_obj(self,element,data, experiments, objectives, obj = ('get_M',)):
+        if not isinstance(objectives, (list)):
+            raise TypeError("Only arrays are allowed in 'objectives'")
+        if  0 < len(objectives) < 3:
+            raise TypeError(f"objectives = {objectives} not be allowed. I is necessary to follow the format: objectives = [obj1, obj2, obj3] " )
         list_valid = list(map(lambda o: o.get_M(), filter(lambda o: all(hasattr(o,m) for m in obj), element)))
         if not all(np.array_equal(data.get_M(),arr) for arr in list_valid):
-            obj = [f'{experiments[idx]}.problem = {i.get_M()} obj' for idx, i in enumerate(element, start = 0)]
-            raise ValueError (f'{obj} must be equals')   
+            objs = [f'{experiments[idx]}.problem = {i.get_M()} objectives' for idx, i in enumerate(element, start = 0)]
+            raise ValueError (f'{objs} must be equals')   
+        less = [i if i > element[0].get_M() else f'obj' for idx, i in enumerate(objectives, start = 0)  ]
+        digit = [i for i in less if str(i).isdigit()]
+        if digit:
+            raise ValueError (f'Objective(s) {less} can´t be greather than {element[0].get_M()}')   
 
 
     def plot_obj(self,*args, generations = [], objectives = []):  
       try:
+        self.allowed_gen(generations)
         caller = inspect.currentframe().f_back.f_locals.items()
         experiments = [key for i in args for key, val in caller if i is val]
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
-        self.allowed(bench,bench[0],experiments)
+        self.allowed_obj(bench,bench[0],experiments,objectives)
         vet=[]
         for i in data:
             vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7][generations[0]:generations[1]+1])
@@ -87,11 +102,11 @@ class MoeaBench:
                     pad = np.zeros((max,3))
                     vet_aux.append(pad)               
             vet_pt.append(vet_aux)  
-        self.plot_3DSO =  plot_solutions_3D(data,bench,vet_pt,generations,experiments)
+        axis =  [i for i in range(0,3)]    if len(objectives) == 0 else [i-1 if i > 0 else 0 for i in objectives] 
+        self.plot_3DSO =  plot_solutions_3D(data,bench,vet_pt,generations,experiments,axis)
         self.plot_3DSO.configure()
       except Exception as e:
-        msg = json.dumps(str(e))
-        display(Javascript(f'alert({msg})'))
+        print(e)
 
 
     def plot_hypervolume(self,*args, generations = None):   
@@ -157,7 +172,7 @@ class MoeaBench:
     
 
     def IGDplus(self, N = None):
-        mtc = self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[5][0:N]
+        mtc = self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[5][0:None]
         mtcr = mtc.reshape(mtc.shape[0],1)
         return mtcr
     

@@ -1,5 +1,5 @@
 import ipywidgets as widgets
-from IPython.display import display, Javascript
+from IPython.display import display
 import numpy as np
 import plotly.graph_objects as go
 import numpy as np
@@ -28,9 +28,8 @@ class plot_gen:
          for x,y in zip(self.markers[0],self.markers[1]):
            self.axis_DATA.append([x,y])  
        except Exception as e:
-        msg = json.dumps(str(e))
-        display(Javascript(f'alert({msg})')) 
-
+          print(e)
+       
     
     def configure(self,b):
        try:
@@ -75,9 +74,8 @@ class plot_gen:
                                      yanchor='middle',
                                      font=dict(size=11, weight='bold')))
        except Exception as e:
-        msg = json.dumps(str(e))
-        display(Javascript(f'alert({msg})'))
-
+          print(e)
+      
 
     def PLT(self):  
         self.axis_change = widgets.Dropdown(options=[('',None),(self.metric[1],self.metric[1]),(self.metric[0],self.metric[0])] , description="<span style='font-size:14px; color:blue; font-weight:bold;'>AXIS X</span>")

@@ -22,7 +22,7 @@ exp4.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 350, gener
 exp.RUN()
 
 exp2.RUN()
-exp3.RUN()
+#exp3.RUN()
 
 
 
@@ -42,15 +42,19 @@ exp3.RUN()
 #GD = exp2.GD(100)
 #GDplus =exp2.GDplus(100)
 #IGD = exp2.IGD(100)
-IGDplus = exp2.IGDplus()
-#objectives = exp.objectives(3,3)
+#GD = exp2.GD(400)
+#exp.display(GD)
+objectives = exp.objectives(1,400)
+exp.display(objectives)
+
+
 
 
 
 #moeabench.plot_hypervolume(exp, exp2, generations = 180)
 
 
-moeabench.plot_obj(  exp, exp2,   generations = [1,2], objectives = [1,1,3])
+moeabench.plot_obj(  exp, exp2,   generations = [700,800], objectives = [1,1,3])
 
 
 

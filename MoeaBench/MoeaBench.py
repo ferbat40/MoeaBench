@@ -102,6 +102,10 @@ class MoeaBench:
                     pad = np.zeros((max,3))
                     vet_aux.append(pad)               
             vet_pt.append(vet_aux)  
+
+        if not len(vet_pt) > 0:
+            raise ValueError (f'No results found for plot')
+
         axis =  [i for i in range(0,3)]    if len(objectives) == 0 else [i-1 if i > 0 else 0 for i in objectives] 
         self.plot_3DSO =  plot_solutions_3D(data,bench,vet_pt,generations,experiments,axis)
         self.plot_3DSO.configure()
@@ -148,43 +152,78 @@ class MoeaBench:
 
 
     def hypervolume(self, N = None):
-        mtc = self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[1][0:N]
+        try:
+            N=N+1
+        except Exception as e:
+            pass
+        mtc = np.array([i for idx, i in enumerate(self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[1][0:N], start = 0)])
         mtcr = mtc.reshape(mtc.shape[0],1)
         return mtcr
     
 
     def GD(self, N = None):
-        mtc = self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[2][0:N]
+        try:
+            N=N+1
+        except Exception as e:
+            pass
+        mtc = np.array([i for idx, i in enumerate(self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[2][0:N], start = 0)])
         mtcr = mtc.reshape(mtc.shape[0],1)
-        return mtcr
+        return mtcr 
     
 
     def GDplus(self, N = None):
-        mtc = self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[3][0:N]
+        try:
+            N=N+1
+        except Exception as e:
+            pass
+        mtc = np.array([i for idx, i in enumerate(self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[3][0:N], start = 0)])
         mtcr = mtc.reshape(mtc.shape[0],1)
         return mtcr
     
 
     def IGD(self, N = None):
-        mtc = self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[4][0:N]
+        try:
+            N=N+1
+        except Exception as e:
+            pass
+        mtc = np.array([i for idx, i in enumerate(self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[4][0:N], start = 0)])
         mtcr = mtc.reshape(mtc.shape[0],1)
         return mtcr
     
 
     def IGDplus(self, N = None):
-        mtc = self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[5][0:None]
+        try:
+            N=N+1
+        except Exception as e:
+            pass
+        mtc = np.array([i for idx, i in enumerate(self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[5][0:N], start = 0)])
         mtcr = mtc.reshape(mtc.shape[0],1)
         return mtcr
     
     
     def objectives(self, I, N = None):
         mtc = self.result.get_elements()[0][0]
-        objs = []
-        for idx, obj in enumerate(mtc.get_METRIC_gen().get_arr_Metric_gen()[7], start = 0):
-            if idx <= N:
-                objs.append(obj[:,I-1:I])
-        return objs
+        mtcr = [[idx,obj[:,I-1:I]] for idx, obj in enumerate(mtc.get_METRIC_gen().get_arr_Metric_gen()[7][0:N])]
+        return mtcr
+    
 
+    def display(self,objectives):
+        try:
+            for i in objectives:
+                print(f'\ngeneration {i[0]}\n')
+            for f in i[1]:
+                print(f)
+        except Exception as e:
+            pass
+       
+        try:
+            for idx, i in enumerate(objectives, start = 0):
+                print(f'generation {idx} = {i[0]}')
+        except Exception as e:
+            pass
+
+
+ 
 
     def DATA(self,args,generations,metrics):
         data  = [b[0] for i in args for b in i.result.get_elements()]

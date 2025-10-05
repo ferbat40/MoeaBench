@@ -92,7 +92,6 @@ class MoeaBench:
             for i in row:
                 try:
                     if i.shape[0]<max:
-                        #pad = np.zeros((max-i.shape[0],i.shape[1]))
                         pad = np.full((max-i.shape[0],i.shape[1]), np.nan)
                         arr = np.vstack([i,pad])
                         vet_aux.append(arr)
@@ -100,12 +99,12 @@ class MoeaBench:
                         vet_aux.append(i)   
 
                 except Exception as e:
-                    #pad = np.zeros((max,3))
                     pad = np.full((max,3), np.nan)
-                    vet_aux.append(pad)               
-            vet_pt.append(vet_aux)  
+                    vet_aux.append(pad)     
+            vet_pt.append(vet_aux)          
 
-        if not len(vet_pt) > 0:
+
+        if not len([b for i in vet_pt for b in i if not np.all(np.isnan(b)) and len(b) > 0]) > 0:   
             raise ValueError (f'No results found for plot')
 
         axis =  [i for i in range(0,3)]    if len(objectives) == 0 else [i-1 if i > 0 else 0 for i in objectives] 

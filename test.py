@@ -44,7 +44,7 @@ exp2.RUN()
 #IGD = exp2.IGD(100)
 #GD = exp2.GD(400)
 #exp.display(GD)
-objectives = exp.objectives(1,400)
+objectives = exp.objectives(100,100)
 #exp.display(objectives)
 
 
@@ -54,7 +54,7 @@ objectives = exp.objectives(1,400)
 #moeabench.plot_hypervolume(exp, exp2, generations = 180)
 
 
-moeabench.plot_obj(  exp, exp2,   generations = [0,200])
+moeabench.plot_obj(  exp, exp2,   generations = [150,170])
 
 
 

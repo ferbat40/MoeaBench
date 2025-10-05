@@ -92,14 +92,16 @@ class MoeaBench:
             for i in row:
                 try:
                     if i.shape[0]<max:
-                        pad = np.zeros((max-i.shape[0],i.shape[1]))
+                        #pad = np.zeros((max-i.shape[0],i.shape[1]))
+                        pad = np.full((max-i.shape[0],i.shape[1]), np.nan)
                         arr = np.vstack([i,pad])
                         vet_aux.append(arr)
                     else:
                         vet_aux.append(i)   
 
                 except Exception as e:
-                    pad = np.zeros((max,3))
+                    #pad = np.zeros((max,3))
+                    pad = np.full((max,3), np.nan)
                     vet_aux.append(pad)               
             vet_pt.append(vet_aux)  
 

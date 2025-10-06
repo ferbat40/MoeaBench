@@ -2,7 +2,7 @@ import ipywidgets as widgets
 from IPython.display import display, Javascript
 import plotly.graph_objects as go
 import numpy as np
-import json
+from .IPL_MoeaBench import IPL_MoeaBench
 try:
     import google.colab
     from google.colab import output
@@ -11,9 +11,8 @@ except ImportError:
     pass
 
 
-class plot_solutions_3D:
+class plot_solutions_3D(IPL_MoeaBench):
     
-
      def __init__(self,DATA,BENCH,vet_pt,generations,experiments,axis):
          self.vet_pts=vet_pt
          self.BENCH=BENCH
@@ -83,6 +82,8 @@ class plot_solutions_3D:
          self.ui = widgets.VBox([widgets.HBox([out], layout=widgets.Layout(justify_content='center')),
                              ])
          display(self.ui)
+
+ 
 
 
 

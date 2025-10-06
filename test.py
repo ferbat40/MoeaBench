@@ -12,9 +12,10 @@ exp  = moeabench()
 exp2 = moeabench()
 exp3 = moeabench()
 exp4 = moeabench()
+
 exp.problem = moeabench.benchmark.DTLZ1()
 exp2.problem = moeabench.benchmark.DTLZ1()
-exp3.problem = moeabench.benchmark.DTLZ1(M = 4)
+exp3.problem = moeabench.benchmark.DTLZ1()
 exp.moea = moeabench.Moea.NSGA3(problem=exp.problem, population = 130, generations = 500)
 exp2.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 240, generations = 200)
 exp3.moea = moeabench.Moea.U_NSGA3(problem=exp3.problem, population = 100, generations = 300)
@@ -38,23 +39,30 @@ exp2.RUN()
 
 
 
-#HV = exp2.hypervolume(100)
-#GD = exp2.GD(100)
-#GDplus =exp2.GDplus(100)
-#IGD = exp2.IGD(100)
-#GD = exp2.GD(400)
-#exp.display(GD)
-objectives = exp.objectives(100,100)
-#exp.display(objectives)
+#exp2.IGDplus(199)
+
+
+
+#exp.hypervolume(300)
+
+
+exp2.hypervolume(300)
+exp2.GD(300)
+exp2.GDplus(300)
+exp2.IGD(300)
+exp2.IGDplus(300)
+exp.objectives(1,270)
 
 
 
 
 
-#moeabench.plot_hypervolume(exp, exp2, generations = 180)
 
 
-moeabench.plot_obj(  exp, exp2,   generations = [150,170])
+moeabench.plot_hypervolume(exp, exp2, generations = 180)
+
+
+#moeabench.plot_obj(  exp, exp2,   generations = [150,170])
 
 
 

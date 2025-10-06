@@ -1,12 +1,15 @@
 from .Benchmark import Benchmark
 from .RUN import RUN
 from .CACHE import CACHE
-from .plot_gen import plot_gen
 from .plot_solutions_3D import plot_solutions_3D
 import numpy as np
 from itertools import zip_longest
 import inspect
-import json
+from .result_metric import result_metric
+from .result_obj import result_obj
+from .analyse_POF import analyse_POF
+from .plot_gen import plot_gen
+
 
 class MoeaBench:
 
@@ -18,8 +21,11 @@ class MoeaBench:
         self.benchmark=Benchmark()
         self.result=CACHE()
         self.Moea=RUN(self.result)
-        self.plot_g=None
         self.plot_sl3D=None
+        self.result_metric=result_metric()
+        self.result_obj=result_obj()
+        self.plot_g=None
+        self.analyse_pof=analyse_POF()
 
 
     @property
@@ -115,31 +121,31 @@ class MoeaBench:
 
 
     def plot_hypervolume(self,*args, generations = None):   
-        markers,label,title = self.DATA(args,generations,metrics=1)
-        self.plot_g=self.plot_g(markers,label,title, metric = ['Hypervolume','Generations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['Hypervolume','Generations'])
+        #markers,label,title = self.plot_g(args,generations,1)
+        self.plot_g=self.plot_g(args,generations,1, metric = ['Hypervolume','Generations']) if self.plot_g is not None else plot_gen(args,generations,1, metric = ['Hypervolume','Generations'])
         self.plot_g.PLT()
 
 
     def plot_GD(self,*args, generations = None):   
-        markers,label,title = self.DATA(args,generations,metrics=2)
+        markers,label,title = self.plot_g(args,generations,metrics=2)
         self.plot_g=self.plot_g(markers,label,title, metric = ['GD','Generations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['GD','Generations'])
         self.plot_g.PLT()
 
 
     def plot_GDplus(self,*args, generations = None):   
-        markers,label,title = self.DATA(args,generations,metrics=3)
+        markers,label,title = self.plot_g(args,generations,metrics=3)
         self.plot_g=self.plot_g(markers,label,title, metric = ['GD plus','Generations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['GD plus','Generations'])
         self.plot_g.PLT()
 
     
     def plot_IGD(self,*args, generations = None):   
-        markers,label,title = self.DATA(args,generations,metrics=4)
+        markers,label,title = self.plot_g(args,generations,metrics=4)
         self.plot_g=self.plot_g(markers,label,title, metric = ['IGD','Generations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['IGD','Generations'])
         self.plot_g.PLT()
 
 
     def plot_IGDplus(self,*args, generations = None):   
-        markers,label,title = self.DATA(args,generations,metrics=4)
+        markers,label,title = self.plot_g(args,generations,metrics=4)
         self.plot_g=self.plot_g(markers,label,title, metric = ['IGD plus','Generations']) if self.plot_g is not None else plot_gen(markers,label,title, metric = ['IIGD plus','Generations'])
         self.plot_g.PLT()
             
@@ -153,88 +159,31 @@ class MoeaBench:
 
 
     def hypervolume(self, N = None):
-        try:
-            N=N+1
-        except Exception as e:
-            pass
-        mtc = np.array([i for idx, i in enumerate(self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[1][0:N], start = 0)])
-        mtcr = mtc.reshape(mtc.shape[0],1)
-        return mtcr
-    
+        self.result_metric.IPL_display(self.result_metric.IPL_hypervolume(self.result, N))
+     
 
     def GD(self, N = None):
-        try:
-            N=N+1
-        except Exception as e:
-            pass
-        mtc = np.array([i for idx, i in enumerate(self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[2][0:N], start = 0)])
-        mtcr = mtc.reshape(mtc.shape[0],1)
-        return mtcr 
-    
+        self.result_metric.IPL_display(self.result_metric.IPL_GD(self.result, N))
+
 
     def GDplus(self, N = None):
-        try:
-            N=N+1
-        except Exception as e:
-            pass
-        mtc = np.array([i for idx, i in enumerate(self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[3][0:N], start = 0)])
-        mtcr = mtc.reshape(mtc.shape[0],1)
-        return mtcr
+        self.result_metric.IPL_display(self.result_metric.IPL_GDplus(self.result, N))
     
 
     def IGD(self, N = None):
-        try:
-            N=N+1
-        except Exception as e:
-            pass
-        mtc = np.array([i for idx, i in enumerate(self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[4][0:N], start = 0)])
-        mtcr = mtc.reshape(mtc.shape[0],1)
-        return mtcr
+        self.result_metric.IPL_display(self.result_metric.IPL_IGD(self.result, N))
     
 
     def IGDplus(self, N = None):
-        try:
-            N=N+1
-        except Exception as e:
-            pass
-        mtc = np.array([i for idx, i in enumerate(self.result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[5][0:N], start = 0)])
-        mtcr = mtc.reshape(mtc.shape[0],1)
-        return mtcr
+        self.result_metric.IPL_display(self.result_metric.IPL_IGDplus(self.result, N))
     
     
     def objectives(self, I, N = None):
-        mtc = self.result.get_elements()[0][0]
-        mtcr = [[idx,obj[:,I-1:I]] for idx, obj in enumerate(mtc.get_METRIC_gen().get_arr_Metric_gen()[7][0:N])]
-        return mtcr
-    
-
-    def display(self,objectives):
-        try:
-            for i in objectives:
-                print(f'\ngeneration {i[0]}\n')
-            for f in i[1]:
-                print(f)
-        except Exception as e:
-            pass
-       
-        try:
-            for idx, i in enumerate(objectives, start = 0):
-                print(f'generation {idx} = {i[0]}')
-        except Exception as e:
-            pass
+        self.result_obj.IPL_display(self.result_obj.IPL_objectives(self.result, I,  N),I)
 
 
  
 
-    def DATA(self,args,generations,metrics):
-        data  = [b[0] for i in args for b in i.result.get_elements()]
-        bench = [b[1] for i in args for b in i.result.get_elements()]
-        evaluate = [np.arange(1,generations+1) for _ in range(len(data))]
-        metric = [np.array(i.get_METRIC_gen().get_arr_Metric_gen()[metrics][0:generations]).flatten() for i in data]
-        label = [f'{dt.get_description()}     (GEN={dt.get_generations()},POP={dt.get_population()})     (M={bk.get_M()},K={bk.get_K()},N={bk.get_Nvar()},D={bk.get_D()})' if int(dt.get_generations())+int(dt.get_population())>0 
-                 else f'{dt.get_description()}' for dt,bk in zip(data,bench)]
-        title=f'for {bench[0].get_BENCH()}'
-        return [evaluate,metric],label,title
     
 
     

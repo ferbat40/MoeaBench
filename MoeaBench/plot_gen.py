@@ -3,15 +3,16 @@ from IPython.display import display
 import numpy as np
 import plotly.graph_objects as go
 import numpy as np
-import json
+from .ANALYSE import ANALYSE
 
 
-class plot_gen:
+class plot_gen(ANALYSE):
 
-    def __init__(self,markers,label,title,metric):
-        self.markers=markers
-        self.label=label
-        self.title=title
+    def __init__(self,args,generations,val_metric,metric):
+        self.markers,self.label,self.title = self.DATA(args,generations,val_metric)
+        #self.markers=markers
+        #self.label=label
+        #self.title=title
         self.metric=metric
         self.axis_DATA=[]
        

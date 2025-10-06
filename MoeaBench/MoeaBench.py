@@ -8,6 +8,7 @@ from .result_obj import result_obj
 from .result_var import result_var
 from .analyse_POF import analyse_POF
 from .analyse_metric_gen import analyse_metric_gen
+from .analyse_var_gen import analyse_var_gen
 from .I_UserMoeaBench import I_UserMoeaBench
 
 
@@ -56,7 +57,7 @@ class MoeaBench(I_UserMoeaBench):
 
     def plot_var(self,*args, generations = [], objectives = []):  
         caller = inspect.currentframe().f_back.f_locals.items()
-        analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objectives = objectives, mtc = 8,  type = "Decision variables in generations") 
+        analyse_var_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objectives = objectives, mtc = 8,  type = "Decision variables in generations") 
   
 
     def plot_hypervolume(self,*args, generations = None):   

@@ -47,8 +47,8 @@ exp2.IGDplus(200)
 #moeabench.plot_hypervolume(exp, exp2, generations = 700)
 
 
-moeabench.plot_obj(  exp, exp2,   generations = [150,170])
-moeabench.plot_var(  exp, exp2,   generations = [150,170])
+#moeabench.plot_obj(  exp, exp2,   generations = [150,170])
+moeabench.plot_var(  exp, exp2,   generations = [0,500], objectives = [1,2,7])
 
 
 

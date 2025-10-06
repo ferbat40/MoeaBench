@@ -55,7 +55,7 @@ class MoeaBench(I_UserMoeaBench):
         analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objectives = objectives, mtc = 7 , type = "Objectives in generations") 
        
 
-    def plot_var(self,*args, generations = [], objectives = []):  
+    def plot_var(self,*args, generations = [], variables = []):  
         caller = inspect.currentframe().f_back.f_locals.items()
         analyse_var_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objectives = objectives, mtc = 8,  type = "Decision variables in generations") 
   

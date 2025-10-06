@@ -20,11 +20,14 @@ class analyse(IPL_MoeaBench):
         for i in data:
             vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[metric][generations[0]:generations[1]+1])
         max = 0
+        max_col = 0
         for row in zip_longest(*vet,fillvalue=np.nan):
             for i in row:
                 try:
                     if i.shape[0]> max:
                         max=i.shape[0]
+                    if i.shape[1]> max_col:
+                        max_col=i.shape[1]
                 except Exception as e:
                     continue
 
@@ -41,7 +44,7 @@ class analyse(IPL_MoeaBench):
                         vet_aux.append(i)   
 
                 except Exception as e:
-                    pad = np.full((max,3), np.nan)
+                    pad = np.full((max,max_col), np.nan)
                     vet_aux.append(pad)     
             vet_pt.append(vet_aux)   
         return vet_pt       

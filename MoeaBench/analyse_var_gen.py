@@ -22,7 +22,7 @@ class analyse_var_gen(plot_solutions_3D):
 
     @staticmethod
     def IPL_plot_3D(*args, experiments, generations , objectives, mtc, type ):  
-      #try:
+      try:
         analyse_var_gen.allowed_gen(generations)
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
@@ -36,5 +36,5 @@ class analyse_var_gen(plot_solutions_3D):
         
         plot_3DSO =  analyse_var_gen(bench,vet_pt,generations,experiments,axis,type)
         plot_3DSO.configure()
-      #except Exception as e:
-        #print(e)
+      except Exception as e:
+        print(e)

@@ -9,12 +9,12 @@ class analyse_var_gen(plot_solutions_3D):
         if not isinstance(variables, (list)):
             raise TypeError("Only arrays are allowed in 'variables'")
         if  0 < len(variables) < 3:
-            raise TypeError(f"varuiables = {variables} not be allowed. I is necessary to follow the format: variables = [variable1, variable2, variable3] " )
+            raise TypeError(f"varuiables = {variables} not be allowed. I is necessary to follow the format: variables = [var1, var2, var3] " )
         list_valid = list(map(lambda o: o.get_Nvar(), filter(lambda o: all(hasattr(o,m) for m in obj), element)))
         if not all(np.array_equal(data.get_Nvar(),arr) for arr in list_valid):
             objs = [f'{experiments[idx]}.problem = {i.get_Nvar()} variables' for idx, i in enumerate(element, start = 0)]
             raise ValueError (f'{objs} must be equals')   
-        less = [i if i > element[0].get_Nvar() else f'obj' for idx, i in enumerate(variables, start = 0)  ]
+        less = [i if i > element[0].get_Nvar() else f'var' for idx, i in enumerate(variables, start = 0)  ]
         digit = [i for i in less if str(i).isdigit()]
         if digit:
             raise ValueError (f'Decision variable(s) {less} can´t be greather than {element[0].get_Nvar()}')  

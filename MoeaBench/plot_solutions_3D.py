@@ -38,17 +38,17 @@ class plot_solutions_3D(analyse):
                  name=f'{self.experiments[idx_moea]} for generation {idx_gen}',                       
                  showlegend=True,
                  hovertemplate = (f"{self.experiments[idx_moea]} - gen {idx_gen}<br>"
-                                  f"X: %{{x}}<br>"
-                                  f"Y: %{{y}}<br>"
-                                  f"Z: %{{z}}<br><extra></extra>"),
+                                  f"{self.axis[0]}: %{{x}}<br>"
+                                  f"{self.axis[1]}: %{{y}}<br>"
+                                  f"{self.axis[2]}: %{{z}}<br><extra></extra>"),
                  ))   
        
       
          self.figure.update_layout(
                 scene = dict(
-                    xaxis=dict(title='axis X', showbackground=True, backgroundcolor="aliceblue", showgrid=True, gridcolor="#C3BDBD"),
-                    yaxis=dict(title='axis Y', showbackground=True, backgroundcolor="aliceblue", showgrid=True, gridcolor="#C3BDBD"),
-                    zaxis=dict(title='axis Z', showbackground=True, backgroundcolor="aliceblue", showgrid=True, gridcolor="#C3BDBD"),
+                    xaxis=dict(title=self.axis[0], showbackground=True, backgroundcolor="aliceblue", showgrid=True, gridcolor="#C3BDBD"),
+                    yaxis=dict(title=self.axis[1], showbackground=True, backgroundcolor="aliceblue", showgrid=True, gridcolor="#C3BDBD"),
+                    zaxis=dict(title=self.axis[2], showbackground=True, backgroundcolor="aliceblue", showgrid=True, gridcolor="#C3BDBD"),
                     aspectmode='manual',
                     aspectratio=dict(x=1,y=1,z=1)
                  ),

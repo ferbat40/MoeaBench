@@ -30,6 +30,8 @@ class analyse_metric_gen(plot_gen):
         evaluate = [np.arange(1,generations+1) for _ in range(len(data))]
         #metric = [np.array(i.get_METRIC_gen().get_arr_Metric_gen()[metrics][0:generations]).flatten() for i in data]
         metric=analyse_metric_gen.normalize_gen(data,[0,generations],metrics)
+        for b in metric:
+            print(b)
         title = f'for {bench[0].get_BENCH()}'
         return [evaluate,metric],title
     

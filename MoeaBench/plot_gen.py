@@ -40,8 +40,8 @@ class plot_gen(analyse):
              self.figure.data=()
              colors = ['red', 'blue', 'green','orange','purple','black','brown','yellow','cyan','gray']
              for pts, cl, lbl in zip( vet_pts, colors, self.label ):
-                 print(pts)
-                 pts=np.array(pts)
+                 print(pts.shape)
+                 pts=np.array(pts.shape)
                  self.figure.add_trace(go.Scatter(
                      x = pts[0], y = pts[1],
                      mode='lines+markers',

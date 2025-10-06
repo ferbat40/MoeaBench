@@ -5,14 +5,6 @@ import numpy as np
 class analyse_obj_gen(plot_solutions_3D):
 
     @staticmethod
-    def allowed_gen(generations):
-        if not isinstance(generations, (list)):
-            raise TypeError("Only arrays are allowed in 'generations'")
-        if not len(generations) == 2:
-            raise TypeError(f"generations = {generations} not be allowed. I is necessary to follow the format: generations = [begin, end]" )
-
-
-    @staticmethod
     def allowed_obj(element,data, experiments, objectives, obj = ('get_M',)):
         if not isinstance(objectives, (list)):
             raise TypeError("Only arrays are allowed in 'objectives'")

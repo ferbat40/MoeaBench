@@ -5,6 +5,14 @@ from itertools import zip_longest
 class analyse(IPL_MoeaBench):
 
     @staticmethod
+    def allowed_gen(generations):
+        if not isinstance(generations, (list)):
+            raise TypeError("Only arrays are allowed in 'generations'")
+        if not len(generations) == 2:
+            raise TypeError(f"generations = {generations} not be allowed. I is necessary to follow the format: generations = [begin, end]" )
+
+
+    @staticmethod
     def normalize_gen(data,generations,metric):
         vet=[]
         for i in data:

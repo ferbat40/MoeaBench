@@ -41,7 +41,7 @@ exp2.RUN()
 
 
 
-moeabench.plot_hypervolume(exp, exp2, generations = 300)
+moeabench.plot_hypervolume(exp, exp2, generations = 700)
 
 
 #moeabench.plot_obj(  exp, exp2,   generations = [150,170])

@@ -10,7 +10,7 @@ class plot_gen(IPL_MoeaBench):
 
     def __init__(self,markers,label,title,metric):
         self.markers=markers
-        self.labe=label
+        self.label=label
         self.title=title
         self.metric=metric
         self.axis_DATA=[]

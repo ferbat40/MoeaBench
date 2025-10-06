@@ -32,8 +32,6 @@ class analyse_var_gen(plot_solutions_3D):
         if not len([b for i in vet_pt for b in i if not np.all(np.isnan(b)) and len(b) > 0]) > 0:   
             raise ValueError (f'No results found for plot')
         
-        print([b for i in vet_pt for b in i if not np.all(np.isnan(b)) and len(b) > 0])
-
         axis =  [i for i in range(0,3)]    if len(objectives) == 0 else [i-1 if i > 0 else 0 for i in objectives] 
         
         plot_3DSO =  analyse_var_gen(bench,vet_pt,generations,experiments,axis,type)

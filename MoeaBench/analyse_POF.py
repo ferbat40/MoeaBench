@@ -1,7 +1,7 @@
-from .ANALYSE import ANALYSE
+from .IPL_MoeaBench import IPL_MoeaBench
 
 
-class analyse_POF(ANALYSE):
+class analyse_POF(IPL_MoeaBench):
 
         
     

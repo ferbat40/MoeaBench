@@ -3,16 +3,15 @@ from IPython.display import display
 import numpy as np
 import plotly.graph_objects as go
 import numpy as np
-from .ANALYSE import ANALYSE
+from .IPL_MoeaBench import IPL_MoeaBench
 
 
-class plot_gen(ANALYSE):
+class plot_gen(IPL_MoeaBench):
 
-    def __init__(self,args,generations,val_metric,metric):
-        self.markers,self.label,self.title = self.DATA(args,generations,val_metric)
-        #self.markers=markers
-        #self.label=label
-        #self.title=title
+    def __init__(self,markers,label,title,metric):
+        self.markers=markers
+        self.labe=label
+        self.title=title
         self.metric=metric
         self.axis_DATA=[]
        

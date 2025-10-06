@@ -81,3 +81,33 @@ class I_MoeaBench(ABC):
     @abstractmethod 
     def PLT(self):  
         pass
+
+
+    @abstractmethod 
+    def IPL_plot_hypervolume(self):
+        pass
+
+    
+    @abstractmethod 
+    def IPL_plot_GD(self):
+        pass
+
+    
+    @abstractmethod 
+    def IPL_plot_GDplus(self):
+        pass
+
+    
+    @abstractmethod 
+    def IPL_plot_IGD(self):
+        pass
+
+    
+    @abstractmethod 
+    def IPL_plot_IGDplus(self):
+        pass
+
+    
+    @abstractmethod 
+    def IPL_plot_obj(self):
+        pass

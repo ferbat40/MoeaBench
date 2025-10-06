@@ -59,10 +59,10 @@ exp.objectives(1,270)
 
 
 
-moeabench.plot_hypervolume(exp, exp2, generations = 180)
+#moeabench.plot_hypervolume(exp, exp2, generations = 180)
 
 
-#moeabench.plot_obj(  exp, exp2,   generations = [150,170])
+moeabench.plot_obj(  exp, exp2,   generations = [150,170])
 
 
 

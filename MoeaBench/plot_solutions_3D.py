@@ -1,5 +1,5 @@
 import ipywidgets as widgets
-from IPython.display import display, Javascript
+from IPython.display import display
 import plotly.graph_objects as go
 import numpy as np
 from .IPL_MoeaBench import IPL_MoeaBench
@@ -13,14 +13,13 @@ except ImportError:
 
 class plot_solutions_3D(IPL_MoeaBench):
     
-     def __init__(self,DATA,BENCH,vet_pt,generations,experiments,axis):
+     def __init__(self,BENCH,vet_pt,generations,experiments,axis):
          self.vet_pts=vet_pt
          self.BENCH=BENCH
-         self.DATA=DATA
          self.generations=generations
          self.experiments=experiments
          self.axis = axis
-
+         
 
      def configure(self):
          self.figure=go.Figure()

@@ -21,11 +21,6 @@ class I_MoeaBench(ABC):
     @abstractmethod
     def IPL_plot_3D(self):  
         pass
-
-
-    #@@abstractmethod
-    #def IPL_plot_var(self):  
-       # pass
             
     
     @abstractmethod

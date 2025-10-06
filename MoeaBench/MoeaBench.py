@@ -51,12 +51,12 @@ class MoeaBench(I_UserMoeaBench):
 
     def plot_obj(self,*args, generations = [], objectives = []):  
         caller = inspect.currentframe().f_back.f_locals.items()
-        analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objectives = objectives, mtc = 7  type = "Objectives") 
+        analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objectives = objectives, mtc = 7 , type = "Objectives in generations") 
        
 
     def plot_var(self,*args, generations = [], objectives = []):  
         caller = inspect.currentframe().f_back.f_locals.items()
-        analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objectives = objectives, mtc = 8,  type = "Decision variables") 
+        analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objectives = objectives, mtc = 8,  type = "Decision variables in generations") 
   
 
     def plot_hypervolume(self,*args, generations = None):   

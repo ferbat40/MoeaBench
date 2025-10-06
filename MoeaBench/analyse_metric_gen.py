@@ -6,10 +6,10 @@ class analyse_metric_gen(plot_gen):
 
 
     @staticmethod
-    def normalize_gen(data,generations,metric):
+    def normalize_gen(data,N,metric):
         vet=[]
         for i in data:
-            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[metric][generations[0]:generations[1]+1])
+            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[metric][0:N])
         max = 0
         for i in vet:
             if max < len(i):
@@ -28,10 +28,12 @@ class analyse_metric_gen(plot_gen):
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
         evaluate = [np.arange(1,generations+1) for _ in range(len(data))]
-        #metric = [np.array(i.get_METRIC_gen().get_arr_Metric_gen()[metrics][0:generations]).flatten() for i in data]
-        metric=analyse_metric_gen.normalize_gen(data,[0,generations],metrics)
-        for b in metric:
-            print(b)
+        #metricst = [np.array(i.get_METRIC_gen().get_arr_Metric_gen()[metrics][0:generations]).flatten() for i in data]
+        metric=analyse_metric_gen.normalize_gen(data,generations ,metrics)
+        #for b in metric:
+          #  print(b.shape)
+       # for c in metricst:
+           # print(c.shape)
         title = f'for {bench[0].get_BENCH()}'
         return [evaluate,metric],title
     

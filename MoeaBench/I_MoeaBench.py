@@ -14,8 +14,18 @@ class I_MoeaBench(ABC):
 
 
     @abstractmethod
-    def IPL_plot_obj(self):  
+    def IPL_plot_3D(self):  
         pass
+
+
+    @abstractmethod
+    def IPL_plot_3D(self):  
+        pass
+
+
+    #@@abstractmethod
+    #def IPL_plot_var(self):  
+       # pass
             
     
     @abstractmethod
@@ -106,12 +116,7 @@ class I_MoeaBench(ABC):
     @abstractmethod 
     def IPL_plot_IGDplus(self):
         pass
-
     
-    @abstractmethod 
-    def IPL_plot_obj(self):
-        pass
-
 
     @abstractmethod 
     def normalize_gen(self):

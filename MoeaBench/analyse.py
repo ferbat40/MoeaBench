@@ -4,6 +4,8 @@ from itertools import zip_longest
 
 class analyse(IPL_MoeaBench):
 
+
+
     @staticmethod
     def allowed_gen(generations):
         if not isinstance(generations, (list)):
@@ -43,5 +45,8 @@ class analyse(IPL_MoeaBench):
                     vet_aux.append(pad)     
             vet_pt.append(vet_aux)   
         return vet_pt       
+    
+
+    
 
 

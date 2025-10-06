@@ -32,11 +32,11 @@ exp2.RUN()
 #exp.GD(200)
 #exp.GDplus(200)
 #exp.IGD(200)
-#exp2.IGDplus(210)
-exp.objectives(3,500)
+exp2.IGDplus(200)
+#exp.objectives(3,500)
 
 
-exp2.variables(7,200)
+#exp2.variables(7,200)
 
 
 
@@ -47,7 +47,8 @@ exp2.variables(7,200)
 #moeabench.plot_hypervolume(exp, exp2, generations = 700)
 
 
-#moeabench.plot_obj(  exp, exp2,   generations = [150,170])
+moeabench.plot_obj(  exp, exp2,   generations = [150,170])
+moeabench.plot_var(  exp, exp2,   generations = [150,170])
 
 
 

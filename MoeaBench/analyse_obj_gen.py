@@ -21,13 +21,13 @@ class analyse_obj_gen(plot_solutions_3D):
         
     
     @staticmethod
-    def IPL_plot_obj(*args, experiments, generations , objectives ):  
+    def IPL_plot_3D(*args, experiments, generations , objectives, mtc ):  
       try:
         analyse_obj_gen.allowed_gen(generations)
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
         analyse_obj_gen.allowed_obj(bench,bench[0],experiments,objectives)
-        vet_pt=analyse_obj_gen.normalize_gen(data,generations,7)
+        vet_pt=analyse_obj_gen.normalize_gen(data,generations,mtc)
            
         if not len([b for i in vet_pt for b in i if not np.all(np.isnan(b)) and len(b) > 0]) > 0:   
             raise ValueError (f'No results found for plot')

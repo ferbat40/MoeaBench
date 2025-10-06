@@ -22,7 +22,7 @@ class IPL_MoeaBench(I_MoeaBench):
         raise NotImplementedError("Not implemented")
     
     
-    def IPL_plot_obj(self):
+    def IPL_plot_3D(self):
         raise NotImplementedError("Not implemented")
     
     

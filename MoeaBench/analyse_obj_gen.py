@@ -21,7 +21,7 @@ class analyse_obj_gen(plot_solutions_3D):
         
     
     @staticmethod
-    def IPL_plot_3D(*args, experiments, generations , objectives, mtc ):  
+    def IPL_plot_3D(*args, experiments, generations , objectives, mtc, type ):  
       try:
         analyse_obj_gen.allowed_gen(generations)
         data  = [b[0] for i in args for b in i.result.get_elements()]
@@ -34,7 +34,7 @@ class analyse_obj_gen(plot_solutions_3D):
 
         axis =  [i for i in range(0,3)]    if len(objectives) == 0 else [i-1 if i > 0 else 0 for i in objectives] 
         
-        plot_3DSO =  analyse_obj_gen(bench,vet_pt,generations,experiments,axis)
+        plot_3DSO =  analyse_obj_gen(bench,vet_pt,generations,experiments,axis,type)
         plot_3DSO.configure()
       except Exception as e:
         print(e)

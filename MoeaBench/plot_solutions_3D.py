@@ -13,12 +13,13 @@ except ImportError:
 
 class plot_solutions_3D(analyse):
     
-     def __init__(self,BENCH,vet_pt,generations,experiments,axis):
+     def __init__(self,BENCH,vet_pt,generations,experiments,axis, type):
          self.vet_pts=vet_pt
          self.BENCH=BENCH
          self.generations=generations
          self.experiments=experiments
          self.axis = axis
+         self.type=type
          
 
      def configure(self):
@@ -56,7 +57,7 @@ class plot_solutions_3D(analyse):
                  height=800,
                  margin=dict(l=0,r=0,b=0,t=0),
                  title=dict(
-                     text=f'3D Solution Distribution Chart',
+                     text=f'3D Chart for {self.type}',
                      x=0.5,
                      xanchor='center',
                      y=0.9,

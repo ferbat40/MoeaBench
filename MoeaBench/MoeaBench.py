@@ -88,23 +88,38 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def hypervolume(self, N = None):
-        self.result_metric.IPL_display(self.result_metric.IPL_hypervolume(self.result, N))
+        try:
+            self.result_metric.IPL_display(self.result_metric.IPL_hypervolume(self.result, N))
+        except Exception as e:
+            print(e)
      
 
     def GD(self, N = None):
-        self.result_metric.IPL_display(self.result_metric.IPL_GD(self.result, N))
+        try:
+            self.result_metric.IPL_display(self.result_metric.IPL_GD(self.result, N))
+        except Exception as e:
+            print(e)
 
 
     def GDplus(self, N = None):
-        self.result_metric.IPL_display(self.result_metric.IPL_GDplus(self.result, N))
+        try:
+            self.result_metric.IPL_display(self.result_metric.IPL_GDplus(self.result, N))
+        except Exception as e:
+            print(e)
     
 
     def IGD(self, N = None):
-        self.result_metric.IPL_display(self.result_metric.IPL_IGD(self.result, N))
+        try:
+            self.result_metric.IPL_display(self.result_metric.IPL_IGD(self.result, N))
+        except Exception as e:
+            print(e)
     
 
     def IGDplus(self, N = None):
-        self.result_metric.IPL_display(self.result_metric.IPL_IGDplus(self.result, N))
+        try:
+            self.result_metric.IPL_display(self.result_metric.IPL_IGDplus(self.result, N))
+        except Exception as e:
+            print(e)
     
     
     def objectives(self, I, N = None):

@@ -28,15 +28,15 @@ exp2.RUN()
 
 
 
-#exp2.hypervolume(190)
-#exp2.GD(300)
-#exp2.GDplus(300)
-#exp2.IGD(300)
-#exp2.IGDplus(300)
-exp.objectives(1,600)
+#exp.hypervolume(290)
+#exp.GD(200)
+#exp.GDplus(200)
+#exp.IGD(200)
+#exp2.IGDplus(210)
+exp.objectives(3,500)
 
 
-exp.variables(6,501)
+exp2.variables(7,200)
 
 
 

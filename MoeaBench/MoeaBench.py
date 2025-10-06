@@ -52,23 +52,28 @@ class MoeaBench:
        
 
     def plot_hypervolume(self,*args, generations = None):   
-        analyse_metric_gen.IPL_plot_Hypervolume(args,generations,1)
+        caller = inspect.currentframe().f_back.f_locals.items()
+        analyse_metric_gen.IPL_plot_Hypervolume(args,generations,1,experiments = [key for i in args for key, val in caller if i is val])
 
 
     def plot_GD(self,*args, generations = None):   
-         analyse_metric_gen.IPL_plot_GD(args,generations,2)
+         caller = inspect.currentframe().f_back.f_locals.items()
+         analyse_metric_gen.IPL_plot_GD(args,generations,2,experiments = [key for i in args for key, val in caller if i is val])
 
 
-    def plot_GDplus(self,*args, generations = None):   
-        analyse_metric_gen.IPL_plot_GDplus(args,generations,3)
+    def plot_GDplus(self,*args, generations = None):  
+        caller = inspect.currentframe().f_back.f_locals.items() 
+        analyse_metric_gen.IPL_plot_GDplus(args,generations,3,experiments = [key for i in args for key, val in caller if i is val])
 
     
     def plot_IGD(self,*args, generations = None):   
-        analyse_metric_gen.IPL_plot_IGD(args,generations,4)
+        caller = inspect.currentframe().f_back.f_locals.items()
+        analyse_metric_gen.IPL_plot_IGD(args,generations,4,experiments = [key for i in args for key, val in caller if i is val])
 
 
     def plot_IGDplus(self,*args, generations = None):   
-        analyse_metric_gen.IPL_plot_IGDplus(args,generations,5)
+        caller = inspect.currentframe().f_back.f_locals.items()
+        analyse_metric_gen.IPL_plot_IGDplus(args,generations,5,experiments = [key for i in args for key, val in caller if i is val])
             
 
     def pareto(self,*args, objectives):

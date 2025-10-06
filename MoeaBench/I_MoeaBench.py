@@ -24,7 +24,7 @@ class I_MoeaBench(ABC):
             
     
     @abstractmethod
-    def pareto(self):
+    def IPL_pareto(self):
         pass
 
         

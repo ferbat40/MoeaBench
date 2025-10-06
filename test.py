@@ -33,10 +33,10 @@ exp2.RUN()
 #exp2.GDplus(300)
 #exp2.IGD(300)
 #exp2.IGDplus(300)
-#exp.objectives(1,270)
+exp.objectives(1,600)
 
 
-exp.variables(6,500)
+exp.variables(6,501)
 
 
 

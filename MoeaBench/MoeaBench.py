@@ -108,11 +108,17 @@ class MoeaBench(I_UserMoeaBench):
     
     
     def objectives(self, I, N = None):
-        self.result_obj.IPL_display(self.result_obj.IPL_objectives(self.result, I,  N),I)
+        try:
+            self.result_obj.IPL_display(self.result_obj.IPL_objectives(self.result, I,  N),I)
+        except Exception as e:
+            print(e)
 
 
     def variables(self, I, N = None):
-        self.result_var.IPL_display(self.result_var.IPL_variables(self.result, I,  N),I)
+        try:
+            self.result_var.IPL_display(self.result_var.IPL_variables(self.result, I,  N),I)
+        except Exception as e:
+            print(e)
 
 
  

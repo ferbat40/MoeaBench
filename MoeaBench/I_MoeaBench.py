@@ -111,3 +111,8 @@ class I_MoeaBench(ABC):
     @abstractmethod 
     def IPL_plot_obj(self):
         pass
+
+
+    @abstractmethod 
+    def normalize_gen(self):
+        pass

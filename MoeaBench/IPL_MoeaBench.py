@@ -2,6 +2,10 @@ from .I_MoeaBench import I_MoeaBench
 
 class IPL_MoeaBench(I_MoeaBench):
 
+    def normalize_gen(self):
+        raise NotImplementedError("Not implemented")
+
+
     def DATA(self):
         raise NotImplementedError("Not implemented")
 

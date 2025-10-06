@@ -3,10 +3,10 @@ from IPython.display import display
 import numpy as np
 import plotly.graph_objects as go
 import numpy as np
-from .IPL_MoeaBench import IPL_MoeaBench
+from .analyse import analyse
 
 
-class plot_gen(IPL_MoeaBench):
+class plot_gen(analyse):
 
     def __init__(self,markers,label,title,metric):
         self.markers=markers

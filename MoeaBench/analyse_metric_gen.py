@@ -1,14 +1,35 @@
 from .plot_gen import plot_gen
 import numpy as np
+from itertools import zip_longest
 
 class analyse_metric_gen(plot_gen):
+
+
+    @staticmethod
+    def normalize_gen(data,generations,metric):
+        vet=[]
+        for i in data:
+            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[metric][generations[0]:generations[1]+1])
+        max = 0
+        for i in vet:
+            if max < len(i):
+                max = len(i)
+        vet_pt=[]
+        for b in vet:
+            row = b.reshape(b.shape[0],1)
+            pad = np.full((max-row.shape[0],1), np.nan)
+            arr = np.vstack([row,pad])
+            vet_pt.append(arr)
+        return vet_pt       
+
        
     @staticmethod
     def DATA(args,generations,metrics):
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
         evaluate = [np.arange(1,generations+1) for _ in range(len(data))]
-        metric = [np.array(i.get_METRIC_gen().get_arr_Metric_gen()[metrics][0:generations]).flatten() for i in data]
+        #metric = [np.array(i.get_METRIC_gen().get_arr_Metric_gen()[metrics][0:generations]).flatten() for i in data]
+        metric=analyse_metric_gen.normalize_gen(data,[0,generations],metrics)
         title = f'for {bench[0].get_BENCH()}'
         return [evaluate,metric],title
     

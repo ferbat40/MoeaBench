@@ -2,7 +2,7 @@ import ipywidgets as widgets
 from IPython.display import display
 import plotly.graph_objects as go
 import numpy as np
-from .IPL_MoeaBench import IPL_MoeaBench
+from .analyse import analyse
 try:
     import google.colab
     from google.colab import output
@@ -11,7 +11,7 @@ except ImportError:
     pass
 
 
-class plot_solutions_3D(IPL_MoeaBench):
+class plot_solutions_3D(analyse):
     
      def __init__(self,BENCH,vet_pt,generations,experiments,axis):
          self.vet_pts=vet_pt

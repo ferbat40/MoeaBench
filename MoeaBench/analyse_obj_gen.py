@@ -1,6 +1,5 @@
 from .plot_solutions_3D import plot_solutions_3D
 import numpy as np
-from itertools import zip_longest
 
 
 class analyse_obj_gen(plot_solutions_3D):
@@ -36,36 +35,8 @@ class analyse_obj_gen(plot_solutions_3D):
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
         analyse_obj_gen.allowed_obj(bench,bench[0],experiments,objectives)
-        vet=[]
-        for i in data:
-            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7][generations[0]:generations[1]+1])
-        max = 0
-        for row in zip_longest(*vet,fillvalue=np.nan):
-            for i in row:
-                try:
-                    if i.shape[0]> max:
-                        max=i.shape[0]
-                except Exception as e:
-                    continue
-
-        vet_pt=[]
-        for row in zip_longest(*vet,fillvalue=np.nan):
-            vet_aux=[]
-            for i in row:
-                try:
-                    if i.shape[0]<max:
-                        pad = np.full((max-i.shape[0],i.shape[1]), np.nan)
-                        arr = np.vstack([i,pad])
-                        vet_aux.append(arr)
-                    else:
-                        vet_aux.append(i)   
-
-                except Exception as e:
-                    pad = np.full((max,3), np.nan)
-                    vet_aux.append(pad)     
-            vet_pt.append(vet_aux)          
-
-
+        vet_pt=analyse_obj_gen.normalize_gen(data,generations,7)
+           
         if not len([b for i in vet_pt for b in i if not np.all(np.isnan(b)) and len(b) > 0]) > 0:   
             raise ValueError (f'No results found for plot')
 

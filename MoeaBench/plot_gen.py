@@ -3,10 +3,10 @@ from IPython.display import display
 import numpy as np
 import plotly.graph_objects as go
 import numpy as np
-from .IPL_MoeaBench import IPL_MoeaBench
+from .analyse import analyse
 
 
-class plot_gen(IPL_MoeaBench):
+class plot_gen(analyse):
 
     def __init__(self,markers,label,title,metric):
         self.markers=markers
@@ -45,9 +45,9 @@ class plot_gen(IPL_MoeaBench):
                      x = pts[0], y = pts[1],
                      mode='lines+markers',
                      marker=dict(size=3, color=cl),
-                     name=f'{lbl.split("     ")[0]}<br>{lbl.split("     ")[1]}<br>{lbl.split("     ")[2]}<br>',
+                     name=f'{lbl}',
                      showlegend=True,
-                     hovertemplate = (f"{str(lbl).split('(')[0]}<br>"
+                     hovertemplate = (f"{lbl}<br>"
                                 f"{self.metric[1]}: %{{x}}<br>"
                                 f"{self.metric[0]}: %{{y}}<br><extra></extra>"),
                                 

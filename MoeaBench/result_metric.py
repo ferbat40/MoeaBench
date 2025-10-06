@@ -4,7 +4,6 @@ import numpy as np
 
 class result_metric(RESULT):
 
-
     def IPL_hypervolume(self, result, N):
         try:
             N=N+1

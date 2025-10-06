@@ -26,11 +26,6 @@ class I_MoeaBench(ABC):
     @abstractmethod
     def change_axis(self):
         pass
-      
-
-    @abstractmethod   
-    def RUN(self):
-        pass
 
     
     @abstractmethod 
@@ -60,6 +55,11 @@ class I_MoeaBench(ABC):
     
     @abstractmethod
     def IPL_objectives(self):
+        pass
+
+
+    @abstractmethod
+    def IPL_variables(self):
         pass
     
     

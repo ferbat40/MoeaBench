@@ -5,11 +5,13 @@ from .analyse_obj_gen  import analyse_obj_gen
 import inspect
 from .result_metric import result_metric
 from .result_obj import result_obj
+from .result_var import result_var
 from .analyse_POF import analyse_POF
 from .analyse_metric_gen import analyse_metric_gen
+from .I_UserMoeaBench import I_UserMoeaBench
 
 
-class MoeaBench:
+class MoeaBench(I_UserMoeaBench):
 
     def __init__(self):
         self.problem=None
@@ -21,6 +23,7 @@ class MoeaBench:
         self.Moea=RUN(self.result)
         self.result_metric=result_metric()
         self.result_obj=result_obj()
+        self.result_var=result_var()
         self.analyse_pof=analyse_POF()
 
 
@@ -106,6 +109,10 @@ class MoeaBench:
     
     def objectives(self, I, N = None):
         self.result_obj.IPL_display(self.result_obj.IPL_objectives(self.result, I,  N),I)
+
+
+    def variables(self, I, N = None):
+        self.result_var.IPL_display(self.result_var.IPL_variables(self.result, I,  N),I)
 
 
  

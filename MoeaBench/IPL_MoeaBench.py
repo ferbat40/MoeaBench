@@ -2,6 +2,10 @@ from .I_MoeaBench import I_MoeaBench
 
 class IPL_MoeaBench(I_MoeaBench):
 
+    def IPL_variables(self):
+        raise NotImplementedError("Not implemented")
+    
+
     def normalize_gen(self):
         raise NotImplementedError("Not implemented")
 
@@ -85,9 +89,6 @@ class IPL_MoeaBench(I_MoeaBench):
     def IPL_plot_hypervolume(self):
         raise NotImplementedError("Not implemented")
 
-        
-    def RUN(self):
-        self.Moea.MOEA_execute(self.result)
 
 
 

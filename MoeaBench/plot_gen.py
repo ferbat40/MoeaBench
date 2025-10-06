@@ -3,10 +3,10 @@ from IPython.display import display
 import numpy as np
 import plotly.graph_objects as go
 import numpy as np
-from .analyse import analyse
+from .IPL_MoeaBench import IPL_MoeaBench
 
 
-class plot_gen(analyse):
+class plot_gen(IPL_MoeaBench):
 
     def __init__(self,markers,label,title,metric):
         self.markers=markers
@@ -40,15 +40,14 @@ class plot_gen(analyse):
              self.figure.data=()
              colors = ['red', 'blue', 'green','orange','purple','black','brown','yellow','cyan','gray']
              for pts, cl, lbl in zip( vet_pts, colors, self.label ):
-                 print(pts.shape)
-                 pts=np.array(pts.shape)
+                 pts=np.array(pts)
                  self.figure.add_trace(go.Scatter(
                      x = pts[0], y = pts[1],
                      mode='lines+markers',
                      marker=dict(size=3, color=cl),
-                     name=f'{lbl}',
+                     name=f'{lbl.split("     ")[0]}<br>{lbl.split("     ")[1]}<br>{lbl.split("     ")[2]}<br>',
                      showlegend=True,
-                     hovertemplate = (f"{lbl}<br>"
+                     hovertemplate = (f"{str(lbl).split('(')[0]}<br>"
                                 f"{self.metric[1]}: %{{x}}<br>"
                                 f"{self.metric[0]}: %{{y}}<br><extra></extra>"),
                                 

@@ -21,7 +21,7 @@ class analyse_var_gen(plot_solutions_3D):
         
 
     @staticmethod
-       def IPL_plot_3D(*args, experiments, generations , objectives, mtc, type ):  
+    def IPL_plot_3D(*args, experiments, generations , objectives, mtc, type ):  
       #try:
         analyse_var_gen.allowed_gen(generations)
         data  = [b[0] for i in args for b in i.result.get_elements()]

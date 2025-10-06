@@ -19,7 +19,7 @@ class plot_solutions_3D(analyse):
          self.generations=generations
          self.experiments=experiments
          self.axis = axis
-         self.type=type
+         self.type = type
          
 
      def configure(self):

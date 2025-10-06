@@ -19,7 +19,7 @@ class analyse_metric_gen(plot_gen):
             row = b.reshape(b.shape[0],1)
             pad = np.full((max-row.shape[0],1), np.nan)
             arr = np.vstack([row,pad])
-            vet_pt.append(arr)
+            vet_pt.append(arr.flatten())
         return vet_pt       
 
        

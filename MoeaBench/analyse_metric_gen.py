@@ -29,7 +29,7 @@ class analyse_metric_gen(plot_gen):
 
     @staticmethod
     def IPL_plot_GDplus(args,generations, val_metric,experiments):
-        markers,title = analyse_metric_gen.DATA(args,generations,val_metric,experiments)
+        markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
         plot_g = analyse_metric_gen(markers,experiments,title,metric = ['GD plus','Generations'])
         plot_g.PLT()
 

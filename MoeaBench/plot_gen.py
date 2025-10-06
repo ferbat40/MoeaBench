@@ -45,9 +45,9 @@ class plot_gen(IPL_MoeaBench):
                      x = pts[0], y = pts[1],
                      mode='lines+markers',
                      marker=dict(size=3, color=cl),
-                     name=f'{lbl.split("     ")[0]}<br>{lbl.split("     ")[1]}<br>{lbl.split("     ")[2]}<br>',
+                     name=f'{lbl}',
                      showlegend=True,
-                     hovertemplate = (f"{str(lbl).split('(')[0]}<br>"
+                     hovertemplate = (f"{lbl}<br>"
                                 f"{self.metric[1]}: %{{x}}<br>"
                                 f"{self.metric[0]}: %{{y}}<br><extra></extra>"),
                                 

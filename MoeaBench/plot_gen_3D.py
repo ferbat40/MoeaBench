@@ -11,7 +11,7 @@ except ImportError:
     pass
 
 
-class plot_solutions_3D(analyse):
+class plot_gen_3D(analyse):
     
      def __init__(self,BENCH,vet_pt,generations,experiments,axis, type):
          self.vet_pts=vet_pt

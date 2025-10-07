@@ -37,10 +37,6 @@ class IPL_MoeaBench(I_MoeaBench):
     def configure(self):
         raise NotImplementedError("Not implemented")
     
-    
-    def IPL_pareto(self):
-        raise NotImplementedError("Not implemented")
-    
 
     def  IPL_GD(self):
         raise NotImplementedError("Not implemented")

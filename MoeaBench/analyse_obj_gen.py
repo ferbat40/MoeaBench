@@ -1,8 +1,8 @@
-from .plot_solutions_3D import plot_solutions_3D
+from .plot_gen_3D import plot_gen_3D
 import numpy as np
 
 
-class analyse_obj_gen(plot_solutions_3D):
+class analyse_obj_gen(plot_gen_3D):
     
     
     @staticmethod
@@ -19,7 +19,7 @@ class analyse_obj_gen(plot_solutions_3D):
 
         axis =  [i for i in range(0,3)]    if len(objectives) == 0 else [i-1 if i > 0 else 0 for i in objectives] 
         
-        plot_3DSO =  analyse_obj_gen(bench,vet_pt,generations,experiments,axis,type)
-        plot_3DSO.configure()
+        plot_gen_3D_obj =  analyse_obj_gen(bench,vet_pt,generations,experiments,axis,type)
+        plot_gen_3D_obj.configure()
       except Exception as e:
         print(e)

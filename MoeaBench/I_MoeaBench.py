@@ -22,11 +22,6 @@ class I_MoeaBench(ABC):
     def IPL_plot_3D(self):  
         pass
             
-    
-    @abstractmethod
-    def IPL_pareto(self):
-        pass
-
         
     @abstractmethod
     def change_axis(self):

@@ -6,7 +6,7 @@ import inspect
 from .result_metric import result_metric
 from .result_obj import result_obj
 from .result_var import result_var
-from .analyse_POF import analyse_POF
+from .analyse_obj import analyse_obj
 from .analyse_metric_gen import analyse_metric_gen
 from .analyse_var_gen import analyse_var_gen
 from .I_UserMoeaBench import I_UserMoeaBench
@@ -85,18 +85,27 @@ class MoeaBench(I_UserMoeaBench):
             
 
     def pareto(self, *args, objectives = []):
-        experiment=[]
+        experiment = [] 
+        data = []
+        benk = []
+        arr = []
         caller = inspect.currentframe().f_back.f_locals.items()
         for i in args:
             for key, val in caller:
                 try:
                     if i == val.result:
-                        experiment.append([f'{key}.result',i])
+                        experiment.append(f'{key}.result')
+                        arr.append(i.get_elements()[0][0].get_arr_DATA())
+                        data.append(i.get_elements()[0][0])
+                        benk.append(i.get_elements()[0][1])
                     elif i == val.pof:
-                        experiment.append([f'{key}.pof',i.get_CACHE()])
+                        experiment.append(f'{key}.pof')
+                        arr.append(i.get_CACHE().get_elements()[0][0].get_arr_DATA())
+                        data.append(i.get_CACHE().get_elements()[0][0])
+                        benk.append(i.get_CACHE().get_elements()[0][1])
                 except Exception as e:
                     pass
-        analyse_POF.IPL_pareto(experiment, objectives)     
+        analyse_obj.IPL_plot_3D(experiment, data, benk, arr, objectives)     
         
         
     def RUN(self):

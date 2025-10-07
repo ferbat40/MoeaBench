@@ -51,7 +51,9 @@ exp2.RUN()
 #moeabench.plot_var(  exp, exp2,   generations = [0,500], variables = [1,2,7])
 
 
-moeabench.pareto(exp.result, exp2.pof,  objectives = [1,1,3])
+#moeabench.pareto(exp.result, exp2.pof,  objectives = [1,1,3])
+
+moeabench.pareto_surface(exp.result, exp2.pof,  objectives = [1,1,3])
 
 
 

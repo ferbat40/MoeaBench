@@ -44,7 +44,7 @@ class I_UserMoeaBench(ABC):
 
 
     @abstractmethod
-    def surface(self):
+    def pareto_surface(self):
         pass
         
 

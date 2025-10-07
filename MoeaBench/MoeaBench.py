@@ -85,7 +85,7 @@ class MoeaBench(I_UserMoeaBench):
         analyse_metric_gen.IPL_plot_IGDplus(args,generations,5,experiments = [key for i in args for key, val in caller if i is val])
 
 
-    def surface(self, *args, objectives = []):
+    def pareto_surface(self, *args, objectives = []):
         caller = inspect.currentframe().f_back.f_locals.items()
         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)       
         analyse_surface_obj.IPL_plot_3D(experiment, data, benk, arr, objectives)  

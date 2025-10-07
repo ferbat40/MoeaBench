@@ -3,15 +3,19 @@ from .DPF3 import DPF3
 
 class P_DPF3(DPF3):
 
-    def __init__(self, ENGINE, M, K, D, P, **kwargs):
+    def __init__(self, ENGINE, M, K, D, P, CACHE, **kwargs):
         self.ENGINE=ENGINE
+        self.CACHE=CACHE
         self.M = M
         self.K = K
         self.D = D 
         self.P = P
-        ENGINE.allowed_call(self)
-        super().__init__(ENGINE=ENGINE, **kwargs)
+        super().__init__(ENGINE=ENGINE, CACHE=CACHE, **kwargs)
+   
 
+    def get_CACHE(self):
+         return self.CACHE
+    
 
     def get_ENGINE(self):
          return self.ENGINE
@@ -19,8 +23,8 @@ class P_DPF3(DPF3):
 
     def set_BENCH_conf(self): 
         self.set_Penalty_param(1.25)
-        self.get_ENGINE().set_BENCH_CI(self.M,self.D,13,self.P,self.K,1,12)
-        self.get_ENGINE().get_BENCH_CI().set_Nvar()
+        self.get_CACHE().set_BENCH_CI(self.M,self.D,13,self.P,self.K,1,12)
+        self.get_CACHE().get_BENCH_CI().set_Nvar()
         self.get_ENGINE().set_Point()
         self.get_ENGINE().set_POF(0.5)
         self.set_Pareto(1)
@@ -30,10 +34,10 @@ class P_DPF3(DPF3):
 
     def POFsamples(self):
         try:
-             if self.get_ENGINE().K_validate(self.get_ENGINE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().MN_validate(self.get_ENGINE().get_BENCH_CI().get_K(),self.get_ENGINE().get_BENCH_CI().get_M(),self.get_ENGINE().get_BENCH_CI().get_D()) == True and self.get_ENGINE().MN1_validate(self.get_ENGINE().get_BENCH_CI().get_M(),self.get_ENGINE().get_BENCH_CI().get_D()) == True:  
+             if self.get_ENGINE().K_validate(self.get_CACHE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().MN_validate(self.get_CACHE().get_BENCH_CI().get_K(),self.get_CACHE().get_BENCH_CI().get_M(),self.get_CACHE().get_BENCH_CI().get_D()) == True and self.get_ENGINE().MN1_validate(self.get_CACHE().get_BENCH_CI().get_M(),self.get_CACHE().get_BENCH_CI().get_D()) == True:  
                   F , X  = self.minimize()
                   for key,value in F.items():
-                       self.get_ENGINE().DATA_store(key,0,0,value,X,0)  
+                       self.get_CACHE().DATA_store(key,0,0,value,X,0,self)  
         except Exception as e:
              print(e)
 

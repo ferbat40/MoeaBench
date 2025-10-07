@@ -4,8 +4,9 @@ from .H_DPF import H_DPF
 
 class DPF1(H_DPF):
     
-    def __init__(self, ENGINE, **kwargs):
+    def __init__(self, ENGINE, CACHE, **kwargs):
         self.ENGINE=ENGINE
+        self.CACHE=CACHE
         super().__init__(metodhs=set([4,5,7]),
                          methods_R1=set([]),
                          methods_R2=set([]),
@@ -58,8 +59,8 @@ class DPF1(H_DPF):
 
 
     def calc_f(self,X,G):
-        D = self.ENGINE.get_BENCH_CI().get_D()
-        M = self.ENGINE.get_BENCH_CI().get_M()
+        D = self.CACHE.get_BENCH_CI().get_D()
+        M = self.CACHE.get_BENCH_CI().get_M()
         vet_F_D = [self.calc_F_D(Fd,D) for Fd, i in enumerate(range(0,D), start = 1)]   
         F = np.column_stack(list(map(lambda Key: self.param_F()[Key](D,X,G),vet_F_D)))   
         vet_chaos = self.calc_NU(1,(M-D)*D,(M-D)*D)
@@ -69,8 +70,8 @@ class DPF1(H_DPF):
      
 
     def calc_g(self,X):
-       D = self.ENGINE.get_BENCH_CI().get_D()
-       K = self.ENGINE.get_BENCH_CI().get_K()
+       D = self.CACHE.get_BENCH_CI().get_D()
+       K = self.CACHE.get_BENCH_CI().get_K()
        return np.array([100*(K+np.sum(((Xi-0.5)**2) -  np.cos(20*np.pi*(Xi-0.5)))) for Xi in X[:,D-1:]]).reshape(X.shape[0],1)
        
      

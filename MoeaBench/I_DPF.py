@@ -117,11 +117,6 @@ class I_DPF(ABC):
     def minimize(self):
         pass
 
-
-    @abstractmethod
-    def maximize(self):
-        pass
-
     
     @abstractmethod
     def get_method(self):
@@ -141,6 +136,13 @@ class I_DPF(ABC):
     @abstractmethod
     def get_ENGINE(self):
         pass
+
+
+    @abstractmethod
+    def get_CACHE(self):
+        pass
+
+
 
 
 

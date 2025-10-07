@@ -4,8 +4,9 @@ from .H_DPF import H_DPF
 
 class DPF5(H_DPF):
 
-    def __init__(self, ENGINE, **kwargs):
+    def __init__(self, ENGINE, CACHE, **kwargs):
         self.ENGINE=ENGINE
+        self.CACHE=CACHE
         super().__init__(metodhs=set([1,2,3,4,5,6,7]),
                          methods_R1=set([1,2,3,5,6,7]),
                          methods_R2=set([4,5,6,7]),
@@ -90,14 +91,14 @@ class DPF5(H_DPF):
 
 
     def calc_f(self,X,G):
-       M = self.ENGINE.get_BENCH_CI().get_M()
-       D = self.ENGINE.get_BENCH_CI().get_D()
+       M = self.CACHE.get_BENCH_CI().get_M()
+       D = self.CACHE.get_BENCH_CI().get_D()
        return np.array([list(map(lambda Keys: self.param_F()[Keys](D,X[i],M,G[i])[0],F_PD)) 
                         for i, F_PD in enumerate(self.calc_F_PD(D,X,M), start = 0)])
 
      
     def calc_g(self,X):
-        M=self.ENGINE.get_BENCH_CI().get_M()
+        M=self.CACHE.get_BENCH_CI().get_M()
         return ((X[:,M-1:M]-X[:,0:1])**2)+np.array([np.sum((Xi-0.5)**2) 
                                                     for Xi in X[:,M:]]).reshape(X.shape[0],1)
 

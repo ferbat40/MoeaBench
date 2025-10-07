@@ -5,8 +5,9 @@ from .H_DPF import H_DPF
 class DPF2(H_DPF):
    
    
-   def __init__(self, ENGINE, **kwargs):
+   def __init__(self, ENGINE, CACHE, **kwargs):
         self.ENGINE=ENGINE
+        self.CACHE=CACHE
         super().__init__(metodhs=set([4,5,6,7]),
                          methods_R1=set([]),
                          methods_R2=set([]),
@@ -45,8 +46,8 @@ class DPF2(H_DPF):
      
 
    def calc_f(self,X,G): 
-         D = self.ENGINE.get_BENCH_CI().get_D()
-         M = self.ENGINE.get_BENCH_CI().get_M()
+         D = self.CACHE.get_BENCH_CI().get_D()
+         M = self.CACHE.get_BENCH_CI().get_M()
          vet_F_D = [self.calc_F_D(Fd,D) for Fd, i in enumerate(range(0,D), start = 1)]   
          F = np.column_stack(list(map(lambda Part: self.param_F()[Part[1]](D,X,G,Part[0]),
                                       enumerate(vet_F_D, start  = 1))))    
@@ -57,8 +58,8 @@ class DPF2(H_DPF):
          
 
    def calc_g(self,X):
-         D = self.ENGINE.get_BENCH_CI().get_D()
-         K = self.ENGINE.get_BENCH_CI().get_K()
+         D = self.CACHE.get_BENCH_CI().get_D()
+         K = self.CACHE.get_BENCH_CI().get_K()
          return np.array([1+9/K*np.sum(Xi) for Xi in X[:,D-1:]]).reshape(X.shape[0],1)
      
 

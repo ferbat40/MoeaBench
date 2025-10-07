@@ -4,8 +4,9 @@ from .H_DTLZ import H_DTLZ
 
 class DTLZ9(H_DTLZ):
 
-    def __init__(self, ENGINE, **kwargs):
+    def __init__(self, ENGINE, CACHE, **kwargs):
         self.ENGINE=ENGINE
+        self.CACHE=CACHE
         super().__init__(metodhs=set([6,7]),
                          **kwargs)
 
@@ -27,14 +28,14 @@ class DTLZ9(H_DTLZ):
         
     
     def calc_f(self,X,G=[]):
-        M = self.ENGINE.get_BENCH_CI().get_M()
-        N = self.ENGINE.get_BENCH_CI().get_Nvar()
+        M = self.CACHE.get_BENCH_CI().get_M()
+        N = self.CACHE.get_BENCH_CI().get_Nvar()
         return np.column_stack(list(map(lambda Part: self.param_F()[Part[1]](Part[0],N,M,X),
                                         enumerate([self.get_method(0) for I in range(0,M)], start  = 1))))
 
 
     def calc_gijx(self,Fijx):
-        M = self.ENGINE.get_BENCH_CI().get_M()
+        M = self.CACHE.get_BENCH_CI().get_M()
         return np.column_stack(list(map(lambda Part: self.param_F()[Part[1]](Part[0],M,Fijx),
                                        enumerate([self.get_method(1) for I in range(0,M-1)], start  = 0))))
 

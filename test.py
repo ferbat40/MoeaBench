@@ -14,7 +14,7 @@ exp3 = moeabench()
 exp4 = moeabench()
 
 #exp.problem = moeabench.benchmark.DTLZ2()
-exp2.problem = moeabench.benchmark.DTLZ2(M = 3)
+exp2.problem = moeabench.benchmark.DPF5(M = 3)
 #exp3.problem = moeabench.benchmark.DTLZ1()
 #exp.moea = moeabench.Moea.NSGA3(problem=exp.problem, population = 130, generations = 500)
 exp2.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 240, generations = 200)

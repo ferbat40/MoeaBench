@@ -7,6 +7,7 @@ from .result_metric import result_metric
 from .result_obj import result_obj
 from .result_var import result_var
 from .analyse_obj import analyse_obj
+from .analyse_surface_obj import analyse_surface_obj
 from .analyse_metric_gen import analyse_metric_gen
 from .analyse_var_gen import analyse_var_gen
 from .I_UserMoeaBench import I_UserMoeaBench
@@ -85,7 +86,10 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def surface(self, *args, objectives = []):
-        pass    
+        caller = inspect.currentframe().f_back.f_locals.items()
+        experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)       
+        analyse_surface_obj.IPL_plot_3D(experiment, data, benk, arr, objectives)  
+
 
     def pareto(self, *args, objectives = []):
         caller = inspect.currentframe().f_back.f_locals.items()

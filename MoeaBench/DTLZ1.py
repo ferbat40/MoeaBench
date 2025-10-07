@@ -67,9 +67,7 @@ class DTLZ1(H_DTLZ):
         return self.show_in(self.eval_cons(self.calc_f(X,self.calc_g(X)),False)),X
       
 
-    def maximize(self):
-        X = self.ENGINE.get_Point_out_G()
-        return self.show_out(self.eval_cons(self.calc_f(X,self.calc_g(X)),False)),X
+
       
     
         

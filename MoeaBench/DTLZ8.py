@@ -63,20 +63,11 @@ class DTLZ8(H_DTLZ):
         }
 
 
-    def show_out(self,Fijx):
-        return {
-            "OUT POF"  : Fijx                          
-        }    
-        
-
     def minimize(self):
         Xij = self.ENGINE.get_Point_in_G()
         Fijx = self.calc_f(Xij)
         return self.show_in(self.calc_gijx(Fijx),Fijx),Xij 
         
 
-    def maximize(self):
-        Xij = self.ENGINE.get_Point_out_G()
-        Fijx = self.calc_f(Xij)
-        return self.show_out(Fijx),Xij
+
         

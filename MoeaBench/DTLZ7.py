@@ -69,20 +69,12 @@ class DTLZ7(H_DTLZ):
         }
 
 
-    def show_out(self,F):
-         return {
-            "OUT POF"  : F                         
-        }  
-
-
     def minimize(self):
         X = self.ENGINE.get_Point_in_G()
         return self.show_in(self.calc_f(X,self.calc_g(X))),X
 
 
-    def maximize(self):
-        X = self.ENGINE.get_Point_out_G()
-        return self.show_out(self.calc_f(X,self.calc_g(X))),X
+
 
 
     

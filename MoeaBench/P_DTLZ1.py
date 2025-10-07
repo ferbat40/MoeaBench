@@ -50,22 +50,6 @@ class P_DTLZ1(DTLZ1):
            print(e)
                                           
 
-    def samples(self):
-        """  
-        - Método: dtlz1.samples().
-        - Gera amostras longe da frente ótima de Pareto.
-        - NOTES:
-         - Para obter informações detalhadas sobre a método:
-         https://evobench.github.io/benchmark/problems/DTLZ1/outPOF/
-
-        """  
-        try:
-            if self.get_ENGINE().K_validate(self.get_CACHE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().M_validate(self.get_CACHE().get_BENCH_CI().get_M()) == True:
-                F,X = self.maximize()
-                for key,value in F.items():
-                    self.get_ENGINE().DATA_store(key,0,0,value,X,0) 
-        except Exception as e:
-            print(e)
 
 
   

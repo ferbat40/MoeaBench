@@ -46,19 +46,4 @@ class P_DPF5(DPF5):
             print(e)
       
 
-    def samples(self):
-        """  
-        - Método: dtlz1.samples().
-        - Gera amostras longe da frente ótima de Pareto.
-        - NOTES:
-         - Para obter informações detalhadas sobre a método:
-         https://evobench.github.io/benchmark/problems/DPF5/outPOF/
-
-        """  
-        try:
-            if self.get_ENGINE().K_validate(self.get_ENGINE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().MN_validate(self.get_ENGINE().get_BENCH_CI().get_K(),self.get_ENGINE().get_BENCH_CI().get_M(),self.get_ENGINE().get_BENCH_CI().get_D()) == True and self.get_ENGINE().MN1_validate(self.get_ENGINE().get_BENCH_CI().get_M(),self.get_ENGINE().get_BENCH_CI().get_D()) == True:
-                F , X = self.maximize()
-                for key,value in F.items():
-                    self.get_ENGINE().DATA_store(key,0,0,value,X,0)
-        except Exception as e:
-            print(e)
+   

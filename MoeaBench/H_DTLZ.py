@@ -32,12 +32,6 @@ class H_DTLZ(I_DTLZ, InitBenchmark):
                 }if len(constraits[0]) > 0 else {F"NEAR POF": constraits[1]}
        
 
-    def show_out(self,constraits):
-        return  {F"IN POF": constraits[0],
-                F"OUT POF": constraits[1]                           
-                }if len(constraits[0]) > 0 else {F"OUT POF": constraits[1]}
-    
-
     def calc_gijx(self,Fijx):
         return 0
     

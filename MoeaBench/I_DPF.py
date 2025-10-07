@@ -114,11 +114,6 @@ class I_DPF(ABC):
 
 
     @abstractmethod
-    def show_out(self):
-        pass
-
-
-    @abstractmethod
     def minimize(self):
         pass
 

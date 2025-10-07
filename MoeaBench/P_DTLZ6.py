@@ -37,11 +37,4 @@ class P_DTLZ6(DTLZ6):
             print(e)
 
 
-    def samples(self):
-        try:
-            if self.get_ENGINE().K_validate(self.get_ENGINE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().M_validate(self.get_ENGINE().get_BENCH_CI().get_M()) == True:
-                F, X = self.maximize()
-                for key,value in F.items():
-                    self.get_ENGINE().DATA_store(key,0,0,value,X,0)  
-        except Exception as e:
-            print(e)
+   

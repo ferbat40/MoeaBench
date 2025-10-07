@@ -32,23 +32,16 @@ class P_DTLZ2(DTLZ2):
              
 
     def POFsamples(self):
-        #try:
+        try:
             if self.get_ENGINE().K_validate(self.get_CACHE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().M_validate(self.get_CACHE().get_BENCH_CI().get_M()) == True:
                 F,X = self.minimize()
                 for key,value in F.items():
                     self.get_CACHE().DATA_store(key,0,0,value,X,0,self)   
-        #except Exception as e:
-            #print(e)
-
-
-    def samples(self):
-        try:
-            if self.get_ENGINE().K_validate(self.get_ENGINE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().M_validate(self.get_CACHE().get_BENCH_CI().get_M()) == True:
-                F,X = self.maximize()
-                for key,value in F.items():
-                    self.get_CACHE().DATA_store(key,0,0,value,X,0)   
         except Exception as e:
             print(e)
+
+
+
     
 
 

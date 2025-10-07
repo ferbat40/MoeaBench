@@ -80,10 +80,6 @@ class H_DPF(NU_chaos,I_DPF,InitBenchmark):
          return  {f'IN POF' : constraits}
        
 
-     def show_out(self,constraits):
-         return  {f'OUT POF' : constraits}
-     
-
      def calc_gijx(self,Fijx):
          return 0
      

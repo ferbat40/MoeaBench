@@ -84,17 +84,7 @@ class I_DTLZ(ABC):
 
 
     @abstractmethod
-    def show_out(self):
-        pass
-
-
-    @abstractmethod
     def minimize(self):
-        pass
-
-
-    @abstractmethod
-    def maximize(self):
         pass
 
 

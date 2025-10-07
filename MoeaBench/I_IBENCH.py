@@ -30,16 +30,6 @@ class I_IBENCH(ABC):
     @abstractmethod
     def get_Penalty_param(self):
         pass
-    
-
-    @abstractmethod
-    def POFsamples(self):
-        pass
-
-
-    @abstractmethod
-    def samples(self):
-        pass
 
 
     @abstractmethod

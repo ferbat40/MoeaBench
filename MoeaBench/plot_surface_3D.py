@@ -64,7 +64,7 @@ class plot_surface_3D(analyse):
             opacity=pr['opacity'],
             showscale=pr['showscale'],
             showlegend=pr['showlegend'],
-            label={exp},
+            label=exp,
             x_axis=ax[0],
             y_axis=ax[1],
             z_axis=ax[2])

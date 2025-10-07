@@ -33,10 +33,10 @@ exp2.RUN()
 #exp.GDplus(200)
 #exp.IGD(200)
 #exp2.IGDplus(200)
-#exp.objectives(3,500)
+exp.objectives(3)
 
 
-#exp2.variables(7,200)
+exp2.variables(7)
 
 
 
@@ -51,7 +51,7 @@ exp2.RUN()
 #moeabench.plot_var(  exp, exp2,   generations = [0,500], variables = [1,2,7])
 
 
-moeabench.pareto(exp.result, exp2.pof,  objectives = [1,1,3])
+#moeabench.pareto(exp.result, exp2.pof,  objectives = [1,1,3])
 
 
 

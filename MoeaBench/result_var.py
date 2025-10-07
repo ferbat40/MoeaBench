@@ -9,6 +9,7 @@ class result_var(result_obj):
     
 
       def IPL_variables(self, result, I,  N, mtc = 8):
+        N = len(result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[mtc])  if N is None  else N
         self.allowed_obj(result, mtc, I)
         self.allowed_gen(result, mtc, N)
         return self.DATA(result, I,  N, mtc)

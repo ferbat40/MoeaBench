@@ -1,4 +1,5 @@
 from .I_MoeaBench import I_MoeaBench
+import inspect
 
 class IPL_MoeaBench(I_MoeaBench):
 
@@ -84,6 +85,30 @@ class IPL_MoeaBench(I_MoeaBench):
     
     def IPL_plot_hypervolume(self):
         raise NotImplementedError("Not implemented")
+    
+    
+    @staticmethod
+    def extract_pareto_result(args,caller):
+        experiment = [] 
+        data = []
+        benk = []
+        arr = []
+        for i in args:
+            for key, val in caller:
+                try:
+                    if i == val.result:
+                        experiment.append(f'{key}.result')
+                        arr.append(i.get_elements()[0][0].get_arr_DATA())
+                        data.append(i.get_elements()[0][0])
+                        benk.append(i.get_elements()[0][1])
+                    elif i == val.pof:
+                        experiment.append(f'{key}.pof')
+                        arr.append(i.get_CACHE().get_elements()[0][0].get_arr_DATA())
+                        data.append(i.get_CACHE().get_elements()[0][0])
+                        benk.append(i.get_CACHE().get_elements()[0][1])
+                except Exception as e:
+                    pass
+        return experiment, data, benk, arr
 
 
 

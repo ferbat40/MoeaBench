@@ -111,3 +111,8 @@ class I_MoeaBench(ABC):
     @abstractmethod 
     def normalize_gen(self):
         pass
+
+
+    @abstractmethod 
+    def extract_pareto_result(self):
+        pass

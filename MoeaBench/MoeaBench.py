@@ -82,29 +82,14 @@ class MoeaBench(I_UserMoeaBench):
     def plot_IGDplus(self,*args, generations = None):   
         caller = inspect.currentframe().f_back.f_locals.items()
         analyse_metric_gen.IPL_plot_IGDplus(args,generations,5,experiments = [key for i in args for key, val in caller if i is val])
-            
+
+
+    def surface(self, *args, objectives = []):
+        pass    
 
     def pareto(self, *args, objectives = []):
-        experiment = [] 
-        data = []
-        benk = []
-        arr = []
         caller = inspect.currentframe().f_back.f_locals.items()
-        for i in args:
-            for key, val in caller:
-                try:
-                    if i == val.result:
-                        experiment.append(f'{key}.result')
-                        arr.append(i.get_elements()[0][0].get_arr_DATA())
-                        data.append(i.get_elements()[0][0])
-                        benk.append(i.get_elements()[0][1])
-                    elif i == val.pof:
-                        experiment.append(f'{key}.pof')
-                        arr.append(i.get_CACHE().get_elements()[0][0].get_arr_DATA())
-                        data.append(i.get_CACHE().get_elements()[0][0])
-                        benk.append(i.get_CACHE().get_elements()[0][1])
-                except Exception as e:
-                    pass
+        experiment, data, benk, arr = analyse_obj.extract_pareto_result(args,caller)       
         analyse_obj.IPL_plot_3D(experiment, data, benk, arr, objectives)     
         
         

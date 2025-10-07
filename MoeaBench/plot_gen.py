@@ -16,7 +16,7 @@ class plot_gen(analyse):
         self.axis_DATA=[]
        
 
-    def change_axis(self, b):
+    def axis(self, b):
        try:
          self.axis_DATA=[]
          value = b['new']

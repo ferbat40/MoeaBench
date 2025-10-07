@@ -1,10 +1,13 @@
-from .IPL_MoeaBench import IPL_MoeaBench
+from .analyse import analyse
 
 
-class analyse_POF(IPL_MoeaBench):
+class analyse_POF(analyse):
 
         
-    
-    def pareto(self,*args, objectives):
-        print(args,objectives)
+    @staticmethod
+    def IPL_pareto(experiment, objectives):
+        print(objectives)
+        for b in experiment:
+            for i in b[1].get_elements():
+                print(i[1].get_M(),"  ",i[0].get_description(),"  ",i[0].get_arr_DATA())
     

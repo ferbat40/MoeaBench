@@ -25,7 +25,6 @@ class MoeaBench(I_UserMoeaBench):
         self.result_metric=result_metric()
         self.result_obj=result_obj()
         self.result_var=result_var()
-        self.analyse_pof=analyse_POF()
 
 
     @property
@@ -85,8 +84,19 @@ class MoeaBench(I_UserMoeaBench):
         analyse_metric_gen.IPL_plot_IGDplus(args,generations,5,experiments = [key for i in args for key, val in caller if i is val])
             
 
-    def pareto(self,*args, objectives):
-        print(args,objectives)
+    def pareto(self, *args, objectives = []):
+        experiment=[]
+        caller = inspect.currentframe().f_back.f_locals.items()
+        for i in args:
+            for key, val in caller:
+                try:
+                    if i == val.result:
+                        experiment.append([f'{key}.result',i])
+                    elif i == val.pof:
+                        experiment.append([f'{key}.pof',i.get_CACHE()])
+                except Exception as e:
+                    pass
+        analyse_POF.IPL_pareto(experiment, objectives)     
         
         
     def RUN(self):

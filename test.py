@@ -28,17 +28,17 @@ exp2.RUN()
 
 
 
-exp.hypervolume(6600)
+#exp.hypervolume(6600)
 #exp.GD(200)
 #exp.GDplus(200)
 #exp.IGD(200)
 #exp2.IGDplus(200)
-exp.objectives(3,1000)
+#exp.objectives(3,1000)
 
 
-exp2.variables(7,910)
+#exp2.variables(7,910)
 
-
+print(exp.problem, "   ",exp.pof)
 
 
 

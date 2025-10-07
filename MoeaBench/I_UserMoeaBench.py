@@ -49,7 +49,7 @@ class I_UserMoeaBench(ABC):
         
 
     @abstractmethod  
-    def RUN(self):
+    def run(self):
         pass
 
     
@@ -85,4 +85,14 @@ class I_UserMoeaBench(ABC):
 
     @abstractmethod
     def variables(self):
+        pass
+
+
+    @abstractmethod
+    def load(self):
+        pass
+
+
+    @abstractmethod
+    def save(self):
         pass

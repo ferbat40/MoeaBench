@@ -97,7 +97,7 @@ class MoeaBench(I_UserMoeaBench):
         analyse_obj.IPL_plot_3D(experiment, data, benk, arr, objectives)     
         
         
-    def RUN(self):
+    def run(self):
         self.Moea.MOEA_execute(self.result)
 
 
@@ -148,6 +148,14 @@ class MoeaBench(I_UserMoeaBench):
             self.result_var.IPL_display(self.result_var.IPL_variables(self.result, I,  N),I)
         except Exception as e:
             print(e)
+
+
+    def load(self):
+        pass
+
+
+    def save(self):
+        pass
 
 
  

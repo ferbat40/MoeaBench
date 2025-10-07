@@ -17,7 +17,7 @@ class MOEADpymoo(Problem):
         self.seed=seed
         self.Nvar=self.benchmark.get_CACHE().get_BENCH_CI().get_Nvar()
         self.M=self.benchmark.get_CACHE().get_BENCH_CI().get_M()
-        self.BENCH_Nvar=self.get_CACHE().get_BENCH_CI().get_BENCH_Nvar()
+        self.BENCH_Nvar=self.benchmark.get_CACHE().get_BENCH_CI().get_BENCH_Nvar()
         xl = np.full(self.Nvar,0)
         xu = np.full(self.Nvar,1)
         self.objectives = self.M

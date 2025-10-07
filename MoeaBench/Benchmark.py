@@ -90,8 +90,11 @@ class Benchmark:
          https://evobench.github.io/benchmark/problems/DTLZ2/DTLZ2/
    
         """
-        bk = P_DTLZ2(ENGINE(), M, K, P)
+
+        self.cache = CACHE()
+        bk = P_DTLZ2(ENGINE(self.cache), M, K, P,self.cache)
         bk.set_BENCH_conf() 
+        bk.POFsamples()
         return bk
     
 

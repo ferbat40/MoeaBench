@@ -1,6 +1,9 @@
 from .IPL_MoeaBench import IPL_MoeaBench
 import numpy as np
 from itertools import zip_longest
+import ipywidgets as widgets
+from IPython.display import  display
+
 
 class analyse(IPL_MoeaBench):
 
@@ -62,6 +65,15 @@ class analyse(IPL_MoeaBench):
                     vet_aux.append(pad)     
             vet_pt.append(vet_aux)   
         return vet_pt       
+    
+
+    def PLT(self):  
+         out = widgets.Output()
+         with out:
+             display(self.figure)
+         self.ui = widgets.VBox([widgets.HBox([out], layout=widgets.Layout(justify_content='center')),
+                             ])
+         display(self.ui)
     
 
     

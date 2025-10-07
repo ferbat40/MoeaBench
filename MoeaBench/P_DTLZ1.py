@@ -9,7 +9,6 @@ class P_DTLZ1(DTLZ1):
         self.M = M
         self.K = K
         self.P = P
-        ENGINE.allowed_call(self)
         super().__init__(ENGINE=ENGINE,CACHE=CACHE, **kwargs)
 
     

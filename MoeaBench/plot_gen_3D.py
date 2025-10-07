@@ -75,13 +75,7 @@ class plot_gen_3D(analyse):
          self.PLT()
 
 
-     def PLT(self):  
-         out = widgets.Output()
-         with out:
-             display(self.figure)
-         self.ui = widgets.VBox([widgets.HBox([out], layout=widgets.Layout(justify_content='center')),
-                             ])
-         display(self.ui)
+   
 
  
 

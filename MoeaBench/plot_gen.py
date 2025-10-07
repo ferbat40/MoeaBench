@@ -84,7 +84,7 @@ class plot_gen(analyse):
         self.figure=go.FigureWidget()
         self.figure.data=()
         self.button = widgets.Button(description="PLOT", style = widgets.ButtonStyle(button_color='deepskyblue', font_weight='bold'))
-        self.axis_change.observe(self.change_axis, names = 'value')
+        self.axis_change.observe(self.axis, names = 'value')
         self.button.on_click(self.configure) 
         ui = widgets.VBox([widgets.HBox([self.figure], layout=widgets.Layout(justify_content='center')),
                            widgets.HBox([self.axis_change,self.button],layout=widgets.Layout(justify_content='center')),

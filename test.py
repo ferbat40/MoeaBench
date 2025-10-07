@@ -13,14 +13,14 @@ exp2 = moeabench()
 exp3 = moeabench()
 exp4 = moeabench()
 
-exp.problem = moeabench.benchmark.DTLZ1()
-exp2.problem = moeabench.benchmark.DTLZ1(M = 3)
-exp3.problem = moeabench.benchmark.DTLZ1()
-exp.moea = moeabench.Moea.NSGA3(problem=exp.problem, population = 130, generations = 500)
+#exp.problem = moeabench.benchmark.DTLZ2()
+exp2.problem = moeabench.benchmark.DTLZ2(M = 3)
+#exp3.problem = moeabench.benchmark.DTLZ1()
+#exp.moea = moeabench.Moea.NSGA3(problem=exp.problem, population = 130, generations = 500)
 exp2.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 240, generations = 200)
-exp3.moea = moeabench.Moea.U_NSGA3(problem=exp3.problem, population = 100, generations = 300)
-exp4.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 350, generations = 300)
-exp.RUN()
+#exp3.moea = moeabench.Moea.U_NSGA3(problem=exp3.problem, population = 100, generations = 300)
+#exp4.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 350, generations = 300)
+#exp.RUN()
 
 exp2.RUN()
 #exp3.RUN()
@@ -53,7 +53,7 @@ exp2.RUN()
 
 #moeabench.pareto(exp.result, exp2.pof,  objectives = [1,1,3])
 
-moeabench.pareto_surface(exp.result, exp2.pof,  objectives = [1,1,3])
+#moeabench.pareto_surface(exp.result, exp2.pof,  objectives = [1,1,3])
 
 
 

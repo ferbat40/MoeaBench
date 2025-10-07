@@ -15,7 +15,7 @@ class IPL_MoeaBench(I_MoeaBench):
         raise NotImplementedError("Not implemented")
 
 
-    def change_axis(self):
+    def axis(self):
         raise NotImplementedError("Not implemented")
 
    

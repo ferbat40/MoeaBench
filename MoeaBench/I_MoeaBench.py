@@ -24,7 +24,7 @@ class I_MoeaBench(ABC):
             
         
     @abstractmethod
-    def change_axis(self):
+    def axis(self):
         pass
 
     

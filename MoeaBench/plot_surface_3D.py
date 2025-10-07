@@ -64,11 +64,11 @@ class plot_surface_3D(analyse):
             opacity=pr['opacity'],
             showscale=pr['showscale'],
             showlegend=pr['showlegend'],
-            label=f'Item {index}',
+            label={exp},
             x_axis=ax[0],
             y_axis=ax[1],
             z_axis=ax[2])
-            for index,(ax, pr,exp) in enumerate(zip(self.list_axis,self.parameter,self.experiments), start = 1)]
+            for ax, pr,exp in zip(self.list_axis,self.parameter,self.experiments)]
         self.figure.add_traces(surfaces)
         self.figure.update_layout(
                 scene = dict(

@@ -2,7 +2,6 @@ import numpy as np
 from .BENCH_conf import BENCH_conf
 from .DATA_conf import DATA_conf
 from .DATA_arr import DATA_arr
-from .FILE_reference import FILE_reference
 from .GEN_history import GEN_history
 from .GEN_hypervolume import GEN_hypervolume
 from .GEN_gd import GEN_gd
@@ -11,7 +10,7 @@ from .GEN_igd import GEN_igd
 from .GEN_igdplus import GEN_igdplus
 
 
-class CACHE(DATA_arr,FILE_reference):
+class CACHE(DATA_arr):
   
   def __init__(self,**kwargs):
        self.data_conf=None
@@ -55,9 +54,10 @@ class CACHE(DATA_arr,FILE_reference):
         DT_CONF.set(KEY,GEN,POP,F)
         DT_CONF.set_METRIC_gen(self.METRIC_gen_evalue(F,X,history,problem))      
         BENCH=self.get_BENCH_conf()
+        print("de boster ",problem.__class__.__name__.split("_")[1])
         BENCH.set(problem.get_CACHE().get_BENCH_CI().get_M(),
                                   problem.get_CACHE().get_BENCH_CI().get_D(),
-                                  [key for key,value in self.STR_bench().items() if value == problem.get_CACHE().get_BENCH_CI().get_BENCH()][0],
+                                  problem.__class__.__name__.split("_")[1],
                                   problem.get_CACHE().get_BENCH_CI().get_P(),
                                   problem.get_CACHE().get_BENCH_CI().get_K(),
                                   problem.get_CACHE().get_BENCH_CI().get_n_ieq_constr(),

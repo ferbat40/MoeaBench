@@ -11,6 +11,8 @@ from .analyse_surface_obj import analyse_surface_obj
 from .analyse_metric_gen import analyse_metric_gen
 from .analyse_var_gen import analyse_var_gen
 from .I_UserMoeaBench import I_UserMoeaBench
+from .save import save
+from .loader import loader
 
 
 class MoeaBench(I_UserMoeaBench):
@@ -26,7 +28,7 @@ class MoeaBench(I_UserMoeaBench):
         self.result_metric=result_metric()
         self.result_obj=result_obj()
         self.result_var=result_var()
-
+       
 
     @property
     def moea(self):
@@ -150,12 +152,18 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
 
 
-    def load(self):
-        pass
+    def load(self,file):
+        try:
+            loader.IPL_loader(self,file)      
+        except Exception as e:
+            print(e)
 
 
-    def save(self):
-        pass
+    def save(self, file):
+        try:
+            save.IPL_save(self,file)
+        except Exception as e:
+            print(e)
 
 
  

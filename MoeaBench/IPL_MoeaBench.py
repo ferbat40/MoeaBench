@@ -86,6 +86,14 @@ class IPL_MoeaBench(I_MoeaBench):
     def IPL_plot_hypervolume(self):
         raise NotImplementedError("Not implemented")
     
+
+    def IPL_loader(self):
+        raise NotImplementedError("Not implemented")
+    
+
+    def IPL_save(self):
+        raise NotImplementedError("Not implemented")
+    
     
     @staticmethod
     def extract_pareto_result(args,caller):

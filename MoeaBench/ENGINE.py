@@ -9,16 +9,7 @@ import pandas as pd
 
 class ENGINE(ALLOWED):#(ALLOWED,FILE,I_ENGINE):
 
-    """  
-    - Instância:    
-      engine = ENGINE()  
-    - ENGINE implementa diversos métodos usados por outras classes do Evobench, 
-    inserido por parametro:
-    - NOTES:
-      - Para obter informações detalhadas sobre a classe:
-      https://evobench.github.io/Benchmark/main/engine/
-
-    """   
+    
     
     def __init__(self,CACHE,**kwargs):
         #self.__ENGINE_full=ENGINE_external(ENGINE=self)

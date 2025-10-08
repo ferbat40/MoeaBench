@@ -14,24 +14,6 @@ class RUN(I_MOEA):
         self.result=result
     
 
-    """  
-    - Instância:    
-      runner = RUN()  
-    - RUN esta dividida em 2 partes:
-      - Parte 1: Geração de arquivos com extensão .XLSX, através da Execução de MOEAs 
-      importados e configurados da biblioteca Puymoo.
-              - runner.NSGA3(args)
-              - runner.UNSGA3(args)
-              - runner.SPEA2(args)    
-              - runner.MOEAD(args)
-              - runner.RVEA(args)  
-      - Parte 2: Geração de arquivos com extensão .XLSX, com MOEAs externos implementados
-      pelo usuário.
-              - runner.SAVE(args)
-    """   
-
-
-
     def runner_MOEA(self,OBJ,method):
         return getattr(OBJ, method)
 
@@ -39,35 +21,7 @@ class RUN(I_MOEA):
     def EXTERNAL(self,MOEA,method='exec'):
         obj = vars(MOEA)
         problem = obj['problem']
-        """
-          Args: 
-              problem (PROBLEM): instancia da classe PROBLEM, que executa um dos seus métodos:
-                  DTLZ1,DTLZ2,DTLZ3,DTLZ4,DTLZ5,DTLZ6,DTLZ7,DTLZ8,DTLZ9,
-                  DPF1,DPF2.DPF3,DPF4,DPF5.
-
-                  
-              MOEA (object): Instância da classe que implementa algum algoritimo evolutivo, definido pelo usuário.
-                  A classe definida pelo usuário precisa conter a seguinte assinatura:
-                      nomedaclasse(PROBLEM, generations, populatoin)
-                  E implementar um método 'exec' (nome opcional). O método retornar uma list contendo:
-                  8 arrays, que devem ter 2 dimensões cada uma. Para arrays que o usuário não fornecer, usar o formato:[0].
-
-                  
-              method (Optional[callable[[PROBLEM], int, int], list]]): Nome da função que será executada dentro do método.
-                  Caso não seja fornecido por parametro, o nome padrão será 'exec'. A função deverá retornar uma List, com
-                  o mesmo formato descrito acima.              
-
-                  
-          Raises:
-              Exception: Os dados necessarios serão extraidos dos objetos enviados por parametro, 
-                   Qualquer inconsistencia das informações enviadas, será enviada uma mensagem de erro personalizada ao usuário.
-
-                   
-          Notes:
-              Após passar por validações, será criado um arquivo .XLSX para ser utilizado pelas fereamentas de análise 
-              de dados do Evobench
-                    
-        """
+       
 
         try:
             runner = self.runner_MOEA(MOEA,method)

@@ -116,3 +116,13 @@ class I_MoeaBench(ABC):
     @abstractmethod 
     def extract_pareto_result(self):
         pass
+
+
+    @abstractmethod
+    def IPL_save(self):
+        pass
+
+
+    @abstractmethod
+    def IPL_loader(self):
+        pass

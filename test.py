@@ -20,10 +20,10 @@ exp.problem = moeabench.benchmark.DTLZ2()
 exp2.problem = moeabench.benchmark.DTLZ1(M = 3)
 exp3.problem = moeabench.benchmark.DTLZ1()
 exp.moea = moeabench.Moea.NSGA3(problem=exp.problem, population = 130, generations = 500)
-exp2.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 240, generations = 200)
+exp2.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 240, generations = 400)
 exp3.moea = moeabench.Moea.U_NSGA3(problem=exp3.problem, population = 100, generations = 300)
 exp4.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 350, generations = 300)
-exp.run()
+#exp.run()
 
 exp2.run()
 #exp3.RUN()
@@ -43,10 +43,10 @@ exp2.run()
 
 
 
-exp2.save("my_experiment25")
+exp2.save("my_experiment")
 
 
-experiment.load("my_experiment2")
+experiment.load("my_experiment")
 experiment.hypervolume(200)
 
 

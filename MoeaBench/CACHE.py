@@ -54,7 +54,6 @@ class CACHE(DATA_arr):
         DT_CONF.set(KEY,GEN,POP,F)
         DT_CONF.set_METRIC_gen(self.METRIC_gen_evalue(F,X,history,problem))      
         BENCH=self.get_BENCH_conf()
-        print("de boster ",problem.__class__.__name__.split("_")[1])
         BENCH.set(problem.get_CACHE().get_BENCH_CI().get_M(),
                                   problem.get_CACHE().get_BENCH_CI().get_D(),
                                   problem.__class__.__name__.split("_")[1],

@@ -1,4 +1,4 @@
-from I_BaseMoea import I_BaseMoea
+from .I_BaseMoea import I_BaseMoea
 
 class BaseMoea(I_BaseMoea):
 

@@ -1,8 +1,12 @@
 
 import os
 from MoeaBench import moeabench
+from MoeaBench.core.base import base_moea
 
 import numpy as np
+
+
+
 
 
 os.system("cls")  

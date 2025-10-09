@@ -13,6 +13,8 @@ from .analyse_var_gen import analyse_var_gen
 from .I_UserMoeaBench import I_UserMoeaBench
 from .save import save
 from .loader import loader
+from .core.base.base_moea import BaseMoea
+from .core.registry.register_moea import register_moea
 
 
 class MoeaBench(I_UserMoeaBench):

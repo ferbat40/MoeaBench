@@ -1,22 +1,16 @@
 
 import os
 from MoeaBench import moeabench
-from MoeaBench.base_moea import base_moea
+
 
 
 import numpy as np
 
 
-class porrer(base_moea):
-
-         def __init__(self, problem, population=50, generations=100):
-          self.problem=problem
-          self.population=population
-          self.generations=generations
 
 
 
-pd = porrer(1,5,6)
+
 
 os.system("cls")  
 

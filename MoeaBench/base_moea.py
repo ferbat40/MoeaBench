@@ -8,5 +8,4 @@ class BaseMoea(I_BaseMoea):
           self.generations=generations
 
       
-     def evaluation(self):
-          raise NotImplementedError('The evaluation() method must be implemented by the user')
+

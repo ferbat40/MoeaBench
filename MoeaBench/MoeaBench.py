@@ -13,8 +13,7 @@ from .analyse_var_gen import analyse_var_gen
 from .I_UserMoeaBench import I_UserMoeaBench
 from .save import save
 from .loader import loader
-from .core.base.base_moea import BaseMoea
-from .core.registry.register_moea import register_moea
+
 
 
 class MoeaBench(I_UserMoeaBench):
@@ -30,6 +29,18 @@ class MoeaBench(I_UserMoeaBench):
         self.result_metric=result_metric()
         self.result_obj=result_obj()
         self.result_var=result_var()
+        self.M_register = {}
+
+
+    def register_moea(self,name):
+        def decorator(cls):
+            self.M_register[name] = cls
+            return cls
+        return decorator
+
+
+    def get_moea(self,name):
+        return self.M_register.get(name)
        
 
     @property

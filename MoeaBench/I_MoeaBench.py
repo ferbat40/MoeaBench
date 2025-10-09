@@ -6,6 +6,11 @@ class I_MoeaBench(ABC):
     @abstractmethod
     def allowed_gen(self):
         pass
+
+
+    @abstractmethod
+    def allowed_gen_max(self):
+        pass
     
     
     @abstractmethod

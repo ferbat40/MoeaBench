@@ -26,6 +26,8 @@ class analyse_var_gen(plot_gen_3D):
         analyse_var_gen.allowed_gen(generations)
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
+        analyse_var_gen.allowed_gen(generations)
+        analyse_var_gen.allowed_gen_max(data, 8, generations[1])
         analyse_var_gen.allowed_obj(bench,bench[0],experiments,objectives)
         vet_pt=analyse_var_gen.normalize_gen(data,generations,mtc)
            

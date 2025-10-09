@@ -1,8 +1,8 @@
 
 import os
 from MoeaBench import moeabench
-from MoeaBench.core.base.base_moea import base_moea
-from MoeaBench.core.registry import register_moea, M_register
+from MoeaBench.base_moea import base_moea
+
 
 import numpy as np
 

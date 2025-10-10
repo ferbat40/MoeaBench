@@ -29,19 +29,8 @@ class MoeaBench(I_UserMoeaBench):
         self.result_metric=result_metric()
         self.result_obj=result_obj()
         self.result_var=result_var()
-        self.M_register = {}
-
-
-    def register_moea(self):
-        def decorator(cls):
-            name = cls.__name__
-            self.M_register[name] = cls
-            return cls
-        return decorator
-
-
-    def get_moea(self):
-        return next(iter(self.M_register.values()))
+        print("cabacer")
+        
        
 
     @property
@@ -114,6 +103,9 @@ class MoeaBench(I_UserMoeaBench):
         
         
     def run(self):
+        print(len(self.Moea.M_register.values()), " fiwe")
+        if len(self.Moea.M_register.values()) > 0:
+            print(self.Moea.get_moea())
         self.Moea.MOEA_execute(self.result)
 
 
@@ -184,10 +176,10 @@ class MoeaBench(I_UserMoeaBench):
         pass
     
 
-    def my_new_moea(self,problem,population,generations):
-        dd = self.get_moea()
-        tt = dd(problem,population,generations)
-        tt.evaluation()
+    #def my_new_moea(self,problem,population,generations):
+       # dd = self.get_moea()
+       # tt = dd(problem,population,generations)
+        #tt.evaluation()
 
  
 

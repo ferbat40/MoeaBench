@@ -3,17 +3,15 @@ from .ALLOWED import ALLOWED
 import numpy as np
 import datetime as dt
 import pandas as pd
-#from ENGINE_external import ENGINE_external
-#from ENGINE_external_lite import ENGINE_external_lite
 
 
-class ENGINE(ALLOWED):#(ALLOWED,FILE,I_ENGINE):
+
+class ENGINE(ALLOWED):
 
     
     
     def __init__(self,CACHE,**kwargs):
-        #self.__ENGINE_full=ENGINE_external(ENGINE=self)
-        #self.__ENGINE_lite=ENGINE_external_lite(ENGINE=self)
+
         self.CACHE=CACHE
         
     
@@ -24,10 +22,7 @@ class ENGINE(ALLOWED):#(ALLOWED,FILE,I_ENGINE):
        
     def ENGINE_lite(self):
         return self.__ENGINE_lite
-    
 
-    #def memory(self):
-       # return self.__memory
        
        
     def get_Point_in_G(self):

@@ -63,6 +63,3 @@ class RVEApymoo(Problem):
         }    
         return (RVEA_algorithm,self.generations,self.population,res_RVEA.history,res_RVEA.X)
     
-
-    def SOLVER(self):
-        raise NotImplementedError("Not implemented")

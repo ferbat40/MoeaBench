@@ -32,19 +32,9 @@ class I_MOEA(ABC):
         pass
 
 
-    @abstractmethod
-    def EXTERNAL(self):
-        pass
 
 
-    @abstractmethod
-    def runner_MOEA(self):
-        pass
-    
 
-    #@abstractmethod
-    #def SOLVER(self):
-        #pass
 
 
     

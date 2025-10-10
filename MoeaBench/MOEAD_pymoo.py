@@ -57,6 +57,3 @@ class MOEADpymoo(Problem):
         }    
         return (MOEAD_algorithm,self.generations,self.population,res_MOEAD.history,res_MOEAD.X)
     
-
-    def SOLVER(self):
-        raise NotImplementedError("Not implemented")

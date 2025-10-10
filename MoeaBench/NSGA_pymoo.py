@@ -62,7 +62,6 @@ class NSGAPymoo(Problem):
         return (NSGA_algorithm,self.generations,self.population,res_NSGA.history,res_NSGA.X)
     
 
-    def SOLVER(self):
-        raise NotImplementedError("Not implemented")
+
     
 

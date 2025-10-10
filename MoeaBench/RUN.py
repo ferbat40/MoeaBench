@@ -4,7 +4,6 @@ from .UNSGA_pymoo import UNSGAPymoo
 from .RVEA_pymoo import RVEApymoo
 from .NSGA_pymoo import NSGAPymoo
 from .I_MOEA import I_MOEA
-from .SOLUTION import SOLUTION
 
 
 
@@ -12,32 +11,19 @@ class RUN(I_MOEA):
 
     def __init__(self,result):
         self.result=result
+        self.M_register = {}
     
+    
+    def register_moea(self):
+        def decorator(cls):
+            name = cls.__name__
+            self.M_register[name] = cls
+            return cls
+        return decorator
 
-    def runner_MOEA(self,OBJ,method):
-        return getattr(OBJ, method)
 
-
-    def EXTERNAL(self,MOEA,method='exec'):
-        obj = vars(MOEA)
-        problem = obj['problem']
-       
-
-        try:
-            runner = self.runner_MOEA(MOEA,method)
-            solutions = runner()
-            population = MOEA.population
-            generations = MOEA.generations
-            description=MOEA.__class__.__name__
-            M=problem.get_ENGINE().get_BENCH_CI().get_M()
-            D=problem.get_ENGINE().get_BENCH_CI().get_D()
-            K=problem.get_ENGINE().get_BENCH_CI().get_K()
-            N=problem.get_ENGINE().get_BENCH_CI().get_Nvar()
-            Benckmark=str(problem.__class__.__name__).split('_')[1]
-            solver_solution = SOLUTION()
-            solver_solution.SOLVER(problem,Benckmark,M,D,K,N,description,solutions,generations,population)
-        except Exception as e:
-            print(e)
+    def get_moea(self):
+        return next(iter(self.M_register.values())) if len(self.M_register.values()) > 0 else None
       
 
     def MOEA_execute(self,result):
@@ -50,6 +36,13 @@ class RUN(I_MOEA):
                                     data[4],
                                     data[3],
                                     problem)
+            
+
+    def my_new_moea(self,problem,population,generations):
+        dd = self.get_moea()
+        tt = dd(problem,population,generations) if self.get_moea() is not None else None
+        return self.result
+         
        
 
     def NSGA3(self,problem, *, population = 100, generations = 300,seed = 1):

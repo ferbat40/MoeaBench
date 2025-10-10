@@ -5,6 +5,7 @@ from .METRIC_gen import METRIC_gen
 class DATA_conf(I_DATA_conf):
 
     def set_DATA_MOEA(self,DATA_MOEA,problem):
+        print(DATA_MOEA," daa tat")
         self.__DATA_MOEA=DATA_MOEA
         self.__problem=problem
 

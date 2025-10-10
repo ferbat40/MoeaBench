@@ -178,6 +178,13 @@ class MoeaBench(I_UserMoeaBench):
         except Exception as e:
             print(e)
 
+   
+    def my_new_benchmark(self):
+        pass
+    
+
+    def my_new_moea(self):
+        pass
 
  
 

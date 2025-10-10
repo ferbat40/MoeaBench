@@ -96,3 +96,13 @@ class I_UserMoeaBench(ABC):
     @abstractmethod
     def save(self):
         pass
+
+
+    @abstractmethod
+    def my_new_moea(self):
+        pass
+
+
+    @abstractmethod
+    def my_new_benchmark(self):
+        pass

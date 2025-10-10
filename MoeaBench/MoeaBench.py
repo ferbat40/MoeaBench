@@ -1,5 +1,6 @@
 from .Benchmark import Benchmark
 from .RUN import RUN
+from .RUN_user import RUN_user
 from .CACHE import CACHE
 from .analyse_obj_gen  import analyse_obj_gen
 import inspect
@@ -29,8 +30,7 @@ class MoeaBench(I_UserMoeaBench):
         self.result_metric=result_metric()
         self.result_obj=result_obj()
         self.result_var=result_var()
-        print("cabacer")
-        
+        self.Moea_user=RUN_user(self.result)
        
 
     @property
@@ -103,10 +103,14 @@ class MoeaBench(I_UserMoeaBench):
         
         
     def run(self):
-        print(len(self.Moea.M_register.values()), " fiwe")
-        if len(self.Moea.M_register.values()) > 0:
-            print(self.Moea.get_moea())
-        self.Moea.MOEA_execute(self.result)
+        try:
+            if len(self.Moea.M_register.values()) > 1:
+                raise MemoryError (f'{len(self.Moea.M_register.values())} implementations where found in memory. Only one execution is allowed')
+            execute = self.Moea_user if len(self.Moea.M_register.values()) == 1 else self.Moea
+            self.Moea.M_register={}
+            execute.MOEA_execute(self.result)
+        except Exception as e:
+            print(e)
 
 
     def hypervolume(self, N = None):

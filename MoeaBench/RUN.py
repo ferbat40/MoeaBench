@@ -39,11 +39,10 @@ class RUN(I_MOEA):
             
 
     def my_new_moea(self,problem,population,generations):
-        dd = self.get_moea()
-        tt = dd(problem,population,generations) if self.get_moea() is not None else None
+        my_moea = self.get_moea()
+        self.result.get_DATA_conf().set_DATA_MOEA(my_moea(problem,population,generations),problem)
         return self.result
-         
-       
+           
 
     def NSGA3(self,problem, *, population = 100, generations = 300,seed = 1):
         self.result.get_DATA_conf().set_DATA_MOEA(NSGAPymoo(problem,population,generations,seed),problem)

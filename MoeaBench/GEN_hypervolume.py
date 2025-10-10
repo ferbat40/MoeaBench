@@ -7,6 +7,7 @@ class GEN_hypervolume:
     def __init__(self,hist_F,M,approx_ideal,approx_nadir,**kwargs):
         self.hist_F=hist_F
         self.M=M
+        print(hist_F.shape)
         self.approx_ideal=approx_ideal
         self.approx_nadir=approx_nadir
         super().__init__(**kwargs)

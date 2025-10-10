@@ -16,28 +16,6 @@ class CACHE(DATA_arr):
        self.data_conf=None
        super().__init__(list_g=[],**kwargs)
 
-  
-  def BENCH_conf_recursive(self,OBJ):
-       if isinstance(OBJ,BENCH_conf):
-            return OBJ
-       elif isinstance(OBJ,tuple):
-            for b in OBJ:
-                result = self.BENCH_conf_recursive(b)
-                if result is not None:
-                    return result
-       return None
-    
-
-  def DATA_conf_recursive(self,OBJ):
-       if isinstance(OBJ,DATA_conf):
-            return OBJ
-       elif isinstance(OBJ,tuple):
-            for b in OBJ:
-                result = self.DATA_conf_recursive(b)
-                if result is not None:
-                    return result
-       return None
-
 
   def set_BENCH_CI(self,M,D,BENCH,P,K,n_ieq_constr,BENCH_Nvar):
         BENk=self.get_BENCH_conf()
@@ -49,7 +27,7 @@ class CACHE(DATA_arr):
         return self.__BENCH_CI 
   
 
-  def DATA_store(self,KEY,GEN,POP,F,X,history,problem=None):
+  def DATA_store(self,KEY,GEN,POP,F,X,history=None,problem=None):
         DT_CONF=self.get_DATA_conf()
         DT_CONF.set(KEY,GEN,POP,F)
         DT_CONF.set_METRIC_gen(self.METRIC_gen_evalue(F,X,history,problem))      

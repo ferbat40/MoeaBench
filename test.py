@@ -24,8 +24,14 @@ class NSGA2deap(BaseMoea):
     print(self.problem,self.population,self.generations)
 
 
+
+
+
+
+
+
 exp.moea = exp.Moea.my_new_moea(30,50,60)
-#exp.run()
+exp.run()
 
 
 

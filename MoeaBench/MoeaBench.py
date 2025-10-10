@@ -32,15 +32,16 @@ class MoeaBench(I_UserMoeaBench):
         self.M_register = {}
 
 
-    def register_moea(self,name):
+    def register_moea(self):
         def decorator(cls):
+            name = cls.__name__
             self.M_register[name] = cls
             return cls
         return decorator
 
 
-    def get_moea(self,name):
-        return self.M_register.get(name)
+    def get_moea(self):
+        return next(iter(self.M_register.values()))
        
 
     @property
@@ -178,13 +179,15 @@ class MoeaBench(I_UserMoeaBench):
         except Exception as e:
             print(e)
 
-   
+
     def my_new_benchmark(self):
         pass
     
 
-    def my_new_moea(self):
-        pass
+    def my_new_moea(self,problem,population,generations):
+        dd = self.get_moea()
+        tt = dd(problem,population,generations)
+        tt.evaluation()
 
  
 

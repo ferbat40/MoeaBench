@@ -1,36 +1,52 @@
 
 import os
 from MoeaBench import moeabench
+from MoeaBench.base_moea import BaseMoea
+from 
 
 
 
 import numpy as np
 
 
-
-
-
-
-
 os.system("cls")  
 
-
 exp  = moeabench()
-exp2 = moeabench()
-exp3 = moeabench()
-exp4 = moeabench()
-experiment = moeabench()
+
+@exp.register_moea()
+class NSGA2deap(BaseMoea):
+  def __init__(self,problem,population,generations):
+    self.problem=problem
+    self.population=population
+    self.generations=generations
+
+  def evaluation(self):
+    print(self.problem,self.population,self.generations)
+
+
+exp.moea = exp.my_new_moea(4,39,50)
 
 
 
-exp.problem = moeabench.benchmark.DTLZ2()
-exp2.problem = moeabench.benchmark.DTLZ1(M = 3)
-exp3.problem = moeabench.benchmark.DTLZ1()
-exp.moea = moeabench.Moea.NSGA3(problem=exp.problem, population = 130, generations = 500)
-print(exp.moea)
-exp2.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 240, generations = 400)
-exp3.moea = moeabench.Moea.U_NSGA3(problem=exp3.problem, population = 100, generations = 300)
-exp4.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 350, generations = 300)
+
+
+
+
+#exp2 = moeabench()
+#exp3 = moeabench()
+#exp4 = moeabench()
+#experiment = moeabench()
+
+
+
+#exp.problem = moeabench.benchmark.DTLZ2()
+#exp2.problem = moeabench.benchmark.DTLZ1(M = 3)
+#exp3.problem = moeabench.benchmark.DTLZ1()
+#exp.moea = moeabench.Moea.NSGA3(problem=exp.problem, population = 130, generations = 500)
+
+#exp2.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 240, generations = 400)
+#exp3.moea = moeabench.Moea.U_NSGA3(problem=exp3.problem, population = 100, generations = 300)
+#exp4.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 350, generations = 300)
 #exp.run()
 
 #exp2.run()

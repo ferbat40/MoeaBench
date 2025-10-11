@@ -1,5 +1,3 @@
-
-
 class BaseMoea:
 
      def __init__(self, problem, population=50, generations=100):

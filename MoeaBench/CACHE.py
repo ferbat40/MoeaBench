@@ -30,7 +30,6 @@ class CACHE(DATA_arr):
   def DATA_store(self,name_moea,generations,population,F,F_gen,X_gen,problem,evals):
         DT_CONF=self.get_DATA_conf()
         DT_CONF.set(name_moea,generations,population,F)
-        print("name moea ",name_moea)
         try:
              DT_CONF.set_METRIC_gen(self.METRIC_gen_evalue(F,F_gen,X_gen,evals))   
         except Exception as e:

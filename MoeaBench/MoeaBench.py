@@ -106,7 +106,6 @@ class MoeaBench(I_UserMoeaBench):
             name_moea=None
             try:
                 name_moea = self.Moea.get_moea().__name__
-                print(self.Moea.get_moea().__name__) 
             except Exception as e:
                 pass
             execute = self.Moea_user if len(self.Moea.M_register.values()) == 1 else self.Moea

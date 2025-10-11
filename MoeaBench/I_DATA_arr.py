@@ -13,4 +13,10 @@ class I_DATA_arr(ABC):
         pass
 
 
+    @abstractmethod
+    def clear(self):
+        pass
+        
+
+
  

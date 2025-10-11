@@ -15,6 +15,11 @@ class DATA_arr(Generic[T],I_DATA_arr):
         return self.elements
     
 
+    def clear(self):
+        self.elements.clear()
+        
+    
+
     def add_T(self, element: List[T]):
         self.elements.append(element)
 

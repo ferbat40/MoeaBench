@@ -41,6 +41,7 @@ class CACHE(DATA_arr):
                                   problem.get_CACHE().get_BENCH_CI().get_n_ieq_constr(),
                                   problem.get_CACHE().get_BENCH_CI().get_BENCH_Nvar())
         BENCH.set_Nvar(problem.get_CACHE().get_BENCH_CI().get_Nvar())
+        self.clear()
         self.add_T([DT_CONF,BENCH])
 
 
@@ -79,6 +80,7 @@ class CACHE(DATA_arr):
                                   problem.get_CACHE().get_BENCH_CI().get_n_ieq_constr(),
                                   problem.get_CACHE().get_BENCH_CI().get_BENCH_Nvar())
         BENCH.set_Nvar(problem.get_CACHE().get_BENCH_CI().get_Nvar())
+        self.clear()
         self.add_T([DT_CONF,BENCH])
 
 

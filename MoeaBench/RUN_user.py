@@ -10,6 +10,7 @@ class RUN_user(RUN):
 
 
      def MOEA_execute(self,result,problem,name_moea):
+          print(problem)
           data = result.edit_DATA_conf().get_DATA_MOEA().evaluation()
           result.DATA_store_user(name_moea,data[3],data[4],data[2],data[0],data[1],problem)
       

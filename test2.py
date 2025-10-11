@@ -90,5 +90,4 @@ exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generati
 #exp.moea = moeabench.Moea.NSGA3(problem=exp.problem, population = 130, generations = 500)
 exp.run()
 
-print(exp.moea.get_elements())
 

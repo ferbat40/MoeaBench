@@ -4,7 +4,7 @@ from .UNSGA_pymoo import UNSGAPymoo
 from .RVEA_pymoo import RVEApymoo
 from .NSGA_pymoo import NSGAPymoo
 from .I_MOEA import I_MOEA
-
+from .GEN_history import GEN_history
 
 
 class RUN(I_MOEA):
@@ -26,16 +26,24 @@ class RUN(I_MOEA):
         return next(iter(self.M_register.values())) if len(self.M_register.values()) > 0 else None
       
 
-    def MOEA_execute(self,result,problem = None, name_moea = None):
+    
+
+
+    def MOEA_execute(self,result,problem = None, name_moea = None): 
             data = result.edit_DATA_conf().get_DATA_MOEA().exec()
             problem = result.edit_DATA_conf().get_problem()
+            GEN_Hist = GEN_history(data[3],[value for key,value in data[0].items()][0])
+            approx_ideal,approx_nadir,hist_F,n_evals,hist_n = GEN_Hist.evaluate() 
             result.DATA_store([key for key,value in data[0].items()][0],
-                                    data[1],
-                                    data[2],
-                                    [value for key,value in data[0].items()][0],
-                                    data[4],
-                                    data[3],
-                                    problem)
+                              data[1],
+                              data[2],
+                              [value for key,value in data[0].items()][0],
+                              hist_F,
+                              hist_n,
+                              problem,
+                              n_evals)
+            
+       
             
 
     def my_new_moea(self,problem,population,generations):

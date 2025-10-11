@@ -27,11 +27,13 @@ class CACHE(DATA_arr):
         return self.__BENCH_CI 
   
 
-  def DATA_store_user(self,name_moea,generations,population,F,F_gen,X_gen,problem):
-        evals = [population *gen  for gen in range(0,generations)]
+  def DATA_store(self,name_moea,generations,population,F,F_gen,X_gen,problem,evals):
         DT_CONF=self.get_DATA_conf()
         DT_CONF.set(name_moea,generations,population,F)
-        DT_CONF.set_METRIC_gen(self.METRIC_gen_evalue_user(F,F_gen,X_gen,evals))      
+        try:
+             DT_CONF.set_METRIC_gen(self.METRIC_gen_evalue(F,F_gen,X_gen,evals))   
+        except Exception as e:
+             pass
         BENCH=self.get_BENCH_conf()
         BENCH.set(problem.get_CACHE().get_BENCH_CI().get_M(),
                                   problem.get_CACHE().get_BENCH_CI().get_D(),
@@ -45,9 +47,9 @@ class CACHE(DATA_arr):
         self.add_T([DT_CONF,BENCH])
 
 
-  def METRIC_gen_evalue_user(self,F,F_gen,X_gen,evals):
-        M_GEN=None
-        try:
+  def METRIC_gen_evalue(self,F,F_gen,X_gen,evals):
+            M_GEN=None
+        #try:
             GEN_HV=GEN_hypervolume(F_gen,F.shape[1],F.min(axis=0),F.max(axis=0))
             GEN_GD=GEN_gd(F_gen,F)
             GEN_GDplus=GEN_gdplus(F_gen,F)
@@ -62,12 +64,12 @@ class CACHE(DATA_arr):
                                 evals,
                                 F_gen,
                                 X_gen])        
-        except Exception as e:
-            print(e)
-        return M_GEN
+        #except Exception as e:
+            #print(e)
+            return M_GEN
   
 
-  def DATA_store(self,KEY,GEN,POP,F,X,history=None,problem=None):
+  def DATA_store_n(self,KEY,GEN,POP,F,X,history=None,problem=None):
         DT_CONF=self.get_DATA_conf()
         DT_CONF.set(KEY,GEN,POP,F)
         DT_CONF.set_METRIC_gen(self.METRIC_gen_evalue(F,X,history,problem))      
@@ -84,7 +86,7 @@ class CACHE(DATA_arr):
         self.add_T([DT_CONF,BENCH])
 
 
-  def METRIC_gen_evalue(self,F,X,history,problem):
+  def METRIC_gen_evalue_n(self,F,X,history,problem):
         M_GEN=[X,[0],[0],[0],[0],[0],[0],[0],[0]]
         try:
             GEN_Hist = GEN_history(history,F)

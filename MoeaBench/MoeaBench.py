@@ -2,7 +2,6 @@ from .Benchmark import Benchmark
 from .RUN import RUN
 from .RUN_user import RUN_user
 from .CACHE import CACHE
-from .CACHE_user import CACHE_user
 from .analyse_obj_gen  import analyse_obj_gen
 import inspect
 from .result_metric import result_metric
@@ -110,7 +109,7 @@ class MoeaBench(I_UserMoeaBench):
             name_moea = self.Moea.get_moea().__name__
             execute = self.Moea_user if len(self.Moea.M_register.values()) == 1 else self.Moea
             self.Moea.M_register={}
-            execute.MOEA_execute(name_moea,self.problem,CACHE_user())
+            return execute.MOEA_execute(name_moea,self.problem)
         except Exception as e:
             print(e)
 

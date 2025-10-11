@@ -9,10 +9,10 @@ from .GEN_igdplus import GEN_igdplus
 class RUN_user(RUN):
 
 
-     def MOEA_execute(self,name_moea,problem,CACHE_user):
+     def MOEA_execute(self,name_moea,problem):
           data = self.result.edit_DATA_conf().get_DATA_MOEA().evaluation()
-          CACHE_user.DATA_store(name_moea,data[3],data[4],data[2],data[0],data[1],problem)
-         
+          self.result.DATA_store_user(name_moea,data[3],data[4],data[2],data[0],data[1],problem)
+      
     
          
            

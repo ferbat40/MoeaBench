@@ -40,7 +40,6 @@ class RUN(I_MOEA):
 
     def my_new_moea(self,problem,population,generations):
         my_moea = self.get_moea()
-      
         self.result.get_DATA_conf().set_DATA_MOEA(my_moea(problem,population,generations),problem)
         return self.result
            

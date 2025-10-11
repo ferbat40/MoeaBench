@@ -103,5 +103,10 @@ class I_DTLZ(ABC):
         pass
 
 
+    @abstractmethod
+    def evaluate(self):
+        pass
+
+
 
 

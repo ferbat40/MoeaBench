@@ -143,6 +143,11 @@ class I_DPF(ABC):
         pass
 
 
+    @abstractmethod
+    def evaluate(self):
+        pass
+
+
 
 
 

@@ -68,6 +68,13 @@ class DTLZ8(H_DTLZ):
         Xij = self.ENGINE.get_Point_in_G()
         Fijx = self.calc_f(Xij)
         return self.show_in(self.calc_gijx(Fijx),Fijx),Xij 
+    
+
+    def evaluate(self,X,n_ieq): 
+        F=self.calc_f(X)
+        G = self.calc_gijx(F)
+        return {"F" : F, "G" : -G}
+        
         
 
 

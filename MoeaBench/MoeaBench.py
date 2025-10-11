@@ -103,7 +103,7 @@ class MoeaBench(I_UserMoeaBench):
         
         
     def run(self):
-        try:
+        #try:
             if len(self.Moea.M_register.values()) > 1:
                 raise MemoryError (f'{len(self.Moea.M_register.values())} implementations where found in memory. Only one execution is allowed')
             name_moea = None 
@@ -113,9 +113,9 @@ class MoeaBench(I_UserMoeaBench):
                 pass  
             execute = self.Moea_user if len(self.Moea.M_register.values()) == 1 else self.Moea
             self.Moea.M_register={}
-            return execute.MOEA_execute(name_moea,self.problem)
-        except Exception as e:
-            print(e)
+            return execute.MOEA_execute(self.result,self.problem,name_moea)
+       #except Exception as e:
+            #print(e)
 
 
     def hypervolume(self, N = None):

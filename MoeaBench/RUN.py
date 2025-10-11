@@ -26,7 +26,7 @@ class RUN(I_MOEA):
         return next(iter(self.M_register.values())) if len(self.M_register.values()) > 0 else None
       
 
-    def MOEA_execute(self,result):
+    def MOEA_execute(self,result,problem = None, name_moea = None):
             data = result.edit_DATA_conf().get_DATA_MOEA().exec()
             problem = result.edit_DATA_conf().get_problem()
             result.DATA_store([key for key,value in data[0].items()][0],

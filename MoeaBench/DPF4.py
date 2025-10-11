@@ -74,7 +74,7 @@ class DPF4(H_DPF):
         result =  {"F" : F} 
         if n_ieq != 0:       
             result["G"] = self.constraints(F)
-            return result
+        return result
       
 
 

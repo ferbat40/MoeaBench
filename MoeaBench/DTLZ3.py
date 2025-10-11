@@ -60,7 +60,7 @@ class DTLZ3(H_DTLZ):
         result =  {"F" : F} 
         if n_ieq != 0:       
             result["G"] = self.constraints(F)
-            return result
+        return result
       
 
 

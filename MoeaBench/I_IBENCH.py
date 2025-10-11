@@ -72,9 +72,7 @@ class I_IBENCH(ABC):
         pass
 
 
-    @abstractmethod
-    def get_tuple(self):
-        pass
+
 
     
 

@@ -68,9 +68,7 @@ class InitBenchmark(evalue_constraits,constraits_1,constraits_05,I_constraints,I
         return float((self.constraits_1(F,self.get_Penalty_param()) if self.get_Constraits() == 1 else self.constraits_05(F,self.get_Penalty_param()))[0][0])
     
 
-    def get_tuple(self,arr):
-        arr = np.squeeze(arr)
-        return tuple(float(i) for i in arr)
+  
          
     
            

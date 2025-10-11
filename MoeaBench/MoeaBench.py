@@ -102,7 +102,7 @@ class MoeaBench(I_UserMoeaBench):
         
         
     def run(self):
-        try:
+        #try:
             name_moea=None
             try:
                 name_moea = self.Moea.get_moea().__name__
@@ -110,8 +110,8 @@ class MoeaBench(I_UserMoeaBench):
                 pass
             execute = self.Moea_user if len(self.Moea.M_register.values()) == 1 else self.Moea
             return execute.MOEA_execute(self.result,self.problem,name_moea)
-        except Exception as e:
-            print(e)
+        #except Exception as e:
+            #print(e)
 
 
     def hypervolume(self, N = None):

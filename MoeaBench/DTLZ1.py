@@ -68,6 +68,7 @@ class DTLZ1(H_DTLZ):
     
 
     def evaluate(self,x,n_ieq):  
+        print(self.CACHE.get_BENCH_CI().get_M()," M ")
         G=self.calc_g(x)
         F=self.calc_f(x,G)
         result =  {"F" : F} 

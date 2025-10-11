@@ -16,6 +16,8 @@ class RUN(I_MOEA):
     
     def register_moea(self):
         def decorator(cls):
+            if not len(self.M_register.values()) == 0:
+                 raise MemoryError (f'{len(self.Moea.M_register.values())} implementations where found in memory. Only one execution is allowed')
             name = cls.__name__
             self.M_register[name] = cls
             return cls

@@ -104,16 +104,12 @@ class MoeaBench(I_UserMoeaBench):
         
     def run(self):
         try:
-            for k in self.Moea.M_register.values():
-                print(k)
-            if len(self.Moea.M_register.values()) > 1:
-                raise MemoryError (f'{len(self.Moea.M_register.values())} implementations where found in memory. Only one execution is allowed')
-            name_moea = None 
+            name_moea=None
             try:
-                self.Moea.get_moea().__name__
-                print(self.Moea.get_moea().__name__)
+                name_moea = self.Moea.get_moea().__name__
+                print(self.Moea.get_moea().__name__) 
             except Exception as e:
-                pass  
+                pass
             execute = self.Moea_user if len(self.Moea.M_register.values()) == 1 else self.Moea
             return execute.MOEA_execute(self.result,self.problem,name_moea)
         except Exception as e:

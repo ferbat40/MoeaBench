@@ -19,7 +19,7 @@ class RUN(I_MOEA):
             try:
 
                 name = cls.__name__
-                if len(self.M_register) > 1:
+                if len(self.M_register) > 0:
                      raise MemoryError(f'{len(self.M_register.values())} implementations where found in memory. Only one execution is allowed')
               
 

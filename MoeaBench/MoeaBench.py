@@ -110,7 +110,6 @@ class MoeaBench(I_UserMoeaBench):
                 print(self.Moea.get_moea().__name__) 
             except Exception as e:
                 pass
-            print("troxo ",len(self.Moea.M_register.values()))
             execute = self.Moea_user if len(self.Moea.M_register.values()) == 1 else self.Moea
             return execute.MOEA_execute(self.result,self.problem,name_moea)
         except Exception as e:

@@ -4,7 +4,6 @@ from .RUN import RUN
 class RUN_user(RUN):
 
      def MOEA_execute(self,result,problem,name_moea):
-          print(problem)
           data = result.edit_DATA_conf().get_DATA_MOEA().evaluation()
           result.DATA_store(name_moea,
                             data[3],

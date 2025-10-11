@@ -48,68 +48,23 @@ class CACHE(DATA_arr):
 
 
   def METRIC_gen_evalue(self,F,F_gen,X_gen,evals):
-            M_GEN=None
-        #try:
             GEN_HV=GEN_hypervolume(F_gen,F.shape[1],F.min(axis=0),F.max(axis=0))
             GEN_GD=GEN_gd(F_gen,F)
             GEN_GDplus=GEN_gdplus(F_gen,F)
             GEN_IGD=GEN_igd(F_gen,F)
             GEN_IGDplus=GEN_igdplus(F_gen,F)    
             M_GEN = ([[0],
-                                GEN_HV.evaluate(),
-                                GEN_GD.evaluate(),
-                                GEN_GDplus.evaluate(),
-                                GEN_IGD.evaluate(),
-                                GEN_IGDplus.evaluate(),
-                                evals,
-                                F_gen,
-                                X_gen])        
-        #except Exception as e:
-            #print(e)
+                      GEN_HV.evaluate(),
+                      GEN_GD.evaluate(),
+                      GEN_GDplus.evaluate(),
+                      GEN_IGD.evaluate(),
+                      GEN_IGDplus.evaluate(),
+                      evals,
+                      F_gen,
+                      X_gen])        
             return M_GEN
   
-
-  def DATA_store_n(self,KEY,GEN,POP,F,X,history=None,problem=None):
-        DT_CONF=self.get_DATA_conf()
-        DT_CONF.set(KEY,GEN,POP,F)
-        DT_CONF.set_METRIC_gen(self.METRIC_gen_evalue(F,X,history,problem))      
-        BENCH=self.get_BENCH_conf()
-        BENCH.set(problem.get_CACHE().get_BENCH_CI().get_M(),
-                                  problem.get_CACHE().get_BENCH_CI().get_D(),
-                                  problem.__class__.__name__.split("_")[1],
-                                  problem.get_CACHE().get_BENCH_CI().get_P(),
-                                  problem.get_CACHE().get_BENCH_CI().get_K(),
-                                  problem.get_CACHE().get_BENCH_CI().get_n_ieq_constr(),
-                                  problem.get_CACHE().get_BENCH_CI().get_BENCH_Nvar())
-        BENCH.set_Nvar(problem.get_CACHE().get_BENCH_CI().get_Nvar())
-        self.clear()
-        self.add_T([DT_CONF,BENCH])
-
-
-  def METRIC_gen_evalue_n(self,F,X,history,problem):
-        M_GEN=[X,[0],[0],[0],[0],[0],[0],[0],[0]]
-        try:
-            GEN_Hist = GEN_history(history,F)
-            approx_ideal,approx_nadir,hist_F,n_evals,hist_n = GEN_Hist.evaluate()
-            GEN_HV=GEN_hypervolume(hist_F,problem.get_CACHE().get_BENCH_CI().get_M(),approx_ideal,approx_nadir)
-            GEN_GD=GEN_gd(hist_F,F)
-            GEN_GDplus=GEN_gdplus(hist_F,F)
-            GEN_IGD=GEN_igd(hist_F,F)
-            GEN_IGDplus=GEN_igdplus(hist_F,F)    
-            M_GEN = ([X,
-                                GEN_HV.evaluate(),
-                                GEN_GD.evaluate(),
-                                GEN_GDplus.evaluate(),
-                                GEN_IGD.evaluate(),
-                                GEN_IGDplus.evaluate(),
-                                n_evals,
-                                hist_F,
-                                hist_n])        
-        except Exception as e:
-            pass
-        return M_GEN
   
-
   def get_DATA_conf(self):
        self.data_conf=DATA_conf()
        return self.data_conf

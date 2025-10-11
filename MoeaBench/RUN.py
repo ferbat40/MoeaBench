@@ -24,10 +24,7 @@ class RUN(I_MOEA):
 
     def get_moea(self):
         return next(iter(self.M_register.values())) if len(self.M_register.values()) > 0 else None
-      
-
     
-
 
     def MOEA_execute(self,result,problem = None, name_moea = None): 
             data = result.edit_DATA_conf().get_DATA_MOEA().exec()
@@ -42,8 +39,6 @@ class RUN(I_MOEA):
                               hist_n,
                               problem,
                               n_evals)
-            
-       
             
 
     def my_new_moea(self,problem,population,generations):

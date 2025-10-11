@@ -19,19 +19,6 @@ class ALLOWED:
         if not self.allowed_str(BENCH):
             raise ValueError('Is not allowed special characters for name of the Benchmark or strings less than 3')#
         
-        #if not self.allowed_int(M):
-           # raise ValueError('Only integer types for M are allowed')#
-        
-        #if not self.allowed_int(D):
-            #raise ValueError('Only integer types for D are allowed')#
-        
-       # if not self.allowed_int(K):
-            #raise ValueError('Only integer types for K are allowed')#
-        
-        #if not self.allowed_int(N):
-           # raise ValueError('Only integer types for N are allowed')#   
-
-        #M = int(M)
         N = int(N)
 
         #if not M>0:
@@ -50,11 +37,7 @@ class ALLOWED:
         if not self.allowed_str(description):
             raise ValueError('Is not allowed special characters for name of the MOEA or strings less than 3')#
         
-        #if not self.allowed_int(generations):
-            #raise ValueError('Only integer types for generations are allowed')#
-        
-        #if not self.allowed_int(population):
-           # raise ValueError('Only integer types for population are allowed')#
+       
         
         generations=int(generations)
         population=int(population)

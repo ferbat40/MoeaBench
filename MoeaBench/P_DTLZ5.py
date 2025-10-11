@@ -36,6 +36,6 @@ class P_DTLZ5(DTLZ5):
             if self.get_ENGINE().K_validate(self.get_CACHE().get_BENCH_CI().get_K()) == True and self.get_ENGINE().M_validate(self.get_CACHE().get_BENCH_CI().get_M()) == True:
                 F, X = self.minimize()
                 for key,value in F.items():
-                    self.get_CACHE().DATA_store(key,0,0,value,X,0,self) 
+                    self.get_CACHE().DATA_store(key,0,0,value,[0],[0],self,[0]) 
         except Exception as e:
             print(e)

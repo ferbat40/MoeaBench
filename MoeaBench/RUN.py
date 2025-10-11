@@ -17,18 +17,13 @@ class RUN(I_MOEA):
     def register_moea(self):
         def decorator(cls):
             try:
-
                 name = cls.__name__
                 if len(self.M_register) > 0:
-                     raise MemoryError(f'{len(self.M_register.values())} implementations where found in memory. Only one execution is allowed')
-              
-
+                     raise MemoryError("There is already an implementation of the user's MOEA registered")
                 self.M_register[name] = cls
             except Exception as e:
                  print(e)
             return cls
-        
-
         return decorator
 
 

@@ -110,10 +110,10 @@ class MoeaBench(I_UserMoeaBench):
             name_moea = None 
             try:
                 self.Moea.get_moea().__name__
+                print(self.Moea.get_moea().__name__)
             except Exception as e:
                 pass  
             execute = self.Moea_user if len(self.Moea.M_register.values()) == 1 else self.Moea
-            #self.Moea.M_register={}
             return execute.MOEA_execute(self.result,self.problem,name_moea)
        #except Exception as e:
             #print(e)
@@ -186,10 +186,7 @@ class MoeaBench(I_UserMoeaBench):
         pass
     
 
-    #def my_new_moea(self,problem,population,generations):
-       # dd = self.get_moea()
-       # tt = dd(problem,population,generations)
-        #tt.evaluation()
+
 
  
 

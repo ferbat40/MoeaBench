@@ -16,7 +16,6 @@ from .save import save
 from .loader import loader
 
 
-
 class MoeaBench(I_UserMoeaBench):
 
     def __init__(self):

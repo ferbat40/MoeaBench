@@ -31,6 +31,16 @@ class I_MOEA(ABC):
     def MOEA_execute(self):
         pass
 
+    
+    @abstractmethod
+    def register_moea(self):
+        pass
+    
+
+    @abstractmethod
+    def get_moea(self):
+        pass
+
 
 
 

@@ -18,6 +18,7 @@ class NSGA2deap(BaseMoea):
     self.problem=problem
     self.generations=generations
     self.population = population
+    self.n_ieq= self.problem.get_CACHE().get_BENCH_CI().get_n_ieq_constr()
     creator.create("FitnessMin", base.Fitness, weights=(-1.0,) * self.problem.get_CACHE().get_BENCH_CI().get_M())
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
     self.toolbox = base.Toolbox()
@@ -41,8 +42,14 @@ class NSGA2deap(BaseMoea):
 
   def evaluate(self,X):
     arr = np.array([X])
-    G = self.problem.calc_g(arr)
-    F = self.problem.get_tuple(self.problem.calc_f(arr,G))
+    #G = self.problem.calc_g(arr)
+    #F = self.problem.calc_f(arr,G)
+    result = self.problem.evaluate(arr,self.n_ieq)
+    F=result['F']
+
+    arr = np.squeeze(F)
+    F= tuple(float(i) for i in arr)
+    print(F)
     return F
 
 

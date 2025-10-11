@@ -56,6 +56,7 @@ class DTLZ1(H_DTLZ):
      
 
     def calc_g(self,X):
+        print(X)
         M = self.CACHE.get_BENCH_CI().get_M()
         K = self.CACHE.get_BENCH_CI().get_K()
         return 100*(K+np.sum(np.array([(((Xi-0.5)**2) - np.cos(20*np.pi*(Xi-0.5))) 
@@ -68,7 +69,6 @@ class DTLZ1(H_DTLZ):
     
 
     def evaluate(self,x,n_ieq):  
-        print(self.CACHE.get_BENCH_CI().get_M()," M ")
         G=self.calc_g(x)
         F=self.calc_f(x,G)
         result =  {"F" : F} 

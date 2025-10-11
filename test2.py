@@ -82,7 +82,8 @@ class NSGA2deap(BaseMoea):
       F_gen_all.append(np.column_stack([np.array([ind.fitness.values for ind in pop ])]))
       X_gen_all.append(np.column_stack([np.array([np.array(ind) for ind in pop ])]))  
     F = np.column_stack([np.array([ind.fitness.values for ind in pop ])])
-    return F_gen_all,X_gen_all,F 
+    return F_gen_all,X_gen_all,F,self.generations,self.population
+ 
  
 exp.problem = moeabench.benchmark.DTLZ1()
 exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 300)

@@ -13,15 +13,6 @@ os.system("cls")
 
 exp  = moeabench()
 
-@exp.Moea.register_moea()
-class NSGA2deap(BaseMoea):
-  def __init__(self,problem,population,generations):
-    self.problem=problem
-    self.population=population
-    self.generations=generations
-
-  def evaluation(self):
-    print(self.problem,self.population,self.generations)
 
 
 
@@ -30,8 +21,9 @@ class NSGA2deap(BaseMoea):
 
 
 
-exp.moea = exp.Moea.my_new_moea(30,50,60)
-exp.run()
+
+#exp.moea = exp.Moea.my_new_moea(30,50,60)
+#exp.run()
 
 
 

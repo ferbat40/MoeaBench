@@ -1,21 +1,20 @@
 from .RUN import RUN
+from .GEN_hypervolume import GEN_hypervolume
+from .GEN_gd import GEN_gd
+from .GEN_gdplus import GEN_gdplus 
+from .GEN_igd import GEN_igd
+from .GEN_igdplus import GEN_igdplus
+
 
 class RUN_user(RUN):
 
 
-     def MOEA_execute(self,result):
-          data = result.edit_DATA_conf().get_DATA_MOEA().evaluation()
-          print(data[2].shape)
-          #for idx, i in enumerate(data[1], start = 0):
-               
-               #print(i.shape," gen ",idx)
-               #for b in i:
-                    #print(b,"  gen ",idx)
-          
-          #nome,
-          #GEN,
-          # POP,
-          # F,
-          # X,
-          # history,
-          # problem
+     def MOEA_execute(self,name_moea,problem,CACHE_user):
+          data = self.result.edit_DATA_conf().get_DATA_MOEA().evaluation()
+          CACHE_user.DATA_store(name_moea,data[3],data[4],data[2],data[0],data[1],problem)
+         
+    
+         
+           
+
+        

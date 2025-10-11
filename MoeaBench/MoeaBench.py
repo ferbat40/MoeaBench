@@ -113,7 +113,7 @@ class MoeaBench(I_UserMoeaBench):
             except Exception as e:
                 pass  
             execute = self.Moea_user if len(self.Moea.M_register.values()) == 1 else self.Moea
-            self.Moea.M_register={}
+            #self.Moea.M_register={}
             return execute.MOEA_execute(self.result,self.problem,name_moea)
        #except Exception as e:
             #print(e)

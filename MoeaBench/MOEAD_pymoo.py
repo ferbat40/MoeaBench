@@ -24,18 +24,12 @@ class MOEADpymoo(Problem):
         super(). __init__(n_var=self.Nvar, n_obj=  self.objectives, xl=xl, xu=xu)
 
          
-    def _evaluate(self, x, out, *args, **kwargs):   
-        N_Bench = self.BENCH_Nvar
-         
-        if N_Bench <=7 or N_Bench >= 10:
-            Gxm=self.benchmark.calc_g(x)
-            F=self.benchmark.calc_f(x,Gxm)
-            out["F"]=F
-            
-
-        elif N_Bench==8 or N_Bench==9:
-            F=self.benchmark.calc_gijx(x)
-
+    def _evaluate(self, x, out, *args, **kwargs):  
+        result = self.benchmark.evaluate(x,0)
+        out["F"]=result['F']
+        if "G" in result:
+            out["G"]=result['G'] 
+        
 
     def exec(self):
         ref_dirs = get_reference_directions("energy", self.objectives, self.population, seed = self.seed)  

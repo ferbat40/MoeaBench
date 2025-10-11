@@ -25,22 +25,11 @@ class NSGAPymoo(Problem):
 
 
     def _evaluate(self, x, out, *args, **kwargs):    
-        N_Bench = self.BENCH_Nvar   
-       
-        if N_Bench <=7 or N_Bench >= 10:
-            G=self.benchmark.calc_g(x)
-            F=self.benchmark.calc_f(x,G)
-            out["F"]=F
-            if self.n_ieq != 0:      
-                out["G"]=self.benchmark.constraints(F)
+        result = self.benchmark.evaluate(x,0)
+        out["F"]=result['F']
+        if "G" in result:
+            out["G"]=result['G'] 
             
-
-        elif N_Bench==8 or N_Bench==9:
-            F=self.benchmark.calc_f(x)
-            out["F"]=F
-            G = self.benchmark.calc_gijx(F)
-            out["G"]=-G
-           
        
     def exec(self):
         ref_dirs = get_reference_directions("energy", self.M, self.population, seed = self.seed)

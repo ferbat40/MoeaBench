@@ -106,6 +106,15 @@ class DPF5(H_DPF):
     def minimize(self):
         X = self.ENGINE.get_Point_in_G()
         return self.show_in(self.calc_f(X,self.calc_g(X))),X
+    
+
+    def evaluate(self,x,n_ieq):  
+        G=self.calc_g(x)
+        F=self.calc_f(x,G)
+        result =  {"F" : F} 
+        if n_ieq != 0:       
+            result["G"] = self.constraints(F)
+            return result
       
 
       

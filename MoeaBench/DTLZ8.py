@@ -72,8 +72,11 @@ class DTLZ8(H_DTLZ):
 
     def evaluate(self,X,n_ieq): 
         F=self.calc_f(X)
-        G = self.calc_gijx(F)
-        return {"F" : F, "G" : -G}
+        result = {"F" : F}
+        if n_ieq != 0:
+            G = self.calc_gijx(F)
+            result['G']=-G
+        return result
         
         
 

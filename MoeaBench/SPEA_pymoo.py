@@ -22,22 +22,12 @@ class SPEAPymoo(Problem):
         xu = np.full(self.Nvar,1)
         super().__init__(n_var=self.Nvar, n_obj=self.M, n_ieq_constr=self.n_ieq, xl=xl, xu=xu)
     
+    
     def _evaluate(self, x, out, *args, **kwargs):   
-        N_Bench = self.BENCH_Nvar
-   
-        if N_Bench <=7 or N_Bench >= 10:
-            Gxm=self.benchmark.calc_g(x)
-            F=self.benchmark.calc_f(x,Gxm)
-            out["F"]=F
-            if self.n_ieq != 0:  
-                out["G"]=self.benchmark.constraints(F)
-
-
-        elif N_Bench==8 or N_Bench==9:
-            F=self.benchmark.calc_f(x)
-            out["F"]=F
-            G = self.benchmark.calc_gijx(F)
-            out["G"]=-G
+        result = self.benchmark.evaluate(x,self.n_ieq)
+        out["F"]=result['F']
+        if "G" in result:
+            out["G"]=result['G']
 
 
     def exec(self):

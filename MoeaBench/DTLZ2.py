@@ -52,8 +52,7 @@ class DTLZ2(H_DTLZ):
         return self.show_in(self.eval_cons(self.calc_f(X,self.calc_g(X)))),X
     
 
-    def evaluate(self,x,n_ieq):
-        
+    def evaluate(self,x,n_ieq):  
         G=self.calc_g(x)
         F=self.calc_f(x,G)
         result =  {"F" : F} 
@@ -61,10 +60,7 @@ class DTLZ2(H_DTLZ):
             result["G"] = self.constraints(F)
             return result
        
-        #return {"F" : F, "G" : G} 
-            #out["F"]=F
-            #if self.n_ieq != 0:              
-              # out["G"]=self.benchmark.constraints(F)
+
       
 
 

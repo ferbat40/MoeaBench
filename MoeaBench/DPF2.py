@@ -72,8 +72,6 @@ class DPF2(H_DPF):
         G=self.calc_g(x)
         F=self.calc_f(x,G)
         result =  {"F" : F} 
-        if n_ieq != 0:       
-            result["G"] = self.constraints(F)
         return result
                 
       

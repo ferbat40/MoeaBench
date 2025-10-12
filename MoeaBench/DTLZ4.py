@@ -56,8 +56,9 @@ class DTLZ4(H_DTLZ):
         G=self.calc_g(x)
         F=self.calc_f(x,G)
         result =  {"F" : F} 
-        if n_ieq != 0:       
+        if n_ieq != 0:      
             result["G"] = self.constraints(F)
+            result["feasible"] = np.all(result["G"] >=0)
         return result
       
 

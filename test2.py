@@ -61,6 +61,7 @@ class NSGA2deap(BaseMoea):
 
     if 'G' in self.resul:
       if self.resul["feasible"]:
+       #print(np.sum(self.resul["F"], axis = 1))
        return False
     return True
 

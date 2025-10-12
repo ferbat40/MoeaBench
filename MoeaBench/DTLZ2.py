@@ -58,6 +58,7 @@ class DTLZ2(H_DTLZ):
         result =  {"F" : F} 
         if n_ieq != 0:       
             result["G"] = self.constraints(F)
+            result["feasible"] >= np.all(G >=0)
         return result
        
 

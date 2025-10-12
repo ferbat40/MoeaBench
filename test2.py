@@ -49,9 +49,8 @@ class NSGA2deap(BaseMoea):
 
 
   def evaluate(self,X):
-    result = self.problem.evaluate(np.array([X]),self.n_ieq)
-    self.temp=result
-    return result['F'][0]
+    self.temp = self.problem.evaluate(np.array([X]),self.n_ieq)
+    return self.temp['F'][0]
 
 
   def feasible(self,X):
@@ -59,9 +58,9 @@ class NSGA2deap(BaseMoea):
     if 'G' in self.temp:
           if self.temp['feasible']:
             print(self.temp['G'])
-            return True
-          else:
             return False
+          else:
+            return True
     return True
 
 
@@ -97,7 +96,7 @@ class NSGA2deap(BaseMoea):
  
 
 exp.problem = moeabench.benchmark.DTLZ1()
-exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 300)
+exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 500)
 #exp.moea = moeabench.Moea.NSGA3(problem=exp.problem, population = 130, generations = 500)
 exp.run()
 

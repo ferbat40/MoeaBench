@@ -25,6 +25,7 @@ class NSGA2deap(BaseMoea):
     self.problem=problem
     self.generations=generations
     self.population = population
+    self.temp=None
     self.n_ieq= self.problem.get_CACHE().get_BENCH_CI().get_n_ieq_constr()
     creator.create("FitnessMin", base.Fitness, weights=(-1.0,) * self.problem.get_CACHE().get_BENCH_CI().get_M())
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
@@ -49,15 +50,19 @@ class NSGA2deap(BaseMoea):
 
   def evaluate(self,X):
     result = self.problem.evaluate(np.array([X]),self.n_ieq)
+    self.temp=result
     return result['F'][0]
 
 
   def feasible(self,X):
-    F = np.array([self.evalue(X)])
-    result = self.problem.evaluate(np.array([X]),self.n_ieq,F)
-    if np.all(result['G'] < 0):
-      return True
-    return False
+    self.evalue(X)
+    if 'G' in self.temp:
+          if self.temp['feasible']:
+            print(self.temp['G'])
+            return True
+          else:
+            return False
+    return True
 
 
   def evaluation(self):

@@ -12,12 +12,20 @@ os.system("cls")
 exp  = moeabench()
 
 
+from MoeaBench.base_moea import BaseMoea
+from deap import base, creator, tools, algorithms
+import numpy as np
+import array
+import random
+
+
 @exp.Moea.register_moea()
 class NSGA2deap(BaseMoea):
   def __init__(self,problem,population,generations):
     self.problem=problem
     self.generations=generations
     self.population = population
+    self.n_ieq= self.problem.get_CACHE().get_BENCH_CI().get_n_ieq_constr()
     creator.create("FitnessMin", base.Fitness, weights=(-1.0,) * self.problem.get_CACHE().get_BENCH_CI().get_M())
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
     self.toolbox = base.Toolbox()
@@ -40,16 +48,14 @@ class NSGA2deap(BaseMoea):
 
 
   def evaluate(self,X):
-    arr = np.array([X])
-    G = self.problem.calc_g(arr)
-    F = self.problem.get_tuple(self.problem.calc_f(arr,G))
-    return F
+    result = self.problem.evaluate(np.array([X]),self.n_ieq)
+    return result['F'][0]
 
 
   def feasible(self,X):
     F = np.array([self.evalue(X)])
-    G = self.problem.calc_gijx(F)
-    if np.all(G >=0):
+    result = self.problem.evaluate(np.array([X]),self.n_ieq,F)
+    if np.all(result['G'] < 0):
       return True
     return False
 
@@ -80,7 +86,7 @@ class NSGA2deap(BaseMoea):
         ind.fitness.values = fit
       pop = self.toolbox.select(pop + offspring, len(pop))
       F_gen_all.append(np.column_stack([np.array([ind.fitness.values for ind in pop ])]))
-      X_gen_all.append(np.column_stack([np.array([np.array(ind) for ind in pop ])]))  
+      X_gen_all.append(np.column_stack([np.array([np.array(ind) for ind in pop ])]))
     F = np.column_stack([np.array([ind.fitness.values for ind in pop ])])
     return F_gen_all,X_gen_all,F,self.generations,self.population
  

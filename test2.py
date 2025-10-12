@@ -49,18 +49,20 @@ class NSGA2deap(BaseMoea):
 
 
   def evaluate(self,X):
-    self.temp = self.problem.evaluate(np.array([X]),self.n_ieq)
-    return self.temp['F'][0]
+    self.resul = self.problem.evaluate(np.array([X]),self.n_ieq)
+    return self.resul['F'][0]
 
 
   def feasible(self,X):
-    self.evalue(X)
-    if 'G' in self.temp:
-          if self.temp['feasible']:
-            print(self.temp['G'])
-            return False
-          else:
-            return True
+    self.evaluate(X)
+    #result = self.problem.evaluate(np.array([X]),self.n_ieq)
+
+    
+
+    if 'G' in self.resul:
+      if self.resul["feasible"]:
+       print(np.sum(self.resul["F"], axis = 1))
+       return False
     return True
 
 

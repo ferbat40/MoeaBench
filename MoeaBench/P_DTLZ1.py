@@ -21,7 +21,7 @@ class P_DTLZ1(DTLZ1):
 
 
     def set_BENCH_conf(self):
-        self.set_Penalty_param(0.65)   
+        self.set_Penalty_param(0.50)   
         self.get_CACHE().set_BENCH_CI(self.M,0,10,self.P,self.K,1,1) 
         self.get_CACHE().get_BENCH_CI().set_Nvar()
         self.get_ENGINE().set_Point()

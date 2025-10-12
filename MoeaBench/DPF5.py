@@ -114,7 +114,7 @@ class DPF5(H_DPF):
         result =  {"F" : F} 
         if n_ieq != 0:       
             result["G"] = self.constraints(F)
-            result["feasible"] = np.all(result["G"] >=0)
+            result["feasible"] = np.all(result["G"] ==0)
         return result
       
 

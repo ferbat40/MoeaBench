@@ -5,8 +5,7 @@ from .H_DPF import H_DPF
 class DPF2(H_DPF):
    
    
-   def __init__(self, ENGINE, CACHE, **kwargs):
-        self.ENGINE=ENGINE
+   def __init__(self, CACHE, **kwargs):
         self.CACHE=CACHE
         super().__init__(metodhs=set([4,5,6,7]),
                          methods_R1=set([]),
@@ -64,7 +63,7 @@ class DPF2(H_DPF):
      
 
    def minimize(self):
-         X = self.ENGINE.get_Point_in_G()
+         X = self.get_Point_in_G()
          return self.show_in(self.calc_f(X,self.calc_g(X))),X
    
 

@@ -132,11 +132,6 @@ class I_DPF(ABC):
     def get_method_R2(self):
         pass
 
-    
-    @abstractmethod
-    def get_ENGINE(self):
-        pass
-
 
     @abstractmethod
     def get_CACHE(self):

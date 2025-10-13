@@ -12,7 +12,6 @@ from .P_DPF2 import P_DPF2
 from .P_DPF3 import P_DPF3
 from .P_DPF4 import P_DPF4
 from .P_DPF5 import P_DPF5
-from .ENGINE import ENGINE
 from .CACHE import CACHE
 
 
@@ -20,18 +19,6 @@ class Benchmark:
 
     def __init__(self):
         self.cache=None
-
-
-    """  
-    - Instância:    
-      problem = PROBLEM(Engine)  
-
-    - PROBLEM contém implementações de problemas de teste Benchmark.
-    - NOTES:
-      - Para informações sobre a classe:
-      https://evobench.github.io/benchmark/problems/DTLZ1/DTLZ1/  
-    """   
-   
 
 
     def DTLZ1(self, *, M = 3, K = 5, P = 700):
@@ -59,7 +46,7 @@ class Benchmark:
 
         """
         self.cache = CACHE()
-        bk = P_DTLZ1(ENGINE(self.cache), M, K, P,self.cache)
+        bk = P_DTLZ1(M, K, P,self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -91,7 +78,7 @@ class Benchmark:
         """
 
         self.cache = CACHE()
-        bk = P_DTLZ2(ENGINE(self.cache), M, K, P,self.cache)
+        bk = P_DTLZ2(M, K, P,self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -122,7 +109,7 @@ class Benchmark:
             para geração de pontos referente ao problema.        
         """
         self.cache = CACHE()
-        bk = P_DTLZ3(ENGINE(self.cache), M, K, P,self.cache)
+        bk = P_DTLZ3(M, K, P,self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -153,7 +140,7 @@ class Benchmark:
             para geração de pontos referente ao problema.        
         """
         self.cache = CACHE()
-        bk =  P_DTLZ4(ENGINE(self.cache), M, K, P,self.cache)
+        bk =  P_DTLZ4(M, K, P,self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -185,7 +172,7 @@ class Benchmark:
         """
 
         self.cache = CACHE()
-        bk = P_DTLZ5(ENGINE(self.cache), M, K, P,self.cache)
+        bk = P_DTLZ5(M, K, P,self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -216,7 +203,7 @@ class Benchmark:
             para geração de pontos referente ao problema.        
         """
         self.cache = CACHE()
-        bk = P_DTLZ6(ENGINE(self.cache), M, K, P, self.cache)
+        bk = P_DTLZ6(M, K, P, self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -247,7 +234,7 @@ class Benchmark:
             para geração de pontos referente ao problema.        
         """
         self.cache=CACHE()
-        bk = P_DTLZ7(ENGINE(self.cache), M, K, P,self.cache)
+        bk = P_DTLZ7(M, K, P,self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -277,7 +264,7 @@ class Benchmark:
          https://evobench.github.io/benchmark/problems/DTLZ8/DTLZ8/      
         """
         self.cache = CACHE()
-        bk = P_DTLZ8(ENGINE(self.cache), M , N , P, self.cache)
+        bk = P_DTLZ8(M , N , P, self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -308,7 +295,7 @@ class Benchmark:
             para geração de pontos referente ao problema.        
         """
         self.cache = CACHE()
-        bk = P_DTLZ9(ENGINE(self.cache), M, N, P, self.cache)
+        bk = P_DTLZ9(M, N, P, self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -341,7 +328,7 @@ class Benchmark:
             para geração de pontos referente ao problema.        
         """
         self.cache = CACHE()
-        bk =  P_DPF1(ENGINE(self.cache), M, K, D, P, self.cache)
+        bk =  P_DPF1(M, K, D, P, self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -374,7 +361,7 @@ class Benchmark:
             para geração de pontos referente ao problema.        
         """
         self.cache = CACHE()
-        bk =  P_DPF2(ENGINE(self.cache), M, K, D, P, self.cache)
+        bk =  P_DPF2(M, K, D, P, self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -407,7 +394,7 @@ class Benchmark:
             para geração de pontos referente ao problema.        
         """
         self.cache = CACHE()
-        bk = P_DPF3(ENGINE(self.cache), M, K, D, P, self.cache)
+        bk = P_DPF3(M, K, D, P, self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -440,7 +427,7 @@ class Benchmark:
             para geração de pontos referente ao problema.        
         """
         self.cache = CACHE()
-        bk = P_DPF4(ENGINE(self.cache), M, K, D, P, self.cache)
+        bk = P_DPF4(M, K, D, P, self.cache)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk
@@ -471,7 +458,7 @@ class Benchmark:
          https://evobench.github.io/benchmark/problems/DPF5/DPF5/
         """
         self.cache = CACHE()
-        bk = P_DPF5(ENGINE(self.cache), M, K, D, P, self.cache)
+        bk = P_DPF5(M, K, D, P, self.cache)
         bk.set_BENCH_conf()
         bk.POFsamples()
         return bk

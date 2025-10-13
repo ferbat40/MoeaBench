@@ -13,7 +13,7 @@ exp  = moeabench()
 
 
 from MoeaBench.base_moea import BaseMoea
-from deap import base, creator, tools, algorithms
+from deap import base, creator, tools
 import numpy as np
 import array
 import random

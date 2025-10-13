@@ -92,11 +92,6 @@ class I_DTLZ(ABC):
     def get_method(self):
         pass
 
-    
-    @abstractmethod
-    def get_ENGINE(self):
-        pass
-
 
     @abstractmethod
     def get_CACHE(self):

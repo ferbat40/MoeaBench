@@ -4,8 +4,7 @@ from .H_DTLZ import H_DTLZ
 
 class DTLZ2(H_DTLZ):
 
-    def __init__(self, ENGINE, CACHE, **kwargs):
-        self.ENGINE=ENGINE
+    def __init__(self, CACHE, **kwargs):
         self.CACHE=CACHE
         super().__init__(metodhs=set([1,2,3,5]),
                          **kwargs)
@@ -48,7 +47,7 @@ class DTLZ2(H_DTLZ):
     
 
     def minimize(self):
-        X = self.ENGINE.get_Point_in_G()
+        X = self.get_Point_in_G()
         return self.show_in(self.eval_cons(self.calc_f(X,self.calc_g(X)))),X
     
 

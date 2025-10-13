@@ -46,11 +46,6 @@ class I_IBENCH(ABC):
     def constraints(self):
         pass
 
-
-    @abstractmethod
-    def const_value(self):
-        pass
-
     
     @abstractmethod
     def set_lower(self):

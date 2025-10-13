@@ -25,7 +25,7 @@ class NSGAPymoo(Problem):
 
 
     def _evaluate(self, x, out, *args, **kwargs):    
-        result = self.benchmark.evaluate(x,0)
+        result = self.benchmark.evaluate(x,self.n_ieq)
         out["F"]=result['F']
         if "G" in result:
             out["G"]=result['G'] 

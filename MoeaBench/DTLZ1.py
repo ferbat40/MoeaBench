@@ -73,7 +73,7 @@ class DTLZ1(H_DTLZ):
         result =  {"F" : F} 
         if n_ieq != 0:       
             result["G"] = self.constraints(F)
-            result["feasible"] = np.all(-0.001 <= result["G"] <= 0.001 )
+            result["feasible"] = np.any((result["G"]<-0.0000001)  | (result["G"] > 0.0000001) )
         return result
       
 

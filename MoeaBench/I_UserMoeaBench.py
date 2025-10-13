@@ -98,11 +98,6 @@ class I_UserMoeaBench(ABC):
         pass
 
 
-    #@abstractmethod
-    #def my_new_moea(self):
-        #pass
-
-
     @abstractmethod
     def my_new_benchmark(self):
         pass

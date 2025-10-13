@@ -1,7 +1,3 @@
-import numpy as np
-import inspect
-
-
 class ALLOWED:    
         
     def K_validate(self,K_N):

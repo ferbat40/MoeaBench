@@ -57,6 +57,7 @@ class NSGA2deap(BaseMoea):
     self.evaluate(X)
     if 'G' in self.resul:
       if self.resul["feasible"]:
+       print(self.resul['F'])
        return False
     return True
 
@@ -92,7 +93,7 @@ class NSGA2deap(BaseMoea):
     return F_gen_all,X_gen_all,F,self.generations,self.population
  
 
-exp.problem = moeabench.benchmark.DTLZ1()
+exp.problem = moeabench.benchmark.DTLZ8()
 exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 500)
 #exp.moea = moeabench.Moea.NSGA3(problem=exp.problem, population = 130, generations = 500)
 exp.run()

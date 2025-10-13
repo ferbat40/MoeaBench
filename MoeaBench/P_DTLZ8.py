@@ -10,6 +10,10 @@ class P_DTLZ8(DTLZ8):
         self.P = P
         super().__init__(CACHE=CACHE, **kwargs)
 
+
+    def get_CACHE(self):
+        return self.CACHE
+
     
     def set_BENCH_conf(self): 
         self.get_CACHE().set_BENCH_CI(self.M,0,80,self.P,0,self.M,8)

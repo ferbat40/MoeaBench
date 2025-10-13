@@ -38,13 +38,12 @@ class plot_gen(analyse):
              self.output.clear_output()  
              vet_pts=[i for i in self.axis_DATA]
              self.figure.data=()
-             colors = ['red', 'blue', 'green','orange','purple','black','brown','yellow','cyan','gray']
-             for pts, cl, lbl in zip( vet_pts, colors, self.label ):
+             for pts, lbl in zip( vet_pts, self.label ):
                  pts=np.array(pts)
                  self.figure.add_trace(go.Scatter(
                      x = pts[0], y = pts[1],
                      mode='lines+markers',
-                     marker=dict(size=3, color=cl),
+                     marker=dict(size=3),
                      name=f'{lbl}',
                      showlegend=True,
                      hovertemplate = (f"{lbl}<br>"

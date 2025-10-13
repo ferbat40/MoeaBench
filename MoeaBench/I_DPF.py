@@ -133,9 +133,6 @@ class I_DPF(ABC):
         pass
 
 
-    @abstractmethod
-    def evaluatation(self):
-        pass
 
 
 

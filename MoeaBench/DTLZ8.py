@@ -76,7 +76,7 @@ class DTLZ8(H_DTLZ):
         if n_ieq != 0:
             G = self.calc_gijx(F)
             result['G']=-G
-            result["feasible"] = np.all((0.0 <= G) & (G <= 1.0))
+            result["feasible"] = np.any(G < 0)
         return result
         
         

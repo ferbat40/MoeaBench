@@ -67,7 +67,7 @@ class DTLZ1(H_DTLZ):
         return self.show_in(self.eval_cons(self.calc_f(X,self.calc_g(X)),False)),X
     
 
-    def evaluate(self,x,n_ieq, F_evaluate = []):  
+    def evaluate(self,x,n_ieq):  
         G=self.calc_g(x)
         F=self.calc_f(x,G)
         result =  {"F" : F} 

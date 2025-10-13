@@ -66,13 +66,13 @@ class DPF3(H_DPF):
         return self.show_in(self.calc_f(X,self.calc_g(X))),X
      
 
-     def evaluate(self,x,n_ieq, F_evaluate = []):  
+     def evaluate(self,x,n_ieq):  
         G=self.calc_g(x)
         F=self.calc_f(x,G)
         result =  {"F" : F} 
         if n_ieq != 0:       
             result["G"] = self.constraints(F)
-            result["feasible"] = np.all(-0.001 <= result["G"] <= 0.001 )
+            result["feasible"] = np.any((result["G"] <-0.00000000001)  | (result["G"] > 0.00000000001) )
         return result
       
 

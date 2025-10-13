@@ -70,8 +70,8 @@ class DTLZ8(H_DTLZ):
         return self.show_in(self.calc_gijx(Fijx),Fijx),Xij 
     
 
-    def evaluate(self,X,n_ieq, F_evaluate = []): 
-        F=self.calc_f(X) if len(F_evaluate) == 0  else F_evaluate
+    def evaluate(self,X,n_ieq): 
+        F=self.calc_f(X) 
         result = {"F" : F}
         if n_ieq != 0:
             G = self.calc_gijx(F)

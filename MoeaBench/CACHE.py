@@ -37,7 +37,7 @@ class CACHE(DATA_arr):
         BENCH=self.get_BENCH_conf()
         BENCH.set(problem.get_CACHE().get_BENCH_CI().get_M(),
                                   problem.get_CACHE().get_BENCH_CI().get_D(),
-                                  problem.__class__.__name__.split("_")[1],
+                                  name_benchmaark,
                                   problem.get_CACHE().get_BENCH_CI().get_P(),
                                   problem.get_CACHE().get_BENCH_CI().get_K(),
                                   problem.get_CACHE().get_BENCH_CI().get_n_ieq_constr(),

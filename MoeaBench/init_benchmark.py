@@ -68,14 +68,9 @@ class InitBenchmark(evalue_constraits,constraits_1,constraits_05,I_constraints,I
     def get_Point_in_G(self):
         return self.__Point_in_G 
     
-    
-    def get_Point_out_G(self):
-        return self.__Point_out_G
-    
 
     def set_Point(self):
         self.__Point_in_G=np.array([*np.random.random((self.CACHE.get_BENCH_CI().get_P(),self.CACHE.get_BENCH_CI().get_Nvar()))*1.0])
-        self.__Point_out_G=np.array([*np.random.random((self.CACHE.get_BENCH_CI().get_P(),self.CACHE.get_BENCH_CI().get_Nvar()))*1.0])
         
 
     def set_POF(self,POF):

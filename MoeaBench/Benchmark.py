@@ -15,6 +15,7 @@ from .P_DPF5 import P_DPF5
 from .P_USER import P_USER
 from .CACHE import CACHE
 from .I_benchmark import I_benchmark
+from .CACHE_bk_user import CACHE_bk_user
 
 
 class Benchmark(I_benchmark):    
@@ -470,12 +471,9 @@ class Benchmark(I_benchmark):
     def my_new_benchmark(self):
         my_benchmark = self.get_benchmark()
         my_bk = my_benchmark()
-        print(my_bk.__class__.__name__)
-        my_bk.evaluation()
-        cache =  CACHE() 
-        bk = P_USER(cache)
-        cache.DATA_store(bk.__class__.__name__,0,0,[ [0,1,2] , [0,1,2] ],[0],[0],bk,[0]) 
-        #DATA_store(self,name_moea,generations,population,F,F_gen,X_gen,problem,evals):
+        cache =  CACHE_bk_user()
+        bk = P_USER('IN POF' ,my_bk, cache)
+        bk.POFsamples()
         return bk
     
     

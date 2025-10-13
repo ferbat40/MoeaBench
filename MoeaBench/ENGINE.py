@@ -55,43 +55,7 @@ class ENGINE(ALLOWED):
         return self.__POF
     
 
-    def CREATE(self,DATA,BENCH, G = 0, P = 0,metric = ['X',
-                                                       'Hypervolume',
-                                                       'GD',
-                                                       'GD plus',
-                                                       'IGD',
-                                                       'IGD plus',
-                                                       'EVALS'], 
-                                                        extension = '.xlsx'):
-        try:
-            with pd.ExcelWriter(self.FIle_name(DATA,BENCH, G, P, extension),engine='openpyxl') as writer:
-                df = pd.DataFrame(DATA.get_arr_DATA())
-                df.to_excel(writer, sheet_name="F",index=False)
-                for imetric, ivalues in zip(metric,DATA.get_METRIC_gen().get_arr_Metric_gen()):
-                    df = pd.DataFrame(ivalues)
-                    df.to_excel(writer, sheet_name=imetric,index=False)
-        except Exception as e:
-            print(e)
     
-
-    def FIle_name(self,DATA,BENCH, G, P, extension):
-        date = dt.datetime.now()
-
-        try:
-            R = list(map(lambda key_refer: self.STR_refer()[key_refer],[str(DATA.get_description())]))[0]
-        except Exception as e:
-            R = DATA.get_description()
-     
-        try:
-            B = list(map(lambda Key_benc:  self.STR_bench()[Key_benc],[BENCH.get_BENCH()]))[0]
-        except Exception as e:
-            B = BENCH.get_BENCH()
-        
-        try:
-            G = f'G{DATA.get_generations()}P{DATA.get_population()}' if int(DATA.get_generations()) > 0 else f'G{G}P{P}'
-        except Exception as e:
-            pass     
-        return f'analysis/R{R}_B{B}{G}M{BENCH.get_M()}K{BENCH.get_K()}D{BENCH.get_D()}N{BENCH.get_Nvar()}t{date.strftime("%m%M%S")}{extension}'
 
     
     

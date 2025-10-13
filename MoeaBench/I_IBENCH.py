@@ -67,6 +67,11 @@ class I_IBENCH(ABC):
         pass
 
 
+    @abstractmethod
+    def get_CACHE(self):
+        pass
+
+
 
 
     

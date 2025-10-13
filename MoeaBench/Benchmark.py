@@ -12,13 +12,16 @@ from .P_DPF2 import P_DPF2
 from .P_DPF3 import P_DPF3
 from .P_DPF4 import P_DPF4
 from .P_DPF5 import P_DPF5
+from .P_USER import P_USER
 from .CACHE import CACHE
+from .I_benchmark import I_benchmark
 
 
-class Benchmark:    
+class Benchmark(I_benchmark):    
 
     def __init__(self):
         self.cache=None
+        self.M_register = {}
 
 
     def DTLZ1(self, *, M = 3, K = 5, P = 700):
@@ -462,6 +465,36 @@ class Benchmark:
         bk.set_BENCH_conf()
         bk.POFsamples()
         return bk
+    
+    
+    def my_new_benchmark(self):
+        my_benchmark = self.get_benchmark()
+        my_bk = my_benchmark()
+        print(my_bk.__class__.__name__)
+        my_bk.evaluation()
+        cache =  CACHE() 
+        bk = P_USER(cache)
+        cache.DATA_store(bk.__class__.__name__,0,0,[ [0,1,2] , [0,1,2] ],[0],[0],bk,[0]) 
+        #DATA_store(self,name_moea,generations,population,F,F_gen,X_gen,problem,evals):
+        return bk
+    
+    
+    def register_benchmark(self):
+        def decorator(cls):
+            try:
+                name = cls.__name__
+                if len(self.M_register) > 0:
+                     raise MemoryError("There is already an implementation of the user's MOEA registered")
+                self.M_register[name] = cls
+            except Exception as e:
+                 print(e)
+            return cls
+        return decorator
+
+
+    def get_benchmark(self):
+        return next(iter(self.M_register.values())) if len(self.M_register.values()) > 0 else None
+    
 
 
     

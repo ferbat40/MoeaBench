@@ -42,6 +42,11 @@ class I_MOEA(ABC):
         pass
 
 
+    @abstractmethod
+    def my_new_moea(self):
+        pass
+
+
 
 
 

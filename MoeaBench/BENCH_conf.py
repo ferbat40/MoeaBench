@@ -37,6 +37,7 @@ class BENCH_conf(I_BENCH_conf):
             self.__Nvar=Nvar
             return
         
+        
         N_Bench = self.get_BENCH_Nvar()
         if N_Bench <=7:
             self.__Nvar = self.get_K()+self.get_M()-1

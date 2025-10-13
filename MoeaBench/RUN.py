@@ -31,7 +31,7 @@ class RUN(I_MOEA):
         return next(iter(self.M_register.values())) if len(self.M_register.values()) > 0 else None
     
 
-    def MOEA_execute(self,result,problem = None, name_moea = None): 
+    def MOEA_execute(self,result,problem = None, name_moea = None, name_benchmark=None): 
             data = result.edit_DATA_conf().get_DATA_MOEA().exec()
             problem = result.edit_DATA_conf().get_problem()
             GEN_Hist = GEN_history(data[3],[value for key,value in data[0].items()][0])
@@ -43,7 +43,8 @@ class RUN(I_MOEA):
                               hist_F,
                               hist_n,
                               problem,
-                              n_evals)
+                              n_evals,
+                              name_benchmark)
             
 
     def my_new_moea(self,problem,population,generations):

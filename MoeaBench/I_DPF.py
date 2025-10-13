@@ -134,12 +134,7 @@ class I_DPF(ABC):
 
 
     @abstractmethod
-    def get_CACHE(self):
-        pass
-
-
-    @abstractmethod
-    def evaluate(self):
+    def evaluatation(self):
         pass
 
 

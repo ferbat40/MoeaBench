@@ -1,7 +1,6 @@
 import numpy as np
 from .H_DPF import H_DPF
 
-
 class DPF2(H_DPF):
    
    
@@ -67,7 +66,7 @@ class DPF2(H_DPF):
          return self.show_in(self.calc_f(X,self.calc_g(X))),X
    
 
-   def evaluate(self,x,n_ieq):  
+   def evaluation(self,x,n_ieq):  
         G=self.calc_g(x)
         F=self.calc_f(x,G)
         result =  {"F" : F} 

@@ -22,8 +22,6 @@ class P_DTLZ2(DTLZ2):
         self.set_Point()
         self.set_POF(0.5)
         self.set_Pareto(1)
-        self.set_lower((self.get_Penalty_param()-self.get_Pareto())-((self.get_Penalty_param()-self.get_Pareto())*2))
-        self.set_upper((self.get_Penalty_param()-self.get_Pareto()))
              
 
     def POFsamples(self):
@@ -31,7 +29,7 @@ class P_DTLZ2(DTLZ2):
             if self.K_validate(self.get_CACHE().get_BENCH_CI().get_K()) == True and self.M_validate(self.get_CACHE().get_BENCH_CI().get_M()) == True:
                 F,X = self.minimize()
                 for key,value in F.items():
-                    self.get_CACHE().DATA_store(key,0,0,value,[0],[0],self,[0])     
+                    self.get_CACHE().DATA_store(key,0,0,value,[0],[0],self,[0],self.__class__.__name__.split("_")[1])     
         except Exception as e:
             print(e)
 

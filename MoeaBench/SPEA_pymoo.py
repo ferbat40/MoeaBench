@@ -24,7 +24,7 @@ class SPEAPymoo(Problem):
     
     
     def _evaluate(self, x, out, *args, **kwargs):   
-        result = self.benchmark.evaluate(x,self.n_ieq)
+        result = self.benchmark.evaluation(x,self.n_ieq)
         out["F"]=result['F']
         if "G" in result:
             out["G"]=result['G']

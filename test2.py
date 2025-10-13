@@ -7,17 +7,10 @@ from MoeaBench import moeabench
 import os
 
 
+
 os.system("cls")  
 
 exp  = moeabench()
-
-
-from MoeaBench.base_moea import BaseMoea
-from deap import base, creator, tools
-import numpy as np
-import array
-import random
-
 
 @exp.Moea.register_moea()
 class NSGA2deap(BaseMoea):
@@ -40,6 +33,7 @@ class NSGA2deap(BaseMoea):
     self.toolbox.register("mate", tools.cxSimulatedBinaryBounded, low=0, up=1, eta=20)
     self.toolbox.register("mutate", tools.mutPolynomialBounded, low=0, up=1, eta=20, indpb=1/self.problem.get_CACHE().get_BENCH_CI().get_Nvar())
     self.toolbox.register("select", tools.selNSGA2)
+    
 
   def uniform(self,low, up, size=None):
     try:
@@ -49,7 +43,7 @@ class NSGA2deap(BaseMoea):
 
 
   def evaluate(self,X):
-    self.resul = self.problem.evaluate(np.array([X]),self.n_ieq)
+    self.resul = self.problem.evaluation(np.array([X]),self.n_ieq)
     return self.resul['F'][0]
 
 
@@ -96,5 +90,6 @@ exp.problem = moeabench.benchmark.DTLZ1()
 exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 500)
 #exp.moea = moeabench.Moea.NSGA3(problem=exp.problem, population = 130, generations = 500)
 exp.run()
+
 
 

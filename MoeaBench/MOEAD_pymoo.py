@@ -25,7 +25,7 @@ class MOEADpymoo(Problem):
 
          
     def _evaluate(self, x, out, *args, **kwargs):  
-        result = self.benchmark.evaluate(x,0)
+        result = self.benchmark.evaluation(x,0)
         out["F"]=result['F']
         if "G" in result:
             out["G"]=result['G'] 

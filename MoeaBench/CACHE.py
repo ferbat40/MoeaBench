@@ -27,7 +27,7 @@ class CACHE(DATA_arr):
         return self.__BENCH_CI 
   
 
-  def DATA_store(self,name_moea,generations,population,F,F_gen,X_gen,problem,evals):
+  def DATA_store(self,name_moea,generations,population,F,F_gen,X_gen,problem,evals,name_benchmaark):
         DT_CONF=self.get_DATA_conf()
         DT_CONF.set(name_moea,generations,population,F)
         try:

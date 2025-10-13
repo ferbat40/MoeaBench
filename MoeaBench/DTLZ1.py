@@ -2,7 +2,6 @@ import numpy as np
 from .H_DTLZ import H_DTLZ
 
 
-
 class DTLZ1(H_DTLZ):
 
     def __init__(self, CACHE, **kwargs):
@@ -66,7 +65,7 @@ class DTLZ1(H_DTLZ):
         return self.show_in(self.eval_cons(self.calc_f(X,self.calc_g(X)),False)),X
     
 
-    def evaluate(self,x,n_ieq):  
+    def evaluation(self,x,n_ieq):  
         G=self.calc_g(x)
         F=self.calc_f(x,G)
         result =  {"F" : F} 

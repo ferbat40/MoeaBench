@@ -94,12 +94,7 @@ class I_DTLZ(ABC):
 
 
     @abstractmethod
-    def get_CACHE(self):
-        pass
-
-
-    @abstractmethod
-    def evaluate(self):
+    def evaluation(self):
         pass
 
 

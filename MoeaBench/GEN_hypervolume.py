@@ -12,7 +12,7 @@ class GEN_hypervolume:
         super().__init__(**kwargs)
 
 
-    def evaluate(self):
+    def evaluatation(self):
         metric = Hypervolume(ref_point= np.array([1.1 for i in range(0,self.M)]),
                      norm_ref_point=False,
                      zero_to_one=True,

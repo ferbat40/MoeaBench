@@ -18,12 +18,9 @@ class save(file):
             raise FileExistsError("file already exists")
         dt_MoeaBench = []
         dt_MoeaBench.append(f'{data.get_description()} Evolucionary algorithm data:\n')
-        
         dt_MoeaBench.append(f'generations: {data.get_generations()}')
         dt_MoeaBench.append(f'population: {data.get_population()}')
         dt_MoeaBench.append(f'solutions found: {result.shape[0]}')
-
-
         dt_MoeaBench.append(f'\n{bench.get_BENCH()} problem test benchmark data:\n')
         dt_MoeaBench.append(f'objectives: {bench.get_M()}')
         dt_MoeaBench.append(f'decision variabels: {bench.get_Nvar()}')

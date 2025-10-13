@@ -53,7 +53,7 @@ class DTLZ9(H_DTLZ):
         return self.show_in(self.calc_gijx(Fijx),Fijx),Xij
     
 
-    def evaluate(self,X,n_ieq): 
+    def evaluation(self,X,n_ieq): 
         F=self.calc_f(X)
         result = {"F" : F}
         if n_ieq != 0:

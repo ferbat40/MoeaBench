@@ -1,5 +1,6 @@
 from .I_MoeaBench import I_MoeaBench
-import inspect
+import numpy as np
+
 
 class IPL_MoeaBench(I_MoeaBench):
 
@@ -93,6 +94,12 @@ class IPL_MoeaBench(I_MoeaBench):
 
     def IPL_save(self):
         raise NotImplementedError("Not implemented")
+    
+
+    def allowed_DATA(LIST):
+        INF = [f'{IDATA.get_description()}' for IDATA in LIST if np.isinf(IDATA.get_arr_DATA()).any()] 
+        if len(INF) > 0:
+            raise ValueError(f'There are matrices with invalid values: '+",".join(f'{i}' for i in INF))
     
 
     def allowed_gen_max(self,result, mtc, N):

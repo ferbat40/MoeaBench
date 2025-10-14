@@ -144,8 +144,6 @@ exp.run()
 
 
 
-
-
 @exp2.Moea.register_moea()
 class NSGA2deap(BaseMoea):
   

@@ -97,7 +97,3 @@ class I_UserMoeaBench(ABC):
     def save(self):
         pass
 
-
-    @abstractmethod
-    def my_new_benchmark(self):
-        pass

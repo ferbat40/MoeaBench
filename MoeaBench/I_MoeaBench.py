@@ -131,3 +131,13 @@ class I_MoeaBench(ABC):
     @abstractmethod
     def IPL_loader(self):
         pass
+
+
+    @abstractmethod
+    def allowed_DATA(self):
+        pass
+       
+
+
+
+     

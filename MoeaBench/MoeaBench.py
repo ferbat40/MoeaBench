@@ -114,7 +114,7 @@ class MoeaBench(I_UserMoeaBench):
             try:
                 name_benchmark = self.problem.__class__.__name__.split("_")[1]
             except Exception as e:
-                name_benchmark = self.problem.__class__.__name__.split("_")
+                name_benchmark = self.problem.__class__.__name__
             
             return execute.MOEA_execute(self.result,self.problem,name_moea,name_benchmark)
         except Exception as e:
@@ -171,10 +171,10 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def load(self,file):
-        try:
+        #try:
             loader.IPL_loader(self,file)      
-        except Exception as e:
-            print(e)
+        #except Exception as e:
+            #print(e)
 
 
     def save(self, file):

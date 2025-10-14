@@ -1,10 +1,28 @@
-class BaseBenchmark:
+from abc import ABC, abstractmethod
 
-     def __init__(self, problem, population=50, generations=100):
-          self.problem=problem
-          self.population=population
-          self.generations=generations
+class BaseBenchmark(ABC):
+     
+     @abstractmethod
+     def __init__(self,CACHE):
+        self.M=3
+        self.P=150
+        self.K=5
+        self.n_ieq_constr=1
+        self.N=0
+        self.CACHE=CACHE
 
-      
+
+     @abstractmethod
      def evaluation(self):
-          raise NotImplementedError('The evaluation() method must be implemented by the user')
+          pass
+     
+
+     @abstractmethod
+     def POFsamples(self):
+          pass
+     
+
+     @abstractmethod
+     def get_CACHE(self):
+          pass
+

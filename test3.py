@@ -9,6 +9,7 @@ from MoeaBench.base_moea import BaseMoea
 import array
 
 
+
 os.system("cls") 
 
 exp = moeabench()
@@ -27,13 +28,18 @@ class E_DTLZ(Enum):
 @exp.benchmark.register_benchmark()
 class my_dtlz7(BaseBenchmark):
 
-    def __init__(self):
+    def __init__(self,CACHE):
         self.M=3
         self.P=150
         self.K=5
         self.n_ieq_constr=1
         self.llist_E_DTLZ = list(E_DTLZ)
         self.N=self.K+self.M-1
+        self.CACHE=CACHE
+
+
+    def get_CACHE(self):
+       return self.CACHE
 
 
     def constraits(self,f,parameter = 1,f_c=[]):
@@ -112,7 +118,7 @@ class my_dtlz7(BaseBenchmark):
         return np.sum((X[:,self.M-1:]-0.5)**2, axis = 1).reshape(X.shape[0],1)
 
 
-    def simulate_POF(self):
+    def POFsamples(self):
         X = self.get_Points()
         X[:,self.M-1:self.N]=0.5
         G = self.calc_g(X)
@@ -128,7 +134,7 @@ class my_dtlz7(BaseBenchmark):
             cons = self.constraits(F,1.25)
             const  = cons.reshape(cons.shape[0],1)
             result["G"] = const
-            result["feasible"] = np.any((result["G"] <-0.00000000001)  | (result["G"] > 0.00000000001) )
+            result["feasible"] = np.any((result["G"] <-0.00000000001)  | (result["G"] > 0.00000000001) )        
         return result
 
 
@@ -142,12 +148,14 @@ exp.run()
 
 @exp2.Moea.register_moea()
 class NSGA2deap(BaseMoea):
+  
   def __init__(self,problem,population,generations):
     self.problem=problem
     self.generations=generations
     self.population = population
     self.temp=None
     self.n_ieq= self.problem.get_CACHE().get_BENCH_CI().get_n_ieq_constr()
+
     creator.create("FitnessMin", base.Fitness, weights=(-1.0,) * self.problem.get_CACHE().get_BENCH_CI().get_M())
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
     self.toolbox = base.Toolbox()
@@ -220,6 +228,5 @@ exp2.moea = exp2.Moea.my_new_moea(problem = exp2.problem,population = 160 ,gener
 exp2.run()
 
 
-for i in exp2.result.get_elements():
-   print(i[0].get_arr_DATA())
-
+exp2.save("bbbbc")
+exp2.load('bbbbc')

@@ -48,11 +48,14 @@ class RUN(I_MOEA):
             
 
     def my_new_moea(self,problem,population,generations):
-        my_moea = self.get_moea()
-        self.result.get_DATA_conf().set_DATA_MOEA(my_moea(problem,population,generations),problem)
-        return self.result
+        try:
+             my_moea = self.get_moea()
+             self.result.get_DATA_conf().set_DATA_MOEA(my_moea(problem,population,generations),problem)
+             return self.result
+        except Exception as e:
+             print(e)
+       
            
-
     def NSGA3(self,problem, *, population = 100, generations = 300,seed = 1):
         self.result.get_DATA_conf().set_DATA_MOEA(NSGAPymoo(problem,population,generations,seed),problem)
         return self.result       

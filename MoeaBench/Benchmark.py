@@ -12,11 +12,10 @@ from .P_DPF2 import P_DPF2
 from .P_DPF3 import P_DPF3
 from .P_DPF4 import P_DPF4
 from .P_DPF5 import P_DPF5
-from .P_USER import P_USER
 from .CACHE import CACHE
 from .I_benchmark import I_benchmark
 from .CACHE_bk_user import CACHE_bk_user
-import types
+
 
 
 class Benchmark(I_benchmark):    
@@ -470,30 +469,22 @@ class Benchmark(I_benchmark):
     
     
     def my_new_benchmark(self):
-        my_benchmark = self.get_benchmark()
-        my_bk = my_benchmark()
-        cache =  CACHE_bk_user()
-        bk = P_USER('IN POF' ,my_bk, cache)
-        #my_bk.simulate_POF()
-        for name in dir(bk):
-            if not name.startswith("_"):
-                attr = getattr(bk,name)
-                if callable(attr):
-                    func = getattr(bk.__class__,name)
-                    setattr(my_bk, name, types.MethodType(func,my_bk))
-                else:
-                    setattr(my_bk,name,attr)
-                
-        my_bk.POFsamples()
-        return my_bk
-    
+        try:
+            my_benchmark = self.get_benchmark()
+            my_bk = my_benchmark(CACHE_bk_user())
+            F =  my_bk.POFsamples()
+            my_bk.get_CACHE().DATA_store(my_bk.__class__.__name__,'IN POF',my_bk.M,my_bk.N,my_bk.n_ieq_constr,F,my_bk.P,my_bk.K)
+            return my_bk
+        except Exception as e:
+            print(e)
+        
     
     def register_benchmark(self):
         def decorator(cls):
             try:
                 name = cls.__name__
                 if len(self.M_register) > 0:
-                     raise MemoryError("There is already an implementation of the user's MOEA registered")
+                     raise MemoryError("There is already an implementation of the user's Benchmark registered")
                 self.M_register[name] = cls
             except Exception as e:
                  print(e)

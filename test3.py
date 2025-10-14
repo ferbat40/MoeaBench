@@ -114,7 +114,7 @@ class my_dtlz7(BaseBenchmark):
         X[:,self.M-1:self.N]=0.5
         G = self.calc_g(X)
         F = self.eval_cons(self.calc_f(X,G))
-        return {F"IN POF": F} 
+        return F
  
 
     def evaluation(self,x,n_ieq):  

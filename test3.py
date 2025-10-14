@@ -215,7 +215,6 @@ class NSGA2deap(BaseMoea):
 
 
 
-
 exp2.problem = exp.problem
 exp2.moea = exp2.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 500)
 exp2.run()

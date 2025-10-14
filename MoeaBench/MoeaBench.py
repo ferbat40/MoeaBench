@@ -110,7 +110,12 @@ class MoeaBench(I_UserMoeaBench):
             except Exception as e:
                 pass
             execute = self.Moea_user if len(self.Moea.M_register.values()) == 1 else self.Moea
-            name_benchmark = self.problem.__class__.__name__.split("_")[1]
+            
+            try:
+                name_benchmark = self.problem.__class__.__name__.split("_")[1]
+            except Exception as e:
+                name_benchmark = self.problem.__class__.__name__.split("_")
+            
             return execute.MOEA_execute(self.result,self.problem,name_moea,name_benchmark)
         except Exception as e:
             print(e)

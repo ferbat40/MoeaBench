@@ -1,8 +1,8 @@
 from MoeaBench.base_benchmark import BaseBenchmark
 from MoeaBench import moeabench
 import os
-import numpy as np
-from enum import Enum
+
+
 import random
 from deap import base, creator, tools, algorithms
 from MoeaBench.base_moea import BaseMoea
@@ -17,23 +17,29 @@ exp2 = moeabench()
 
 from enum import Enum
 
-class E_DTLZ(Enum):
-  F1   = 1
-  F2   = 2
-  F3   = 3
-  Fm   = 5
 
   
 
 @exp.benchmark.register_benchmark()
 class my_dtlz7(BaseBenchmark):
-
+    
+    from enum import Enum
+    import numpy as np
+    
+    
+    class E_DTLZ(Enum):
+       F1   = 1
+       F2   = 2
+       F3   = 3
+       Fm   = 5
+    
+    
     def __init__(self,CACHE):
         self.M=3
         self.P=150
         self.K=5
         self.n_ieq_constr=1
-        self.llist_E_DTLZ = list(E_DTLZ)
+        self.llist_E_DTLZ = list(self.E_DTLZ)
         self.N=self.K+self.M-1
         self.CACHE=CACHE
 
@@ -43,8 +49,8 @@ class my_dtlz7(BaseBenchmark):
 
 
     def constraits(self,f,parameter = 1,f_c=[]):
-        f_constraits=np.array(f)
-        f_c = np.array([np.sum([ f_c**2  for  f_c in f_constraits[linha,0:f_constraits.shape[1]]])-parameter for index,linha in enumerate(range(f_constraits.shape[0]))  ])
+        f_constraits=self.np.array(f)
+        f_c = self.np.array([self.np.sum([ f_c**2  for  f_c in f_constraits[linha,0:f_constraits.shape[1]]])-parameter for index,linha in enumerate(range(f_constraits.shape[0]))  ])
         return f_c
 
     
@@ -54,30 +60,30 @@ class my_dtlz7(BaseBenchmark):
         for (fc,fo) in zip(M_constraits,f):
             if float(fc) == 0:
                 const_in.append(fo)
-        return np.array(const_in)
+        return self.np.array(const_in)
 
 
     def get_Points(self):
-        return np.array([*np.random.random((self.P, self.N))*1.0])
+        return self.np.array([*self.np.random.random((self.P, self.N))*1.0])
     
 
     def F1(self,M,th,Gxm): 
-       theta = list(map(lambda TH: np.cos(TH), th[0:(M-1)]))
-       return (1+Gxm)*np.prod(np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)
+       theta = list(map(lambda TH: self.np.cos(TH), th[0:(M-1)]))
+       return (1+Gxm)*self.np.prod(self.np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)
    
 
     def F2(self,M,th,Gxm):
-        theta = list(map(lambda TH: np.cos(TH), th[0:(M-2)]))
-        return (1+Gxm)*np.prod(np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)*np.column_stack(np.sin(th[(M-2):(M-1)]))
+        theta = list(map(lambda TH: self.np.cos(TH), th[0:(M-2)]))
+        return (1+Gxm)*self.np.prod(self.np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)*self.np.column_stack(self.np.sin(th[(M-2):(M-1)]))
            
 
     def F3(self,M,th,Gxm):
         theta = list(map(lambda TH: np.cos(TH), th[0:(M-3)]))
-        return (1+Gxm)*np.prod(np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)*np.column_stack(np.sin(th[(M-3):(M-2)]))
+        return (1+Gxm)*self.np.prod(self.np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)*self.np.column_stack(self.np.sin(th[(M-3):(M-2)]))
     
 
     def Fm(self,M,th,Gxm):
-        return (1+Gxm)*np.column_stack(np.sin(th[0:1]))
+        return (1+Gxm)*self.np.column_stack(self.np.sin(th[0:1]))
     
     
     def get_method(self,enum):
@@ -106,16 +112,16 @@ class my_dtlz7(BaseBenchmark):
         
 
     def calc_TH(self,X,Gxm,M):
-        return [X[:,Xi:Xi+1]*np.pi/2 if Xi == 0 else (np.pi/(4*(1+Gxm))*(1+2*Gxm*X[:,Xi:Xi+1]))  for Xi in range(0,M-1)]
+        return [X[:,Xi:Xi+1]*self.np.pi/2 if Xi == 0 else (self.np.pi/(4*(1+Gxm))*(1+2*Gxm*X[:,Xi:Xi+1]))  for Xi in range(0,M-1)]
        
 
     def calc_f(self,X,G):
         vet_F_M = [self.calc_F_M(F,self.M) for F, i in enumerate(range(0,self.M), start = 1)]
-        return np.column_stack(list(map(lambda Key: self.param_F()[Key](self.M,self.calc_TH(X,G,self.M),G),vet_F_M)))
+        return self.np.column_stack(list(map(lambda Key: self.param_F()[Key](self.M,self.calc_TH(X,G,self.M),G),vet_F_M)))
 
 
     def calc_g(self,X):
-        return np.sum((X[:,self.M-1:]-0.5)**2, axis = 1).reshape(X.shape[0],1)
+        return self.np.sum((X[:,self.M-1:]-0.5)**2, axis = 1).reshape(X.shape[0],1)
 
 
     def POFsamples(self):
@@ -134,7 +140,7 @@ class my_dtlz7(BaseBenchmark):
             cons = self.constraits(F,1.25)
             const  = cons.reshape(cons.shape[0],1)
             result["G"] = const
-            result["feasible"] = np.any((result["G"] <-0.00000000001)  | (result["G"] > 0.00000000001) )        
+            result["feasible"] = self.np.any((result["G"] <-0.00000000001)  | (result["G"] > 0.00000000001) )        
         return result
 
 

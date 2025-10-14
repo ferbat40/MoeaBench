@@ -16,7 +16,8 @@ from .CACHE import CACHE
 from .I_benchmark import I_benchmark
 from .CACHE_bk_user import CACHE_bk_user
 import inspect
-
+import ast
+from pathlib import Path
 
 
 class Benchmark(I_benchmark):    
@@ -468,17 +469,38 @@ class Benchmark(I_benchmark):
         bk.POFsamples()
         return bk
     
+
+    def DATA(self,folder):
+        base = Path.cwd()
+        dir_z = base 
+        dir_z.mkdir(parents=True, exist_ok = True)
+        return dir_z / f'{folder}'
+    
     
     def my_new_benchmark(self):
         try:
             my_benchmark = self.get_benchmark()
             my_bk = my_benchmark(CACHE_bk_user())
-            print(my_bk.__class__.__name__)
+    
+
             string_class = inspect.getsource(my_bk.__class__)
-            print(string_class)
+            string_class_temp = 'from MoeaBench.base_benchmark import BaseBenchmark\n\n\n\n'+string_class
+            string_class_temp = string_class_temp.splitlines() 
+            string_class_full=[]
+           
+            for row in string_class_temp:
+                if 'benchmark.register_benchmark()' in row:
+                    continue
+                string_class_full.append(row)
+            string_class_full = "\n".join(string_class_full)
+
             file_name = f'{my_bk.__class__.__name__}.py'
+            file_name = self.DATA(file_name)
             with open(file_name, 'w') as f:
-                f.write(string_class)
+                f.write(string_class_full)
+
+
+
 
             F =  my_bk.POFsamples()
             my_bk.get_CACHE().DATA_store(my_bk.__class__.__name__,'IN POF',my_bk.M,my_bk.N,my_bk.n_ieq_constr,F,my_bk.P,my_bk.K)

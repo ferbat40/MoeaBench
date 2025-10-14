@@ -20,7 +20,7 @@ class plot_gen_3D(analyse):
          self.experiments=experiments
          self.axis = axiss
          self.type = type
-         print("self.vet_pts ",self.vet_pts)
+
          
 
      def configure(self):

@@ -28,7 +28,6 @@ class my_dtlz7(BaseBenchmark):
         self.P=150
         self.K=5
         self.n_ieq_constr=1
-        self.POF=1.0
         self.llist_E_DTLZ = list(E_DTLZ)
         self.N=self.K+self.M-1
 
@@ -121,11 +120,11 @@ class my_dtlz7(BaseBenchmark):
         G=self.calc_g(x)
         F=self.calc_f(x,G)
         result =  {"F" : F} 
-        if n_ieq != 0:       
-            result["G"] = self.constraits(F)
+        if n_ieq != 0:  
+            cons = self.constraits(F,1.25)
+            result["G"] = cons.reshape(cons.shape[0],1)
             result["feasible"] = np.any((result["G"] <-0.00000000001)  | (result["G"] > 0.00000000001) )
         return result
-
 
 
 exp.problem = exp.benchmark.my_new_benchmark()

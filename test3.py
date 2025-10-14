@@ -132,8 +132,7 @@ exp.problem = exp.benchmark.my_new_benchmark()
 exp.moea = moeabench.Moea.U_NSGA3(problem=exp.problem, population = 160, generations = 500)
 exp.run()
 
-for b in exp.result.get_elements():
-    print( b[0].get_arr_DATA())
+
 
 
 

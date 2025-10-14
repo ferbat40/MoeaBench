@@ -19,7 +19,6 @@ class plot_3D(analyse):
          self.experiments=experiments
          self.axis = axis
          self.type=type
-         print("self.vet_pts ",self.vet_pts)
          
 
      def configure(self):

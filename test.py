@@ -46,8 +46,7 @@ exp.moea = moeabench.Moea.U_NSGA3(problem=exp.problem, population = 160, generat
 #exp3.moea = moeabench.Moea.U_NSGA3(problem=exp3.problem, population = 100, generations = 300)
 #exp4.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 350, generations = 300)
 exp.run()
-for b in exp.result.get_elements():
-    print( b[0].get_arr_DATA())
+
 #exp.save("torus")
 
 

@@ -1,7 +1,7 @@
 
-from .P_DTLZ1 import P_DTLZ1
 
-class P_USER(P_DTLZ1):
+
+class P_USER():
 
     def __init__(self, description ,my_bk, CACHE):
         self.description=description
@@ -9,10 +9,10 @@ class P_USER(P_DTLZ1):
         self.my_bk=my_bk
         
     
-    def M_validate(self,M):
-        raise NotImplementedError("Not implemented")
-
+    def get_CACHE(self):
+        return self.CACHE
+    
 
     def POFsamples(self):
-       F = self.my_bk.simulate_POF()
-       self.CACHE.DATA_store(self.my_bk.__class__.__name__,self.description,self.my_bk.M,self.my_bk.N,self.my_bk.n_ieq_constr,F)
+       F = self.simulate_POF()
+       self.get_CACHE().DATA_store(self.my_bk.__class__.__name__,self.description,self.my_bk.M,self.my_bk.N,self.my_bk.n_ieq_constr,F,self.my_bk.P,self.my_bk.K)

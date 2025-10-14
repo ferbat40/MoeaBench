@@ -26,13 +26,14 @@ class my_dtlz7(BaseBenchmark):
     def __init__(self):
         self.M=3
         self.P=150
-        self.N=10
+        self.K=5
         self.n_ieq_constr=1
         self.POF=1.0
         self.llist_E_DTLZ = list(E_DTLZ)
+        self.N=self.K+self.M-1
 
 
-    def constraits_1(self,f,parameter = 1,f_c=[]):
+    def constraits(self,f,parameter = 1,f_c=[]):
         f_constraits=np.array(f)
         f_c = np.array([np.sum([ f_c**2  for  f_c in f_constraits[linha,0:f_constraits.shape[1]]])-parameter for index,linha in enumerate(range(f_constraits.shape[0]))  ])
         return f_c
@@ -40,7 +41,7 @@ class my_dtlz7(BaseBenchmark):
     
     def eval_cons(self,f):
         const_in=[]
-        M_constraits = self.constraits_1(f)
+        M_constraits = self.constraits(f)
         for (fc,fo) in zip(M_constraits,f):
             if float(fc) == 0:
                 const_in.append(fo)
@@ -116,18 +117,21 @@ class my_dtlz7(BaseBenchmark):
         return {F"IN POF": F} 
  
 
-    def evaluation(self):
-        #Xij = 
-        #f_c.reshape(f_constraits.shape[0],1)
-        print("teste")
+    def evaluation(self,x,n_ieq):  
+        G=self.calc_g(x)
+        F=self.calc_f(x,G)
+        result =  {"F" : F} 
+        if n_ieq != 0:       
+            result["G"] = self.constraits(F)
+            result["feasible"] = np.any((result["G"] <-0.00000000001)  | (result["G"] > 0.00000000001) )
+        return result
 
 
 
 exp.problem = exp.benchmark.my_new_benchmark()
-exp2.problem = moeabench.benchmark.DTLZ1()
+exp.moea = moeabench.Moea.U_NSGA3(problem=exp.problem, population = 130, generations = 500)
+exp.run()
 
-for i in exp.pof.get_CACHE().get_elements():
-    print(i[0].get_description()," ",i[0].get_arr_DATA(),"  ",i[1].get_BENCH(),"  ",i[1].get_M(),"  ",i[1].get_Nvar(), "  ",i[1].get_n_ieq_constr())
 
 
 

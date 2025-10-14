@@ -16,6 +16,7 @@ from .P_USER import P_USER
 from .CACHE import CACHE
 from .I_benchmark import I_benchmark
 from .CACHE_bk_user import CACHE_bk_user
+import types
 
 
 class Benchmark(I_benchmark):    
@@ -473,8 +474,18 @@ class Benchmark(I_benchmark):
         my_bk = my_benchmark()
         cache =  CACHE_bk_user()
         bk = P_USER('IN POF' ,my_bk, cache)
-        bk.POFsamples()
-        return bk
+        #my_bk.simulate_POF()
+        for name in dir(bk):
+            if not name.startswith("_"):
+                attr = getattr(bk,name)
+                if callable(attr):
+                    func = getattr(bk.__class__,name)
+                    setattr(my_bk, name, types.MethodType(func,my_bk))
+                else:
+                    setattr(my_bk,name,attr)
+                
+        my_bk.POFsamples()
+        return my_bk
     
     
     def register_benchmark(self):

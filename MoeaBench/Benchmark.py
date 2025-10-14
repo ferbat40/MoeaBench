@@ -15,6 +15,7 @@ from .P_DPF5 import P_DPF5
 from .CACHE import CACHE
 from .I_benchmark import I_benchmark
 from .CACHE_bk_user import CACHE_bk_user
+import inspect
 
 
 
@@ -472,6 +473,13 @@ class Benchmark(I_benchmark):
         try:
             my_benchmark = self.get_benchmark()
             my_bk = my_benchmark(CACHE_bk_user())
+            print(my_bk.__class__.__name__)
+            string_class = inspect.getsource(my_bk.__class__)
+            print(string_class)
+            file_name = f'{my_bk.__class__.__name__}.py'
+            with open(file_name, 'w') as f:
+                f.write(string_class)
+
             F =  my_bk.POFsamples()
             my_bk.get_CACHE().DATA_store(my_bk.__class__.__name__,'IN POF',my_bk.M,my_bk.N,my_bk.n_ieq_constr,F,my_bk.P,my_bk.K)
             return my_bk

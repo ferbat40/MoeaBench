@@ -37,10 +37,10 @@ exp  = moeabench()
 
 
 
-exp.problem = moeabench.benchmark.DTLZ5()
+exp.problem = moeabench.benchmark.DTLZ8()
 #exp2.problem = moeabench.benchmark.DTLZ1(M = 3)
 #exp3.problem = moeabench.benchmark.DTLZ1()
-exp.moea = moeabench.Moea.U_NSGA3(problem=exp.problem, population = 160, generations = 500)
+exp.moea = moeabench.Moea.MOEAD(problem=exp.problem, population = 120, generations = 200)
 
 #exp2.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 240, generations = 400)
 #exp3.moea = moeabench.Moea.U_NSGA3(problem=exp3.problem, population = 100, generations = 300)
@@ -85,10 +85,11 @@ exp.run()
 #moeabench.plot_var(  exp, exp2,   generations = [0,1500], variables = [1,2,7])
 
 
-#moeabench.pareto(exp.result, exp2.pof,  objectives = [1,1,3])
+moeabench.pareto(exp.result, exp.result,exp.result, exp.result, objectives = [1,1,3])
 
 #moeabench.pareto_surface(exp.result, exp2.pof,  objectives = [1,1,3])
 
+#exp.save("caba")
 
 
 

@@ -139,8 +139,8 @@ class my_dtlz7(BaseBenchmark):
 
 
 exp.problem = exp.benchmark.my_new_benchmark()
-exp.moea = moeabench.Moea.U_NSGA3(problem=exp.problem, population = 160, generations = 500)
-exp.run()
+#exp.moea = moeabench.Moea.U_NSGA3(problem=exp.problem, population = 160, generations = 500)
+#exp.run()
 
 
 
@@ -223,8 +223,11 @@ class NSGA2deap(BaseMoea):
 
 exp2.problem = exp.problem
 exp2.moea = exp2.Moea.my_new_moea(problem = exp2.problem,population = 160 ,generations = 500)
-exp2.run()
+#exp2.run()
 
 
-exp2.save("bbbbc")
-exp2.load('bbbbc')
+#exp2.save("bbbbc")
+#exp2.load('bbbbc')
+
+
+#exp.save("cabass")

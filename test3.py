@@ -122,14 +122,18 @@ class my_dtlz7(BaseBenchmark):
         result =  {"F" : F} 
         if n_ieq != 0:  
             cons = self.constraits(F,1.25)
-            result["G"] = cons.reshape(cons.shape[0],1)
+            const  = cons.reshape(cons.shape[0],1)
+            result["G"] = const
             result["feasible"] = np.any((result["G"] <-0.00000000001)  | (result["G"] > 0.00000000001) )
         return result
 
 
 exp.problem = exp.benchmark.my_new_benchmark()
-exp.moea = moeabench.Moea.U_NSGA3(problem=exp.problem, population = 130, generations = 500)
+exp.moea = moeabench.Moea.U_NSGA3(problem=exp.problem, population = 160, generations = 500)
 exp.run()
+
+for b in exp.result.get_elements():
+    print( b[0].get_arr_DATA())
 
 
 

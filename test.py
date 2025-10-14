@@ -40,13 +40,15 @@ exp  = moeabench()
 exp.problem = moeabench.benchmark.DTLZ5()
 #exp2.problem = moeabench.benchmark.DTLZ1(M = 3)
 #exp3.problem = moeabench.benchmark.DTLZ1()
-exp.moea = moeabench.Moea.U_NSGA3(problem=exp.problem, population = 130, generations = 500)
+exp.moea = moeabench.Moea.U_NSGA3(problem=exp.problem, population = 160, generations = 500)
 
 #exp2.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 240, generations = 400)
 #exp3.moea = moeabench.Moea.U_NSGA3(problem=exp3.problem, population = 100, generations = 300)
 #exp4.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 350, generations = 300)
 exp.run()
-exp.save("torus")
+for b in exp.result.get_elements():
+    print( b[0].get_arr_DATA())
+#exp.save("torus")
 
 
 #exp2.run()

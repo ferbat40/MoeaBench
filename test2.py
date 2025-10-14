@@ -86,7 +86,7 @@ class NSGA2deap(BaseMoea):
     return F_gen_all,X_gen_all,F,self.generations,self.population
  
 
-exp.problem = moeabench.benchmark.DTLZ1()
+exp.problem = moeabench.benchmark.DTLZ5()
 exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 500)
 #exp.moea = moeabench.Moea.NSGA3(problem=exp.problem, population = 130, generations = 500)
 exp.run()

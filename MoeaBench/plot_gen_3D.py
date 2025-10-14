@@ -13,13 +13,14 @@ except ImportError:
 
 class plot_gen_3D(analyse):
     
-     def __init__(self,BENCH,vet_pt,generations,experiments,axis, type):
+     def __init__(self,BENCH,vet_pt,generations,experiments,axiss, type):
          self.vet_pts=vet_pt
          self.BENCH=BENCH
          self.generations=generations
          self.experiments=experiments
-         self.axis = axis
+         self.axis = axiss
          self.type = type
+         print("self.vet_pts ",self.vet_pts)
          
 
      def configure(self):

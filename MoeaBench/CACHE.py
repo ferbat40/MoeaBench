@@ -32,7 +32,7 @@ class CACHE(DATA_arr):
         try:
              DT_CONF.set_METRIC_gen(self.METRIC_gen_evalue(F,F_gen,X_gen,evals))   
         except Exception as e:
-             print(e)
+             pass
         BENCH=self.get_BENCH_conf()
         BENCH.set(problem.get_CACHE().get_BENCH_CI().get_M(),
                                   problem.get_CACHE().get_BENCH_CI().get_D(),

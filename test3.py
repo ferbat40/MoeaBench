@@ -19,7 +19,7 @@ from enum import Enum
 
   
 
-#@exp.benchmark.register_benchmark()
+@exp.benchmark.register_benchmark()
 class my_dtlz5(BaseBenchmark):
     
     from enum import Enum
@@ -143,7 +143,7 @@ class my_dtlz5(BaseBenchmark):
         return result
 
 
-#@exp.Moea.register_moea()
+@exp.Moea.register_moea()
 class NSGA2deap(BaseMoea):
 
   import random
@@ -295,29 +295,20 @@ class NSGA2deap(BaseMoea):
 
 #test7 instanciando uma classe moea do usuario e outra do benchmark do usuario e salvando o objeto
 
-exp.problem = exp.benchmark.my_implemented_benchmark('my_dtlz5',m = 3, p = 1200, k = 10)
-exp.moea = moeabench.Moea.my_implemented_moea('NSGA2deap',problem=exp.problem, population = 160, generations = 400)
-exp.run()
+#exp.problem = exp.benchmark.my_implemented_benchmark('my_dtlz5',m = 3, p = 1200, k = 10)
+#exp.moea = moeabench.Moea.my_implemented_moea('NSGA2deap',problem=exp.problem, population = 160, generations = 400)
+#exp.run()
 
 
-exp.save('test7')
-exp.load('test7')
-
-
-
+#exp.save('test7')
+#exp.load('test7')
 
 
 
 
-#exp2.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 400)
 
 
 
-#exp2.problem = exp2.benchmark.my_implemented_benchmark('my_dtlz5',m = 3, p = 1200, k = 10)
-#exp2.moea = moeabench.Moea.my_implemented_moea('NSGA2deap',problem=exp2.problem, population = 160, generations = 400)
-#exp2.run()
 
-
-
-#exp2.save('grand')
-#exp2.load('grand')
+exp.load('test4')
+moeabench.plot_var( exp, generations = [0,200],  variables = [1,2,3])

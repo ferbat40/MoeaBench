@@ -109,8 +109,8 @@ class IPL_MoeaBench(I_MoeaBench):
  
 
     def allowed_DATA(LIST,experiments):
-        #for IDATA,exp in zip(LIST,experiments):
-           # print(exp.__class__.__name__,"  ", len(IDATA.get_arr_DATA()))
+        for IDATA,exp in zip(LIST,experiments):
+            print(exp.__class__.__name__,"  ", len(IDATA.get_arr_DATA()))
 
         INF = [f'{IDATA.get_description()}' for IDATA in LIST if np.isinf(IDATA).any()] 
         if len(INF) > 0:

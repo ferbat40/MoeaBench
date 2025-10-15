@@ -5,6 +5,9 @@ from .RVEA_pymoo import RVEApymoo
 from .NSGA_pymoo import NSGAPymoo
 from .I_MOEA import I_MOEA
 from .GEN_history import GEN_history
+import importlib
+import os
+import sys
 
 
 class RUN(I_MOEA):
@@ -54,6 +57,16 @@ class RUN(I_MOEA):
              return self.result
         except Exception as e:
              print(e)
+
+    
+    def my_implemented_moea(self,name,problem,population = 100, generations = 300):
+        dir = os.path.dirname(__file__)
+        sys.path.append(dir)
+        module_name = f'user_moea.{name}'
+        module = importlib.import_module(module_name)
+        my_moea = getattr(module,name)
+        self.result.get_DATA_conf().set_DATA_MOEA(my_moea(problem,population,generations),problem)     
+        return (self.result,my_moea)
        
            
     def NSGA3(self,problem, *, population = 100, generations = 300,seed = 1):

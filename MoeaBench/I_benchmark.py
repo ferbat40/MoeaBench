@@ -85,3 +85,8 @@ class I_benchmark(ABC):
     @abstractmethod
     def my_new_benchmark(self):
         pass
+
+
+    @abstractmethod
+    def my_implemented_benchmark(self):
+        pass

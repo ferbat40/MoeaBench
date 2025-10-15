@@ -96,6 +96,18 @@ class IPL_MoeaBench(I_MoeaBench):
         raise NotImplementedError("Not implemented")
     
 
+    def save_benchmark(self):
+        raise NotImplementedError("Not implemented")
+    
+
+    def save_moea(self):
+        raise NotImplementedError("Not implemented")
+    
+
+    def IPL_save_class(self):
+        raise NotImplementedError("Not implemented")
+ 
+
     def allowed_DATA(LIST,experiments):
         #for IDATA,exp in zip(LIST,experiments):
            # print(exp.__class__.__name__,"  ", len(IDATA.get_arr_DATA()))

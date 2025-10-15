@@ -1,16 +1,15 @@
 from MoeaBench.base_benchmark import BaseBenchmark
+from MoeaBench.base_moea import BaseMoea
 from MoeaBench import moeabench
 import os
 
 
-import random
-from deap import base, creator, tools, algorithms
-from MoeaBench.base_moea import BaseMoea
-import array
+
 
 
 
 os.system("cls") 
+
 
 exp = moeabench()
 exp2 = moeabench()
@@ -20,8 +19,8 @@ from enum import Enum
 
   
 
-@exp.benchmark.register_benchmark()
-class my_dtlz7(BaseBenchmark):
+#@exp.benchmark.register_benchmark()
+class my_dtlz5(BaseBenchmark):
     
     from enum import Enum
     import numpy as np
@@ -34,11 +33,11 @@ class my_dtlz7(BaseBenchmark):
        Fm   = 5
     
     
-    def __init__(self,CACHE):
-        self.M=3
-        self.P=150
-        self.K=5
-        self.n_ieq_constr=1
+    def __init__(self,CACHE,M=3,P=150,K=5,n_ieq_constr=1):
+        self.M=M
+        self.P=P
+        self.K=K
+        self.n_ieq_constr=n_ieq_constr
         self.llist_E_DTLZ = list(self.E_DTLZ)
         self.N=self.K+self.M-1
         self.CACHE=CACHE
@@ -144,46 +143,45 @@ class my_dtlz7(BaseBenchmark):
         return result
 
 
-exp.problem = exp.benchmark.my_new_benchmark()
-#exp.moea = moeabench.Moea.U_NSGA3(problem=exp.problem, population = 160, generations = 500)
-#exp.run()
-
-
-
-@exp2.Moea.register_moea()
+#@exp.Moea.register_moea()
 class NSGA2deap(BaseMoea):
+
+  import random
+  from deap import base, creator, tools, algorithms
+  import array
+  import numpy as np
   
-  def __init__(self,problem,population,generations):
+  def __init__(self,problem=None,population=0,generations=0):
     self.problem=problem
     self.generations=generations
     self.population = population
     self.temp=None
     self.n_ieq= self.problem.get_CACHE().get_BENCH_CI().get_n_ieq_constr()
 
-    creator.create("FitnessMin", base.Fitness, weights=(-1.0,) * self.problem.get_CACHE().get_BENCH_CI().get_M())
-    creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
-    self.toolbox = base.Toolbox()
+    self.creator.create("FitnessMin", self.base.Fitness, weights=(-1.0,) * self.problem.get_CACHE().get_BENCH_CI().get_M())
+    self.creator.create("Individual", self.array.array, typecode='d', fitness=self.creator.FitnessMin)
+    self.toolbox = self.base.Toolbox()
     self.toolbox.register("attr_float", self.uniform, 0, 1,self.problem.get_CACHE().get_BENCH_CI().get_Nvar())
-    self.toolbox.register("individual", tools.initIterate, creator.Individual, self.toolbox.attr_float)
-    self.toolbox.register("population", tools.initRepeat, list, self.toolbox.individual)
+    self.toolbox.register("individual", self.tools.initIterate, self.creator.Individual, self.toolbox.attr_float)
+    self.toolbox.register("population", self.tools.initRepeat, list, self.toolbox.individual)
     self.toolbox.register("evaluate",self.evaluate)
     self.evalue = self.toolbox.evaluate
-    random.seed(None)
-    self.toolbox.decorate("evaluate", tools.DeltaPenality(self.feasible,1000))
-    self.toolbox.register("mate", tools.cxSimulatedBinaryBounded, low=0, up=1, eta=20)
-    self.toolbox.register("mutate", tools.mutPolynomialBounded, low=0, up=1, eta=20, indpb=1/self.problem.get_CACHE().get_BENCH_CI().get_Nvar())
-    self.toolbox.register("select", tools.selNSGA2)
+    self.random.seed(None)
+    self.toolbox.decorate("evaluate", self.tools.DeltaPenality(self.feasible,1000))
+    self.toolbox.register("mate", self.tools.cxSimulatedBinaryBounded, low=0, up=1, eta=20)
+    self.toolbox.register("mutate", self.tools.mutPolynomialBounded, low=0, up=1, eta=20, indpb=1/self.problem.get_CACHE().get_BENCH_CI().get_Nvar())
+    self.toolbox.register("select", self.tools.selNSGA2)
     
 
   def uniform(self,low, up, size=None):
     try:
-      return [random.uniform(a,b) for a,b in zip(low,up)]
+      return [self.random.uniform(a,b) for a,b in zip(low,up)]
     except TypeError as e:
-      return [random.uniform(a,b) for a,b in zip([low]*size,[up]*size)]
+      return [self.random.uniform(a,b) for a,b in zip([low]*size,[up]*size)]
 
 
   def evaluate(self,X):
-    self.resul = self.problem.evaluation(np.array([X]),self.n_ieq)
+    self.resul = self.problem.evaluation(self.np.array([X]),self.n_ieq)
     return self.resul['F'][0]
 
 
@@ -203,14 +201,14 @@ class NSGA2deap(BaseMoea):
     X_gen_all=[]
     for ind, fit in zip(invalid_ind, fitnesses):
       ind.fitness.values = fit
-    F_gen_all.append(np.column_stack([np.array([ind.fitness.values for ind in pop ])]))
-    X_gen_all.append(np.column_stack([np.array([np.array(ind) for ind in pop ])]))
+    F_gen_all.append(self.np.column_stack([self.np.array([ind.fitness.values for ind in pop ])]))
+    X_gen_all.append(self.np.column_stack([self.np.array([self.np.array(ind) for ind in pop ])]))
     pop = self.toolbox.select(pop, len(pop))
     for gen in range(1, self.generations):
-      offspring = tools.selTournamentDCD(pop, len(pop))
+      offspring = self.tools.selTournamentDCD(pop, len(pop))
       offspring = [self.toolbox.clone(ind) for ind in offspring]
       for ind1, ind2 in zip(offspring[::2], offspring[1::2]):
-        if random.random() <= 0.9:
+        if self.random.random() <= 0.9:
           self.toolbox.mate(ind1, ind2)
         self.toolbox.mutate(ind1)
         self.toolbox.mutate(ind2)
@@ -220,20 +218,106 @@ class NSGA2deap(BaseMoea):
       for ind, fit in zip(invalid_ind, fitnesses):
         ind.fitness.values = fit
       pop = self.toolbox.select(pop + offspring, len(pop))
-      F_gen_all.append(np.column_stack([np.array([ind.fitness.values for ind in pop ])]))
-      X_gen_all.append(np.column_stack([np.array([np.array(ind) for ind in pop ])]))
-    F = np.column_stack([np.array([ind.fitness.values for ind in pop ])])
+      F_gen_all.append(self.np.column_stack([self.np.array([ind.fitness.values for ind in pop ])]))
+      X_gen_all.append(self.np.column_stack([self.np.array([self.np.array(ind) for ind in pop ])]))
+    F = self.np.column_stack([self.np.array([ind.fitness.values for ind in pop ])])
     return F_gen_all,X_gen_all,F,self.generations,self.population
 
 
 
-exp2.problem = exp.problem
-exp2.moea = exp2.Moea.my_new_moea(problem = exp2.problem,population = 160 ,generations = 500)
+#test1 so instancias em memoria e não salva
+
+#exp.problem = exp.benchmark.my_new_benchmark()
+#exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 500)
+#exp.run()
+
+#exp.save('teste1')
+#exp.load('teste1')
+
+
+#test2 uma instancia moeabench e uma instancia em memoria moea (salvando a classe). Salvando o objeto
+
+
+#exp.problem = moeabench.benchmark.DTLZ5()
+#exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 500)
+#exp.run()
+#exp.save_class()
+
+#exp.save('test2')
+#exp.load('test2')
+
+
+#test3 uma instancia moeabench e uma instancia em memoria benchmark (salvando a classe). Salvando o objeto
+
+#exp.problem = exp.benchmark.my_new_benchmark()
+#exp.moea = moeabench.Moea.MOEAD(problem=exp.problem, population = 130, generations = 400)
+#exp.run()
+#exp.save_class()
+
+#exp.save('test3')
+#exp.load('test3')
+
+
+
+#test4 duas instancias em memoria benchmark e moea (salvando as classes). Salvando o objeto
+
+#exp.problem = exp.benchmark.my_new_benchmark()
+#exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 500)
+#exp.run()
+#exp.save_class()
+
+#exp.save('test4')
+#exp.load('test4')
+
+
+
+#test5 instanciando uma classe benchmark do Moeabench e outra do Moea do usuario e salvando o objeto
+
+#exp.problem = exp.benchmark.my_implemented_benchmark('my_dtlz5',m = 3, p = 1200, k = 10)
+#exp.moea = moeabench.Moea.MOEAD(problem=exp.problem, population = 130, generations = 400)
+#exp.run()
+
+
+#exp.save('test5')
+#exp.load('test5')
+
+
+#test6 instanciando uma classe moea do usuario e outra do benchmark do Moeabench e salvando o objeto
+
+#exp.problem = moeabench.benchmark.DTLZ5()
+#exp.moea = moeabench.Moea.my_implemented_moea('NSGA2deap',problem=exp.problem, population = 160, generations = 400)
+#exp.run()
+
+
+#exp.save('test6')
+#exp.load('test6')
+
+
+#test7 instanciando uma classe moea do usuario e outra do benchmark do usuario e salvando o objeto
+
+exp.problem = exp.benchmark.my_implemented_benchmark('my_dtlz5',m = 3, p = 1200, k = 10)
+exp.moea = moeabench.Moea.my_implemented_moea('NSGA2deap',problem=exp.problem, population = 160, generations = 400)
+exp.run()
+
+
+exp.save('test7')
+exp.load('test7')
+
+
+
+
+
+
+
+#exp2.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 400)
+
+
+
+#exp2.problem = exp2.benchmark.my_implemented_benchmark('my_dtlz5',m = 3, p = 1200, k = 10)
+#exp2.moea = moeabench.Moea.my_implemented_moea('NSGA2deap',problem=exp2.problem, population = 160, generations = 400)
 #exp2.run()
 
 
-#exp2.save("bbbbc")
-#exp2.load('bbbbc')
 
-
-#exp.save("cabass")
+#exp2.save('grand')
+#exp2.load('grand')

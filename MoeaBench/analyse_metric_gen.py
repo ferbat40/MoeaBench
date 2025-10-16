@@ -25,7 +25,9 @@ class analyse_metric_gen(plot_gen):
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
         evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(data))]
+        analyse_metric_gen.allowed_gen_max(data, 1, generations[1])
         metric=analyse_metric_gen.normalize_gen(data,generations ,metrics)
+        
         title = f'for {bench[0].get_BENCH()}'
         return [evaluate,metric],title
       

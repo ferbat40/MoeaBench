@@ -5,21 +5,12 @@ import numpy as np
 class analyse_metric_gen(plot_gen):
 
     @staticmethod
-    def allowed_gen(max,N):
-        if not max == N:
-            raise TypeError(f"generations = {N} not be allowed. It must be between 0 and {max}" )
-
-
-    @staticmethod
     def normalize_gen(data,N,metric):
         vet=[]
         for i in data:
             vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[metric][N[0]:N[1]])
-        max = 0
-        for i in vet:
-            if max < len(i):
-                max = len(i)
-        analyse_metric_gen.allowed_gen(max,N)
+        max = i.get_METRIC_gen().get_arr_Metric_gen()[metric].size
+        analyse_metric_gen.allowed_gen(N)
         vet_pt=[]
         for b in vet:
             row = b.reshape(b.shape[0],1)
@@ -33,7 +24,7 @@ class analyse_metric_gen(plot_gen):
     def DATA(args,generations,metrics):
         data  = [b[0] for i in args for b in i.result.get_elements()]
         bench = [b[1] for i in args for b in i.result.get_elements()]
-        evaluate = [np.arange(1,generations+1) for _ in range(len(data))]
+        evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(data))]
         metric=analyse_metric_gen.normalize_gen(data,generations ,metrics)
         title = f'for {bench[0].get_BENCH()}'
         return [evaluate,metric],title
@@ -42,7 +33,6 @@ class analyse_metric_gen(plot_gen):
     @staticmethod
     def IPL_plot_Hypervolume(args,generations, val_metric,experiments):
         try:
-            analyse_metric_gen.allowed_gen(generations)
             markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
             plot_g = analyse_metric_gen(markers,experiments,title,  metric = ['Hypervolume','Generations'])
             plot_g.configure()

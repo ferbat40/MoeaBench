@@ -226,10 +226,11 @@ class NSGA2deap(BaseMoea):
 
 
 exp.problem = moeabench.benchmark.DPF5(M=3)
-exp.moea = moeabench.Moea.MOEAD(problem=exp.problem, population = 130, generations = 400)
+exp.moea = moeabench.Moea.MOEAD(problem=exp.problem, population = 130, generations = 200)
 exp.run()
 
-moeabench.plot_GD(exp,  generations = 300)
+moeabench.plot_hypervolume(exp,  generations = [0,200])
+#moeabench.plot_obj(exp,  generations = [110,200])
 #test1 so instancias em memoria e não salva
 
 #exp.problem = exp.benchmark.my_new_benchmark()

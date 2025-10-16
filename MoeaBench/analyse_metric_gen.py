@@ -14,8 +14,7 @@ class analyse_metric_gen(plot_gen):
         vet_pt=[]
         for b in vet:
             row = b.reshape(b.shape[0],1)
-            #print("dimensiob ",row.shape[0],"   ",max)
-            pad = np.full((max-row.shape[0],1), np.nan) if max > row.shape[0] else max
+            pad = np.full((max-row.shape[0],1), np.nan) if max > row.shape[0] else row.shape[0]
             arr = np.vstack([row,pad])
             vet_pt.append(arr.flatten())
         return vet_pt    

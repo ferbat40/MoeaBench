@@ -13,28 +13,10 @@ class plot_gen(analyse):
         self.label=label
         self.title=title
         self.metric=metric
-        self.axis_DATA=[]
-       
-
-    def axis(self, b):
-       try:
-         self.axis_DATA=[]
-         value = b['new']
-         mtc=self.metric
-         first = mtc.index(value)
-         end = 1-first
-         if self.metric != [mtc[end],mtc[first]]:
-            self.metric = [mtc[end],mtc[first]]
-            self.markers=self.markers[::-1]
-         for x,y in zip(self.markers[0],self.markers[1]):
-           self.axis_DATA.append([x,y])  
-       except Exception as e:
-          print(e)
-       
+     
     
     def configure(self):
              self.figure=go.Figure()
-             #vet_pts=[i for i in self.axis_DATA]
              self.figure.data=()
              for gen, metric,  lbl in zip( self.markers[0],  self.markers[1], self.label ):
                  gen=np.array(gen)
@@ -75,19 +57,7 @@ class plot_gen(analyse):
              self.PLT()
       
 
-   #def PLT(self):  
-       # self.axis_change = widgets.Dropdown(options=[('',None),(self.metric[1],self.metric[1]),(self.metric[0],self.metric[0])] , description="<span style='font-size:14px; color:blue; font-weight:bold;'>AXIS X</span>")
-       # self.output=widgets.Output()
-       # self.figure=go.FigureWidget()
-       # self.figure.data=()
-       # self.button = widgets.Button(description="PLOT", style = widgets.ButtonStyle(button_color='deepskyblue', font_weight='bold'))
-        #self.axis_change.observe(self.axis, names = 'value')
-       # self.button.on_click(self.configure) 
-       # ui = widgets.VBox([widgets.HBox([self.figure], layout=widgets.Layout(justify_content='center')),
-                          # widgets.HBox([self.axis_change,self.button],layout=widgets.Layout(justify_content='center')),
-                          # widgets.HBox([self.output], layout=widgets.Layout(justify_content='center'))],
-                           #layout=widgets.Layout(margin='0px', paddin = '0px', justify_content='center', align_items ='center'))
-        #display(ui)
+
                 
                 
         

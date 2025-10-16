@@ -54,7 +54,7 @@ class analyse_metric_gen(plot_gen):
         try:
             markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
             plot_g = analyse_metric_gen(markers,experiments,title,  metric = ['GD','Generations'])
-            plot_g.PLT()
+            plot_g.configure()
         except Exception as e:
             print(e)
 
@@ -64,7 +64,7 @@ class analyse_metric_gen(plot_gen):
         try:
             markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
             plot_g = analyse_metric_gen(markers,experiments,title,metric = ['GD plus','Generations'])
-            plot_g.PLT()
+            plot_g.configure()
         except Exception as e:
             print(e)
 
@@ -74,7 +74,7 @@ class analyse_metric_gen(plot_gen):
         try:
             markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
             plot_g = analyse_metric_gen(markers,experiments,title,  metric = ['IGD','Generations'])
-            plot_g.PLT()
+            plot_g.configure()
         except Exception as e:
             print(e)
 
@@ -84,7 +84,7 @@ class analyse_metric_gen(plot_gen):
         try:
             markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
             plot_g = analyse_metric_gen(markers,experiments,title,  metric = ['IGD plus','Generations'])
-            plot_g.PLT()
+            plot_g.configure()
         except Exception as e:
             print(e)
 

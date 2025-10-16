@@ -65,7 +65,7 @@ class MoeaBench(I_UserMoeaBench):
         analyse_var_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objectives = variables, mtc = 8,  type = "decision variables in generations") 
   
 
-    def plot_hypervolume(self,*args, generations = None):   
+    def plot_hypervolume(self,*args, generations = []):   
         caller = inspect.currentframe().f_back.f_locals.items()
         analyse_metric_gen.IPL_plot_Hypervolume(args,generations,1,experiments = [key for i in args for key, val in caller if i is val])
 

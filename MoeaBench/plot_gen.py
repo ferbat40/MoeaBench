@@ -32,7 +32,7 @@ class plot_gen(analyse):
           print(e)
        
     
-    def configure(self,b):
+    def configure(self):
              self.figure=go.Figure()
              #vet_pts=[i for i in self.axis_DATA]
              self.figure.data=()

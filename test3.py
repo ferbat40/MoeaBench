@@ -20,7 +20,7 @@ from enum import Enum
 
   
 
-@exp.benchmark.register_benchmark()
+#@exp.benchmark.register_benchmark()
 class my_dtlz5(BaseBenchmark):
     
     from enum import Enum
@@ -144,7 +144,7 @@ class my_dtlz5(BaseBenchmark):
         return result
 
 
-@exp.Moea.register_moea()
+#@exp.Moea.register_moea()
 class NSGA2deap(BaseMoea):
 
   import random
@@ -225,13 +225,15 @@ class NSGA2deap(BaseMoea):
     return F_gen_all,X_gen_all,F,self.generations,self.population
 
 
-
+exp.problem = moeabench.benchmark.DPF5(M=3)
+exp.moea = moeabench.Moea.MOEAD(problem=exp.problem, population = 130, generations = 400)
+exp.run()
 #test1 so instancias em memoria e não salva
 
-exp.problem = exp.benchmark.my_new_benchmark()
-exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 300)
-exp.run()
-exp.save_class()
+#exp.problem = exp.benchmark.my_new_benchmark()
+#exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 300)
+#exp.run()
+#exp.save_class()
 
 #exp.save('teste1')
 #exp.load('teste1')

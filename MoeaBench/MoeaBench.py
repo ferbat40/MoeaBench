@@ -173,10 +173,10 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def load(self,file):
-       # try:
+        try:
             loader.IPL_loader(self,file)      
-        #except Exception as e:
-           # print(e)
+        except Exception as e:
+            print(e)
 
 
     def save(self, file):

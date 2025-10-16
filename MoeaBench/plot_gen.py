@@ -33,11 +33,8 @@ class plot_gen(analyse):
        
     
     def configure(self,b):
-       try:
-          with self.output:
-             self.output.clear_output()  
-             vet_pts=[i for i in self.axis_DATA]
-             #print("markers[0]   " , self.markers[0], "markers[1]   " , self.markers[1])
+             self.figure=go.Figure()
+             #vet_pts=[i for i in self.axis_DATA]
              self.figure.data=()
              for gen, metric,  lbl in zip( self.markers[0],  self.markers[1], self.label ):
                  gen=np.array(gen)
@@ -75,23 +72,22 @@ class plot_gen(analyse):
                                      xanchor='left',
                                      yanchor='middle',
                                      font=dict(size=11, weight='bold')))
-       except Exception as e:
-          print(e)
+             self.PLT()
       
 
-    def PLT(self):  
-        self.axis_change = widgets.Dropdown(options=[('',None),(self.metric[1],self.metric[1]),(self.metric[0],self.metric[0])] , description="<span style='font-size:14px; color:blue; font-weight:bold;'>AXIS X</span>")
-        self.output=widgets.Output()
-        self.figure=go.FigureWidget()
-        self.figure.data=()
-        self.button = widgets.Button(description="PLOT", style = widgets.ButtonStyle(button_color='deepskyblue', font_weight='bold'))
-        self.axis_change.observe(self.axis, names = 'value')
-        self.button.on_click(self.configure) 
-        ui = widgets.VBox([widgets.HBox([self.figure], layout=widgets.Layout(justify_content='center')),
-                           widgets.HBox([self.axis_change,self.button],layout=widgets.Layout(justify_content='center')),
-                           widgets.HBox([self.output], layout=widgets.Layout(justify_content='center'))],
-                           layout=widgets.Layout(margin='0px', paddin = '0px', justify_content='center', align_items ='center'))
-        display(ui)
+   #def PLT(self):  
+       # self.axis_change = widgets.Dropdown(options=[('',None),(self.metric[1],self.metric[1]),(self.metric[0],self.metric[0])] , description="<span style='font-size:14px; color:blue; font-weight:bold;'>AXIS X</span>")
+       # self.output=widgets.Output()
+       # self.figure=go.FigureWidget()
+       # self.figure.data=()
+       # self.button = widgets.Button(description="PLOT", style = widgets.ButtonStyle(button_color='deepskyblue', font_weight='bold'))
+        #self.axis_change.observe(self.axis, names = 'value')
+       # self.button.on_click(self.configure) 
+       # ui = widgets.VBox([widgets.HBox([self.figure], layout=widgets.Layout(justify_content='center')),
+                          # widgets.HBox([self.axis_change,self.button],layout=widgets.Layout(justify_content='center')),
+                          # widgets.HBox([self.output], layout=widgets.Layout(justify_content='center'))],
+                           #layout=widgets.Layout(margin='0px', paddin = '0px', justify_content='center', align_items ='center'))
+        #display(ui)
                 
                 
         

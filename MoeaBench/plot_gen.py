@@ -37,12 +37,13 @@ class plot_gen(analyse):
           with self.output:
              self.output.clear_output()  
              vet_pts=[i for i in self.axis_DATA]
-             print(" vet_pts   " , vet_pts)
+             #print(" vet_pts   " , vet_pts)
              self.figure.data=()
-             for pts, lbl in zip( vet_pts, self.label ):
-                 pts=np.array(pts)
+             for gen, metric,  lbl in zip( self.markers[0],  self.markers[1], self.label ):
+                 gen=np.array(gen)
+                 metric=np.array(metric)
                  self.figure.add_trace(go.Scatter(
-                     x = pts[0], y = pts[1],
+                     x = gen, y = metric[1],
                      mode='lines+markers',
                      marker=dict(size=3),
                      name=f'{lbl}',

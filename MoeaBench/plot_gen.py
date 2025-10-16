@@ -37,6 +37,7 @@ class plot_gen(analyse):
           with self.output:
              self.output.clear_output()  
              vet_pts=[i for i in self.axis_DATA]
+             print(" vet_pts   " , vet_pts)
              self.figure.data=()
              for pts, lbl in zip( vet_pts, self.label ):
                  pts=np.array(pts)

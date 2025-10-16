@@ -8,6 +8,7 @@ import os
 
 
 
+
 os.system("cls") 
 
 
@@ -228,7 +229,7 @@ class NSGA2deap(BaseMoea):
 #test1 so instancias em memoria e não salva
 
 exp.problem = exp.benchmark.my_new_benchmark()
-exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 500)
+exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 300)
 exp.run()
 exp.save_class()
 
@@ -311,5 +312,5 @@ exp.save_class()
 
 
 
-exp.load('test4')
-moeabench.plot_var( exp, generations = [0,200],  variables = [1,2,3])
+#exp.load('test4')
+#moeabench.plot_var( exp, generations = [0,200],  variables = [1,2,3])

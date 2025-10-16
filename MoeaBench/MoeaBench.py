@@ -180,17 +180,17 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def save(self, file):
-        #try:
+        try:
             save.IPL_save(self,file)
-        #except Exception as e:
-            #print(e)
+        except Exception as e:
+            print(e)
 
 
     def save_class(self):
-        try:
+        #try:
             save_class.IPL_save_class(self)
-        except Exception as e:
-            print(e)
+        #except Exception as e:
+           # print(e)
 
 
     

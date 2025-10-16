@@ -14,7 +14,8 @@ class analyse_metric_gen(plot_gen):
         vet_pt=[]
         for b in vet:
             row = b.reshape(b.shape[0],1)
-            pad = np.full((max-row.shape[0],1), np.nan)
+            #print("dimensiob ",row.shape[0],"   ",max)
+            pad = np.full((max-row.shape[0],1), np.nan) if max > row.shape[0] else max
             arr = np.vstack([row,pad])
             vet_pt.append(arr.flatten())
         return vet_pt    
@@ -34,12 +35,12 @@ class analyse_metric_gen(plot_gen):
     
     @staticmethod
     def IPL_plot_Hypervolume(args,generations, val_metric,experiments):
-        try:
+       # try:
             markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
             plot_g = analyse_metric_gen(markers,experiments,title,  metric = ['Hypervolume','Generations'])
             plot_g.configure()
-        except Exception as e:
-            print(e)
+       # except Exception as e:
+          #  print(e)
 
     
     @staticmethod

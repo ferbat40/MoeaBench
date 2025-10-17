@@ -19,12 +19,14 @@ class plot_gen_result(analyse):
          self.figure=go.Figure()
          
              
-         for pts in self.gen_moea:
-             for metric in pts:
-                    gen=np.array(self.generation)
-                    metric=np.array(metric)
+         for gn_moea, gen in zip (self.gen_moea,self.generation):
+            for exp, pts in enumerate(gn_moea, start = 0):
+                #print(pts.shape,"  ",experiments[exp],"  ",gen)
+        
+                    gen=np.array(gen)
+                    pts=np.array(pts)
                     self.figure.add_trace(go.Scatter(
-                     x = gen, y = metric,
+                     x = gen, y = pts,
                      mode='lines+markers',
                      marker=dict(size=3),
                      name=f'{0}',
@@ -34,7 +36,7 @@ class plot_gen_result(analyse):
                                 f"{self.metric[0]}: %{{y}}<br><extra></extra>"),
                                 
                                 ))
-             self.figure.update_layout(       
+            self.figure.update_layout(       
                      xaxis=dict(title=self.metric[1], showgrid=True, gridcolor="#C3BDBD"),
                      yaxis=dict(title=self.metric[0], showgrid=True, gridcolor="#C3BDBD"),
                      margin=dict(l=70,r=150,b=80,t=140),
@@ -55,7 +57,7 @@ class plot_gen_result(analyse):
                                      xanchor='left',
                                      yanchor='middle',
                                      font=dict(size=11)))
-             self.PLT()
+            self.PLT()
       
 
    

@@ -16,12 +16,11 @@ class plot_gen_result(analyse):
         
 
     def configure(self):
-             self.figure=go.Figure()
+         self.figure=go.Figure()
              
-         #for pts in self.gen_moea:
-             for gen,metric in zip(self.generation,self.gen_moea):
-     
-                    gen=np.array(gen)
+         for pts in self.gen_moea:
+             for metric in pts:
+                    gen=np.array(self.generation)
                     metric=np.array(metric)
                     self.figure.add_trace(go.Scatter(
                      x = gen, y = metric,

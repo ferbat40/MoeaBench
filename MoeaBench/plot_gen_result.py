@@ -16,10 +16,10 @@ class plot_gen_result(analyse):
         
 
     def configure(self):
-             self.figure=go.Figure()
+         self.figure=go.Figure()
              
-             #for   gen, pts  in zip(self.generation,self.gen_moea):
-             for metric, lbl in zip(self.gen_moea,self.experiments):
+         for pts in self.get_moea():
+             for metric, lbl in zip(pts,self.experiments):
      
                     gen=np.array(self.generation)
                     metric=np.array(metric)

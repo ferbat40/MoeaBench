@@ -19,7 +19,7 @@ class plot_gen_result(analyse):
              self.figure=go.Figure()
              
          #for pts in self.gen_moea:
-             for gen,lbl,metric in zip(self.generation,self.experiments,self.gen_moea):
+             for gen,metric in zip(self.generation,self.gen_moea):
      
                     gen=np.array(gen)
                     metric=np.array(metric)
@@ -27,9 +27,9 @@ class plot_gen_result(analyse):
                      x = gen, y = metric,
                      mode='lines+markers',
                      marker=dict(size=3),
-                     name=f'{lbl}',
+                     name=f'{0}',
                      showlegend=True,
-                     hovertemplate = (f"{lbl}<br>"
+                     hovertemplate = (f"{0}<br>"
                                 f"{self.metric[1]}: %{{x}}<br>"
                                 f"{self.metric[0]}: %{{y}}<br><extra></extra>"),
                                 

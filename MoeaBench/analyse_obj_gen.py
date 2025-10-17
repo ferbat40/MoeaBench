@@ -26,6 +26,7 @@ class analyse_obj_gen(plot_gen_result):
         analyse_obj_gen.allowed_obj(data,mtc,objective)
         gen_moea=analyse_obj_gen.normalize_gen(data,generations,mtc,objective)
         generation = [generations[0]+i  for i in range(0,len(gen_moea)+1)  ]
+        
         plot_gen_result =  analyse_obj_gen(gen_moea,experiments,generation,metric = ['objectives','Generations'])
         plot_gen_result.configure()
 

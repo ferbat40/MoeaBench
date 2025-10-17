@@ -27,12 +27,12 @@ class analyse_obj_gen(plot_gen_result):
         gen_moea=analyse_obj_gen.normalize_gen(data,generations,mtc,objective)
         generation = [generations[0]+i  for i in range(0,len(gen_moea)+1)  ]
         
-        plot_gen_result =  analyse_obj_gen(gen_moea,experiments,generations,metric = ['objectives','Generations'])
+        plot_gen_result =  analyse_obj_gen(gen_moea,experiments,generation,metric = ['objectives','Generations'])
         plot_gen_result.configure()
 
-        for gn_moea, gen in zip (gen_moea,generation):
-            for exp, pts in enumerate(gn_moea, start = 0):
-                print(pts.shape,"  ",experiments[exp],"  ",gen)
+        #for gn_moea, gen in zip (gen_moea,generation):
+            #for exp, pts in enumerate(gn_moea, start = 0):
+              #  print(pts.shape,"  ",experiments[exp],"  ",gen)
         
 
         

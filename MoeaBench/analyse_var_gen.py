@@ -1,8 +1,8 @@
-from .plot_gen_3D import plot_gen_3D
+from .plot_gen_result import plot_gen_result
 import numpy as np
 
 
-class analyse_var_gen(plot_gen_3D):
+class analyse_var_gen(plot_gen_result):
 
     @staticmethod
     def allowed_obj(element,data, experiments, variables, obj = ('get_Nvar',)):
@@ -36,7 +36,7 @@ class analyse_var_gen(plot_gen_3D):
         
         axis =  [i for i in range(0,3)]    if len(objectives) == 0 else [i-1 if i > 0 else 0 for i in objectives] 
         
-        plot_gen_3D_var =  analyse_var_gen(bench,vet_pt,generations,experiments,axis,type)
-        plot_gen_3D_var.configure()
+        plot_gen_result =  analyse_var_gen(bench,vet_pt,generations,experiments,axis,type)
+        plot_gen_result.configure()
       except Exception as e:
         print(e)

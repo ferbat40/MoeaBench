@@ -55,9 +55,9 @@ class MoeaBench(I_UserMoeaBench):
         self.pof=value
 
 
-    def plot_obj(self,*args, generations = [], objectives = []):  
+    def plot_obj(self,*args, objective, generations = []):  
         caller = inspect.currentframe().f_back.f_locals.items()
-        analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objectives = objectives, mtc = 7 , type = "objectives in generations") 
+        analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = objective, mtc = 7 , type = "objectives in generations") 
        
 
     def plot_var(self,*args, generations = [], variables = []):  
@@ -187,10 +187,10 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def save_class(self):
-        #try:
+        try:
             save_class.IPL_save_class(self)
-        #except Exception as e:
-           # print(e)
+        except Exception as e:
+            print(e)
 
 
     

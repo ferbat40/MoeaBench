@@ -34,12 +34,12 @@ class analyse_metric_gen(plot_gen):
     
     @staticmethod
     def IPL_plot_Hypervolume(args,generations, val_metric,experiments):
-       # try:
+        try:
             markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
             plot_g = analyse_metric_gen(markers,experiments,title,  metric = ['Hypervolume','Generations'])
             plot_g.configure()
-       # except Exception as e:
-          #  print(e)
+        except Exception as e:
+            print(e)
 
     
     @staticmethod

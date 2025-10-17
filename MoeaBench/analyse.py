@@ -42,39 +42,62 @@ class analyse(IPL_MoeaBench):
     
 
     @staticmethod
-    def normalize_gen(data,generations,metric):
+    def normalize_gen(data,generations,metric,objective):
         vet=[]
+
         for i in data:
-            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[metric][generations[0]:generations[1]+1])
-        max = 0
-        max_col = 0
-        for row in zip_longest(*vet,fillvalue=np.nan):
-            for i in row:
-                try:
-                    if i.shape[0]> max:
-                        max=i.shape[0]
-                    if i.shape[1]> max_col:
-                        max_col=i.shape[1]
-                except Exception as e:
-                    continue
+            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[metric])
+        
 
         vet_pt=[]
         for row in zip_longest(*vet,fillvalue=np.nan):
-            vet_aux=[]
-            for i in row:
+           vet_pt.append(row)
+        
+        
+        max = 0
+        for pts in vet_pt:
+            for  arr in pts:
                 try:
-                    if i.shape[0]<max:
-                        pad = np.full((max-i.shape[0],i.shape[1]), np.nan)
-                        arr = np.vstack([i,pad])
-                        vet_aux.append(arr)
-                    else:
-                        vet_aux.append(i)   
-
+                    max = arr.shape[0] if max < arr.shape[0] else max
                 except Exception as e:
-                    pad = np.full((max,max_col), np.nan)
-                    vet_aux.append(pad)     
-            vet_pt.append(vet_aux)   
-        return vet_pt       
+                    continue
+        
+        moea=[]
+        gen=[]
+        for pts in vet_pt:
+           moea=[]
+           for  arr in pts:
+               
+               if not isinstance(arr, (np.ndarray)):
+                   moea.append(np.full( (max,1), np.nan))
+               elif isinstance(arr, (np.ndarray)):
+                   moea.append(np.vstack( (arr[:,objective:objective+1], np.full( (max-arr.shape[0],1), np.nan)) ))
+           gen.append(moea)
+        
+        return gen[generations[0]:generations[1]+1]
+        
+      
+
+        
+
+
+           
+            
+            #vet_aux=[]
+            #for i in row:
+                #vet_aux.append(np.array(i))
+            #vet_pt.append(vet_aux)
+        
+        #for pts, gen in zip(vet_pt,range(0,len(vet_pt))):
+            #or b in pts:
+                #print(type(pts),gen)
+            #print(i)
+            #print(i.shape)
+
+
+               
+
+   
     
 
     def PLT(self):  

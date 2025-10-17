@@ -17,6 +17,7 @@ class plot_gen_result(analyse):
 
     def configure(self):
          self.figure=go.Figure()
+         
              
          for pts in self.gen_moea:
              for metric in pts:

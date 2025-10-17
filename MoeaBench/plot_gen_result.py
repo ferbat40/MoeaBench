@@ -21,7 +21,7 @@ class plot_gen_result(analyse):
              
          for gn_moea, gen in zip (self.gen_moea,self.generation):
             for exp, pts in enumerate(gn_moea, start = 0):
-                #print(pts.shape,"  ",experiments[exp],"  ",gen)
+                    print(pts)
         
                     gen=np.array(gen)
                     pts=np.array(pts)
@@ -29,9 +29,9 @@ class plot_gen_result(analyse):
                      x = gen, y = pts,
                      mode='lines+markers',
                      marker=dict(size=3),
-                     name=f'{exp}',
+                     name=f'{self.experiments[exp]}',
                      showlegend=True,
-                     hovertemplate = (f"{exp}<br>"
+                     hovertemplate = (f"{self.experiments[exp]}<br>"
                                 f"{self.metric}: %{{x}}<br>"
                                 f"{self.metric[0]}: %{{y}}<br><extra></extra>"),
                                 

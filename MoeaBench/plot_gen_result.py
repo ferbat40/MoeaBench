@@ -33,7 +33,7 @@ class plot_gen_result(analyse):
                      name=f'{self.experiments[exp]}',
                      showlegend=True,
                      hovertemplate = (f"{self.experiments[exp]} for gen {gen}<br>"
-                                f"{self.metric[0]}: %{{x}}<br>"
+                                f"{self.metric[0]}: %{{y}}<br>"
                                 f"{self.metric[1]}: %{{y}}<br><extra></extra>"),
                                 
                                 ))

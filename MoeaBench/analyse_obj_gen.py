@@ -29,7 +29,7 @@ class analyse_obj_gen(plot_gen_result):
         plot_gen_result =  analyse_obj_gen(gen_moea,experiments,generation,metric = ['objectives','Generations'])
         plot_gen_result.configure()
 
-        
+         
         for moea, gen in zip(gen_moea, generation):
               for pts in moea:
                    print(pts,"  ","  ",gen)

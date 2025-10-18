@@ -16,17 +16,13 @@ class plot_gen_result(analyse):
         
 
     def configure(self):
-         self.figure=go.Figure()
-         
-         #all_y=[]  
+         self.figure=go.Figure()  
          for moea, gener in zip(self.gen_moea, self.generation):
                for exp, pts in enumerate(moea , start = 0):
-                   
-                    
+                                      
                     gen=np.array(gener)
                     y_pts=np.array(pts).flatten()
                     gen_arr = np.full_like(y_pts,gener)
-                    #all_y.append(pts)
                     self.figure.add_trace(go.Scatter(
                      x = y_pts, y = gen_arr,
                      mode='lines+markers',
@@ -38,12 +34,10 @@ class plot_gen_result(analyse):
                                 f"{self.metric[1]}: %{{y}}<br><extra></extra>"),
                                 
                                 ))
-         #all_y=np.concatenate(all_y)
-         #y_min, y_max = np.nanmin(all_y), np.nanmax(all_y)
          
          self.figure.update_layout(       
-                     xaxis=dict(title=self.metric[1], showgrid=False),
-                     yaxis=dict(title=self.metric[0], showgrid=False),
+                     xaxis=dict(title=self.metric[0], showgrid=False),
+                     yaxis=dict(title=self.metric[1], showgrid=False),
                      margin=dict(l=70,r=150,b=80,t=140),
                      plot_bgcolor="#FAFAFA",
                      paper_bgcolor="white",

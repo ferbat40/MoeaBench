@@ -31,9 +31,9 @@ class analyse_obj_gen(plot_gen_result):
         plot_gen_result.configure()
 
         
-       # for moea, gen in zip(gen_moea, generation):
-               #for pts in moea:
-                   #print(pts.shape,"  ","  ",gen)
+        for moea, gen in zip(gen_moea, generation):
+              for pts in moea:
+                   print(pts,"  ","  ",gen)
         
 
         

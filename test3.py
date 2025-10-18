@@ -12,8 +12,8 @@ import os
 os.system("cls") 
 
 
-exp = moeabench()
 exp2 = moeabench()
+exp3 = moeabench()
 
 from enum import Enum
 
@@ -225,18 +225,21 @@ class NSGA2deap(BaseMoea):
     return F_gen_all,X_gen_all,F,self.generations,self.population
 
 
-exp.problem = moeabench.benchmark.DPF5(M=3)
-exp.moea = moeabench.Moea.MOEAD(problem=exp.problem, population = 130, generations = 300)
-exp.run()
+exp2.problem = moeabench.benchmark.DPF5(M=3)
+exp2.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 300)
+exp2.run()
 
 exp3 = moeabench()
-exp3.problem = moeabench.benchmark.DPF5(M=4)
-exp3.moea = moeabench.Moea.NSGA3(problem=exp3.problem, population = 100, generations = 200)
+exp3.problem = moeabench.benchmark.DPF5(M=3)
+exp3.moea = moeabench.Moea.NSGA3(problem=exp3.problem, population = 130, generations = 200)
 exp3.run()
 
+
+moeabench.plot_GD(exp2, exp3,  generations = [0,250])
+
 #moeabench.plot_hypervolume(exp, exp3, generations = [89,300])
-moeabench.plot_obj(exp, exp3, objective = 3, generations = [110,300])
-moeabench.plot_var(exp, exp3, variable = 6, generations = [110,300])
+#oeabench.plot_obj(exp, exp3, objective = 3, generations = [110,300])
+#moeabench.plot_var(exp, exp3, variable = 6, generations = [110,300])
 #test1 so instancias em memoria e não salva
 
 #exp.problem = exp.benchmark.my_new_benchmark()

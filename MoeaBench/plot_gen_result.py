@@ -28,7 +28,7 @@ class plot_gen_result(analyse):
                     gen_arr = np.full_like(y_pts,gener)
                     #all_y.append(pts)
                     self.figure.add_trace(go.Scatter(
-                     x = gen_arr, y = y_pts,
+                     x = y_pts, y = gen_arr,
                      mode='lines+markers',
                      marker=dict(size=6),
                      name=f'{self.experiments[exp]} for gen {gen}',

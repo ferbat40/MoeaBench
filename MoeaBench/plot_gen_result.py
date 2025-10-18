@@ -23,7 +23,7 @@ class plot_gen_result(analyse):
             for exp, pts in enumerate(gn_moea, start = 0):
                     print(pts)
                     
-                    gen=np.array(gen)
+                    gen=np.array(self.generation)
                     pts=np.array(pts)
                     all_y.append(pts)
                     self.figure.add_trace(go.Scatter(

@@ -18,9 +18,8 @@ class analyse_obj_gen(plot_gen_result):
     
     @staticmethod
     def IPL_plot_3D(*args, experiments, generations , objective, mtc, type ):  
-      #try: 
+      try: 
         data  = [b[0] for i in args for b in i.result.get_elements()]
-        #bench = [b[1] for i in args for b in i.result.get_elements()]
         analyse_obj_gen.allowed_gen(generations)
         analyse_obj_gen.allowed_gen_max(data, 7, generations[1])
         analyse_obj_gen.allowed_obj(data,mtc,objective)
@@ -37,5 +36,5 @@ class analyse_obj_gen(plot_gen_result):
         
 
         
-      #except Exception as e:
-        #print(e)
+      except Exception as e:
+        print(e)

@@ -31,7 +31,7 @@ class plot_gen_result(analyse):
                      showlegend=True,
                      hovertemplate = (f"{self.experiments[exp]} for gen {gen}<br>"
                                 f"{self.metric[0]}: %{{y}}<br>"
-                                f"{self.metric[1]}: %{{y}}<br><extra></extra>"),
+                                f"{self.metric[1]}: %{{x}}<br><extra></extra>"),
                                 
                                 ))
          

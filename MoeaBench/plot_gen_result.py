@@ -26,7 +26,7 @@ class plot_gen_result(analyse):
                     self.figure.add_trace(go.Scatter(
                      x = y_pts, y = gen_arr,
                      mode='lines+markers',
-                     marker=dict(size=6),
+                     marker=dict(size=3),
                      name=f'{self.experiments[exp]} for gen {gen}',
                      showlegend=True,
                      hovertemplate = (f"{self.experiments[exp]} for gen {gen}<br>"

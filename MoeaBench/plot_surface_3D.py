@@ -1,10 +1,10 @@
 import numpy as np
 from scipy.interpolate import griddata
 import plotly.graph_objects as go
-from .analyse import analyse
+from .analyse_pareto import analyse_pareto
 
 
-class plot_surface_3D(analyse):
+class plot_surface_3D(analyse_pareto):
     
     def __init__(self,BENCH,vet_pt,experiments,vaxis, type = 'pareto-optimal front'):
          self.vet_pts=vet_pt

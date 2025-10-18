@@ -4,7 +4,6 @@ import numpy as np
 
 class analyse_obj_gen(plot_gen_result):
     
-
     @staticmethod
     def allowed_obj(data,objective):
         if not isinstance(objective, (int)):

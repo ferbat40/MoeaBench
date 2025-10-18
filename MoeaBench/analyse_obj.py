@@ -2,8 +2,7 @@ from .plot_3D import plot_3D
 
 
 class analyse_obj(plot_3D):
-
-        
+      
     @staticmethod
     def IPL_plot_3D(experiments, data, bench, array, objectives):
         try:

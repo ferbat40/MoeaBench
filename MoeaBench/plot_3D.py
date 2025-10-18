@@ -2,7 +2,7 @@ import ipywidgets as widgets
 from IPython.display import display
 import plotly.graph_objects as go
 import numpy as np
-from .analyse import analyse
+from .analyse_pareto import analyse_pareto
 try:
     import google.colab
     from google.colab import output
@@ -11,7 +11,7 @@ except ImportError:
     pass
 
 
-class plot_3D(analyse):
+class plot_3D(analyse_pareto):
     
      def __init__(self,BENCH,vet_pt,experiments,axis, type = 'pareto-optimal front'):
          self.vet_pts=vet_pt

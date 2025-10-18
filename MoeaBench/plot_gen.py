@@ -1,12 +1,10 @@
-import ipywidgets as widgets
-from IPython.display import display
 import numpy as np
 import plotly.graph_objects as go
 import numpy as np
-from .analyse import analyse
+from .analyse_gen import analyse_gen
 
 
-class plot_gen(analyse):
+class plot_gen(analyse_gen):
 
     def __init__(self,markers,label,title,metric):
         self.markers=markers

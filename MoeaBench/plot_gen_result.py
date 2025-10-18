@@ -3,10 +3,10 @@ from IPython.display import display
 import numpy as np
 import plotly.graph_objects as go
 import numpy as np
-from .analyse import analyse
+from .analyse_gen import analyse_gen
 
 
-class plot_gen_result(analyse):
+class plot_gen_result(analyse_gen):
 
     def __init__(self,gen_moea,experiments,generation,metric = ['objectives','Generations']):
         self.gen_moea=gen_moea

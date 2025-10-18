@@ -55,7 +55,7 @@ class MoeaBench(I_UserMoeaBench):
         self.pof=value
 
 
-    def plot_obj(self,*args, objective, generations = []):  
+    def plot_obj(self,*args, objective, generations = [], stead = False, mean = False):  
         caller = inspect.currentframe().f_back.f_locals.items()
         analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = objective, mtc = 7 , type = "objectives in generations") 
        

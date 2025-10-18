@@ -32,9 +32,9 @@ class plot_gen_result(analyse):
                      marker=dict(size=3),
                      name=f'{self.experiments[exp]}',
                      showlegend=True,
-                     hovertemplate = (f"{self.experiments[exp]}<br>"
-                                f"{self.metric}: %{{y}}<br>"
-                                f"{self.metric[0]}: %{{y}}<br><extra></extra>"),
+                     hovertemplate = (f"{self.experiments[exp]} for gen {gen}<br>"
+                                f"{self.metric[0]}: %{{x}}<br>"
+                                f"{self.metric[1]}: %{{y}}<br><extra></extra>"),
                                 
                                 ))
          #all_y=np.concatenate(all_y)

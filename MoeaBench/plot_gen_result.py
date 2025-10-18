@@ -36,7 +36,7 @@ class plot_gen_result(analyse):
                                 ))
          
          self.figure.update_layout(                          
-                     xaxis=dict(title=self.metric[0], showgrid=False, dtich = 1, tickformar = "d"),
+                     xaxis=dict(title=self.metric[0], showgrid=False, dtick = 1, tickformar = "d"),
                      yaxis=dict(title=self.metric[1], showgrid=False),
                      margin=dict(l=70,r=150,b=80,t=140),
                      plot_bgcolor="#FAFAFA",

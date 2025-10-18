@@ -24,10 +24,10 @@ class plot_gen_result(analyse):
                    
                     
                     gen=np.array(gener)
-                    pts=np.array(pts)
+                    y_pts=np.round(pts,2)
                     #all_y.append(pts)
                     self.figure.add_trace(go.Scatter(
-                     x = gen, y = pts,
+                     x = gen, y = y_pts,
                      mode='lines+markers',
                      marker=dict(size=3),
                      name=f'{self.experiments[exp]}',

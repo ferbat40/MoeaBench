@@ -28,7 +28,7 @@ class plot_gen_result(analyse):
                     #all_y.append(pts)
                     self.figure.add_trace(go.Scatter(
                      x = gen, y = y_pts,
-                     mode='lines',
+                     mode='markers',
                      marker=dict(size=3),
                      name=f'{self.experiments[exp]}',
                      showlegend=True,

@@ -39,7 +39,7 @@ class plot_gen_result(analyse):
                                 ))
          #all_y=np.concatenate(all_y)
          #y_min, y_max = np.nanmin(all_y), np.nanmax(all_y)
-         #self.figure.update_yaxes(range=[y_min,y_max])
+         self.figure.update_yaxes(tickformat =".0f")
          self.figure.update_layout(       
                      xaxis=dict(title=self.metric[1], showgrid=True, gridcolor="#C3BDBD"),
                      yaxis=dict(title=self.metric[0], showgrid=True, gridcolor="#C3BDBD"),

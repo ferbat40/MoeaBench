@@ -236,6 +236,7 @@ exp3.run()
 
 #moeabench.plot_hypervolume(exp, exp3, generations = [89,300])
 moeabench.plot_obj(exp, exp3, objective = 2, generations = [110,300])
+moeabench.plot_var(exp, exp3, variable = 2, generations = [110,300])
 #test1 so instancias em memoria e não salva
 
 #exp.problem = exp.benchmark.my_new_benchmark()

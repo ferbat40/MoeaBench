@@ -22,7 +22,7 @@ class plot_gen_result(analyse):
                                       
                     gen=np.array(gener)
                     y_pts=np.array(pts).flatten()
-                    gen_arr = np.full_like(y_pts,gener, dtype=int)
+                    gen_arr = np.full_like(y_pts,gener)
                     self.figure.add_trace(go.Scatter(
                      x = y_pts, y = gen_arr,
                      mode='lines+markers',
@@ -35,8 +35,8 @@ class plot_gen_result(analyse):
                                 
                                 ))
          
-         self.figure.update_layout(       
-                     xaxis=dict(title=self.metric[0], showgrid=False),
+         self.figure.update_layout(                          
+                     xaxis=dict(title=self.metric[0], showgrid=False, dtich = 1, tickformar = "d"),
                      yaxis=dict(title=self.metric[1], showgrid=False),
                      margin=dict(l=70,r=150,b=80,t=140),
                      plot_bgcolor="#FAFAFA",

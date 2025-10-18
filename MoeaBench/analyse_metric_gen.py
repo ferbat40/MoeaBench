@@ -6,15 +6,13 @@ class analyse_metric_gen(plot_gen):
 
     @staticmethod
     def normalize_gen(data,N,metric):
-        vet=[]
-        for i in data:
-            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[metric][N[0]:N[1]])
-        max = i.get_METRIC_gen().get_arr_Metric_gen()[metric].size
+        vet = [i.get_METRIC_gen().get_arr_Metric_gen()[metric][N[0]:N[1]]  for i in data]
+        max_row  = max(vet)
         analyse_metric_gen.allowed_gen(N)
         vet_pt=[]
         for b in vet:
             row = b.reshape(b.shape[0],1)
-            pad = np.full((max-row.shape[0],1), np.nan) if max > row.shape[0] else row.shape[0]
+            pad = np.full((max_row-row.shape[0],1), np.nan) if max_row > row.shape[0] else row.shape[0]
             arr = np.vstack([row,pad])
             vet_pt.append(arr.flatten())
         return vet_pt    

@@ -42,12 +42,13 @@ class plot_gen_result(analyse):
          
          self.figure.update_layout(       
                      xaxis=dict(title=self.metric[1], showgrid=True, gridcolor="#C3BDBD"),
-                     yaxis=dict(title=self.metric[0], showgrid=True, gridcolor="#C3BDBD",tickformat =".0f",exponentformat="None"),
+                     yaxis=dict(title=self.metric[0], showgrid=True, gridcolor="#C3BDBD",tickformat =".0f"),
                      margin=dict(l=70,r=150,b=80,t=140),
                      plot_bgcolor="#FAFAFA",
                      paper_bgcolor="white",
                      width=800,
                      height=700,
+                     hovermode='x unified',
                      title=dict(
                          text=f'2D Convergence Chart',
                          x=0.5,

@@ -30,7 +30,7 @@ class plot_gen_result(analyse):
                      x = gen, y = y_pts,
                      mode='markers',
                      marker=dict(size=3),
-                     name=f'{self.experiments[exp]}',
+                     name=f'{self.experiments[exp]} for gen {gen}',
                      showlegend=True,
                      hovertemplate = (f"{self.experiments[exp]} for gen {gen}<br>"
                                 f"{self.metric[0]}: %{{y}}<br>"

@@ -21,6 +21,7 @@ class plot_gen_result(analyse):
                for exp, pts in enumerate(moea , start = 0):
                                       
                     gen=np.array(gener)
+                    gen = np.mean(gen)
                     y_pts=np.array(pts).flatten()
                     gen_arr = np.full_like(y_pts,gener)
                     self.figure.add_trace(go.Scatter(

@@ -37,8 +37,7 @@ class plot_gen_result(analyse):
          
          self.figure.update_layout(                          
                      xaxis=dict(title=self.metric[0], showgrid=False),
-                     yaxis=dict(title=self.metric[1], showgrid=False,tickmode="array",
-        tickvals=self.generation,ticktext=[str(int(g)) for g in self.generation]),
+                     yaxis=dict(title=self.metric[1], showgrid=False),
                      margin=dict(l=70,r=150,b=80,t=140),
                      plot_bgcolor="#FAFAFA",
                      paper_bgcolor="white",

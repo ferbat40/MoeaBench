@@ -19,19 +19,17 @@ class plot_gen_result(analyse):
          self.figure=go.Figure()  
          for moea, gener in zip(self.gen_moea, self.generation):
                for exp, pts in enumerate(moea , start = 0):
-
-                    y_pts = [np.nanmean(np.array(pts))]
-                    #gen=np.array(gener)
-                    
-                    #y_pts=np.array(pts).flatten()
-                    #gen_arr = np.full_like(y_pts,gener)
+                                      
+                    gen=np.array(gener)
+                    y_pts=np.array(pts).flatten()
+                    gen_arr = np.full_like(y_pts,gener)
                     self.figure.add_trace(go.Scatter(
-                     x = y_pts, y = gener,
+                     x = y_pts, y = gen_arr,
                      mode='lines+markers',
                      marker=dict(size=3),
-                     name=f'{self.experiments[exp]} for gen {gener}',
+                     name=f'{self.experiments[exp]} for gen {gen}',
                      showlegend=True,
-                     hovertemplate = (f"{self.experiments[exp]} for gen {gener}<br>"
+                     hovertemplate = (f"{self.experiments[exp]} for gen {gen}<br>"
                                 f"{self.metric[1]}: %{{y:.0f}}<br>"
                                 f"{self.metric[0]}: %{{x}}<br><extra></extra>"),
                                 

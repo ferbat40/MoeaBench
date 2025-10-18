@@ -41,8 +41,8 @@ class plot_gen_result(analyse):
          #y_min, y_max = np.nanmin(all_y), np.nanmax(all_y)
          
          self.figure.update_layout(       
-                     xaxis=dict(title=self.metric[1],  gridcolor="#C3BDBD"),
-                     yaxis=dict(title=self.metric[0],  gridcolor="#C3BDBD"),
+                     xaxis=dict(title=self.metric[1], showgrid=False),
+                     yaxis=dict(title=self.metric[0], showgrid=False),
                      margin=dict(l=70,r=150,b=80,t=140),
                      plot_bgcolor="#FAFAFA",
                      paper_bgcolor="white",

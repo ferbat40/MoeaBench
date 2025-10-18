@@ -42,7 +42,7 @@ class plot_gen_result(analyse):
          
          self.figure.update_layout(       
                      xaxis=dict(title=self.metric[1], showgrid=True, gridcolor="#C3BDBD"),
-                     yaxis=dict(title=self.metric[0], showgrid=True, gridcolor="#C3BDBD",tickformat =".0f"),
+                     yaxis=dict(title=self.metric[0], showgrid=True, gridcolor="#C3BDBD",tickformat =".0f",exponentformat="None"),
                      margin=dict(l=70,r=150,b=80,t=140),
                      plot_bgcolor="#FAFAFA",
                      paper_bgcolor="white",

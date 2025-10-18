@@ -19,13 +19,14 @@ class plot_gen_result(analyse):
          self.figure=go.Figure()  
          for moea, gener in zip(self.gen_moea, self.generation):
                for exp, pts in enumerate(moea , start = 0):
-                                      
-                    gen=np.array(gener)
-                    gen = np.mean(gen)
-                    y_pts=np.array(pts).flatten()
-                    gen_arr = np.full_like(y_pts,gener)
+
+                    y_pts = np.mean(np.array(pts))   
+                    #gen=np.array(gener)
+                    
+                    #y_pts=np.array(pts).flatten()
+                    #gen_arr = np.full_like(y_pts,gener)
                     self.figure.add_trace(go.Scatter(
-                     x = y_pts, y = gen_arr,
+                     x = y_pts, y = gener,
                      mode='lines+markers',
                      marker=dict(size=3),
                      name=f'{self.experiments[exp]} for gen {gen}',

@@ -18,7 +18,7 @@ class analyse_obj_gen(plot_gen_result):
     
     @staticmethod
     def IPL_plot_3D(*args, experiments, generations , objective, mtc, type ):  
-      try: 
+      #try: 
         data  = [b[0] for i in args for b in i.result.get_elements()]
         analyse_obj_gen.allowed_gen(generations)
         analyse_obj_gen.allowed_gen_max(data, 7, generations[1])
@@ -27,5 +27,5 @@ class analyse_obj_gen(plot_gen_result):
         generation = [generations[0]+i  for i in range(0,len(gen_moea)+1)  ]      
         plot_gen_result =  analyse_obj_gen(gen_moea,experiments,generation,metric = ['objectives','Generations'])
         plot_gen_result.configure()      
-      except Exception as e:
-        print(e)
+      #except Exception as e:
+        #print(e)

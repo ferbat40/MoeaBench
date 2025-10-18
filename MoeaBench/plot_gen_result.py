@@ -29,7 +29,7 @@ class plot_gen_result(analyse):
                     self.figure.add_trace(go.Scatter(
                      x = gen, y = y_pts,
                      mode='lines+markers',
-                     marker=dict(size=3),
+                     marker=dict(size=6),
                      name=f'{self.experiments[exp]} for gen {gen}',
                      showlegend=True,
                      hovertemplate = (f"{self.experiments[exp]} for gen {gen}<br>"
@@ -46,8 +46,8 @@ class plot_gen_result(analyse):
                      margin=dict(l=70,r=150,b=80,t=140),
                      plot_bgcolor="#FAFAFA",
                      paper_bgcolor="white",
-                     width=800,
-                     height=700,
+                     width=900,
+                     height=800,
                      title=dict(
                          text=f'2D Convergence Chart',
                          x=0.5,

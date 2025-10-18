@@ -20,7 +20,7 @@ class plot_gen_result(analyse):
          for moea, gener in zip(self.gen_moea, self.generation):
                for exp, pts in enumerate(moea , start = 0):
 
-                    y_pts = np.mean(pts) 
+                    y_pts = np.nanmean(pts) 
                     #gen=np.array(gener)
                     
                     #y_pts=np.array(pts).flatten()

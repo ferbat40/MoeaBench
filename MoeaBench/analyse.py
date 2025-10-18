@@ -46,7 +46,7 @@ class analyse(IPL_MoeaBench):
         vet=[]
 
         for i in data:
-            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[metric])
+            vet.append(i.get_METRIC_gen().get_arr_Metric_gen()[7])
         
 
         vet_pt=[]

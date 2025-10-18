@@ -22,7 +22,7 @@ class plot_gen_result(analyse):
                                       
                     gen=np.array(gener)
                     y_pts=np.array(pts).flatten()
-                    gen_arr = np.full_like(len(y_pts),gener)
+                    gen_arr = np.full_like(y_pts,gener)
                     self.figure.add_trace(go.Scatter(
                      x = y_pts, y = gen_arr,
                      mode='lines+markers',

@@ -19,11 +19,11 @@ class plot_gen_result(analyse):
          self.figure=go.Figure()
          
          all_y=[]  
-         for gn_moea, gen in zip (self.gen_moea,self.generation):
-            for exp, pts in enumerate(gn_moea, start = 0):
-                    print(pts)
+         for moea, gener in zip(self.gen_moea, self.generation):
+               for exp, pts in enumerate(moea , start = 0):
+                   
                     
-                    gen=np.array(self.generation)
+                    gen=np.array(gener)
                     pts=np.array(pts)
                     all_y.append(pts)
                     self.figure.add_trace(go.Scatter(

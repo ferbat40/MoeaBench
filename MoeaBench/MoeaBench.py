@@ -83,7 +83,7 @@ class MoeaBench(I_UserMoeaBench):
             if len(others_choose) == 0:
                 analyse_var_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, variable = variable, mtc = 8,  type = "decision variables in generations") 
             elif len(others_choose) == 1:
-                analyse_others_metric_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = variable, mtc = 8 ,stead = others[0], mean = others[1], type = "objective") 
+                analyse_others_metric_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = variable, mtc = 8 ,stead = others[0], mean = others[1], type = "variable") 
             elif len(others_choose) == 2:
                 raise ValueError("only one metric should be chosen")
         except Exception as e:

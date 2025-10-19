@@ -44,7 +44,7 @@ class plot_gen_result(analyse_gen):
                      width=900,
                      height=800,
                      title=dict(
-                         text=f'2D Convergence Chart',
+                         text=f'2D  Chart',
                          x=0.5,
                          xanchor='center',
                          y=0.9,

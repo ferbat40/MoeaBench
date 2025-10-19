@@ -60,10 +60,6 @@ class IPL_MoeaBench(I_MoeaBench):
         raise NotImplementedError("Not implemented")
     
 
-    def IPL_display(self):
-        raise NotImplementedError("Not implemented")
-    
-
     def allowed_gen(self):
         raise NotImplementedError("Not implemented")
     

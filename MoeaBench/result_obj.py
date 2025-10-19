@@ -14,10 +14,5 @@ class result_obj(RESULT):
         return self.DATA(result, I,  N, mtc)
         
     
-    def IPL_display(self,objectives,I):
-        for i in objectives:
-            if len(i[1]>0):
-                print(f'\ngeneration {i[0]} for objective {I}\n')
-                for f in i[1]:
-                    print(f)
+
        

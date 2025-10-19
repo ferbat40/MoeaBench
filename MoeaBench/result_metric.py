@@ -39,8 +39,4 @@ class result_metric(RESULT):
         return mtc.reshape(mtc.shape[0],1)
     
     
-    def IPL_display(self,objectives):
-        for idx, i in enumerate(objectives, start = 0):
-            if i[0] > 0:
-                print(f'generation {idx}  {i}')
-      
+    

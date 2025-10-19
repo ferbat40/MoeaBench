@@ -1,9 +1,8 @@
-from .plot_gen_result import plot_gen_result
+from .plot_gen import plot_gen
 import numpy as np
 
 
-class analyse_others_metric_gen(plot_gen_result):
-
+class analyse_others_metric_gen(plot_gen):
 
     @staticmethod
     def IPL_plot_3D(*args, experiments, generations , objective, mtc, stead = False, mean = False ):  

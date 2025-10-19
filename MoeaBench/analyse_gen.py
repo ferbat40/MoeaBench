@@ -22,21 +22,10 @@ class analyse_gen(analyse):
         vmax = max(len(arr.get_METRIC_gen().get_arr_Metric_gen()[mtc]) for arr in result)
         if not N <= vmax:
             raise TypeError(f"generations = {N} not be allowed. It must be between 0 and {vmax}" )
-  
-
-    @staticmethod
-    def allowed_gen(generations):
-        if not isinstance(generations, (list)):
-            raise TypeError("Only arrays are allowed in 'generations'")
-        if not len(generations) == 2:
-            raise TypeError(f"generations = {generations} not be allowed. I is necessary to follow the format: generations = [begin, end]" )
-        if not generations[0] <= generations[1]:
-            raise TypeError("the initial generation must be smaller than the final generation")
     
 
     @staticmethod
     def normalize_gen(data,generations,metric,objective):   
-        print("metric ",metric)
         vet = [i.get_METRIC_gen().get_arr_Metric_gen()[metric] for i in data]
         vet_pt=[row for row in zip_longest(*vet,fillvalue=np.nan)]
         max_col = max([arr.shape[0] if isinstance(arr, np.ndarray) 

@@ -148,49 +148,49 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
 
 
-    def hypervolume(self, N = None):
+    def hypervolume(self, generations = []):
         try:
-            self.result_metric.IPL_display(self.result_metric.IPL_hypervolume(self.result, N))
+            return self.result_metric.IPL_hypervolume(self.result, generations)
         except Exception as e:
             print(e)
      
 
-    def GD(self, N = None):
+    def GD(self, generations = []):
         try:
-            self.result_metric.IPL_display(self.result_metric.IPL_GD(self.result, N))
+            return self.result_metric.IPL_GD(self.result, generations)
         except Exception as e:
             print(e)
 
 
-    def GDplus(self, N = None):
+    def GDplus(self, generations = []):
         try:
-            self.result_metric.IPL_display(self.result_metric.IPL_GDplus(self.result, N))
-        except Exception as e:
-            print(e)
-    
-
-    def IGD(self, N = None):
-        try:
-            self.result_metric.IPL_display(self.result_metric.IPL_IGD(self.result, N))
+            return self.result_metric.IPL_GDplus(self.result,generations)
         except Exception as e:
             print(e)
     
 
-    def IGDplus(self, N = None):
+    def IGD(self, generations = []):
         try:
-            self.result_metric.IPL_display(self.result_metric.IPL_IGDplus(self.result, N))
+            return self.result_metric.IPL_IGD(self.result, generations)
+        except Exception as e:
+            print(e)
+    
+
+    def IGDplus(self, generations = []):
+        try:
+            return self.result_metric.IPL_IGDplus(self.result, generations)
         except Exception as e:
             print(e)
     
     
-    def objectives(self, I, N = None):
+    def objectives(self, I, generations = []):
         try:
-            self.result_obj.IPL_display(self.result_obj.IPL_objectives(self.result, I,  N),I)
+            self.result_obj.IPL_display(self.result_obj.IPL_objectives(self.result, I,  generations),I)
         except Exception as e:
             print(e)
 
 
-    def variables(self, I, N = None):
+    def variables(self, I, generations = []):
         try:
             self.result_var.IPL_display(self.result_var.IPL_variables(self.result, I,  N),I)
         except Exception as e:

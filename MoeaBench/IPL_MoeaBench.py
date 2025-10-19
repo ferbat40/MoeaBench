@@ -115,14 +115,17 @@ class IPL_MoeaBench(I_MoeaBench):
         INF = [f'{IDATA.get_description()}' for IDATA in LIST if np.isinf(IDATA).any()] 
         if len(INF) > 0:
             raise ValueError(f'There are matrices with invalid values: '+",".join(f'{i}' for i in INF))
-    
+        
 
-    def allowed_gen_max(self,result, mtc, N):
-        N = len(result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[mtc])  if N is None  else N
-        max = len(result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[mtc])
-        if not N <= max:
-            raise TypeError(f"generations = {N} not be allowed. It must be between 0 and {max}" )
-    
+    @staticmethod
+    def allowed_gen(generations):
+        if not isinstance(generations, (list)):
+            raise TypeError("Only arrays are allowed in 'generations'")
+        if not len(generations) == 2:
+            raise TypeError(f"generations = {generations} not be allowed. I is necessary to follow the format: generations = [begin, end]" )
+        if not generations[0] <= generations[1]:
+            raise TypeError("the initial generation must be smaller than the final generation")
+      
     
     @staticmethod
     def extract_pareto_result(args,caller):

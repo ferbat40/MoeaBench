@@ -58,7 +58,7 @@ class MoeaBench(I_UserMoeaBench):
 
     def plot_obj(self,*args, objective, generations = [], stead = False, mean = False):  
         caller = inspect.currentframe().f_back.f_locals.items()
-        others = [i for i in [stead,mean]  if i is True]
+        others = [i if i is True else False for i in [stead,mean]]
         if len(others) == 0:
             analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = objective, mtc = 7 , type = "objectives in generations") 
         elif len(others) == 1:

@@ -15,6 +15,7 @@ from .I_UserMoeaBench import I_UserMoeaBench
 from .save import save
 from .save_class import save_class
 from .loader import loader
+from .analyse_others_metric_gen import analyse_others_metric_gen
 
 
 class MoeaBench(I_UserMoeaBench):
@@ -57,8 +58,12 @@ class MoeaBench(I_UserMoeaBench):
 
     def plot_obj(self,*args, objective, generations = [], stead = False, mean = False):  
         caller = inspect.currentframe().f_back.f_locals.items()
-        analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = objective, mtc = 7 , type = "objectives in generations") 
-       
+        others = [i for i in [stead,mean]  if i is True]
+        if len(others) == 0:
+            analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = objective, mtc = 7 , type = "objectives in generations") 
+        elif len(others) == 1:
+            analyse_others_metric_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = objective, mtc = 7 ,stead = False, mean = False) 
+   
 
     def plot_var(self,*args, variable, generations = []):  
         caller = inspect.currentframe().f_back.f_locals.items()

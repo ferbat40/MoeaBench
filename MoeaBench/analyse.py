@@ -9,6 +9,5 @@ class analyse(IPL_MoeaBench):
          out = widgets.Output()
          with out:
              display(self.figure)
-         self.ui = widgets.VBox([widgets.HBox([out], layout=widgets.Layout(justify_content='center')),
-                             ])
+         self.ui = widgets.VBox([widgets.HBox([out], layout=widgets.Layout(justify_content='center')),])
          display(self.ui)

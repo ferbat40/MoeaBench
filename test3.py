@@ -235,10 +235,10 @@ exp3.moea = moeabench.Moea.NSGA3(problem=exp3.problem, population = 130, generat
 exp3.run()
 
 
-moeabench.plot_GD(exp2, exp3,  generations = [0,250])
+#moeabench.plot_GD(exp2, exp3,  generations = [0,250])
 
-#moeabench.plot_hypervolume(exp, exp3, generations = [89,300])
-#oeabench.plot_obj(exp, exp3, objective = 3, generations = [110,300])
+#moeabench.plot_hypervolume(exp2, exp3, generations = [110,300])
+moeabench.plot_obj(exp2, exp3, objective = 3, generations = [0,300], mean = True)
 #moeabench.plot_var(exp, exp3, variable = 6, generations = [110,300])
 #test1 so instancias em memoria e não salva
 

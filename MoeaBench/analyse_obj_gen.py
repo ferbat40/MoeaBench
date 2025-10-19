@@ -1,19 +1,7 @@
 from .plot_gen_result import plot_gen_result
-import numpy as np
 
 
 class analyse_obj_gen(plot_gen_result):
-    
-    @staticmethod
-    def allowed_obj(data,objective):
-        if not isinstance(objective, (int)):
-            raise TypeError("Only int are allowed in 'objectives'")
-        min=0
-        for i in data:
-          min = i.get_arr_DATA().shape[1] if i.get_arr_DATA().shape[1] < min or min == 0  else min
-        if  objective > min:
-            raise ValueError (f'Objective {objective} can´t be greather than {min}') 
-    
     
     @staticmethod
     def IPL_plot_3D(*args, experiments, generations , objective, mtc, type ):  

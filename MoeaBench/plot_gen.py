@@ -44,7 +44,7 @@ class plot_gen(analyse_gen):
                          y=0.9,
                          yanchor='top',
                          pad=dict(t = 10, b = 140),
-                         font=dict(size=16, 
+                         font=dict(size=16,weight='bold', 
                          weight='bold')),
                          legend=dict(x=1.05,
                                      y=0.5,

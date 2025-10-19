@@ -62,7 +62,7 @@ class plot_3D(analyse_pareto):
                      y=0.9,
                      yanchor='bottom',
                      pad=dict(t=0),
-                     font=dict(size=16)
+                     font=dict(size=16,weight='bold')
                  ),
                  legend=dict(
                      x=1,

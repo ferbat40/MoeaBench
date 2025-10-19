@@ -21,7 +21,6 @@ class analyse_metric_gen(plot_gen):
     @staticmethod
     def DATA(args,generations,metrics):
         data  = [b[0] for i in args for b in i.result.get_elements()]
-        bench = [b[1] for i in args for b in i.result.get_elements()]
         evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(data))]
         analyse_metric_gen.allowed_gen_max(data, 1, generations[1])
         metric=analyse_metric_gen.normalize_gen(data,generations ,metrics)   
@@ -31,7 +30,7 @@ class analyse_metric_gen(plot_gen):
     @staticmethod
     def IPL_plot_Hypervolume(args,generations, val_metric,experiments):
         try:
-            markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
+            markers = analyse_metric_gen.DATA(args,generations,val_metric)
             plot_g = analyse_metric_gen(markers,experiments,metric = ['Hypervolume','Generations'])
             plot_g.configure()
         except Exception as e:
@@ -41,7 +40,7 @@ class analyse_metric_gen(plot_gen):
     @staticmethod
     def IPL_plot_GD(args,generations, val_metric,experiments):
         try:
-            markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
+            markers = analyse_metric_gen.DATA(args,generations,val_metric)
             plot_g = analyse_metric_gen(markers,experiments,metric = ['GD','Generations'])
             plot_g.configure()
         except Exception as e:
@@ -51,7 +50,7 @@ class analyse_metric_gen(plot_gen):
     @staticmethod
     def IPL_plot_GDplus(args,generations, val_metric,experiments):
         try:
-            markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
+            markers = analyse_metric_gen.DATA(args,generations,val_metric)
             plot_g = analyse_metric_gen(markers,experiments,metric = ['GD plus','Generations'])
             plot_g.configure()
         except Exception as e:
@@ -61,7 +60,7 @@ class analyse_metric_gen(plot_gen):
     @staticmethod
     def IPL_plot_IGD(args,generations, val_metric,experiments):
         try:
-            markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
+            markers = analyse_metric_gen.DATA(args,generations,val_metric)
             plot_g = analyse_metric_gen(markers,experiments,metric = ['IGD','Generations'])
             plot_g.configure()
         except Exception as e:
@@ -71,7 +70,7 @@ class analyse_metric_gen(plot_gen):
     @staticmethod
     def IPL_plot_IGDplus(args,generations, val_metric,experiments):
         try:
-            markers,title = analyse_metric_gen.DATA(args,generations,val_metric)
+            markers = analyse_metric_gen.DATA(args,generations,val_metric)
             plot_g = analyse_metric_gen(markers,experiments,metric = ['IGD plus','Generations'])
             plot_g.configure()
         except Exception as e:

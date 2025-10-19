@@ -36,6 +36,7 @@ class analyse_gen(analyse):
 
     @staticmethod
     def normalize_gen(data,generations,metric,objective):   
+        print("metric ",metric)
         vet = [i.get_METRIC_gen().get_arr_Metric_gen()[metric] for i in data]
         vet_pt=[row for row in zip_longest(*vet,fillvalue=np.nan)]
         max_col = max([arr.shape[0] if isinstance(arr, np.ndarray) 

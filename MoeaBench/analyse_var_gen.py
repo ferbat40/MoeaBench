@@ -16,12 +16,11 @@ class analyse_var_gen(plot_gen_result):
     
     
     @staticmethod
-    def IPL_plot_3D(*args, experiments, generations , variable, mtc, type ):  
+    def IPL_plot_3D(*args, experiments, generations , variable, mtc):  
       try: 
         data  = [b[0] for i in args for b in i.result.get_elements()]
         analyse_var_gen.allowed_gen(generations)
         analyse_var_gen.allowed_gen_max(data, mtc, generations[1])
-        analyse_var_gen.allowed_obj(data, variable,mtc)
         gen_moea=analyse_var_gen.normalize_gen(data,generations,mtc,variable)
         generation = [generations[0]+i  for i in range(0,len(gen_moea)+1)  ]      
         plot_gen_result =  analyse_var_gen(gen_moea,experiments,generation,metric = ['variables','Generations'])

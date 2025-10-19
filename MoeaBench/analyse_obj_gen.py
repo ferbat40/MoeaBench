@@ -4,7 +4,7 @@ from .plot_gen_result import plot_gen_result
 class analyse_obj_gen(plot_gen_result):
     
     @staticmethod
-    def IPL_plot_3D(*args, experiments, generations , objective, mtc, type ):  
+    def IPL_plot_3D(*args, experiments, generations , objective, mtc):  
       try: 
         data  = [b[0] for i in args for b in i.result.get_elements()]
         analyse_obj_gen.allowed_gen(generations)

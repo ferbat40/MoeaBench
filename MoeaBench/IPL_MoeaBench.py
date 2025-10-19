@@ -102,6 +102,10 @@ class IPL_MoeaBench(I_MoeaBench):
 
     def IPL_save_class(self):
         raise NotImplementedError("Not implemented")
+    
+    
+    def allowed_gen_max(self):
+        raise NotImplementedError("Not implemented")
  
 
     def allowed_DATA(LIST,experiments):

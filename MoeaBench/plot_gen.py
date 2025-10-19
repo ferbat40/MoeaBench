@@ -6,10 +6,9 @@ from .analyse_gen import analyse_gen
 
 class plot_gen(analyse_gen):
 
-    def __init__(self,markers,label,title,metric):
+    def __init__(self,markers,label,metric):
         self.markers=markers
         self.label=label
-        self.title=title
         self.metric=metric
      
     
@@ -39,7 +38,7 @@ class plot_gen(analyse_gen):
                      width=800,
                      height=700,
                      title=dict(
-                         text=f'2D Chart',
+                         text=f'2D Chart for {self.metric[0]}',
                          x=0.5,
                          xanchor='center',
                          y=0.9,

@@ -16,7 +16,7 @@ class analyse_others_metric_gen(plot_gen):
       metric = [vet_aux[:,i:idx].flatten() for idx, i in enumerate(range(0,vet_aux.shape[1]), start = 1)]
       metrics = [f'{type} mean' if others[1] is True else f'{type} stead']  
       metrics.append('Generations')
-      plot_g = analyse_others_metric_gen([evaluate,metric],experiments,"",  metric = metrics) 
+      plot_g = analyse_others_metric_gen([evaluate,metric],experiments, metric = metrics) 
       plot_g.configure()   
      
 

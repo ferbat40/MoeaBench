@@ -8,8 +8,9 @@ class analyse_others_metric_gen(plot_gen):
     def IPL_plot_3D(*args, experiments, generations , objective, mtc, stead = False, mean = False ):  
       try: 
         others = [i for i in [stead,mean]  if i is True]
-        if not others == 1:
-           raise("only one metric should be chosen")
+        print(others)
+        if not len(others) == 1:
+           raise ValueError("only one metric should be chosen")
         data  = [b[0] for i in args for b in i.result.get_elements()]
         analyse_others_metric_gen.allowed_gen(generations)
         analyse_others_metric_gen.allowed_gen_max(data, mtc, generations[1])

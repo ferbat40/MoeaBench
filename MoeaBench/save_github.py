@@ -41,14 +41,29 @@ class save_github(IPL_MoeaBench):
 
     @staticmethod
     def IPL_save_github(obj):
-       
+        
         token = Github("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")
         repository = token.get_user().get_repo('MoeaBench')
+        
+        code_moea,path_repository_moea = save_github.save_moea(obj)
+        try:
+            current_moea = repository.get_contents(path_repository_moea)
+            sha_moea_current = current_moea.sha
+            repository.update_file(path_repository_moea,'update file',save_github.data(code_moea,"Moea.register_moea()"),sha_moea_current)
+        except Exception as e:
+            repository.create_file(path_repository_moea,'create file',save_github.data(code_moea,"Moea.register_moea()"))
+
+
 
            
-        code_moea,path_repository_moea = save_github.save_moea(obj)
-        repository.create_file(path_repository_moea,'add file',save_github.data(code_moea,"Moea.register_moea()"))
-
+        
+        
+        
 
         code_benchmark,path_repository_benchmark = save_github.save_benchmark(obj)  
-        repository.create_file(path_repository_benchmark ,'add file',save_github.data(code_benchmark,"benchmark.register_benchmark()" ))
+        try:
+            current_benchmark = repository.get_contents(path_repository_benchmark )
+            sha_benchmark_current = current_benchmark.sha
+            repository.update_file(path_repository_benchmark,'update file',save_github.data(code_benchmark,"benchmark.register_benchmark()"),sha_benchmark_current)
+        except Exception  as e:
+            repository.create_file(path_repository_benchmark ,'add file',save_github.data(code_benchmark,"benchmark.register_benchmark()" ))

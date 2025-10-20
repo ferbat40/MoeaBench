@@ -144,7 +144,7 @@ class I_MoeaBench(ABC):
 
   
     @abstractmethod
-    def IPL_save_class(self):
+    def IPL_save_github(self):
         pass
        
 

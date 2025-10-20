@@ -324,8 +324,8 @@ exp.moea = moeabench.Moea.my_implemented_moea('NSGA2deap',problem=exp.problem, p
 exp.run()
 
 
-#exp.save('test7')
-#exp.load('test7')
+exp.save('test7')
+exp.load('test7')
 
 
 

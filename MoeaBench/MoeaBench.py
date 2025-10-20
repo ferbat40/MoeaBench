@@ -13,7 +13,7 @@ from .analyse_metric_gen import analyse_metric_gen
 from .analyse_var_gen import analyse_var_gen
 from .I_UserMoeaBench import I_UserMoeaBench
 from .save import save
-from .save_class import save_class
+from .save_github import save_github
 from .loader import loader
 from .analyse_others_metric_gen import analyse_others_metric_gen
 
@@ -212,10 +212,10 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def save_class(self):
-        #try:
-            save_class.IPL_save_class(self)
-        #except Exception as e:
-            #print(e)
+        try:
+            save_github.IPL_save_github(self)
+        except Exception as e:
+            print(e)
 
 
     

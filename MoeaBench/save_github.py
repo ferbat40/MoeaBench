@@ -1,6 +1,7 @@
 from github import Github
+from .IPL_MoeaBench import IPL_MoeaBench
 
-class save_github:
+class save_github(IPL_MoeaBench):
 
     @staticmethod
     def data(string,exlude):
@@ -16,27 +17,39 @@ class save_github:
     
 
     @staticmethod
-    def save(obj):
+    def save_moea(obj):
         moea = obj.Moea.get_moea()
         instance_moea=None
         try:
             instance_moea = moea(obj.pof)
         except Exception as e:
             print(e)
-        token = Github("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")
-        repository = token.get_user().get_repo('MoeaBench')
-
-        
-        
         file_moea = f'{instance_moea.__class__.__name__}.py'
         with open(file_moea,'r') as f:
             code_moea = f.read()
-        path_repository_moea =  f'user_moea/{file_moea}'        
+        path_repository_moea =  f'MoeaBench/user_moea/{file_moea}'  
+        return  code_moea,path_repository_moea
+    
+
+    @staticmethod
+    def save_benchmark(my_bk):
+        file_benchmark = f'{my_bk.pof.__class__.__name__}.py'
+        with open(file_benchmark ,'r') as f:
+            code_benchmark  = f.read()
+        path_repository_benchmark =  f'MoeaBench/user_benchmark/{file_benchmark}'   
+        return code_benchmark,path_repository_benchmark
+    
+
+    @staticmethod
+    def save(obj):
+       
+        token = Github("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")
+        repository = token.get_user().get_repo('MoeaBench')
+
+           
+        code_moea,path_repository_moea = save_github.save_moea(obj)
         repository.create_file(path_repository_moea,'add file',save_github.data(code_moea,"Moea.register_moea()"))
 
 
-        file_benchmark = f'{obj.pof.__class__.__name__}.py'
-        with open(file_benchmark ,'r') as f:
-            code_benchmark  = f.read()
-        path_repository_benchmark =  f'user_benchmark/{file_benchmark}'        
+        code_benchmark,path_repository_benchmark = save_github.save_benchmark(obj.pof)  
         repository.create_file(path_repository_benchmark ,'add file',save_github.data(code_benchmark,"benchmark.register_benchmark()" ))

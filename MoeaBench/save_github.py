@@ -51,6 +51,7 @@ class save_github(IPL_MoeaBench):
             sha_moea_current = current_moea.sha
             repository.update_file(path_repository_moea,'update file',save_github.data(code_moea,"Moea.register_moea()"),sha_moea_current)
         except Exception as e:
+            print(e)
             repository.create_file(path_repository_moea,'create file',save_github.data(code_moea,"Moea.register_moea()"))
 
 
@@ -66,4 +67,5 @@ class save_github(IPL_MoeaBench):
             sha_benchmark_current = current_benchmark.sha
             repository.update_file(path_repository_benchmark,'update file',save_github.data(code_benchmark,"benchmark.register_benchmark()"),sha_benchmark_current)
         except Exception  as e:
+            print(e)
             repository.create_file(path_repository_benchmark ,'add file',save_github.data(code_benchmark,"benchmark.register_benchmark()" ))

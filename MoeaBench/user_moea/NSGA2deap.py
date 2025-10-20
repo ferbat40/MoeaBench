@@ -2,7 +2,7 @@ from MoeaBench.base_moea import BaseMoea
 
 
 class NSGA2deap(BaseMoea):
-  ##updtae moea
+
   import random
   from deap import base, creator, tools, algorithms
   import array
@@ -12,6 +12,7 @@ class NSGA2deap(BaseMoea):
     self.problem=problem
     self.generations=generations
     self.population = population
+    self.temp=None
     self.n_ieq= self.problem.get_CACHE().get_BENCH_CI().get_n_ieq_constr()
 
     self.creator.create("FitnessMin", self.base.Fitness, weights=(-1.0,) * self.problem.get_CACHE().get_BENCH_CI().get_M())

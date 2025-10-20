@@ -1,4 +1,5 @@
 from .file import file
+from .save_github import save_github
 import inspect
 
 
@@ -40,24 +41,25 @@ class save_class(file):
 
     @staticmethod
     def IPL_save_class(obj):
-        moea = obj.Moea.get_moea()
-        moeabench_benchmark = save_class.DATA(f'{obj.pof.__class__.__name__}','MoeaBench/','py') 
-        user_benchmark = save_class.DATA(f'{obj.pof.__class__.__name__}','MoeaBench/user_benchmark','py')    
+        save_github.save(obj)
+        #moea = obj.Moea.get_moea()
+        #moeabench_benchmark = save_class.DATA(f'{obj.pof.__class__.__name__}','MoeaBench/','py') 
+        #user_benchmark = save_class.DATA(f'{obj.pof.__class__.__name__}','MoeaBench/user_benchmark','py')    
     
-        instance_moea=None
-        try:
-            instance_moea = moea(obj.pof)
-        except Exception as e:
-            pass
+        #instance_moea=None
+        #try:
+            #instance_moea = moea(obj.pof)
+        #except Exception as e:
+            #pass
             
-        moeabench_user = save_class.DATA(instance_moea.__class__.__name__,'MoeaBench/user_moea','py') if instance_moea is not None else None
+       # moeabench_user = save_class.DATA(instance_moea.__class__.__name__,'MoeaBench/user_moea','py') if instance_moea is not None else None
         
-        if (moeabench_benchmark.exists() or user_benchmark.exists()) and (moeabench_user is not None and moeabench_user.exists()):
-            raise MemoryError("classes already exists")
+        #if (moeabench_benchmark.exists() or user_benchmark.exists()) and (moeabench_user is not None and moeabench_user.exists()):
+           # raise MemoryError("classes already exists")
         
-        if not moeabench_benchmark.exists() and not user_benchmark.exists():
-            save_class.save_benchmark(obj.pof)
+        #if not moeabench_benchmark.exists() and not user_benchmark.exists():
+            #save_class.save_benchmark(obj.pof)
 
-        if moeabench_user is not None and not moeabench_user.exists():
-            save_class.save_moea(instance_moea)
+       # if moeabench_user is not None and not moeabench_user.exists():
+           # save_class.save_moea(instance_moea)
                 

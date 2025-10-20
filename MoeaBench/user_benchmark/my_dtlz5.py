@@ -1,6 +1,7 @@
 from MoeaBench.base_benchmark import BaseBenchmark
 
 class my_dtlz5(BaseBenchmark):
+  ##updtae benchmark
 
     from enum import Enum
     import numpy as np

@@ -226,9 +226,9 @@ class NSGA2deap(BaseMoea):
     return F_gen_all,X_gen_all,F,self.generations,self.population
 
 
-experiment.problem = experiment.benchmark.my_new_benchmark()
-experiment.moea = experiment.Moea.my_new_moea(problem = experiment.problem,population = 160 ,generations = 300)
-experiment.run()
+#experiment.problem = experiment.benchmark.my_new_benchmark()
+#experiment.moea = experiment.Moea.my_new_moea(problem = experiment.problem,population = 160 ,generations = 300)
+#experiment.run()
 
 #exp2.problem = moeabench.benchmark.DPF5(M=3)
 #exp2.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 300)
@@ -294,6 +294,8 @@ experiment.run()
 
 #test5 instanciando uma classe benchmark do Moeabench e outra do Moea do usuario e salvando o objeto
 
+#exp = moeabench()
+
 #exp.problem = exp.benchmark.my_implemented_benchmark('my_dtlz5',m = 3, p = 1200, k = 10)
 #exp.moea = moeabench.Moea.MOEAD(problem=exp.problem, population = 130, generations = 400)
 #exp.run()
@@ -316,9 +318,10 @@ experiment.run()
 
 #test7 instanciando uma classe moea do usuario e outra do benchmark do usuario e salvando o objeto
 
-#exp.problem = exp.benchmark.my_implemented_benchmark('my_dtlz5',m = 3, p = 1200, k = 10)
-#exp.moea = moeabench.Moea.my_implemented_moea('NSGA2deap',problem=exp.problem, population = 160, generations = 400)
-#exp.run()
+exp = moeabench()
+exp.problem = exp.benchmark.my_implemented_benchmark('my_dtlz5',m = 3, p = 1200, k = 10)
+exp.moea = moeabench.Moea.my_implemented_moea('NSGA2deap',problem=exp.problem, population = 160, generations = 400)
+exp.run()
 
 
 #exp.save('test7')

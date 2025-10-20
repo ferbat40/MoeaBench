@@ -51,5 +51,5 @@ class save_github(IPL_MoeaBench):
         repository.create_file(path_repository_moea,'add file',save_github.data(code_moea,"Moea.register_moea()"))
 
 
-        code_benchmark,path_repository_benchmark = save_github.save_benchmark(obj.pof)  
+        code_benchmark,path_repository_benchmark = save_github.save_benchmark(obj)  
         repository.create_file(path_repository_benchmark ,'add file',save_github.data(code_benchmark,"benchmark.register_benchmark()" ))

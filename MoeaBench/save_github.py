@@ -41,7 +41,7 @@ class save_github(IPL_MoeaBench):
     
 
     @staticmethod
-    def save(obj):
+    def IPL_save_github(obj):
        
         token = Github("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")
         repository = token.get_user().get_repo('MoeaBench')

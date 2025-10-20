@@ -6,5 +6,6 @@ pandas
 ordered_set
 deap
 deepdiff
+PyGithub
 
 

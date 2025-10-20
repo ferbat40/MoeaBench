@@ -483,14 +483,14 @@ class Benchmark(I_benchmark):
             
 
     def my_new_benchmark(self):
-        #try:
+        try:
             my_benchmark = self.get_benchmark()
             my_bk = my_benchmark(CACHE_bk_user())
             F =  my_bk.POFsamples()
             my_bk.get_CACHE().DATA_store(my_bk.__class__.__name__,'IN POF',my_bk.M,my_bk.N,my_bk.n_ieq_constr,F,my_bk.P,my_bk.K)
             return my_bk
-        #except Exception as e:
-            #print(e)
+        except Exception as e:
+            print(e)
         
     
     def register_benchmark(self):

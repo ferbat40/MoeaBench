@@ -4,10 +4,6 @@ from .BENCH_conf import BENCH_conf
 
 class CACHE_bk_user(CACHE):
 
-    #def __init__(self):
-        #self.__BENCH_CI=None
-
-
     def set_BENCH_CI(self,name_benchmark = None,M = 0, N=0,n_ieq_constr=0,P=0,K=0):
        BENk=BENCH_conf(name_benchmark ,M , N , n_ieq_constr,P,K)
        self.__BENCH_CI=BENk

@@ -12,7 +12,6 @@ class save_github(IPL_MoeaBench):
                 continue
             string_class_full.append(row)
         string_class_full = "\n".join(string_class_full)
-        print(string_class_full)
         return string_class_full
     
 

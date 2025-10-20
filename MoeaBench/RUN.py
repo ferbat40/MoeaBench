@@ -65,8 +65,9 @@ class RUN(I_MOEA):
         module_name = f'user_moea.{name}'
         module = importlib.import_module(module_name)
         my_moea = getattr(module,name)
-        self.result.get_DATA_conf().set_DATA_MOEA(my_moea(problem,population,generations),problem)     
-        return (self.result,my_moea)
+        instance_moea = my_moea(problem,population,generations)
+        self.result.get_DATA_conf().set_DATA_MOEA(instance_moea,problem)     
+        return (self.result,my_moea,instance_moea.__class__.__name__)
        
            
     def NSGA3(self,problem, *, population = 100, generations = 300,seed = 1):

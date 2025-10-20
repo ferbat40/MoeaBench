@@ -234,10 +234,12 @@ class NSGA2deap(BaseMoea):
 #exp2.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 300)
 #exp2.run()
 
-#exp3 = moeabench()
-#exp3.problem = moeabench.benchmark.DPF5(M=3)
-#exp3.moea = moeabench.Moea.NSGA3(problem=exp3.problem, population = 130, generations = 200)
-#exp3.run()
+exp3 = moeabench()
+exp3.problem = moeabench.benchmark.DPF5(M=3)
+exp3.moea = moeabench.Moea.NSGA3(problem=exp3.problem, population = 130, generations = 200)
+exp3.run()
+exp3.save('exp3')
+exp3.load('exp3')
 
 
 #moeabench.plot_GD(exp2, exp3,  generations = [0,250])
@@ -282,12 +284,14 @@ class NSGA2deap(BaseMoea):
 
 #test4 duas instancias em memoria benchmark e moea (salvando as classes). Salvando o objeto
 
-#exp.problem = exp.benchmark.my_new_benchmark()
-#exp.moea = exp.Moea.my_new_moea(problem = exp.problem,population = 160 ,generations = 500)
-#exp.run()
+
+
+experiment.problem = experiment.benchmark.my_new_benchmark()
+experiment.moea = experiment.Moea.my_new_moea(problem = experiment.problem,population = 160 ,generations = 500)
+experiment.run()
 #exp.save_class()
 
-#exp.save('test4')
+experiment.save('test4')
 #exp.load('test4')
 
 

@@ -212,10 +212,10 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def save_class(self):
-        try:
+        #try:
             save_class.IPL_save_class(self)
-        except Exception as e:
-            print(e)
+        #except Exception as e:
+            #print(e)
 
 
     

@@ -7,9 +7,10 @@ from .GEN_gd import GEN_gd
 from .GEN_gdplus import GEN_gdplus
 from .GEN_igd import GEN_igd
 from .GEN_igdplus import GEN_igdplus
+from .I_memory import I_memory
 
 
-class memory(DATA_arr):
+class memory(DATA_arr,I_memory):
         
     def __init__(self,**kwargs):
           self.data_conf=None

@@ -146,6 +146,31 @@ class I_MoeaBench(ABC):
     @abstractmethod
     def IPL_save_github(self):
         pass
+
+
+    @abstractmethod
+    def std(self):
+        pass
+
+    
+    @abstractmethod
+    def mean(self):
+        pass
+
+    
+    @abstractmethod
+    def min(self):
+        pass
+
+    
+    @abstractmethod
+    def max(self):
+        pass
+    
+    
+    @abstractmethod
+    def dict_metric(self):
+        pass
        
 
 

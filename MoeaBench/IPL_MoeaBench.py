@@ -106,6 +106,26 @@ class IPL_MoeaBench(I_MoeaBench):
     
     def allowed_gen_max(self):
         raise NotImplementedError("Not implemented")
+    
+
+    def dict_metric(self):
+        raise NotImplementedError("Not implemented") 
+    
+
+    def mean(self):
+        raise NotImplementedError("Not implemented")
+    
+
+    def std(self):
+        raise NotImplementedError("Not implemented")
+    
+
+    def max(self):
+        raise NotImplementedError("Not implemented")
+        
+    
+    def min(self):
+        raise NotImplementedError("Not implemented")
  
 
     def allowed_DATA(LIST,experiments):

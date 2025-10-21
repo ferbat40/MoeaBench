@@ -23,7 +23,6 @@ class MoeaBench(I_UserMoeaBench):
         self.problem=None
         self.pof=None
         self.moea=None
-        self.result=None
         self.benchmark=Benchmark()
         self.result=None
         self.Moea=RUN()
@@ -55,12 +54,12 @@ class MoeaBench(I_UserMoeaBench):
         self.pof=value
 
 
-    def plot_obj(self,*args, objective, generations = [], stead = False, mean = False):  
+    def plot_obj(self,*args, objective, generations = [], stead = False, mean = False, min = False, max = False):  
         try:
             data  = [b[0] for i in args for b in i.result.get_elements()]
             analyse_obj_gen.allowed_obj(data, objective)
             caller = inspect.currentframe().f_back.f_locals.items()
-            others = [True if i is True else False for i in [stead,mean]]
+            others = [True if i is True else False for i in [stead,mean,min,max]]
             others_choose = [i for i in others if i is True]
             if len(others_choose) == 0:
                 analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = objective, mtc = 7) 
@@ -72,12 +71,12 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
         
 
-    def plot_var(self,*args, variable, generations = [], stead = False, mean = False):  
+    def plot_var(self,*args, variable, generations = [], stead = False, mean = False, min = False, max = False):  
         try:
             data  = [b[0] for i in args for b in i.result.get_elements()]
             analyse_var_gen.allowed_obj(data, variable,8)
             caller = inspect.currentframe().f_back.f_locals.items()
-            others = [True if i is True else False for i in [stead,mean]]
+            others = [True if i is True else False for i in [stead,mean,min,max]]
             others_choose = [i for i in others if i is True]
             if len(others_choose) == 0:
                 analyse_var_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, variable = variable, mtc = 8) 

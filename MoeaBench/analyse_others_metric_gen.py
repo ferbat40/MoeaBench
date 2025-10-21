@@ -6,22 +6,22 @@ class analyse_others_metric_gen(plot_gen):
      
     @staticmethod
     def std(gen_moea):
-      return [np.nanstd(i) for i in gen_moea],'std'
+      return np.array([np.nanstd(i) for i in gen_moea]),'std'
 
     
     @staticmethod
     def mean(gen_moea):
-      return [np.nanmean(i) for i in gen_moea],'mean'
+      return np.array([np.nanmean(i) for i in gen_moea]),'mean'
 
     
     @staticmethod
     def min(gen_moea):
-      return [np.nanmin(i) for i in gen_moea],'min'
+      return np.array([np.nanmin(i) for i in gen_moea]),'min'
 
     
     @staticmethod
     def max(gen_moea):
-      return [np.nanmax(i) for i in gen_moea],'max'
+      return np.array([np.nanmax(i) for i in gen_moea]),'max'
     
     
     @staticmethod

@@ -4,6 +4,10 @@ import numpy as np
 
 class result_metric(RESULT):
 
+    def DATA(self,result,N,idx):
+        return np.array([i for i in result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[idx][N[0]:N[1]]])
+   
+
     def IPL_hypervolume(self, result, N, vmtc = 1):
         self.allowed_gen(N)
         self.allowed_gen_max(result, vmtc, N)

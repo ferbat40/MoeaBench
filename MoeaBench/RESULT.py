@@ -15,10 +15,9 @@ class RESULT(IPL_MoeaBench):
             raise TypeError(f"generations = {N} not be allowed. It must be between 0 and {max}" )
              
 
-    def DATA(self,result,N,idx):
-        return np.array([i for i in result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[idx][N[0]:N[1]]])
-    
-   
+    def DATA(self,result, I,  N, mtc):
+        return [obj[:,I-1:I] for obj in result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[mtc][N[0]:N[1]]]
+     
 
     
     

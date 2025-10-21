@@ -35,19 +35,20 @@ class analyse_others_metric_gen(plot_gen):
 
 
     @staticmethod
-    def IPL_plot_3D(*args, experiments, generations , objective, mtc, stead = False, mean = False, min = False, max = False, type ):  
-      others = [True if i is True else False for i in [stead,mean,min,max]]
+    def IPL_plot_3D(*args, experiments, generations , objective, mtc, val_metric, type ):  
+      label=[]
       data  = [b[0] for i in args for b in i.result.get_elements()]
       analyse_others_metric_gen.allowed_gen(generations)
       analyse_others_metric_gen.allowed_gen_max(data, mtc, generations[1])
       gen_moea=analyse_others_metric_gen.normalize_gen(data,generations,mtc,objective)
       evaluate = [np.arange(generations[0],generations[1]+1) for _ in range(len(data))] 
-      val_metric = [idx for idx, i in enumerate([stead,mean,min,max], start = 0) if i is True]
       vet_aux = list(map(lambda key: analyse_others_metric_gen.dict_metric()[key](gen_moea),val_metric))
-      metric = [vet_aux[0][:,i:idx].flatten() for idx, i in enumerate(range(0,vet_aux.shape[1]), start = 1)]
-      metrics = vet_aux[1]
-      metrics.append('Generations')
-      plot_g = analyse_others_metric_gen([evaluate,metric],experiments, metric = metrics) 
+      metrics = vet_aux[0][1]
+      vet_aux = vet_aux[0][0].reshape(vet_aux[0][0].shape[0],1)
+      metric = [vet_aux[:,i:idx].flatten() for idx, i in enumerate(range(0,vet_aux.shape[1]), start = 1)]
+      label.append(metrics)
+      label.append('Generations')
+      plot_g = analyse_others_metric_gen([evaluate,metric],experiments, metric = label) 
       plot_g.configure()   
      
 

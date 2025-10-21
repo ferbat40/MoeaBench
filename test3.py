@@ -231,6 +231,10 @@ experiment.moea = experiment.Moea.my_new_moea(problem = experiment.problem,popul
 experiment.run()
 experiment.save("teste_x")
 
+
+moeabench.plot_obj(experiment, objective = 3, generations = [110,300], maximun = True)
+moeabench.plot_var(experiment, variable = 3, generations = [110,300], maximun = True)
+
 #exp2.problem = moeabench.benchmark.DPF5(M=3)
 #exp2.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 300)
 #exp2.run()

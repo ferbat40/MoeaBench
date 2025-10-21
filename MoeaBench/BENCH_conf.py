@@ -2,7 +2,7 @@ from .I_BENCH_conf import I_BENCH_conf
 
 class BENCH_conf(I_BENCH_conf):
 
-    def __init__(self,name_benchmark = None,M = 0, N=0,n_ieq_constr=0,P=0,K=0,D=0):
+    def set_user(self,name_benchmark = None,M = 0, N=0,n_ieq_constr=0,P=0,K=0,D=0):
         self.__BENCH = name_benchmark 
         self.__M = M
         self.__Nvar=N

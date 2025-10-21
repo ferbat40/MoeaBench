@@ -1,6 +1,6 @@
-from .result_obj import result_obj
+from .RESULT import RESULT
 
-class result_var(result_obj):
+class result_var(RESULT):
       
       def allowed_obj(self,result, mtc, I):
         max = result.get_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[mtc][0].shape[1]

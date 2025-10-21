@@ -77,6 +77,19 @@ class I_BENCH_conf(ABC):
         pass
 
 
+    @abstractmethod
+    def set(self):
+        pass
+
+
+    @abstractmethod
+    def set_user(self):
+        pass
+
+
+
+
+
 
 
 

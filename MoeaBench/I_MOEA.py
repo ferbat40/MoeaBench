@@ -51,6 +51,10 @@ class I_MOEA(ABC):
     def my_implemented_moea(self):
         pass
 
+
+    @abstractmethod
+    def get_history(self):
+        pass
     
 
 

@@ -1,7 +1,6 @@
 from .Benchmark import Benchmark
 from .RUN import RUN
 from .RUN_user import RUN_user
-from .CACHE import CACHE
 from .analyse_obj_gen  import analyse_obj_gen
 import inspect
 from .result_metric import result_metric
@@ -26,12 +25,12 @@ class MoeaBench(I_UserMoeaBench):
         self.moea=None
         self.result=None
         self.benchmark=Benchmark()
-        self.result=CACHE()
-        self.Moea=RUN(self.result)
+        self.result=None
+        self.Moea=RUN()
         self.result_metric=result_metric()
         self.result_obj=result_obj()
         self.result_var=result_var()
-        self.Moea_user=RUN_user(self.result)
+        self.Moea_user=RUN_user()
        
 
     @property

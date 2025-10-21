@@ -1,7 +1,7 @@
 from github import Github
-from .IPL_MoeaBench import IPL_MoeaBench
+from .file import file
 
-class save_github(IPL_MoeaBench):
+class save_github(file):
 
     @staticmethod
     def data(string,exlude):

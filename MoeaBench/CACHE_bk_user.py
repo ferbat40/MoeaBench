@@ -1,11 +1,11 @@
-from .CACHE import CACHE
-from .BENCH_conf import BENCH_conf
+from .memory import memory
 
 
-class CACHE_bk_user(CACHE):
+class CACHE_bk_user(memory):
 
     def set_BENCH_CI(self,name_benchmark = None,M = 0, N=0,n_ieq_constr=0,P=0,K=0):
-       BENk=BENCH_conf(name_benchmark ,M , N , n_ieq_constr,P,K)
+       BENk=self.get_BENCH_conf()
+       BENk.set_user(name_benchmark ,M , N , n_ieq_constr,P,K) 
        self.__BENCH_CI=BENk
     
 

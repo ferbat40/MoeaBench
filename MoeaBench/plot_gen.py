@@ -38,7 +38,7 @@ class plot_gen(analyse_gen):
                      width=800,
                      height=700,
                      title=dict(
-                         text=f'2D Chart for {self.metric[0]}',
+                         text=f'2D Chart for {self.metric[2]}',
                          x=0.5,
                          xanchor='center',
                          y=0.9,

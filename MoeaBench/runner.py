@@ -9,7 +9,6 @@ import os
 import sys
 from .GEN_history import GEN_history
 from .CACHE import CACHE
-import inspect
 
 
 class runner(I_MOEA):
@@ -26,7 +25,6 @@ class runner(I_MOEA):
     def register_moea(self):
         def decorator(cls):
             try:
-                print(inspect.getsource(cls))
                 name = cls.__name__
                 if len(self.M_register) > 0:
                      raise MemoryError("There is already an implementation of the user's MOEA registered")

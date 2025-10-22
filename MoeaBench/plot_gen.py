@@ -13,6 +13,11 @@ class plot_gen(analyse_gen):
      
     
     def configure(self):
+             title = None
+             try:
+                  title = self.metric[2]
+             except Exception as e:
+                  title = self.metric[0]
              self.figure=go.Figure()
              self.figure.data=()
              for gen, metric,  lbl in zip( self.markers[0],  self.markers[1], self.label ):
@@ -38,7 +43,7 @@ class plot_gen(analyse_gen):
                      width=800,
                      height=700,
                      title=dict(
-                         text=f'2D Chart for {self.metric[2]}',
+                         text=f'2D Chart for {title}',
                          x=0.5,
                          xanchor='center',
                          y=0.9,

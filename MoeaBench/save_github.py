@@ -23,7 +23,7 @@ class save_github(file):
             instance_moea = moea(obj.pof)
         except Exception as e:
             print(e)
-        file_moea = f'user_moea/{instance_moea.__class__.__name__}.py'
+        file_moea = f'{instance_moea.__class__.__name__}.py'
         with open(file_moea,'r') as f:
             code_moea = f.read()
         path_repository_moea =  f'MoeaBench/user_moea/{file_moea}'  
@@ -32,7 +32,7 @@ class save_github(file):
 
     @staticmethod
     def save_benchmark(my_bk):
-        file_benchmark = f'user_benchmark/{my_bk.pof.__class__.__name__}.py'
+        file_benchmark = f'{my_bk.pof.__class__.__name__}.py'
         with open(file_benchmark ,'r') as f:
             code_benchmark  = f.read()
         path_repository_benchmark =  f'MoeaBench/user_benchmark/{file_benchmark}'   

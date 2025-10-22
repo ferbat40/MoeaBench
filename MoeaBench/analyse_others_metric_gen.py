@@ -16,12 +16,12 @@ class analyse_others_metric_gen(plot_gen):
     
     @staticmethod
     def min(gen_moea):
-      return np.array([np.nanmin(i) for i in gen_moea]),'min'
+      return np.array([np.nanmin(i) for i in gen_moea]),'minimum'
 
     
     @staticmethod
     def max(gen_moea):
-      return np.array([np.nanmax(i) for i in gen_moea]),'max'
+      return np.array([np.nanmax(i) for i in gen_moea]),'maximum'
     
     
     @staticmethod

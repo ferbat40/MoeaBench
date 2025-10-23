@@ -54,8 +54,9 @@ class analyse_others_metric_gen(plot_gen):
       gen_moea=analyse_others_metric_gen.normalize_gen(data,generations,mtc,objective)
       evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(data))] 
       
-      for i in [i for i in range(0,len(evaluate))]:
-        metric.append(np.array([[ analyse_others_metric_gen.dict_metric()[val_metric[0]](np.array(line[b])) for b in [i]] for line in gen_moea]).flatten())
+      dict_mtc = analyse_others_metric_gen.dict_metric()[val_metric[0]]
+      for i in range(len(evaluate)):
+        metric.append(np.array([ dict_mtc(np.array(line[i])) for line in gen_moea]).flatten())
 
       name_metric =analyse_others_metric_gen.dict_metric_label()[val_metric[0]]
       label.append(name_metric.name)

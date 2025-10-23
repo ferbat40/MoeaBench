@@ -229,12 +229,15 @@ class NSGA2deap(BaseMoea):
 experiment.problem = experiment.benchmark.my_new_benchmark()
 experiment.moea = experiment.Moea.my_new_moea(problem = experiment.problem,population = 160 ,generations = 300)
 experiment.run()
-experiment.save("teste_x")
+#experiment.save("teste_x")
+exp2.problem = moeabench.benchmark.DPF5(M=3)
+exp2.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 200)
+exp2.run()
 
-moeabench.plot_hypervolume (experiment,  generations = [80,200])
+#moeabench.plot_hypervolume (experiment, exp2, generations = [80,200])
 
-#moeabench.plot_obj(experiment, objective = 3, generations = [110,300], maximum = True)
-#moeabench.plot_var(experiment, variable = 3, generations = [110,300], maximum = True)
+moeabench.plot_obj(experiment,exp2, objective = 3, generations = [110,200], mean = True)
+moeabench.plot_var(experiment,exp2, variable = 3, generations = [110,300], maximum = True)
 
 #exp2.problem = moeabench.benchmark.DPF5(M=3)
 #exp2.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 300)

@@ -1,29 +1,29 @@
 from .plot_gen import plot_gen
 import numpy as np
-
+from .E_metric import E_metric
 
 class analyse_others_metric_gen(plot_gen):
      
     @staticmethod
-    def std(gen_moea):
-      return np.array([np.nanstd(i) for i in gen_moea]),'std'
+    def std(value):
+      return np.nan if np.all(np.isnan(value)) else np.nanstd(value) 
 
     
     @staticmethod
-    def mean(gen_moea):
-      return np.array([np.nanmean(i) for i in gen_moea]),'mean'
+    def mean(value):  
+      return np.nan if np.all(np.isnan(value)) else np.nanmean(value)
 
     
     @staticmethod
-    def min(gen_moea):
-      return np.array([np.nanmin(i) for i in gen_moea]),'minimum'
+    def min(value):
+      return np.nan if np.all(np.isnan(value)) else np.nanmin(value) 
 
-    
+
     @staticmethod
-    def max(gen_moea):
-      return np.array([np.nanmax(i) for i in gen_moea]),'maximum'
-    
-    
+    def max(value):
+      return np.nan if np.all(np.isnan(value)) else np.nanmax(value) 
+
+      
     @staticmethod
     def dict_metric():
       return  {
@@ -32,25 +32,47 @@ class analyse_others_metric_gen(plot_gen):
         2: analyse_others_metric_gen.min,
         3: analyse_others_metric_gen.max
         }
+    
+
+    @staticmethod
+    def dict_metric_label():
+      return  {
+        0: E_metric.std,
+        1: E_metric.mean,
+        2: E_metric.min,
+        3: E_metric.max
+        }
 
 
     @staticmethod
-    def IPL_plot_3D(*args, experiments, generations , objective, mtc, val_metric, type ):  
+    def IPL_plot_3D(*args, experiments, generations , objective, mtc, val_metric, types ):  
       label=[]
-      data  = [b[0] for i in args for b in i.result.get_elements()]
+      data  = [b[0] for i in args for b in i.result.get_elements()]   
       analyse_others_metric_gen.allowed_gen(generations)
       analyse_others_metric_gen.allowed_gen_max(data, mtc, generations[1])
       gen_moea=analyse_others_metric_gen.normalize_gen(data,generations,mtc,objective)
       evaluate = [np.arange(generations[0],generations[1]+1) for _ in range(len(data))] 
-      vet_aux = list(map(lambda key: analyse_others_metric_gen.dict_metric()[key](gen_moea),val_metric))
-      metrics = vet_aux[0][1]
-      vet_aux = vet_aux[0][0].reshape(vet_aux[0][0].shape[0],1)
-      metric = [vet_aux[:,i:idx].flatten() for idx, i in enumerate(range(0,vet_aux.shape[1]), start = 1)]
-      label.append(metrics)
+      metric = np.array([[ analyse_others_metric_gen.dict_metric()[val_metric[0]](np.array(line[i])) for i in [0,len(evaluate)-1]] for line in gen_moea])
+      name_metric =analyse_others_metric_gen.dict_metric_label()[val_metric[0]]
+      label.append(name_metric.name)
       label.append('Generations')
-      label.append(type)
+      label.append(types)
       plot_g = analyse_others_metric_gen([evaluate,metric],experiments, metric = label) 
-      plot_g.configure()   
+      plot_g.configure() 
+        
+  
+      #for i in vet_aux:
+       # print(len(i))
+      #for b in vet_aux:
+       # print(b[:,1:2])
+     
+      
+      #metric = [vet_aux[:,i:idx].flatten() for idx, i in enumerate(range(0,vet_aux[0].shape[1]), start = 1)]
+      #label.append(metrics)
+      #label.append('Generations')
+      #label.append(type)
+      #plot_g = analyse_others_metric_gen([evaluate,metric],experiments, metric = label) 
+      #plot_g.configure()   
      
 
   

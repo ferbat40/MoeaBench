@@ -55,7 +55,7 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def plot_obj(self,*args, objective, generations = [], std = False, mean = False, minimum = False, maximum = False):  
-        try:
+        #try:
             data  = [b[0] for i in args for b in i.result.get_elements()]
             analyse_obj_gen.allowed_obj(data, objective)
             caller = inspect.currentframe().f_back.f_locals.items()
@@ -63,11 +63,11 @@ class MoeaBench(I_UserMoeaBench):
             if len(val_metric) == 0:
                 analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = objective, mtc = 7) 
             elif len(val_metric) == 1:
-                analyse_others_metric_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = objective, mtc = 7 , val_metric = val_metric, type = "objective") 
+                analyse_others_metric_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = objective, mtc = 7 , val_metric = val_metric, types = "objective") 
             elif len(val_metric) > 1:
                 raise ValueError("only one metric should be chosen")
-        except Exception as e:
-            print(e)
+        #except Exception as e:
+            #print(e)
         
 
     def plot_var(self,*args, variable, generations = [], std = False, mean = False, minimum  = False, maximum = False):  

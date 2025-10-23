@@ -171,6 +171,11 @@ class I_MoeaBench(ABC):
     @abstractmethod
     def dict_metric(self):
         pass
+
+
+    @abstractmethod
+    def dict_metric_label(self):
+        pass
        
 
 

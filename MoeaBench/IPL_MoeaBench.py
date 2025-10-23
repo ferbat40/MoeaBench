@@ -126,6 +126,10 @@ class IPL_MoeaBench(I_MoeaBench):
     
     def min(self):
         raise NotImplementedError("Not implemented")
+    
+
+    def dict_metric_label(self):
+        raise NotImplementedError("Not implemented")
  
 
     def allowed_DATA(LIST,experiments):

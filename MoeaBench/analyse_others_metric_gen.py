@@ -1,27 +1,29 @@
 from .plot_gen import plot_gen
 import numpy as np
 from .E_metric import E_metric
+import warnings
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 class analyse_others_metric_gen(plot_gen):
      
     @staticmethod
     def std(value):
-      return np.nan if np.all(np.isnan(value)) else np.nanstd(value) 
+      return np.nanstd(value) 
 
     
     @staticmethod
     def mean(value):  
-      return np.nan if np.all(np.isnan(value)) else np.nanmean(value)
+      return  np.nanmean(value)
 
     
     @staticmethod
     def min(value):
-      return np.nan if np.all(np.isnan(value)) else np.nanmin(value) 
+      return  np.nanmin(value) 
 
 
     @staticmethod
     def max(value):
-      return np.nan if np.all(np.isnan(value)) else np.nanmax(value) 
+      return np.nanmax(value) 
 
       
     @staticmethod
@@ -59,20 +61,6 @@ class analyse_others_metric_gen(plot_gen):
       label.append(types)
       plot_g = analyse_others_metric_gen([evaluate,metric],experiments, metric = label) 
       plot_g.configure() 
-        
-  
-      #for i in vet_aux:
-       # print(len(i))
-      #for b in vet_aux:
-       # print(b[:,1:2])
-     
-      
-      #metric = [vet_aux[:,i:idx].flatten() for idx, i in enumerate(range(0,vet_aux[0].shape[1]), start = 1)]
-      #label.append(metrics)
-      #label.append('Generations')
-      #label.append(type)
-      #plot_g = analyse_others_metric_gen([evaluate,metric],experiments, metric = label) 
-      #plot_g.configure()   
      
 
   

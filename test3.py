@@ -236,7 +236,7 @@ exp2.run()
 
 #moeabench.plot_hypervolume (experiment, exp2, generations = [80,200])
 
-moeabench.plot_obj(experiment,exp2, objective = 3, generations = [110,200], mean = True)
+#moeabench.plot_obj(experiment,exp2, objective = 3, generations = [110,200], mean = True)
 moeabench.plot_var(experiment,exp2, variable = 3, generations = [110,300], maximum = True)
 
 #exp2.problem = moeabench.benchmark.DPF5(M=3)

@@ -17,11 +17,9 @@ class analyse_gen(analyse):
     
  
     @staticmethod
-    def allowed_gen_max(result, mtc, N):
-        N = len(result.gret_elements()[0][0].get_METRIC_gen().get_arr_Metric_gen()[mtc])  if N is None  else N
-        vmax = max(len(arr.get_METRIC_gen().get_arr_Metric_gen()[mtc]) for arr in result)
-        if not N <= vmax:
-            raise TypeError(f"generations = {N} not be allowed. It must be between 0 and {vmax}" )
+    def allowed_gen_max(maximum, N):
+        if not N <= max(maximum):
+            raise TypeError(f"generations = {N} not be allowed. It must be between 0 and {max(maximum)}" )
     
 
     @staticmethod

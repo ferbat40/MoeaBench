@@ -11,20 +11,20 @@ class analyse_metric_gen(plot_gen):
     @staticmethod
     def DATA(args,generations):
         gen_max = [b[0].get_F_GEN() for i in args for b in i.get_elements()]
-        new = [np.hstack((b[:,0:1], b[:,1:2])) for i in gen_max for b in i]
-        #for idx, i in enumerate(new, start = 0):
-           # print(i,"  ",idx)
+        F_GEN_slice = [np.hstack((b[:,0:1], b[:,1:2])) for i in gen_max for b in i]
+
+
                
     
 
-        F_GEN = [b[0].get_F_GEN()[generations[0]:generations[1]] for i in args for b in i.get_elements()]
+        F_GEN = F_GEN_slice[generations[0]:generations[1]]
         F = [b[0].get_arr_DATA() for i in args for b in i.get_elements()]
+        F_slice = [np.hstack((b[:,0:1], b[:,1:2])) for b in F]
         
 
         evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(F_GEN))]
         analyse_metric_gen.allowed_gen_max([len(gen)  for gen in gen_max],generations[1])
-        #metric=analyse_metric_gen.normalize_gen(data,generations ,metrics)   
-        return evaluate,F_GEN,F
+        return evaluate,F_GEN,F_slice
       
     
     @staticmethod

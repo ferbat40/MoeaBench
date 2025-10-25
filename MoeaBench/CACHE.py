@@ -13,13 +13,9 @@ class CACHE(memory):
         return self.__BENCH_CI 
   
 
-  def DATA_store(self,name_moea,generations,population,F,F_gen,X_gen,problem,evals,name_benchmaark):
+  def DATA_store(self,name_moea,generations,population,F,F_gen,X_gen,problem,name_benchmaark):
         DT_CONF=self.get_DATA_conf()
-        DT_CONF.set(name_moea,generations,population,F)
-        try:
-             DT_CONF.set_METRIC_gen(self.METRIC_gen_evalue(F,F_gen,X_gen,evals))   
-        except Exception as e:
-             pass
+        DT_CONF.set(name_moea,generations,population,F,F_gen,X_gen)
         BENCH=self.get_BENCH_conf()
         BENCH.set(problem.get_CACHE().get_BENCH_CI().get_M(),
                                   problem.get_CACHE().get_BENCH_CI().get_D(),

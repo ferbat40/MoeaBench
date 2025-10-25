@@ -15,7 +15,7 @@ class CACHE_bk_user(memory):
     
     def DATA_store(self,name_benchmark,description,M,N,n_ieq_constr,F,P,K):
         DT_CONF=self.get_DATA_conf()
-        DT_CONF.set(description,0,0,F)
+        DT_CONF.set(description,0,0,F,0,0)
         self.set_BENCH_CI(name_benchmark,M, N,n_ieq_constr,P,K)
         BENCH=self.get_BENCH_CI()
         self.clear()

@@ -229,21 +229,34 @@ class NSGA2deap(BaseMoea):
 experiment.problem = experiment.benchmark.my_new_benchmark()
 experiment.moea = experiment.Moea.my_new_moea(problem = experiment.problem,population = 160 ,generations = 300)
 experiment.run()
-#experiment.save("teste_x")
-exp2.problem = moeabench.benchmark.DPF5(M=3)
-exp2.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 200)
-exp2.run()
 
 
 exp3.problem = moeabench.benchmark.DPF5(M=3)
-exp3.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 200)
+exp3.moea = moeabench.Moea.MOEAD(problem=exp3.problem, population = 130, generations = 200)
 exp3.run()
 
-#moeabench.plot_hypervolume (experiment, exp2, generations = [80,200])
+
+
+moeabench.plot_hypervolume (experiment.result, exp3.result, generations = [80,200])
+
+#experiment.save("gavan")
+#experiment.load("gavan")
+
+#experiment.save("teste_x")
+#exp2.problem = moeabench.benchmark.DPF5(M=3)
+#exp2.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 200)
+#exp2.run()
+
+
+#exp3.problem = moeabench.benchmark.DPF5(M=3)
+#exp3.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 200)
+#exp3.run()
+
+#
 
 
 
-moeabench.plot_IGDplus(experiment,exp2, exp3, generations = [190,300])
+#moeabench.plot_IGDplus(experiment,exp2, exp3, generations = [190,300])
 
 #exp2.problem = moeabench.benchmark.DPF5(M=3)
 #exp2.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 300)

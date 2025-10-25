@@ -1,12 +1,7 @@
 from abc import ABC, abstractmethod
 
 class I_memory(ABC):
-
-    @abstractmethod
-    def METRIC_gen_evalue(self):
-          pass
-  
-    
+   
     @abstractmethod
     def get_DATA_conf(self):
           pass

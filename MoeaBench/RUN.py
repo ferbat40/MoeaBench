@@ -14,7 +14,6 @@ class RUN(runner):
                               hist_F,
                               hist_n,
                               problem,
-                              n_evals,
                               name_benchmark)
             
 

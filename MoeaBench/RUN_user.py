@@ -12,7 +12,6 @@ class RUN_user(runner):
                             data[0],
                             data[1],
                             problem,
-                            [data[4] *gen  for gen in range(0,data[3])],
                             name_benchmark)
       
     

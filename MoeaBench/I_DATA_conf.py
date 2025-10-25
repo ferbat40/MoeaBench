@@ -24,11 +24,6 @@ class I_DATA_conf(ABC):
 
 
     @abstractmethod
-    def get_METRIC_gen(self):
-        pass
-
-
-    @abstractmethod
     def get_problem(self):
         pass
 
@@ -41,6 +36,19 @@ class I_DATA_conf(ABC):
     @abstractmethod
     def get_DATA_MOEA(self):
         pass
+
+
+    @abstractmethod
+    def get_F_GEN(self):
+        pass
+
+    
+    @abstractmethod
+    def get_X_GEN(self):
+        pass
+
+
+
 
 
    

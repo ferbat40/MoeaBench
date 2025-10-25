@@ -1,7 +1,6 @@
 from .Benchmark import Benchmark
 from .RUN import RUN
 from .RUN_user import RUN_user
-from .analyse_obj_gen  import analyse_obj_gen
 import inspect
 from .result_metric import result_metric
 from .result_obj import result_obj
@@ -9,12 +8,10 @@ from .result_var import result_var
 from .analyse_obj import analyse_obj
 from .analyse_surface_obj import analyse_surface_obj
 from .analyse_metric_gen import analyse_metric_gen
-from .analyse_var_gen import analyse_var_gen
 from .I_UserMoeaBench import I_UserMoeaBench
 from .save import save
 from .save_github import save_github
 from .loader import loader
-from .analyse_others_metric_gen import analyse_others_metric_gen
 
 
 class MoeaBench(I_UserMoeaBench):
@@ -52,38 +49,6 @@ class MoeaBench(I_UserMoeaBench):
     def problem(self,value):
         self._problem=value
         self.pof=value
-
-
-    def plot_obj(self,*args, objective, generations = [], std = False, mean = False, minimum = False, maximum = False):  
-        try:
-            data  = [b[0] for i in args for b in i.result.get_elements()]
-            analyse_obj_gen.allowed_obj(data, objective)
-            caller = inspect.currentframe().f_back.f_locals.items()
-            val_metric = [idx for idx, i in enumerate([std,mean,minimum ,maximum], start = 0) if i is True]
-            if len(val_metric) == 0:
-                analyse_obj_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = objective, mtc = 7) 
-            elif len(val_metric) == 1:
-                analyse_others_metric_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = objective, mtc = 7 , val_metric = val_metric, types = "objective") 
-            elif len(val_metric) > 1:
-                raise ValueError("only one metric should be chosen")
-        except Exception as e:
-            print(e)
-        
-
-    def plot_var(self,*args, variable, generations = [], std = False, mean = False, minimum  = False, maximum = False):  
-        try:
-            data  = [b[0] for i in args for b in i.result.get_elements()]
-            analyse_var_gen.allowed_obj(data, variable,8)
-            caller = inspect.currentframe().f_back.f_locals.items()
-            val_metric = [idx for idx, i in enumerate([std,mean,minimum ,maximum], start = 0) if i is True]
-            if len(val_metric) == 0:
-                analyse_var_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, variable = variable, mtc = 8) 
-            elif len(val_metric) == 1:
-                analyse_others_metric_gen.IPL_plot_3D(*args, experiments = [key for i in args for key, val in caller if i is val], generations = generations, objective = variable, mtc = 8 , val_metric = val_metric, types = "variable") 
-            elif len(val_metric) == 2:
-                raise ValueError("only one metric should be chosen")
-        except Exception as e:
-            print(e) 
 
 
     def plot_hypervolume(self,*args, generations = []):   

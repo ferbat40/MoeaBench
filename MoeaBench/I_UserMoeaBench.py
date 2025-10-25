@@ -3,15 +3,6 @@ from abc import ABC, abstractmethod
 
 class I_UserMoeaBench(ABC):
        
-    @abstractmethod
-    def plot_obj(self):
-        pass
-
-
-    @abstractmethod
-    def plot_var(self):
-        pass
-    
 
     @abstractmethod
     def plot_hypervolume(self):

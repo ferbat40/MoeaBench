@@ -241,10 +241,9 @@ exp3.run()
 
 #moeabench.plot_hypervolume (experiment, exp2, generations = [80,200])
 
-moeabench.plot_obj(experiment,exp2, exp3, objective = 3, generations = [110,200], mean = True)
-#moeabench.plot_var(experiment,exp2, variable = 3, generations = [110,300], maximum = True)
 
-#moeabench.plot_IGDplus(experiment,exp2, generations = [190,300])
+
+moeabench.plot_IGDplus(experiment,exp2, exp3, generations = [190,300])
 
 #exp2.problem = moeabench.benchmark.DPF5(M=3)
 #exp2.moea = moeabench.Moea.MOEAD(problem=exp2.problem, population = 130, generations = 300)
@@ -261,8 +260,7 @@ moeabench.plot_obj(experiment,exp2, exp3, objective = 3, generations = [110,200]
 #moeabench.plot_GD(exp2, exp3,  generations = [0,250])
 
 #moeabench.plot_hypervolume(exp, exp3, generations = [89,300])
-#moeabench.plot_obj(exp2, exp3, objective = 5, generations = [0,300], mean = True, stead = True)
-#moeabench.plot_var(exp2, exp3, variable = 11, generations = [110,300], mean = True, stead = False)
+
 #test1 so instancias em memoria e não salva
 
 #exp.problem = exp.benchmark.my_new_benchmark()
@@ -355,4 +353,3 @@ moeabench.plot_obj(experiment,exp2, exp3, objective = 3, generations = [110,200]
 
 
 #exp.load('test4')
-#moeabench.plot_var( exp, generations = [0,200],  variables = [1,2,3])

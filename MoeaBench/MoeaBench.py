@@ -83,7 +83,7 @@ class MoeaBench(I_UserMoeaBench):
             elif len(val_metric) == 2:
                 raise ValueError("only one metric should be chosen")
         except Exception as e:
-            print(e)
+            print(e) f
 
 
     def plot_hypervolume(self,*args, generations = []):   

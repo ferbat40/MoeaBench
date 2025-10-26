@@ -22,20 +22,20 @@ class analyse_metric_gen(plot_gen):
        
     @staticmethod
     def DATA(args,generations, objectives, experiments, bench):
-        gen_max = [b[0].get_F_GEN() for i in args for b in i.get_elements()]
+        gen_max = [b[0].get_F_GEN()[generations[0]:generations[1]] for i in args for b in i.get_elements()]
         F = [b[0].get_arr_DATA() for i in args for b in i.get_elements()]
-        analyse_metric_gen.allowed_obj(bench,bench[0],experiments,objectives)
-        analyse_metric_gen.allowed_gen_max([len(gen)  for gen in gen_max],generations[1])
+        #analyse_metric_gen.allowed_obj(bench,bench[0],experiments,objectives)
+        #analyse_metric_gen.allowed_gen_max([len(gen)  for gen in gen_max],generations[1])
 
 
                
     
         slc = [[begin,end]      for end, begin in enumerate(range(0,len(objectives)), start = 1)]
         #F_GEN_slice = [np.hstack( [b[:,i:j]  for i,j in slc]) for gen in gen_max for b in gen]
-        F_GEN_slice = [b for gen in gen_max for b in gen]
+        #F_GEN_slice = [b for gen in gen_max for b in gen]
         #print("F_GEN_slice ",len(F_GEN_slice),"  ",generations[0],"  ",generations[1])
         
-        F_GEN = F_GEN_slice[generations[0]:generations[1]]
+        #F_GEN = gen_max[generations[0]:generations[1]]
         
         
 
@@ -44,10 +44,10 @@ class analyse_metric_gen(plot_gen):
 
         
 
-        evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(gen_max))]
+        evaluate = [np.arange(generations[0],generations[1]) for _ in range(1)]
 
  
-        return evaluate,F_GEN,F
+        return evaluate,gen_max,F
       
     
     @staticmethod
@@ -58,7 +58,9 @@ class analyse_metric_gen(plot_gen):
             hypervolume_gen = [hv.evaluate() for hv in hv_gen]
             
             #for i, b in zip(hypervolume_gen,evaluate):
-               # print(len(i),"   ",len(b))
+               #print(len(i),"   ",len(b))
+            
+           # print(len(evaluate),"  ",len(F_GEN))
 
 
             plot_g = analyse_metric_gen([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])

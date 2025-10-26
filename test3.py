@@ -237,7 +237,7 @@ exp3.run()
 
 
 
-moeabench.plot_hypervolume (experiment.result, exp3.result, generations = [80,300], objectives = [1,3])
+moeabench.plot_hypervolume (experiment.result, exp3.result, generations = [80,200], objectives = [1,3])
 #moeabench.pareto(experiment.result, exp3.result, objectives = [1,7,3])
 
 #experiment.save("gavan")

@@ -24,13 +24,15 @@ class analyse_metric_gen(plot_gen):
         
         F_GEN = F_GEN_slice[generations[0]:generations[1]]
         
+        
 
         
         F_slice = [np.hstack( [b[:,i:j]  for i,j in slc]) for b in F ]
 
         
 
-        evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(F_GEN))]
+        evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(gen_max))]
+        print(evaluate)
        
  
         return evaluate,F_GEN,F_slice
@@ -43,7 +45,7 @@ class analyse_metric_gen(plot_gen):
             hv_gen = [GEN_hypervolume(fgen,f.shape[1],f.min(axis=0),f.max(axis=0)) for fgen,f in zip(F_GEN,F)]
             hypervolume_gen = [hv.evaluate() for hv in hv_gen]
             plot_g = analyse_metric_gen([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])
-            plot_g.configure()
+            #plot_g.configure()
         except Exception as e:
             print(e)
             

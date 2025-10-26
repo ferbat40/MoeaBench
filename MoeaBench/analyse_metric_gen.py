@@ -32,7 +32,7 @@ class analyse_metric_gen(plot_gen):
 
         F_GEN = [b[0].get_F_GEN() for i in args for b in i.get_elements()]
         
-        slc = [[begin,end]      for end, begin in enumerate(range(0,len(objectives)), start = 1)]
+        slc = [[i-1,i]     for i in objectives]
         vet= []
         for i in range(len(gen_max)):
             vet_aux = []
@@ -62,7 +62,7 @@ class analyse_metric_gen(plot_gen):
             hypervolume_gen = [hv.evaluate() for hv in hv_gen]
             
             #for i, b in zip(hypervolume_gen,evaluate):
-              # print(len(i),"   ",len(b))
+               #print(i,"   ",b)
             
            # print(len(evaluate),"  ",len(F_GEN))
 

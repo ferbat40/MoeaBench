@@ -1,5 +1,10 @@
 from .I_MoeaBench import I_MoeaBench
 import numpy as np
+from .GEN_hypervolume import GEN_hypervolume
+from .GEN_gd import GEN_gd
+from .GEN_gdplus import GEN_gdplus
+from .GEN_igd import GEN_igd
+from .GEN_igdplus import GEN_igdplus
 
 
 class IPL_MoeaBench(I_MoeaBench):
@@ -106,6 +111,31 @@ class IPL_MoeaBench(I_MoeaBench):
 
     def slicing_arr(self):
         raise NotImplementedError("Not implemented")
+    
+
+    @staticmethod
+    def set_hypervolume(F_GEN,F):
+        return [GEN_hypervolume(fgen,f.shape[1],f.min(axis=0),f.max(axis=0)) for fgen,f in zip(F_GEN,F)]
+    
+    
+    @staticmethod
+    def set_GD(F_GEN,F):
+        return [GEN_gd(fgen,f) for fgen,f in zip(F_GEN,F)]
+    
+    
+    @staticmethod
+    def set_GDplus(F_GEN,F):
+        return [GEN_gdplus(fgen,f) for fgen,f in zip(F_GEN,F)]
+
+    
+    @staticmethod
+    def set_IGD(F_GEN,F):
+        return [GEN_igd(fgen,f) for fgen,f in zip(F_GEN,F)]
+
+    
+    @staticmethod
+    def set_IGD_plus(F_GEN,F):
+        return [GEN_igdplus(fgen,f) for fgen,f in zip(F_GEN,F)]
 
 
     @staticmethod

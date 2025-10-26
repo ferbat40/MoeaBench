@@ -152,6 +152,31 @@ class I_MoeaBench(ABC):
     def slicing_arr(self):
         pass
 
+    
+    @abstractmethod
+    def set_hypervolume(self):
+        pass
+
+
+    @abstractmethod
+    def set_GD(self):
+        pass
+
+
+    @abstractmethod
+    def set_GDplus(self):
+        pass
+
+
+    @abstractmethod
+    def set_IGD(self):
+        pass
+
+
+    @abstractmethod
+    def set_IGD_plus(self):
+        pass
+
 
 
     

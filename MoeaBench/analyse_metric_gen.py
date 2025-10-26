@@ -1,11 +1,5 @@
 from .plot_gen import plot_gen
 import numpy as np
-from .GEN_hypervolume import GEN_hypervolume
-from .GEN_gd import GEN_gd
-from .GEN_gdplus import GEN_gdplus
-from .GEN_igd import GEN_igd
-from .GEN_igdplus import GEN_igdplus
-
 
 
 class analyse_metric_gen(plot_gen):
@@ -42,7 +36,7 @@ class analyse_metric_gen(plot_gen):
     def IPL_plot_Hypervolume(args,generations, experiments, objectives, bench):
         try:
             evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
-            hv_gen = [GEN_hypervolume(fgen,f.shape[1],f.min(axis=0),f.max(axis=0)) for fgen,f in zip(F_GEN,F)]
+            hv_gen = [analyse_metric_gen.set_hypervolume(fgen,f.shape[1],f.min(axis=0),f.max(axis=0)) for fgen,f in zip(F_GEN,F)]
             hypervolume_gen = [hv.evaluate() for hv in hv_gen]
             plot_g = analyse_metric_gen([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])
             plot_g.configure()
@@ -54,7 +48,7 @@ class analyse_metric_gen(plot_gen):
     def IPL_plot_GD(args,generations, experiments, objectives, bench):
         try:
             evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
-            gd_gen = [GEN_gd(fgen,f) for fgen,f in zip(F_GEN,F)]
+            gd_gen = [analyse_metric_gen.set_GD(fgen,f) for fgen,f in zip(F_GEN,F)]
             GD__gen = [hv.evaluate() for hv in gd_gen]
             plot_g = analyse_metric_gen([evaluate,GD__gen],experiments,metric = ['GD','Generations'])
             plot_g.configure()
@@ -66,7 +60,7 @@ class analyse_metric_gen(plot_gen):
     def IPL_plot_GDplus(args,generations, experiments, objectives, bench):
         try:
             evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
-            gdplus_gen = [GEN_gdplus(fgen,f) for fgen,f in zip(F_GEN,F)]
+            gdplus_gen = [analyse_metric_gen.set_GDplus(fgen,f) for fgen,f in zip(F_GEN,F)]
             GDplus__gen = [hv.evaluate() for hv in gdplus_gen]
             plot_g = analyse_metric_gen([evaluate, GDplus__gen],experiments,metric = ['GD plus','Generations'])
             plot_g.configure()
@@ -78,7 +72,7 @@ class analyse_metric_gen(plot_gen):
     def IPL_plot_IGD(args,generations, experiments, objectives, bench):
         try:
             evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
-            igd_gen = [GEN_igd(fgen,f) for fgen,f in zip(F_GEN,F)]
+            igd_gen = [analyse_metric_gen.set_IGD(fgen,f) for fgen,f in zip(F_GEN,F)]
             IGD__gen = [hv.evaluate() for hv in igd_gen]
             plot_g = analyse_metric_gen([evaluate,IGD__gen],experiments,metric = ['IGD','Generations'])
             plot_g.configure()
@@ -90,7 +84,7 @@ class analyse_metric_gen(plot_gen):
     def IPL_plot_IGDplus(args,generations, experiments, objectives, bench):
         try:
             evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
-            igdplus_gen = [GEN_igdplus(fgen,f) for fgen,f in zip(F_GEN,F)]
+            igdplus_gen = [analyse_metric_gen.set_IGD_plus(fgen,f) for fgen,f in zip(F_GEN,F)]
             IGDplus__gen = [hv.evaluate() for hv in igdplus_gen]
             plot_g = analyse_metric_gen([evaluate,IGDplus__gen],experiments,metric = ['IGD plus','Generations'])
             plot_g.configure()

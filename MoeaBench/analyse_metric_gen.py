@@ -5,7 +5,19 @@ from .GEN_hypervolume import GEN_hypervolume
 
 class analyse_metric_gen(plot_gen):
 
-
+    
+    @staticmethod
+    def normalize_gen(data,N,metric):
+        vet = [i.get_METRIC_gen().get_arr_Metric_gen()[metric][N[0]:N[1]] for i in data]
+        max_row = max(i.shape[0] for i in vet)
+        analyse_metric_gen.allowed_gen(N)
+        vet_pt=[]
+        for b in vet:
+            row = b.reshape(b.shape[0],1)
+            pad = np.full((max_row-row.shape[0],1), np.nan) if max_row > row.shape[0] else row.shape[0]
+            arr = np.vstack([row,pad])
+            vet_pt.append(arr.flatten())
+        return vet_pt 
 
        
     @staticmethod
@@ -19,10 +31,10 @@ class analyse_metric_gen(plot_gen):
                
     
         slc = [[begin,end]      for end, begin in enumerate(range(0,len(objectives)), start = 1)]
-        F_GEN_slice = [np.hstack( [b[:,i:j]  for i,j in slc]) for i in gen_max for b in i]
-
+        F_GEN_slice = [np.hstack( [b[:,i:j]  for i,j in slc]) for gen in gen_max for b in gen]
+        print("F_GEN_slice ",len(F_GEN_slice),"  ",generations[0],"  ",generations[1])
         
-        F_GEN = F_GEN_slice[generations[0]:generations[1]]
+        F_GEN = gen_max[generations[0]:generations[1]]
         
         
 
@@ -33,9 +45,10 @@ class analyse_metric_gen(plot_gen):
 
         evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(gen_max))]
        # print(evaluate)
+        #normalize_gen
        
  
-        return evaluate,F_GEN,F_slice
+        return evaluate,F_GEN,F
       
     
     @staticmethod
@@ -44,6 +57,11 @@ class analyse_metric_gen(plot_gen):
             evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
             hv_gen = [GEN_hypervolume(fgen,f.shape[1],f.min(axis=0),f.max(axis=0)) for fgen,f in zip(F_GEN,F)]
             hypervolume_gen = [hv.evaluate() for hv in hv_gen]
+            
+            for i, b in zip(hypervolume_gen,evaluate):
+                print(len(i),"   ",len(b))
+
+
             plot_g = analyse_metric_gen([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])
             plot_g.configure()
         except Exception as e:

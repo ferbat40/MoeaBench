@@ -236,7 +236,9 @@ exp3.moea = moeabench.Moea.NSGA3(problem=exp3.problem, population = 100, generat
 exp3.run()
 
 
-moeabench.plot_hypervolume (experiment.result, exp3.result, generations = [80,200], objectives = [1,3])
+moeabench.plot_IGDplus(experiment.result, exp3.result, generations = [100,200], objectives = [1,2,3])
+
+
 #moeabench.pareto(experiment.result, exp3.result, objectives = [1,7,3])
 
 #experiment.save("gavan")

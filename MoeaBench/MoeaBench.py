@@ -57,24 +57,28 @@ class MoeaBench(I_UserMoeaBench):
         analyse_metric_gen.IPL_plot_Hypervolume(args,generations,experiments = experiment, objectives = objectives, bench = benk)
 
 
-    def plot_GD(self,*args, generations = None):   
+    def plot_GD(self,*args, generations = [], objectives = []):   
          caller = inspect.currentframe().f_back.f_locals.items()
-         analyse_metric_gen.IPL_plot_GD(args,generations,2,experiments = [key for i in args for key, val in caller if i is val])
+         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)  
+         analyse_metric_gen.IPL_plot_GD(args,generations,experiments = experiment, objectives = objectives, bench = benk)
 
 
-    def plot_GDplus(self,*args, generations = None):  
-        caller = inspect.currentframe().f_back.f_locals.items() 
-        analyse_metric_gen.IPL_plot_GDplus(args,generations,3,experiments = [key for i in args for key, val in caller if i is val])
+    def plot_GDplus(self,*args, generations = [], objectives = []):  
+         caller = inspect.currentframe().f_back.f_locals.items()
+         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)  
+         analyse_metric_gen.IPL_plot_GDplus(args,generations,experiments = experiment, objectives = objectives, bench = benk)
 
     
-    def plot_IGD(self,*args, generations = None):   
-        caller = inspect.currentframe().f_back.f_locals.items()
-        analyse_metric_gen.IPL_plot_IGD(args,generations,4,experiments = [key for i in args for key, val in caller if i is val])
+    def plot_IGD(self,*args, generations = [], objectives = []):   
+         caller = inspect.currentframe().f_back.f_locals.items()
+         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)  
+         analyse_metric_gen.IPL_plot_IGD(args,generations,experiments = experiment, objectives = objectives, bench = benk)
 
 
-    def plot_IGDplus(self,*args, generations = None):   
-        caller = inspect.currentframe().f_back.f_locals.items()
-        analyse_metric_gen.IPL_plot_IGDplus(args,generations,5,experiments = [key for i in args for key, val in caller if i is val])
+    def plot_IGDplus(self,*args, generations = [], objectives = []):   
+         caller = inspect.currentframe().f_back.f_locals.items()
+         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)  
+         analyse_metric_gen.IPL_plot_IGDplus(args,generations,experiments = experiment, objectives = objectives, bench = benk)
 
 
     def pareto_surface(self, *args, objectives = []):

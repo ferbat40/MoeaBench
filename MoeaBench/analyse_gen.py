@@ -17,8 +17,8 @@ class analyse_gen(analyse):
  
     @staticmethod
     def allowed_gen_max(maximum, N):
-        if not N <= max(maximum):
-            raise TypeError(f"generations = {N} not be allowed. It must be between 0 and {max(maximum)}" )
+        if not N <= maximum:
+            raise TypeError(f"generations = {N} not be allowed. It must be between 0 and {maximum}" )
     
 
 

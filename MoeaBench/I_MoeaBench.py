@@ -16,6 +16,11 @@ class I_MoeaBench(ABC):
     @abstractmethod
     def allowed_obj(self):
         pass
+    
+
+    @abstractmethod
+    def allowed_obj_equal(self):
+        pass
 
 
     @abstractmethod
@@ -105,11 +110,6 @@ class I_MoeaBench(ABC):
     
     @abstractmethod 
     def IPL_plot_IGDplus(self):
-        pass
-    
-
-    @abstractmethod 
-    def normalize_gen(self):
         pass
 
 

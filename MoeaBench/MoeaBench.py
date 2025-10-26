@@ -51,10 +51,10 @@ class MoeaBench(I_UserMoeaBench):
         self.pof=value
 
 
-    def plot_hypervolume(self,*args, generations = []):   
+    def plot_hypervolume(self,*args, generations = [], objectives = []):   
         caller = inspect.currentframe().f_back.f_locals.items()
         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)   
-        analyse_metric_gen.IPL_plot_Hypervolume(args,generations,experiments = experiment)
+        analyse_metric_gen.IPL_plot_Hypervolume(args,generations,experiments = experiment, objectives = objectives, bench = benk)
 
 
     def plot_GD(self,*args, generations = None):   

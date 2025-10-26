@@ -31,13 +31,11 @@ class analyse_metric_gen(plot_gen):
                
     
         slc = [[begin,end]      for end, begin in enumerate(range(0,len(objectives)), start = 1)]
-        F_GEN_slice = [np.hstack( [b[:,i:j]  for i,j in slc]) for gen in gen_max for b in gen] 
-        F_GEN_test = F_GEN_slice[generations[0]:generations[1]]
-
+        #F_GEN_slice = [np.hstack( [b[:,i:j]  for i,j in slc]) for gen in gen_max for b in gen]
+        F_GEN_slice = [b for gen in gen_max for b in gen]
+        #print("F_GEN_slice ",len(F_GEN_slice),"  ",generations[0],"  ",generations[1])
         
-        F_GEN_all = [b for gen in gen_max for b in gen] 
-        F_GEN = F_GEN_all[generations[0]:generations[1]]
-
+        F_GEN = F_GEN_slice[generations[0]:generations[1]]
         
         
 
@@ -47,11 +45,9 @@ class analyse_metric_gen(plot_gen):
         
 
         evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(gen_max))]
-        #for i, b in zip(F_GEN ,F_GEN_test):
-        #print(len(F_GEN),"   ",len(F_GEN_test))
-       
+
  
-        return evaluate,F_GEN_test,F_slice
+        return evaluate,F_GEN,F
       
     
     @staticmethod
@@ -61,7 +57,8 @@ class analyse_metric_gen(plot_gen):
             hv_gen = [GEN_hypervolume(fgen,f.shape[1],f.min(axis=0),f.max(axis=0)) for fgen,f in zip(F_GEN,F)]
             hypervolume_gen = [hv.evaluate() for hv in hv_gen]
             
-            
+            #for i, b in zip(hypervolume_gen,evaluate):
+               # print(len(i),"   ",len(b))
 
 
             plot_g = analyse_metric_gen([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])

@@ -235,9 +235,11 @@ exp3.problem = moeabench.benchmark.DPF5(M=3)
 exp3.moea = moeabench.Moea.NSGA3(problem=exp3.problem, population = 100, generations = 200)
 exp3.run()
 
-
-
-moeabench.plot_hypervolume (experiment.result, exp3.result, generations = [80,200], objectives = [1,3])
+exp2 = moeabench()
+exp2.problem = moeabench.benchmark.DTLZ5(M=3)
+exp2.moea = moeabench.Moea.U_NSGA3(problem=exp2.problem, population = 100, generations = 300)
+exp2.run()
+#moeabench.plot_hypervolume (experiment.result, exp3.result, generations = [80,200], objectives = [1,3])
 #moeabench.pareto(experiment.result, exp3.result, objectives = [1,7,3])
 
 #experiment.save("gavan")

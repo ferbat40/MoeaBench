@@ -30,7 +30,7 @@ class P_DPF3(DPF3):
              if self.K_validate(self.get_CACHE().get_BENCH_CI().get_K()) == True and self.MN_validate(self.get_CACHE().get_BENCH_CI().get_K(),self.get_CACHE().get_BENCH_CI().get_M(),self.get_CACHE().get_BENCH_CI().get_D()) == True and self.MN1_validate(self.get_CACHE().get_BENCH_CI().get_M(),self.get_CACHE().get_BENCH_CI().get_D()) == True:  
                   F , X  = self.minimize()
                   for key,value in F.items():
-                       self.get_CACHE().DATA_store(key,0,0,value,[0],[0],self,[0],self.__class__.__name__.split("_")[1])   
+                       self.get_CACHE().DATA_store(key,0,0,value,[0],[0],self,self.__class__.__name__.split("_")[1])   
         except Exception as e:
              print(e)
 

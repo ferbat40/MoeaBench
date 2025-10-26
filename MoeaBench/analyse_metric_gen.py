@@ -48,7 +48,7 @@ class analyse_metric_gen(plot_gen):
 
         
 
-        evaluate = [np.arange(generations[0],generations[1]) for _ in range(1)]
+        evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(gen_max))]
 
  
         return evaluate,vet,F_slice 

@@ -237,5 +237,5 @@ exp3.run()
 
 
 obj = exp3.variable(variable = 6, generations = [100,170])
-print(len(obj), "   ",len(obj[1]))
+#print(len(obj), "   ",len(obj[1]))
 #IGD_2_3 = exp3.IGD(generations = [50,60], objectives =  [2,3,3,3])

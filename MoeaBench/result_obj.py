@@ -1,7 +1,7 @@
-from .result_obj_var import result_obj_var
+from .result import result
 
 
-class result_obj(result_obj_var):
+class result_obj(result):
       
     def allowed_obj(self,result, objective):
         max = [b[1].get_M() for b in result.get_elements()][0]

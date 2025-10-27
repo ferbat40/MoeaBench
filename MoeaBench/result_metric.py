@@ -1,8 +1,8 @@
-from .result_obj_var import result_obj_var
+from .result import result
 import numpy as np
 
 
-class result_metric(result_obj_var):
+class result_metric(result):
 
     def DATA(self,result,generation, objective):
         gen_f_test = [b[0].get_F_GEN() for b in result.get_elements()]

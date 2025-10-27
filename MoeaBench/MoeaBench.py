@@ -160,10 +160,10 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def variable(self, variable, generations = []):
-        try:
+        #try:
             return self.result_var.IPL_variables(self.result, generations, variable)
-        except Exception as e:
-            print(e)
+       # except Exception as e:
+          #  print(e)
 
 
     def load(self,file):

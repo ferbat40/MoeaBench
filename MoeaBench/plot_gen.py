@@ -1,10 +1,10 @@
 import numpy as np
 import plotly.graph_objects as go
 import numpy as np
-from .analyse_gen import analyse_gen
+from .analyse import analyse
 
 
-class plot_gen(analyse_gen):
+class plot_gen(analyse):
 
     def __init__(self,markers,label,metric):
         self.markers=markers

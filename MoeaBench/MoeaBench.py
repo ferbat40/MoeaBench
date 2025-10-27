@@ -117,37 +117,37 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
 
 
-    def hypervolume(self, generations = []):
+    def hypervolume(self, generations = [], objectives = []):
         try:
-            return self.result_metric.IPL_hypervolume(self.result, generations)
+            return self.result_metric.IPL_hypervolume(self.result, generations, objectives)
         except Exception as e:
             print(e)
      
 
-    def GD(self, generations = []):
+    def GD(self, generations = [], objectives = []):
         try:
-            return self.result_metric.IPL_GD(self.result, generations)
+            return self.result_metric.IPL_GD(self.result, generations, objectives)
         except Exception as e:
             print(e)
 
 
-    def GDplus(self, generations = []):
+    def GDplus(self, generations = [], objectives = []):
         try:
-            return self.result_metric.IPL_GDplus(self.result,generations)
-        except Exception as e:
-            print(e)
-    
-
-    def IGD(self, generations = []):
-        try:
-            return self.result_metric.IPL_IGD(self.result, generations)
+            return self.result_metric.IPL_GDplus(self.result, generations, objectives)
         except Exception as e:
             print(e)
     
 
-    def IGDplus(self, generations = []):
+    def IGD(self, generations = [], objectives = []):
         try:
-            return self.result_metric.IPL_IGDplus(self.result, generations)
+            return self.result_metric.IPL_IGD(self.result, generations, objectives)
+        except Exception as e:
+            print(e)
+    
+
+    def IGDplus(self, generations = [], objectives = []):
+        try:
+            return self.result_metric.IPL_IGDplus(self.result, generations, objectives)
         except Exception as e:
             print(e)
     

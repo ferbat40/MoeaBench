@@ -31,10 +31,6 @@ class IPL_MoeaBench(I_MoeaBench):
     
     def PLT(self):
         raise NotImplementedError("Not implemented")  
-    
-    
-    def allowed_obj(self):
-        raise NotImplementedError("Not implemented")
             
     
     def configure(self):
@@ -105,12 +101,9 @@ class IPL_MoeaBench(I_MoeaBench):
         raise NotImplementedError("Not implemented")
     
     
-    def allowed_gen_max(self):
-        raise NotImplementedError("Not implemented")
-    
-
-    def slicing_arr(self):
-        raise NotImplementedError("Not implemented")
+    @staticmethod
+    def slicing_arr(slc,arr):
+        return np.hstack([arr[:,i:j]  for i,j in slc])
     
 
     @staticmethod
@@ -122,7 +115,7 @@ class IPL_MoeaBench(I_MoeaBench):
     def set_GD(F_GEN,F):
         return [GEN_gd(fgen,f) for fgen,f in zip(F_GEN,F)]
     
-    
+
     @staticmethod
     def set_GDplus(F_GEN,F):
         return [GEN_gdplus(fgen,f) for fgen,f in zip(F_GEN,F)]
@@ -136,6 +129,15 @@ class IPL_MoeaBench(I_MoeaBench):
     @staticmethod
     def set_IGD_plus(F_GEN,F):
         return [GEN_igdplus(fgen,f) for fgen,f in zip(F_GEN,F)]
+    
+
+    @staticmethod
+    def allowed_obj(objective):
+        if not isinstance(objective, (list)):
+            raise TypeError("Only arrays are allowed in 'objectives'")
+        objective_set = list({x for x in objective})
+        if not len(objective_set) == len(objective):
+            raise ValueError("There are repeated elements for objectives")
 
 
     @staticmethod
@@ -167,6 +169,12 @@ class IPL_MoeaBench(I_MoeaBench):
             raise TypeError(f"generations = {generations} not be allowed. I is necessary to follow the format: generations = [begin, end]" )
         if not generations[0] <= generations[1]:
             raise TypeError("the initial generation must be smaller than the final generation")
+        
+
+    @staticmethod
+    def allowed_gen_max(maximum, N):
+        if not N <= maximum:
+            raise TypeError(f"generations = {N} not be allowed. It must be between 0 and {maximum}" )
       
     
     @staticmethod

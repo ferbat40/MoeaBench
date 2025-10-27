@@ -9,9 +9,7 @@ class analyse_pareto(analyse):
         if not isinstance(objectives, (list)):
             raise TypeError("Only arrays are allowed in 'objectives'")
         if  0 < len(objectives) < 3:
-            raise TypeError(f"objectives = {objectives} not be allowed. I is necessary to follow the format: objectives = [obj1, obj2, obj3] " )
-       
-        
+            raise TypeError(f"objectives = {objectives} not be allowed. I is necessary to follow the format: objectives = [obj1, obj2, obj3] " )       
         analyse_pareto.allowed_obj_equal(element, data, experiments, objectives)
        
        

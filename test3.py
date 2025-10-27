@@ -228,15 +228,16 @@ class NSGA2deap(BaseMoea):
 
 experiment.problem = experiment.benchmark.my_new_benchmark()
 experiment.moea = experiment.Moea.my_new_moea(problem = experiment.problem,population = 160 ,generations = 300)
-experiment.run()
+#experiment.run()
 
 
 exp3.problem = moeabench.benchmark.DPF5(M=3)
 exp3.moea = moeabench.Moea.NSGA3(problem=exp3.problem, population = 100, generations = 200)
 exp3.run()
 
-
-moeabench.plot_IGDplus(experiment.result, exp3.result, generations = [100,200], objectives = [1,2,3])
+hv  = exp3.IGDplus(generations = [100,200], objectives = [2,3])
+print(hv)
+#moeabench.plot_IGDplus(experiment.result, exp3.result, generations = [100,200], objectives = [1,2,3])
 
 
 #moeabench.pareto(experiment.result, exp3.result, objectives = [1,7,3])

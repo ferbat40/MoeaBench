@@ -178,6 +178,21 @@ class I_MoeaBench(ABC):
         pass
 
 
+    @abstractmethod
+    def F(self):
+        pass
+
+
+    @abstractmethod
+    def X(self):
+        pass
+
+    
+    @abstractmethod
+    def dict_data(self):
+        pass
+
+
 
     
 

@@ -150,18 +150,18 @@ class MoeaBench(I_UserMoeaBench):
             return self.result_metric.IPL_IGDplus(self.result, generations, objectives)
         except Exception as e:
             print(e)
-    
-    
-    def objectives(self, objective, generations = []):
+
+            
+    def objective(self, objective, generations = []):
         try:
-            return self.result_obj.IPL_objectives(self.result, objective,  generations)
+            return self.result_obj.IPL_objectives(self.result, generations, objective)
         except Exception as e:
             print(e)
 
 
-    def variables(self, variable, generations = []):
+    def variable(self, variable, generations = []):
         try:
-            return self.result_var.IPL_variables(self.result, variable, generations)
+            return self.result_var.IPL_variables(self.result, generations, variable)
         except Exception as e:
             print(e)
 

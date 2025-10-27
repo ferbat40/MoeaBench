@@ -100,6 +100,18 @@ class IPL_MoeaBench(I_MoeaBench):
     def IPL_save_github(self):
         raise NotImplementedError("Not implemented")
     
+
+    def F(self):
+        raise NotImplementedError("Not implemented")
+    
+
+    def X(self):
+        raise NotImplementedError("Not implemented")
+    
+
+    def dict_data(self):
+        raise NotImplementedError("Not implemented")
+    
     
     @staticmethod
     def slicing_arr(slc,arr):

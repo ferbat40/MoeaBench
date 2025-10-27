@@ -3,7 +3,6 @@ import numpy as np
 
 class RESULT(IPL_MoeaBench):
                    
-
     def DATA(self,result,generation, objective):
         gen_f_test = [b[0].get_F_GEN() for b in result.get_elements()]
         gen_f_max = max([len(gen)  for gen in gen_f_test])

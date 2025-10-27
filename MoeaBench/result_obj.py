@@ -1,15 +1,18 @@
-from .RESULT import RESULT
+from .result_obj_var import result_obj_var
 
 
-class result_obj(RESULT):
+class result_obj(result_obj_var):
+      
+    def allowed_obj(self,result, objective):
+        max = [b[1].get_M() for b in result.get_elements()][0]
+        if not objective <= max:
+            raise TypeError(f"Objective = {objective} not be allowed. It must be between 1 and {max}" )
 
 
-    def IPL_objectives(self, result, I,  N, mtc = 7):
-        self.allowed_gen(N)
-        self.allowed_obj(result, mtc, I)
-        self.allowed_gen_max(result, mtc, N)
-        return self.DATA(result, I,  N, mtc)
+    def IPL_objectives(self, result, generation, objective):
+        self.allowed_obj(result, objective)
+        return self.DATA(result,generation, objective)[0]
+        
         
     
 
-       

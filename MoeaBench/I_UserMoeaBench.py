@@ -70,12 +70,12 @@ class I_UserMoeaBench(ABC):
 
     
     @abstractmethod
-    def objectives(self):
+    def objective(self):
         pass
 
 
     @abstractmethod
-    def variables(self):
+    def variable(self):
         pass
 
 

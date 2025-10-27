@@ -4,7 +4,6 @@ import numpy as np
 
 class result_metric(RESULT):
 
-
     def IPL_hypervolume(self, result, generation, objective):
         F_GEN, F =  self.DATA(result,generation, objective)
         hv_gen = result_metric.set_hypervolume(F_GEN,F)

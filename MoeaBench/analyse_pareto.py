@@ -5,7 +5,7 @@ import numpy as np
 class analyse_pareto(analyse):
     
     @staticmethod
-    def allowed_obj(element,data, experiments, objectives, obj = ('get_M',)):
+    def allowed_obj(element,data, experiments, objectives):
         if not isinstance(objectives, (list)):
             raise TypeError("Only arrays are allowed in 'objectives'")
         if  0 < len(objectives) < 3:

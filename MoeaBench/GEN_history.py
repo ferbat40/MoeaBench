@@ -21,8 +21,8 @@ class GEN_history:
             hist_cv.append(opt.get("CV").min())
             hist_cv_avg.append(i.pop.get("CV").mean())
             feas = np.where(opt.get("feasible"))[0]
-            hist_F.append(opt.get("F")[feas])  
-            hist_N.append(opt.get("X")[feas])    
+            hist_F.append(i.pop.get("F"))  
+            hist_N.append(i.pop.get("X"))    
         return self.F.min(axis=0),self.F.max(axis=0),hist_F,n_evals,hist_N
     
 

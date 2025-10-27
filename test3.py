@@ -232,10 +232,10 @@ experiment.moea = experiment.Moea.my_new_moea(problem = experiment.problem,popul
 
 
 exp3.problem = moeabench.benchmark.DPF5(M=3)
-exp3.moea = moeabench.Moea.NSGA3(problem=exp3.problem, population = 100, generations = 200)
+exp3.moea = moeabench.Moea.SPEA2(problem=exp3.problem, population = 100, generations = 200)
 exp3.run()
 
 
 obj = exp3.variable(variable = 6, generations = [100,170])
-print(len(obj), "   ",obj[10])
+print(len(obj), "   ",len(obj[1]))
 #IGD_2_3 = exp3.IGD(generations = [50,60], objectives =  [2,3,3,3])

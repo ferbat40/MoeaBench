@@ -15,10 +15,10 @@ class save(file):
         pof =  obj.pof.get_CACHE().get_elements()[0][0].get_arr_DATA()       
         moea = obj.Moea.get_moea()
 
-        moeabench_benchmark = save.DATA(f'{obj.pof.__class__.__name__}','MoeaBench/','py') 
-        user_benchmark = save.DATA(f'{obj.pof.__class__.__name__}','MoeaBench/user_benchmark','py')    
-        if not moeabench_benchmark.exists() and not user_benchmark.exists():
-            raise MemoryError("implementation classes will be created")
+        #moeabench_benchmark = save.DATA(f'{obj.pof.__class__.__name__}','MoeaBench/','py') 
+        #user_benchmark = save.DATA(f'{obj.pof.__class__.__name__}','MoeaBench/user_benchmark','py')    
+        #if not moeabench_benchmark.exists() and not user_benchmark.exists():
+            #raise MemoryError("implementation classes will be created")
         
         instance_moea=None
         try:
@@ -26,9 +26,9 @@ class save(file):
         except Exception as e:
             pass
             
-        moeabench_user = save.DATA(instance_moea.__class__.__name__,'MoeaBench/user_moea','py') if instance_moea is not None else None
-        if moeabench_user is not None and not moeabench_user.exists():
-            raise MemoryError("implementation classes will be created")
+        #moeabench_user = save.DATA(instance_moea.__class__.__name__,'MoeaBench/user_moea','py') if instance_moea is not None else None
+        #if moeabench_user is not None and not moeabench_user.exists():
+            #raise MemoryError("implementation classes will be created")
 
         path_z = save.DATA(folder)
         if path_z.exists():

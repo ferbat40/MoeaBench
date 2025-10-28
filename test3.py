@@ -2,7 +2,7 @@ from MoeaBench.base_benchmark import BaseBenchmark
 from MoeaBench.base_moea import BaseMoea
 from MoeaBench import moeabench
 import os
-
+from concurrent.futures import ProcessPoolExecutor
 
 
 
@@ -233,9 +233,33 @@ experiment.moea = experiment.Moea.my_new_moea(problem = experiment.problem,popul
 
 exp3.problem = moeabench.benchmark.DPF5(M=3)
 exp3.moea = moeabench.Moea.SPEA2(problem=exp3.problem, population = 100, generations = 200)
-exp3.run()
+#exp3.run()
 
 
 obj = exp3.variable(variable = 6, generations = [100,170])
 #print(len(obj), "   ",len(obj[1]))
 #IGD_2_3 = exp3.IGD(generations = [50,60], objectives =  [2,3,3,3])
+
+
+class MoeaBench:
+    def __init__(self, i):
+        self.i = i
+
+    def run(self):
+        return f"executado {self.i}"
+
+def paral(i):
+    # Cria a instância dentro do subprocesso
+    obj = MoeaBench(i)
+    return obj.run()
+
+if __name__ == "__main__":
+    # Passa apenas dados simples (range) para o pool
+    with ProcessPoolExecutor(max_workers=4) as executor:
+        resultados = list(executor.map(paral, range(2)))
+
+    print(resultados)
+
+
+
+

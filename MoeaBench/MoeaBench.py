@@ -12,7 +12,6 @@ from .I_UserMoeaBench import I_UserMoeaBench
 from .save import save
 from .save_github import save_github
 from .loader import loader
-from concurrent.futures import ProcessPoolExecutor
 
 
 class MoeaBench(I_UserMoeaBench):

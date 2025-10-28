@@ -471,8 +471,7 @@ class Benchmark(I_benchmark):
     
 
     def my_implemented_benchmark(self, name, m = 3 ,p = 600 ,k = 5):
-        dir = os.path.dirname(__file__)
-        sys.path.append(dir)
+        sys.path.append('/content')
         module_name = f'user_benchmark.{name}'
         module = importlib.import_module(module_name)
         user_benchmark = getattr(module,name)

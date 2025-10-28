@@ -89,8 +89,4 @@ class I_UserMoeaBench(ABC):
         pass
 
 
-    @abstractmethod
-    def save_class(self):
-        pass
-       
 

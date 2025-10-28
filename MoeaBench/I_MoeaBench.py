@@ -131,21 +131,6 @@ class I_MoeaBench(ABC):
     @abstractmethod
     def allowed_DATA(self):
         pass
-    
-    
-    @abstractmethod
-    def save_benchmark(self):
-        pass
-
-
-    @abstractmethod
-    def save_moea(self):
-        pass
-
-  
-    @abstractmethod
-    def IPL_save_github(self):
-        pass
 
     
     @abstractmethod

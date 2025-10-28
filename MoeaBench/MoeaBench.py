@@ -10,7 +10,6 @@ from .analyse_surface_obj import analyse_surface_obj
 from .analyse_metric_gen import analyse_metric_gen
 from .I_UserMoeaBench import I_UserMoeaBench
 from .save import save
-from .save_github import save_github
 from .loader import loader
 
 
@@ -180,11 +179,6 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
 
 
-    def save_class(self):
-        try:
-            save_github.IPL_save_github(self)
-        except Exception as e:
-            print(e)
 
 
 

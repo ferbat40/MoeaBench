@@ -88,19 +88,7 @@ class IPL_MoeaBench(I_MoeaBench):
     def IPL_save(self):
         raise NotImplementedError("Not implemented")
     
-
-    def save_benchmark(self):
-        raise NotImplementedError("Not implemented")
     
-
-    def save_moea(self):
-        raise NotImplementedError("Not implemented")
-    
-
-    def IPL_save_github(self):
-        raise NotImplementedError("Not implemented")
-    
-
     def F(self):
         raise NotImplementedError("Not implemented")
     

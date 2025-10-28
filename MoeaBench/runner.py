@@ -64,9 +64,8 @@ class runner(I_MOEA):
 
     
     def my_implemented_moea(self,name,problem,population = 100, generations = 300):
-        dir = os.path.dirname(__file__)
-        sys.path.append(dir)
-        module_name = f'user_moea.{name}'
+        sys.path.append('/content')
+        module_name = f'{name}'
         module = importlib.import_module(module_name)
         my_moea = getattr(module,name)
         instance_moea = my_moea(problem,population,generations)

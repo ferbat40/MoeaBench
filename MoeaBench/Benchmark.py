@@ -472,7 +472,7 @@ class Benchmark(I_benchmark):
 
     def my_implemented_benchmark(self, name, m = 3 ,p = 600 ,k = 5):
         sys.path.append('/content')
-        module_name = f'user_benchmark.{name}'
+        module_name = f'{name}'
         module = importlib.import_module(module_name)
         user_benchmark = getattr(module,name)
         my_benchmark = user_benchmark(CACHE_bk_user(), m, p, k)

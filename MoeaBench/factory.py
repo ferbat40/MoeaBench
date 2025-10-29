@@ -2,30 +2,21 @@ from .MoeaBench import MoeaBench
 
 class _MoeaBenchWrapper:
     """
-        - ARG: 
-            M (int): número de objetivos do problema:        
-            N (int): número de variáveis de decisão.
-            P (int): números de pontos gerados randomicamente. 
+        - Description: 
+            
+           MoeaBench is a framework for experimentation, analysis, and development 
+           of benchmark problems for validating the performance of genetic algorithms.
              
-        - Default
-            M = 3
-            K = 5
-            D = 2
-            P = 700
 
-        - Exemplo:
-            dpf5= problem.DPF5(problem)
+        - Example :
+            experiment = moeabench()
 
-        - Exception:                
-            O valor de M deve ser M > 2.
-            O valor de M deve ser M < N.
            
         - NOTES:
-         - Para obter informações detalhadas sobre a método:
+         - For more information about the framework, please visit the link:
          https://moeabench-rgb.github.io/MoeaBench/
     """
 
-    
     
     def __getattr__(self, name):
         inst = MoeaBench()

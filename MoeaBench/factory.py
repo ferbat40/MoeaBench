@@ -7,7 +7,7 @@ class _MoeaBenchWrapper:
             N (int): número de variáveis de decisão.
             P (int): números de pontos gerados randomicamente. 
              
-        - Default:
+        - Default
             M = 3
             K = 5
             D = 2

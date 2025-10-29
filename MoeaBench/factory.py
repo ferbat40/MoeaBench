@@ -22,7 +22,7 @@ class _MoeaBenchWrapper:
            
         - NOTES:
          - Para obter informações detalhadas sobre a método:
-         https://evobench.github.io/benchmark/problems/DPF5/DPF5/
+         https://moeabench-rgb.github.io/MoeaBench/
     """
 
     

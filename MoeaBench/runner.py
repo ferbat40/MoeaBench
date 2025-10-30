@@ -64,13 +64,13 @@ class runner(I_MOEA):
 
     
     def my_implemented_moea(self,name,problem,population = 100, generations = 300):
-        sys.path.append('/content')
-        module_name = f'{name}'
-        module = importlib.import_module(module_name)
-        my_moea = getattr(module,name)
-        instance_moea = my_moea(problem,population,generations)
+        #sys.path.append('/content')
+        #$module_name = f'{name}'
+        #module = importlib.import_module(module_name)
+        #my_moea = getattr(module,name)
+        instance_moea = name(problem,population,generations)
         self.result.get_DATA_conf().set_DATA_MOEA(instance_moea,problem)     
-        return (self.result,my_moea,instance_moea.__class__.__name__)
+        return (self.result,name,instance_moea.__class__.__name__)
        
            
     def NSGA3(self,problem, *, population = 100, generations = 300,seed = 1):

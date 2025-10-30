@@ -471,11 +471,11 @@ class Benchmark(I_benchmark):
     
 
     def my_implemented_benchmark(self, name, m = 3 ,p = 600 ,k = 5):
-        sys.path.append('/content')
-        module_name = f'{name}'
-        module = importlib.import_module(module_name)
-        user_benchmark = getattr(module,name)
-        my_benchmark = user_benchmark(CACHE_bk_user(), m, p, k)
+        #sys.path.append('/content')
+        #module_name = f'{name}'
+        #module = importlib.import_module(module_name)
+        #user_benchmark = getattr(module,name)
+        my_benchmark = name(CACHE_bk_user(), m, p, k)
         F = my_benchmark.POFsamples()
         my_benchmark.get_CACHE().DATA_store(my_benchmark.__class__.__name__,'IN POF',my_benchmark.M,my_benchmark.N,my_benchmark.n_ieq_constr,F,my_benchmark.P,my_benchmark.K)
         return my_benchmark

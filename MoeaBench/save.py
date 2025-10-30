@@ -12,7 +12,8 @@ class save(file):
         result =  obj.result.get_elements()[0][0].get_arr_DATA()
         bench = obj.result.get_elements()[0][1]
         data = obj.result.get_elements()[0][0]
-        pof =  obj.pof.get_CACHE().get_elements()[0][0].get_arr_DATA()       
+        pof =  obj.pof.get_CACHE().get_elements()[0][0].get_arr_DATA()     
+        print(folder)  
     
 
 

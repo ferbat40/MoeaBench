@@ -11,6 +11,9 @@ from .analyse_metric_gen import analyse_metric_gen
 from .I_UserMoeaBench import I_UserMoeaBench
 from .save import save
 from .loader import loader
+from . import benchmarktest
+from . import moeatest
+import importlib
 
 
 class MoeaBench(I_UserMoeaBench):
@@ -26,6 +29,13 @@ class MoeaBench(I_UserMoeaBench):
         self.result_obj=result_obj()
         self.result_var=result_var()
         self.Moea_user=RUN_user()
+
+
+    def __getattr__(self,name):
+        module = importlib.import_module(f"MoeaBench.{name}")
+        return module
+
+
        
 
     @property

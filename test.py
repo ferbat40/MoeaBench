@@ -7,13 +7,18 @@ from MoeaBench import moeabench
 
 os.system("cls")  
 
-evaluate = 2
+exp = moeabench()
 
-rg = [i for i in range(0,2)]
-print(rg)
 
-for i in rg:
-        print(i)
+exp.problem = moeabench.benchmarktest.DTLZ1t(3)
+exp.moea = moeabench.moeatest.SPEA2t(problem = exp.problem )
+exp.run()
+
+exp.save("gavan_tolu")
+#exp.load("gavan_tolu")
+
+#for i in exp.result.get_elements():
+    #print(i[0].get_F_GEN())
 
 
 

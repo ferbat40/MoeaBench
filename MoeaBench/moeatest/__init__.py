@@ -1,0 +1,1 @@
+from .SPEA2t import SPEA2t

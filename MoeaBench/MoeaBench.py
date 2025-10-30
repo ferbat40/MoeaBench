@@ -189,8 +189,12 @@ class MoeaBench(I_UserMoeaBench):
 
     def add_benchmark(self,problem):
         import MoeaBench.benchmarktest as bk
-        print(problem.__name__)
         setattr(bk,problem.__name__,problem)
+
+
+    def add_moea(self,moea):
+        import MoeaBench.moeatest as moea
+        setattr(moea,moea.__name__,moea)
 
 
 

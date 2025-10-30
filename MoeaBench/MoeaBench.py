@@ -193,8 +193,8 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def add_moea(self,moea):
-        import MoeaBench.moeatest as moea
-        setattr(moea,moea.__name__,moea)
+        import MoeaBench.moeatest as algotithm
+        setattr(algotithm,moea.__name__,moea)
 
 
 

@@ -34,9 +34,7 @@ class MoeaBench(I_UserMoeaBench):
     def __getattr__(self,name):
         module = importlib.import_module(f"MoeaBench.{name}")
         return module
-
-
-       
+    
 
     @property
     def moea(self):
@@ -187,6 +185,10 @@ class MoeaBench(I_UserMoeaBench):
             save.IPL_save(self,file)
         except Exception as e:
             print(e)
+
+
+    def add_benchmark(self,problem):
+        setattr(self.benchmarktest,problem.__class__.__name__,problem)
 
 
 

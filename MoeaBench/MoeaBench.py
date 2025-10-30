@@ -187,8 +187,8 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
 
 
-    def add_benchmark(self,problem):
-        setattr(self.benchmarktest,problem.__class__.__name__,problem)
+    def add_benchmark(self,moeabench,problem):
+        setattr(moeabench.benchmarktest,problem.__class__.__name__,problem)
 
 
 

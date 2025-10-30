@@ -15,7 +15,7 @@ exp.problem = moeabench.benchmarktest.DTLZ1t(3)
 #exp.moea = moeabench.moeatest.SPEA2t(problem = exp.problem )
 #exp.run()
 
-print(moeabench.add_benchmark())
+print(moeabench.add_benchmark(moeabench))
 
 #exp.save("gavan_tolu")
 #exp.load("gavan_tolu")

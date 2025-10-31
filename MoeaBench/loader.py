@@ -10,19 +10,10 @@ import sys
 class loader(file):
      
     def IPL_loader(self, folder):
-        
-
         dir = os.path.dirname(__file__)
+       
         if dir not in sys.path:
             sys.path.append(dir)
- 
-        
-        #module_name = f"user_benchmark.{'my_dtlz5'}"
-        #importlib.import_module(module_name)
-
-
-
-
 
         path_z = loader.DATA(folder)
         if not path_z.exists():

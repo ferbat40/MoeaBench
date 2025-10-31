@@ -13,11 +13,6 @@ class save(file):
         bench = obj.result.get_elements()[0][1]
         data = obj.result.get_elements()[0][0]
         pof =  obj.pof.get_CACHE().get_elements()[0][0].get_arr_DATA()     
-        print(folder)  
-    
-
-
-
         path_z = save.DATA(folder)
         if path_z.exists():
             raise FileExistsError("file already exists")

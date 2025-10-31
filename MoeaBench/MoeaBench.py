@@ -1,4 +1,3 @@
-from .Benchmark import Benchmark
 from .RUN import RUN
 from .RUN_user import RUN_user
 import inspect
@@ -11,8 +10,8 @@ from .analyse_metric_gen import analyse_metric_gen
 from .I_UserMoeaBench import I_UserMoeaBench
 from .save import save
 from .loader import loader
-from . import benchmarktest
-from . import moeatest
+from . import benchmark
+from . import MOEA
 import importlib
 
 
@@ -21,8 +20,6 @@ class MoeaBench(I_UserMoeaBench):
     def __init__(self):
         self.problem=None
         self.pof=None
-        self.moea=None
-        self.benchmark=Benchmark()
         self.result=None
         self.Moea=RUN()
         self.result_metric=result_metric()
@@ -32,6 +29,8 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def __getattr__(self,name):
+        if name.startswith("__") and name.endswith("__"):
+            raise AttributeError(f"{name} not found")
         module = importlib.import_module(f"MoeaBench.{name}")
         return module
     
@@ -188,12 +187,12 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def add_benchmark(self,problem):
-        import MoeaBench.benchmarktest as bk
+        import MoeaBench.benchmark as bk
         setattr(bk,problem.__name__,problem)
 
 
     def add_moea(self,moea):
-        import MoeaBench.moeatest as algotithm
+        import MoeaBench.MOEA as algotithm
         setattr(algotithm,moea.__name__,moea)
 
 

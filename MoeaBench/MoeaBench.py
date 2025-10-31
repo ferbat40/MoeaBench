@@ -10,12 +10,23 @@ from .analyse_metric_gen import analyse_metric_gen
 from .I_UserMoeaBench import I_UserMoeaBench
 from .save import save
 from .loader import loader
-from . import benchmark
-from . import MOEA
 import importlib
 
 
 class MoeaBench(I_UserMoeaBench):
+    """
+        - Description:   
+            MoeaBench is a framework for experimentation, analysis, and 
+            development of benchmark problems for validating the performance     
+            of genetic algorithms.
+             
+        - Example :
+            experiment = moeabench()
+           
+        - NOTES:
+            - For more information about the framework, please visit the link:
+              https://moeabench-rgb.github.io/MoeaBench/
+    """
 
     def __init__(self):
         self.problem=None

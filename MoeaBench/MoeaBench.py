@@ -41,7 +41,7 @@ class MoeaBench(I_UserMoeaBench):
 
     def __getattr__(self,name):
         if name.startswith("__") and name.endswith("__"):
-            raise AttributeError(f"{name} not found")
+            return super().__getattribute__(name)
         module = importlib.import_module(f"MoeaBench.{name}")
         return module
     

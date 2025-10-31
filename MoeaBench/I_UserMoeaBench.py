@@ -88,5 +88,15 @@ class I_UserMoeaBench(ABC):
     def save(self):
         pass
 
+    
+    @abstractmethod
+    def add_benchmark(self):
+        pass
+
+
+    @abstractmethod
+    def add_moea(self):
+        pass
+
 
 

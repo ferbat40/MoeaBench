@@ -5,7 +5,7 @@ from pymoo.operators.crossover.sbx import SBX
 from pymoo.operators.mutation.pm import PolynomialMutation
 from pymoo.core.problem import Problem
 from pymoo.util.ref_dirs import get_reference_directions
-from pymoo.indicators.hv import HV
+
 
 
 class SPEAPymoo(Problem):
@@ -23,7 +23,7 @@ class SPEAPymoo(Problem):
         super().__init__(n_var=self.Nvar, n_obj=self.M, n_ieq_constr=self.n_ieq, xl=xl, xu=xu)
     
     
-    def _evaluate(self, x, out, *args, **kwargs):   
+    def _evaluate(self, x, out, *args, **kwargs):  
         result = self.benchmark.evaluation(x,self.n_ieq)
         out["F"]=result['F']
         if "G" in result:
@@ -52,6 +52,4 @@ class SPEAPymoo(Problem):
         }   
         return (SPEA_algorithm,self.generations,self.population,res_SPEA.history,res_SPEA.X)
     
-    
-    def SOLVER(self):
-        raise NotImplementedError("Not implemented")
+

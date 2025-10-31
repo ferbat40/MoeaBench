@@ -2,7 +2,7 @@ from MoeaBench.P_DTLZ1 import P_DTLZ1
 from MoeaBench.CACHE import CACHE
 
 
-def DTLZ1t(self, *, M = 3, K = 5, P = 700):
+def DTLZ1t(M = 3, K = 5, P = 700):
         """
         - ARG: 
             M (int): número de objetivos do problema:        

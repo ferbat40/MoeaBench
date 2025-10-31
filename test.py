@@ -11,18 +11,21 @@ exp = moeabench()
 
 
 exp.problem = moeabench.benchmarktest.DTLZ1t(3)
-#print(exp.problem.get_CACHE())
-#exp.moea = moeabench.moeatest.SPEA2t(problem = exp.problem )
-#exp.run()
+exp.moea = moeabench.moeatest.SPEA2t(problem = exp.problem , population = 150, generations = 300)
+exp.run()
 
-moeabench.add_benchmark(moeabench)
+HV_all = exp.hypervolume()
+print(HV_all)
 
-#exp.save("gavan_tolu")
-#exp.load("gavan_tolu")
+#exp3 = moeabench()
+#exp3.problem = moeabench.benchmark.DTLZ1(M=3)
+#exp3.moea = moeabench.Moea.SPEA2(problem=exp3.problem, population = 200, generations = 300)
+#exp3.run()
 
-#for i in exp.result.get_elements():
-    #print(i[0].get_F_GEN())
 
+#print(exp.result.get_elements()[0][0].get_F_GEN())
+
+#moeabench.plot_hypervolume(exp.result,  objectives = [2,3])
 
 
 

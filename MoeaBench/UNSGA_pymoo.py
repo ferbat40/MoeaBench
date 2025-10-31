@@ -48,6 +48,3 @@ class UNSGAPymoo(Problem):
         }    
         return(UNSGA_algorithm,self.generations,self.population,res_UNSGA.history,res_UNSGA.X)
     
-    
-    def SOLVER(self):
-        raise NotImplementedError("Not implemented")

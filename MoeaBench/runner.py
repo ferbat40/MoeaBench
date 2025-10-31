@@ -4,9 +4,6 @@ from .SPEA_pymoo import SPEAPymoo
 from .UNSGA_pymoo import UNSGAPymoo
 from .RVEA_pymoo import RVEApymoo
 from .NSGA_pymoo import NSGAPymoo
-import importlib
-import os
-import sys
 from .GEN_history import GEN_history
 from .CACHE import CACHE
 
@@ -39,19 +36,7 @@ class runner(I_MOEA):
         return next(iter(self.M_register.values())) if len(self.M_register.values()) > 0 else None
     
 
-    def MOEA_execute(self,result,problem = None, name_moea = None, name_benchmark=None): 
-            data = result.edit_DATA_conf().get_DATA_MOEA().exec()
-            problem = result.edit_DATA_conf().get_problem()
-            GEN_Hist = GEN_history(data[3],[value for key,value in data[0].items()][0])
-            approx_ideal,approx_nadir,hist_F,n_evals,hist_n = GEN_Hist.evaluate() 
-            result.DATA_store([key for key,value in data[0].items()][0],
-                              data[1],
-                              data[2],
-                              [value for key,value in data[0].items()][0],
-                              hist_F,
-                              hist_n,
-                              problem,
-                              name_benchmark)
+ 
             
 
     def my_new_moea(self,problem,population,generations):

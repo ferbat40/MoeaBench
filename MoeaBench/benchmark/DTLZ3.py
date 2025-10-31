@@ -20,11 +20,12 @@ def DTLZ3(M = 3, K = 5, P = 700):
         - Exception:                
             O valor de M deve ser M > 2.
             O valor de K deve ser K > 0.
+
+        - NOTES:
+         - Para obter informações detalhadas sobre a método:
+         https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/
         
-        - Notes:
-            Após a execução, o método retornará um objeto contendo todas as 
-            funções necessárias
-            para geração de pontos referente ao problema.        
+           
         """
         cache = CACHE()
         bk = P_DTLZ3(M, K, P, cache)

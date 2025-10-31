@@ -22,11 +22,9 @@ def DPF3(M = 3, K = 5, D = 2, P = 700):
             O valor de M deve ser M > 2.
             O valor de M deve ser M < N.
            
-        - Notes:
-            O valor de N = D+K-1
-            Após a execução, o método retornará um objeto contendo todas as 
-            funções necessárias
-            para geração de pontos referente ao problema.        
+        - NOTES:
+         - Para obter informações detalhadas sobre a método:
+         https://moeabench-rgb.github.io/MoeaBench/problems/DPF3/DPF3/        
         """
         cache = CACHE()
         bk = P_DPF3(M, K, D, P, cache)

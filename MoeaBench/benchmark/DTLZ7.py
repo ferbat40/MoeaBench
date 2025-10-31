@@ -21,10 +21,9 @@ def DTLZ7(M = 3, K = 5, P = 700):
             O valor de M deve ser M > 2.
             O valor de K deve ser K > 0.
         
-        - Notes:
-            Após a execução, o método retornará um objeto contendo todas as 
-            funções necessárias
-            para geração de pontos referente ao problema.        
+        - NOTES:
+         - Para obter informações detalhadas sobre a método:
+         https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ7/DTLZ7/      
         """
         cache = CACHE()
         bk = P_DTLZ7(M, K, P, cache)

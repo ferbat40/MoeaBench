@@ -21,10 +21,9 @@ def DTLZ9(M = 3, N = 10, P = 700):
             O valor de M deve ser M > 2.
             O valor de K deve ser N >= 5.
         
-        - Notes:
-            Após a execução, o método retornará um objeto contendo todas as 
-            funções necessárias
-            para geração de pontos referente ao problema.        
+         - NOTES:
+         - Para obter informações detalhadas sobre a método:
+         https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ9/DTLZ9/    
         """
         cache = CACHE()
         bk = P_DTLZ9(M, N, P, cache)

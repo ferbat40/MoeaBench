@@ -23,8 +23,8 @@ def DTLZ1(M = 3, K = 5, P = 700):
         
         - NOTES:
           - Para informações sobre o método DTLZ1:
-          https://evobench.github.io/benchmark/problems/DTLZ1/DTLZ1/  
-
+          https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/
+          
         """
         cache = CACHE()
         bk = P_DTLZ1(M, K, P,cache)

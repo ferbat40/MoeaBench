@@ -23,7 +23,7 @@ def DTLZ2(M = 3, K = 5, P = 700):
         
         - NOTES:
          - Para obter informações detalhadas sobre a método:
-         https://evobench.github.io/benchmark/problems/DTLZ2/DTLZ2/
+         https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/
    
         """
 

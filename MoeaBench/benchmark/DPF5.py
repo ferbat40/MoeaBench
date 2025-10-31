@@ -24,7 +24,7 @@ def DPF5(M = 3, K = 5, D = 2, P = 700):
            
         - NOTES:
          - Para obter informações detalhadas sobre a método:
-         https://evobench.github.io/benchmark/problems/DPF5/DPF5/
+         https://moeabench-rgb.github.io/MoeaBench/problems/DPF5/DPF5/   
         """
         cache = CACHE()
         bk = P_DPF5(M, K, D, P, cache)

@@ -12,3 +12,4 @@ from .DPF2 import DPF2
 from .DPF3 import DPF3
 from .DPF4 import DPF4
 from .DPF5 import DPF5
+from .my_new_benchmark import register_benchmark, my_new_benchmark

@@ -231,12 +231,15 @@ experiment.moea = experiment.Moea.my_new_moea(problem = experiment.problem,popul
 experiment.run()
 
 
-exp3.problem = moeabench.benchmark.DPF5(M=3)
-exp3.moea = moeabench.Moea.SPEA2(problem=exp3.problem, population = 100, generations = 200)
-exp3.run()
+
+experiment.save("mmm")
+
+kamen = experiment.load("mmm")
 
 
-obj = exp3.variable(variable = 6, generations = [100,170])
+HV_all = kamen.hypervolume()
+print(HV_all)
+
 #print(len(obj), "   ",len(obj[1]F))
 #IGD_2_3 = exp3.IGD(generations = [50,60], objectives =  [2,3,3,3])
 

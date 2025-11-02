@@ -12,8 +12,8 @@ for root, dirs , files in os.walk(_dir):
             globals()[cls_name] = getattr(module, cls_name)
 
 #sys.path.append(r"C:\MoeaBench\MoeaBench")
-my_module_cache = importlib.import_module("MoeaBench.CACHE")
-globals()['CACHE'] = my_module_cache.CACHE
-my_module_cache = importlib.import_module("MoeaBench.CACHE_bk_user")
-globals()['CACHE_bk_user'] = my_module_cache.CACHE_bk_user
+#my_module_cache = importlib.import_module("MoeaBench.CACHE")
+#globals()['CACHE'] = my_module_cache.CACHE
+#my_module_cache = importlib.import_module("MoeaBench.CACHE_bk_user")
+#globals()['CACHE_bk_user'] = my_module_cache.CACHE_bk_user
     

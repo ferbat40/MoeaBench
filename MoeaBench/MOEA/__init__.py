@@ -1,8 +1,6 @@
 import sys, os, importlib
 
-#_dir = os.path.dirname(__file__)
-
-_dir = "/content/MoeaBench/MoeaBench"
+_dir = os.path.dirname(__file__)
 
 for root, dirs , files in os.walk(_dir):
     for fl in files:

@@ -5,7 +5,7 @@ _dir = None
 try:
     _dir = os.path.dirname(__file__)
 except Exception as e:
-    packpage = os.path.dirname(MoeaBench.__file__)
+    packpage = os.path.dirname(MoeaBench.__)
     _dir = os.path.join(packpage,"benchmark")
 
 for root, dirs , files in os.walk(_dir):

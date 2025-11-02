@@ -1,4 +1,4 @@
-from MoeaBench.CACHE_bk_user import CACHE_bk_user
+from .problems import problems
 
 M_register = {}
 
@@ -6,8 +6,9 @@ M_register = {}
 @staticmethod
 def my_new_benchmark():
         try:
+            problem = problems(my_new_benchmark.__name__)
             my_benchmark = get_benchmark()
-            my_bk = my_benchmark(CACHE_bk_user())
+            my_bk = my_benchmark(problem.get_CACHE_USER())
             F =  my_bk.POFsamples()
             my_bk.get_CACHE().DATA_store(my_bk.__class__.__name__,'IN POF',my_bk.M,my_bk.N,my_bk.n_ieq_constr,F,my_bk.P,my_bk.K)
             return my_bk

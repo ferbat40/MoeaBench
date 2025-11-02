@@ -1,15 +1,30 @@
-from .DTLZ1 import DTLZ1
-from .DTLZ2 import DTLZ2
-from .DTLZ3 import DTLZ3
-from .DTLZ4 import DTLZ4
-from .DTLZ5 import DTLZ5
-from .DTLZ6 import DTLZ6
-from .DTLZ7 import DTLZ7
-from .DTLZ8 import DTLZ8
-from .DTLZ9 import DTLZ9
-from .DPF1 import DPF1
-from .DPF2 import DPF2
-from .DPF3 import DPF3
-from .DPF4 import DPF4
-from .DPF5 import DPF5
-from .my_new_benchmark import register_benchmark, my_new_benchmark
+import sys, os, importlib
+import MoeaBench.benchmark.my_new_benchmark as m_bk
+
+
+_dir = os.path.dirname(__file__)
+
+for root, dirs , files in os.walk(_dir):
+    for fl in files:
+        if fl.endswith(".py") and fl not in ("__init__.py",):
+            path  = os.path.relpath(os.path.join(root,fl),_dir)
+            name_module = path.replace(os.sep,".")[:-3]
+            module = importlib.import_module(f'{__name__}.{name_module}')
+            cls_name = fl[:-3]
+
+           
+            globals()[cls_name] = getattr(module, cls_name)
+sys.path.append(r"C:\MoeaBench\MoeaBench")
+my_module_cache = importlib.import_module("MoeaBench.CACHE")
+globals()['CACHE'] = my_module_cache.CACHE
+my_module_cache = importlib.import_module("MoeaBench.CACHE_bk_user")
+globals()['CACHE_bk_user'] = my_module_cache.CACHE_bk_user
+globals()['register_benchmark'] = m_bk.register_benchmark
+
+
+
+
+
+
+
+    

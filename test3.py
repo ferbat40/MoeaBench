@@ -16,7 +16,6 @@ exp2 = moeabench()
 exp3 = moeabench()
 experiment = moeabench()
 
-from enum import Enum
 
 
   
@@ -231,10 +230,10 @@ experiment.moea = experiment.Moea.my_new_moea(problem = experiment.problem,popul
 experiment.run()
 
 
-
-experiment.save("mmm")
-
-kamen = experiment.load("mmm")
+experiment.save("gav")
+kamen = moeabench()
+kamen.load("gav")
+print(kamen,"  ",experiment)
 
 
 HV_all = kamen.hypervolume()

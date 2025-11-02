@@ -1,5 +1,4 @@
-from MoeaBench.P_DTLZ4 import P_DTLZ4
-from MoeaBench.CACHE import CACHE
+from .problems import problems
 
 
 def DTLZ4(M = 3, K = 5, P = 700):
@@ -25,8 +24,8 @@ def DTLZ4(M = 3, K = 5, P = 700):
          - Para obter informações detalhadas sobre a método:
          https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ4/DTLZ4/      
         """
-        cache = CACHE()
-        bk =  P_DTLZ4(M, K, P, cache)
+        problem = problems(DTLZ4.__name__)
+        bk =  problem.get_problem(M, K, P)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk

@@ -10,18 +10,18 @@ os.system("cls")
 exp = moeabench()
 
 
-exp.problem = moeabench.benchmark.DPF5(3)
-exp.moea = moeabench.MOEA.RVEA(problem = exp.problem , population = 150, generations = 300)
+exp.problem = moeabench.benchmark.DPF1(3)
+exp.moea = moeabench.MOEA.U_NSGA_III(problem = exp.problem , population = 150, generations = 300)
 exp.run()
 
 
-exp.save("jaspion")
+#exp.save("jaspion")
 
-exp3 = moeabench()
-exp3.load("jaspion")
+#exp3 = moeabench()
+#exp3.load("jaspion")
 
-HV_all = exp3.hypervolume()
-print(HV_all)
+#HV_all = exp.hypervolume()
+#print(HV_all)
 
 #exp3 = moeabench()
 #exp3.problem = moeabench.benchmark.DTLZ1(M=3)

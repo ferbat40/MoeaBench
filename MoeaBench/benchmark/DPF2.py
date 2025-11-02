@@ -1,5 +1,4 @@
-from MoeaBench.P_DPF2 import P_DPF2
-from MoeaBench.CACHE import CACHE
+from .problems import problems
 
 
 def DPF2(M = 3, K = 5, D = 2, P = 700):
@@ -26,8 +25,8 @@ def DPF2(M = 3, K = 5, D = 2, P = 700):
          - Para obter informações detalhadas sobre a método:
          https://moeabench-rgb.github.io/MoeaBench/problems/DPF2/DPF2/      
         """
-        cache = CACHE()
-        bk =  P_DPF2(M, K, D, P, cache)
+        problem = problems(DPF2.__name__)
+        bk = problem.get_problem(M, K, P, D)
         bk.set_BENCH_conf() 
         bk.POFsamples()
         return bk

@@ -1,5 +1,4 @@
-from MoeaBench.P_DPF5 import P_DPF5
-from MoeaBench.CACHE import CACHE
+from .problems import problems
 
 
 def DPF5(M = 3, K = 5, D = 2, P = 700):
@@ -26,8 +25,8 @@ def DPF5(M = 3, K = 5, D = 2, P = 700):
          - Para obter informações detalhadas sobre a método:
          https://moeabench-rgb.github.io/MoeaBench/problems/DPF5/DPF5/   
         """
-        cache = CACHE()
-        bk = P_DPF5(M, K, D, P, cache)
+        problem = problems(DPF5.__name__)
+        bk = problem.get_problem(M, K, P, D)
         bk.set_BENCH_conf()
         bk.POFsamples()
         return bk

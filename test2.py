@@ -1,10 +1,10 @@
-from MoeaBench.base_moea import BaseMoea
-from deap import base, creator, tools, algorithms
-import numpy as np
-import array
-import random
-from MoeaBench import moeabench
-import os
+#from MoeaBench.base_moea import BaseMoea
+#from deap import base, creator, tools, algorithms
+#import numpy as np
+#import array
+#import random
+#from MoeaBench import moeabench
+#import os
 
 
 

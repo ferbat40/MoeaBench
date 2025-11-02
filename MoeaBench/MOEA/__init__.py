@@ -1,4 +1,5 @@
 import sys, os, importlib
+import MoeaBench
 
 _dir = None
 try:

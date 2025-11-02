@@ -1,4 +1,4 @@
-import sys, os, importlib
+import os, importlib
 import MoeaBench.benchmark.my_new_benchmark as m_bk
 
 
@@ -15,7 +15,7 @@ for root, dirs , files in os.walk(_dir):
 
            
             globals()[cls_name] = getattr(module, cls_name)
-sys.path.append(r"C:\MoeaBench\MoeaBench")
+#sys.path.append(r"C:\MoeaBench\MoeaBench")
 my_module_cache = importlib.import_module("MoeaBench.CACHE")
 globals()['CACHE'] = my_module_cache.CACHE
 my_module_cache = importlib.import_module("MoeaBench.CACHE_bk_user")

@@ -1,6 +1,11 @@
 import sys, os, importlib
 
-_dir = os.path.dirname(__file__)
+_dir = None
+try:
+    _dir = os.path.dirname(__file__)
+except Exception as e:
+    packpage = os.path.dirname(MoeaBench.__file__)
+    _dir = os.path.join(packpage,"benchmark")
 
 for root, dirs , files in os.walk(_dir):
     for fl in files:

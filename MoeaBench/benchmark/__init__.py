@@ -2,7 +2,9 @@ import sys, os, importlib
 import MoeaBench.benchmark.my_new_benchmark as m_bk
 
 
-_dir = os.path.dirname(__file__)
+#_dir = os.path.dirname(__file__)
+
+_dir = "/content/MoeaBench/MoeaBench"
 
 for root, dirs , files in os.walk(_dir):
     for fl in files:

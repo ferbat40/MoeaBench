@@ -10,8 +10,8 @@ os.system("cls")
 exp = moeabench()
 
 
-exp.problem = moeabench.benchmark.DPF1(3)
-exp.moea = moeabench.MOEA.U_NSGA_III(problem = exp.problem , population = 150, generations = 300)
+exp.problem = moeabench.benchmark.DTLZ1(M=3)
+exp.moea = moeabench.MOEA.NSGA_III(problem=exp.problem, population = 300, generations = 400)
 exp.run()
 
 

@@ -6,15 +6,15 @@ M_register = {}
 
 @staticmethod
 def my_new_benchmark():
-        try:
+        #try:
             problem = problems(my_new_benchmark.__name__)
             my_benchmark = get_benchmark()
             my_bk = my_benchmark(problem.get_CACHE_USER())
             F =  my_bk.POFsamples()
             my_bk.get_CACHE().DATA_store(my_bk.__class__.__name__,'IN POF',my_bk.M,my_bk.N,my_bk.n_ieq_constr,F,my_bk.P,my_bk.K)
             return my_bk
-        except Exception as e:
-            print(e)
+        #except Exception as e:
+           # print(e)
         
 
 @staticmethod   

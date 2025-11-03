@@ -51,7 +51,7 @@ class BaseMoea(ABC):
           return self.get_problem().get_CACHE().get_BENCH_CI().get_n_ieq_constr()
      
 
-     def evaluation(self,X):
+     def evaluation_benchmark(self,X):
           return self.get_problem().evaluation(np.array([X]),self.get_n_ieq_constr())
      
 

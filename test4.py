@@ -209,4 +209,3 @@ ff = my_dtlz5(3)
 rr = my_NSGA2deap(ff)
 
 
-#print(ff.get_CACHE().get_elements()[0][0].get_arr_DATA())

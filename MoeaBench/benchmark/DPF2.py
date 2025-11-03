@@ -1,6 +1,7 @@
 from .problems import problems
 
 
+@staticmethod
 def DPF2(M = 3, K = 5, D = 2, P = 700):
         """
         - ARG: 

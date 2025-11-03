@@ -1,5 +1,9 @@
 from MoeaBench import MOEA
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING: from kernel_moea import NSGA_pymoo, SPEA_pymoo, UNSGA_pymoo, RVEA_pymoo, MOEAD_pymoo
+if TYPE_CHECKING: from MoeaBench.CACHE import CACHE
+
 
 class moea_algorithm:
 

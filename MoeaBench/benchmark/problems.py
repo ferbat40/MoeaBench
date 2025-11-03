@@ -1,5 +1,9 @@
 from .I_problems import I_problems
 from MoeaBench import benchmark
+from typing import TYPE_CHECKING
+if TYPE_CHECKING: from problem_benchmark import P_DTLZ1,P_DTLZ2,P_DTLZ3,P_DTLZ4,P_DTLZ5,P_DTLZ6,P_DTLZ7,P_DTLZ8,P_DTLZ9,P_DPF1,P_DPF2,P_DPF3,P_DPF4,P_DPF5
+if TYPE_CHECKING: from MoeaBench.CACHE import CACHE
+if TYPE_CHECKING: from MoeaBench.CACHE_bk_user import CACHE_bk_user
 
 
 class problems(I_problems):

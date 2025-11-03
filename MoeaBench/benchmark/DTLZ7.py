@@ -1,6 +1,7 @@
 from .problems import problems
 
 
+@staticmethod
 def DTLZ7(M = 3, K = 5, P = 700):
         """
         - ARG: 

@@ -13,7 +13,7 @@ class E_DTLZ(Enum):
 
 class dtlz5(BaseBenchmark):
 
-    def __init__(self, benchmark, type, M, P, K = None, N = None, D = None, n_ieq_constr=1):
+    def __init__(self, benchmark = None, type = None, M = 3, P = 700, K = 10, N = None, D = None, n_ieq_constr=1):
         N=K+M-1
         super().__init__(benchmark, type, M, P, K, N)
         self.llist_E_DTLZ = list(E_DTLZ)

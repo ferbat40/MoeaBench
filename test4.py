@@ -201,6 +201,7 @@ class NSGA2deap(BaseMoea):
 def my_NSGA2deap(problem,population = 100, generations = 300):
         instance_moea = NSGA2deap(problem,population,generations)
         moea = instance_moea.add_MOEA()
+        print(type(moea[0]))
         return moea
       
 

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from  MoeaBench.CACHE_bk_user import CACHE_bk_user
+from  MoeaBench.CACHE import CACHE
 import numpy as np
 
 
@@ -11,7 +11,7 @@ class BaseMoea(ABC):
           self.__population=population
           self.__generations=generations
           self.__moea=moea
-          self.__CACHE = CACHE_bk_user()
+          self.__CACHE = CACHE()
 
 
      @abstractmethod
@@ -56,8 +56,8 @@ class BaseMoea(ABC):
      
 
      def add_MOEA(self):
-          moea =  self.get_CACHE().get_DATA_conf() 
-          moea.set_DATA_MOEA(self.get_MOEA(),self.get_problem()) 
+          moea =  self.get_CACHE()
+          moea.get_DATA_conf().set_DATA_MOEA(self.get_MOEA(),self.get_problem()) 
           return (moea,self.get_MOEA().__class__,self.get_MOEA().__class__.__name__)
 
      

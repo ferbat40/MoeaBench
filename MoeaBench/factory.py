@@ -25,3 +25,4 @@ class _MoeaBenchWrapper:
         return MoeaBench(*args,  **kwargs)
 
 moeabench = _MoeaBenchWrapper()
+moeabench .__doc__ = _MoeaBenchWrapper.__doc__

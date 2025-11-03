@@ -1,7 +1,9 @@
 from .MoeaBench import MoeaBench
 
 class _MoeaBenchWrapper:
-    """
+    
+    def __init__(self):
+        self.__doc__ =   """
         - Description:   
             MoeaBench is a framework for experimentation, analysis, and 
             development of benchmark problems for validating the performance     
@@ -14,15 +16,16 @@ class _MoeaBenchWrapper:
             - For more information about the framework, please visit the link:
               https://moeabench-rgb.github.io/MoeaBench/
     """
-    def __init__(self):
-        self.__doc__ = _MoeaBenchWrapper.__doc__
     
+
     def __getattr__(self, name):
         inst = MoeaBench()
         return getattr(inst, name)
 
+
     def __call__(self, *args, **kwargs):
-        return MoeaBench(*args,  **kwargs)
+        obj = MoeaBench(*args,  **kwargs)
+        obj.__doc__ = self.__doc__
+        return obj
 
 moeabench = _MoeaBenchWrapper()
-moeabench .__doc__ = _MoeaBenchWrapper.__doc__

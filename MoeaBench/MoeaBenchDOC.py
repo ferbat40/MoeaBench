@@ -16,4 +16,4 @@ class MoeaBenchDOC(MoeaBench):
     """
     pass
 
-moeabench = MoeaBenchDOC
+moeabench = MoeaBenchDOC()

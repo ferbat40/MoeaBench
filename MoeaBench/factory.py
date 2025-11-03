@@ -14,7 +14,8 @@ class _MoeaBenchWrapper:
             - For more information about the framework, please visit the link:
               https://moeabench-rgb.github.io/MoeaBench/
     """
-
+    def __init__(self):
+        self.__doc__ = _MoeaBenchWrapper.__doc__
     
     def __getattr__(self, name):
         inst = MoeaBench()

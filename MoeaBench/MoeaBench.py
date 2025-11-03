@@ -196,7 +196,7 @@ class MoeaBench(I_UserMoeaBench):
 
     
     def help_mo(self):
-        print(self.__class__.__doc__)
+        print(MoeaBench.__class__.__doc__)
 
 
 

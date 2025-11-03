@@ -194,6 +194,10 @@ class MoeaBench(I_UserMoeaBench):
         import MoeaBench.MOEA as algotithm
         setattr(algotithm,moea.__name__,moea)
 
+    
+    def help(self):
+        print(self.__class__.__doc__)
+
 
 
 

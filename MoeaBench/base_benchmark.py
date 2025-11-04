@@ -4,8 +4,8 @@ from MoeaBench.CACHE_bk_user import CACHE_bk_user
 class BaseBenchmark(ABC):
      
      @abstractmethod
-     def __init__(self, benchmark: str, types: str, M: int, P: int, K : int = None, N  : int = None, D : int = None, n_ieq_constr :int =1):
-        self.benchmark = benchmark
+     def __init__(self, types: str, M: int, P: int, K : int = None, N  : int = None, D : int = None, n_ieq_constr :int =1):
+        self.benchmark = self
         self.__M=M
         self.__P=P
         self.__K=K

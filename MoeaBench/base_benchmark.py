@@ -4,7 +4,7 @@ from MoeaBench.CACHE_bk_user import CACHE_bk_user
 class BaseBenchmark(ABC):
      
      @abstractmethod
-     def __init__(self, benchmark: str, type: str, M: int, P: int, K : int = None, N  : int = None, D : int = None, n_ieq_constr :int =1):
+     def __init__(self, benchmark: str, types: str, M: int, P: int, K : int = None, N  : int = None, D : int = None, n_ieq_constr :int =1):
         self.benchmark = benchmark
         self.__M=M
         self.__P=P
@@ -13,7 +13,8 @@ class BaseBenchmark(ABC):
         self.__N=N
         self.__n_ieq_constr=n_ieq_constr
         self.__CACHE=CACHE_bk_user()
-        self.__type=type
+        self.__type=types
+    
 
 
      def get_CACHE(self):
@@ -56,11 +57,12 @@ class BaseBenchmark(ABC):
      @abstractmethod
      def POFsamples(self):
           pass
+      
 
-
-     def add_benchmark(self,samples):
-          self.get_CACHE().DATA_store(self.benchmark,self.get_type(),self.get_M(),self.get_N(),self.get_n_ieq_constr(),samples,self.get_P() ,self.get_K())
- 
+     def add_benchmark(self):
+          samples = self.benchmark.POFsamples()
+          self.get_CACHE().DATA_store(self.benchmark.__class__.__name__,self.get_type(),self.get_M(),self.get_N(),self.get_n_ieq_constr(),samples,self.get_P() ,self.get_K())
+          
 
      
 

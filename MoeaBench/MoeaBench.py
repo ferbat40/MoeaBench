@@ -195,8 +195,7 @@ class MoeaBench(I_UserMoeaBench):
         setattr(algotithm,moea.__name__,moea)
 
     
-    def help_mo(self):
-        print(MoeaBench.__class__.__doc__)
+
 
 
 

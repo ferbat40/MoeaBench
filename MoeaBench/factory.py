@@ -22,5 +22,8 @@ class _MoeaBenchWrapper:
 
     def __call__(self, *args, **kwargs):
         return MoeaBench(*args,  **kwargs)
+    
+    def help(self):
+        print(self.__class__.__doc__)
 
 moeabench = _MoeaBenchWrapper()

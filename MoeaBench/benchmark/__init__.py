@@ -3,6 +3,7 @@
             MoeaBench has implementations of several benchmark problems. 
             Click on the link for the respective benchmark problem of each experiment to 
             obtain more information about the problem and Pareto optimal front simulation.
+               ...
                - DTLZ1:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ1(args) 

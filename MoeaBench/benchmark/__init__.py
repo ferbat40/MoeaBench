@@ -87,7 +87,7 @@
                       - [DPF3](https://moeabench-rgb.github.io/MoeaBench/problems/DPF3/DPF3/) detailed information about the problem
                       - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DPF3/DPF3/#arguments)) custom and default settings problem
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DPF3/DPF3/) information on possible error types
-               
+                ...
                 - DPF4:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DPF4(args) 

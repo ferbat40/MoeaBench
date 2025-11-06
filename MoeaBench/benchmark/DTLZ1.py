@@ -11,8 +11,8 @@ def DTLZ1(M = 3, K = 5, P = 700):
         - Notes:
           - [DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) for detailed information about the problem
           - ( [ARGS](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/#arguments) ) for detailed information on the parameters that can be passed for custom 
-          - configuration of the benchmark problem, see the parameters that can be passed. 
-          [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) for information on possible error types
+          configuration of the benchmark problem, see the parameters that can be passed. 
+          - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) for information on possible error types
     
         """
         problem = problems(DTLZ1.__name__)

@@ -17,7 +17,7 @@
             O valor de K deve ser K > 0.
         
         - Benchmarks:
-          experiment.problem = moeabench.benchmark.[DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/)
+          experiment.problem = moeabench.benchmark.[DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/)([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/#arguments))
           experiment.problem = moeabench.benchmark.[DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/)
           experiment.problem = moeabench.benchmark.[DTLZ3](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ3/DTLZ3/)
           experiment.problem = moeabench.benchmark.[DTLZ4](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ4/DTLZ4/)

@@ -1,6 +1,3 @@
-import os, importlib
-import MoeaBench.benchmark.my_new_benchmark as m_bk
-
 """
         - ARG: 
             M (int): número de objetivos do problema:        
@@ -25,7 +22,8 @@ import MoeaBench.benchmark.my_new_benchmark as m_bk
           [moeabench.benchmark.DTLZ3](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/).
           
 """
-
+import os, importlib
+import MoeaBench.benchmark.my_new_benchmark as m_bk
 
 _dir = os.path.dirname(__file__)
 

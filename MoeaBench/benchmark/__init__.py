@@ -1,6 +1,9 @@
 """     
         - Benchmarks:       
-            MoeaBench possui implementação de varios problemas de benchmark:
+            
+            MoeaBench has implementations of several benchmark problems. 
+            Click on the link for the respective benchmark problem of each experiment to 
+            obtain more information about the problem and Pareto optimal front simulation.
             - Deb 2005
               - experiment.problem = moeabench.benchmark.[DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/)( [ARGS](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/#arguments) )
               - experiment.problem = moeabench.benchmark.[DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/)

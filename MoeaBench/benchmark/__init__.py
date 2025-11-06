@@ -2,7 +2,7 @@
         - Benchmarks:       
             MoeaBench has implementations of several benchmark problems. 
             Click on the link for the respective benchmark problem of each experiment to 
-            obtain more information about the problem and Pareto optimal front simulation.
+            obtain more information about the problem.
                ...
                - DTLZ1:
                       - sinxtase:
@@ -10,8 +10,7 @@
                       - [DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) detailed information about the problem
                       - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/#arguments)) custom and default settings problem
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) information on possible error types
-            
-             
+               ... 
                - DTLZ2:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ2(args) 
@@ -19,7 +18,42 @@
                       - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/#arguments)) custom and default settings problem
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) information on possible error types
                 ...
-"""
+                ... 
+               - DTLZ2:
+                      - sinxtase:
+                      experiment.problem = moeabench.benchmark.DTLZ2(args) 
+                      - [DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) information on possible error types
+                ...
+                ... 
+               - DTLZ2:
+                      - sinxtase:
+                      experiment.problem = moeabench.benchmark.DTLZ2(args) 
+                      - [DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) information on possible error types
+                ...
+                ... 
+               - DTLZ2:
+                      - sinxtase:
+                      experiment.problem = moeabench.benchmark.DTLZ2(args) 
+                      - [DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) information on possible error types
+                ...
+                ... 
+               - DTLZ2:
+                      - sinxtase:
+                      experiment.problem = moeabench.benchmark.DTLZ2(args) 
+                      - [DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) information on possible error types
+                ...
+
+                
+                
+                """
 import os, importlib
 import MoeaBench.benchmark.my_new_benchmark as m_bk
 

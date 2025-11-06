@@ -10,8 +10,8 @@
                       - [DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) detailed information about the problem
                       - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/#arguments)) custom and default settings problem
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) information on possible error types
-               ...
-               ...
+            
+             
                - DTLZ2:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ2(args) 

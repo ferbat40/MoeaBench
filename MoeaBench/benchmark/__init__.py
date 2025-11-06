@@ -11,7 +11,7 @@
                       custom and default settings problem
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) information on possible error types
 
-                - DTLZ2:
+               - DTLZ2:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ2(args) 
                       - [DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) detailed information about the problem

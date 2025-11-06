@@ -24,7 +24,7 @@ def DTLZ1(M = 3, K = 5, P = 700):
         - NOTES:
           - Para informações sobre o método DTLZ1:
           https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/
-          problem.[DTLZ3](../problems/DTLZ3/DTLZ3.md)(args)
+           For more details, see [DTLZ1 Problem](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/).
           
         """
         problem = problems(DTLZ1.__name__)

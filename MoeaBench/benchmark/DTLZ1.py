@@ -5,6 +5,7 @@ from .problems import problems
 def DTLZ1(M = 3, K = 5, P = 700):
         """
         - benchmark problem:
+        Click on the links for more
         ...
                 - DTLZ1:
                       - sinxtase:

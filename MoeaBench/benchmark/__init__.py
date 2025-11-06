@@ -7,9 +7,17 @@
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ1(args) 
                       - [DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) detailed information about the problem
-                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/#arguments)) detailed information on the parameters that can be passed for custom 
-                      configuration of the benchmark problem, see the parameters that can be passed. 
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/#arguments)) 
+                      custom and default settings problem
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) information on possible error types
+
+                - DTLZ2:
+                      - sinxtase:
+                      experiment.problem = moeabench.benchmark.DTLZ2(args) 
+                      - [DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/#arguments)) 
+                      custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) information on possible error types
           
 """
 import os, importlib

@@ -17,11 +17,11 @@
             O valor de K deve ser K > 0.
         
         - Benchmarks:
-          experiment.problem = [moeabench.benchmark.DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/)
-          experiment.problem = [moeabench.benchmark.DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/)
-          experiment.problem = [moeabench.benchmark.DTLZ3](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ3/DTLZ3/)
-          experiment.problem = [moeabench.benchmark.DTLZ4](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ4/DTLZ4/)
-          experiment.problem = [moeabench.benchmark.[DTLZ5](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ5/DTLZ5/)
+          experiment.problem = moeabench.benchmark.[DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/)
+          experiment.problem = moeabench.benchmark.[DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/)
+          experiment.problem = moeabench.benchmark.[DTLZ3](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ3/DTLZ3/)
+          experiment.problem = moeabench.benchmark.[DTLZ4](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ4/DTLZ4/)
+          experiment.problem = moeabench.benchmark.[DTLZ5](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ5/DTLZ5/)
           experiment.problem = moeabench.benchmark.[DTLZ6](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ6/DTLZ6/)
           experiment.problem = moeabench.benchmark.[DTLZ7](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ7/DTLZ7/)
           

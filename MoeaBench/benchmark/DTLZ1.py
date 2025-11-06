@@ -4,14 +4,11 @@ from .problems import problems
 @staticmethod
 def DTLZ1(M = 3, K = 5, P = 700):
         """
-        - Example:
-          - The benchmark problem should be used with an experiment, with the following syntax.
+        - DTLZ1:
+          - sinxtase:
           experiment.problem = moeabench.benchmark.DTLZ1(args) 
-        - Notes:
-          Click on the links below to obtain:
           - [DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) detailed information about the problem
-          - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/#arguments)) detailed information on the parameters that can be passed for custom 
-          configuration of the benchmark problem, see the parameters that can be passed. 
+          - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/#arguments)) custom and default settings problem
           - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) information on possible error types
         """
         problem = problems(DTLZ1.__name__)

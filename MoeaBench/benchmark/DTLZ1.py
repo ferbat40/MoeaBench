@@ -6,7 +6,7 @@ def DTLZ1(M = 3, K = 5, P = 700):
         """
         - Example:
           - The benchmark problem should be used with an experiment, with the following syntax.
-          experiment.problem = moeabench.benchmark.[DTLZ1](args) 
+          experiment.problem = moeabench.benchmark.DTLZ1(args) 
         - Notes:
           - [DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) for detailed information about the problem
           - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/#arguments)) for detailed information on the parameters that can be passed for custom 

@@ -15,7 +15,6 @@ class result_metric(result):
             raise ValueError (f'Objective(s) {less} can´t be greather than {M}')  
  
 
-
     def DATA(self,result,generation, objective):
         gen_f_test = [b[0].get_F_GEN() for b in result.get_elements()]
         gen_f_max = max([len(gen)  for gen in gen_f_test])

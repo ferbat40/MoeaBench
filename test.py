@@ -11,11 +11,12 @@ exp = moeabench()
 
 
 exp.problem = moeabench.benchmark.DTLZ1(M=3)
-exp.moea = moeabench.MOEA.NSGA_III(problem=exp.problem, population = 300, generations = 400)
+exp.moea = moeabench.MOEA.NSGA_III(problem=exp.problem, population = 100, generations = 300)
 exp.run()
 
-ss = exp.hypervolume(objectives=[1,1])
-print(ss)
+ss = exp.objective(objective = [2])
+ss = exp.variable(variable = "x")
+ff = exp.hypervolume( objectives= [1,2])
 
 
 #exp.save("jaspion")

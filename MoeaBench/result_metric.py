@@ -1,8 +1,20 @@
 from .result import result
+from .IPL_MoeaBench import IPL_MoeaBench
 import numpy as np
 
 
 class result_metric(result):
+
+    @staticmethod
+    def allowed_obj(objective,result):
+        M = result.get_elements()[0][1].get_M()
+        IPL_MoeaBench.allowed_obj(objective)
+        less = [i if i > M else f'obj' for idx, i in enumerate(objective, start = 0)  ]
+        digit = [i for i in less if str(i).isdigit()]
+        if digit:
+            raise ValueError (f'Objective(s) {less} can´t be greather than {M}')  
+ 
+
 
     def DATA(self,result,generation, objective):
         gen_f_test = [b[0].get_F_GEN() for b in result.get_elements()]
@@ -11,7 +23,7 @@ class result_metric(result):
         result_metric.allowed_gen(generations)
         result_metric.allowed_gen_max(gen_f_max,generations[1])
         objectives = [1,2,3] if isinstance(objective, (list)) and  len(objective) == 0 else objective  
-        result_metric.allowed_obj(objectives)
+        result_metric.allowed_obj(objectives,result)
              
         gen_f_valid = [b[0].get_F_GEN()[generations[0]:generations[1]] for b in result.get_elements()]
         slicing = [[i-1,i]  for i in objectives]

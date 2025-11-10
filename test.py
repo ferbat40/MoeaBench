@@ -8,11 +8,14 @@ from MoeaBench import moeabench
 os.system("cls")  
 
 exp = moeabench()
-moeabench.help()
 
-#exp.problem = moeabench.benchmark.DTLZ1(M=3)
-#exp.moea = moeabench.MOEA.NSGA_III(problem=exp.problem, population = 300, generations = 400)
-#exp.run()
+
+exp.problem = moeabench.benchmark.DTLZ1(M=3)
+exp.moea = moeabench.MOEA.NSGA_III(problem=exp.problem, population = 300, generations = 400)
+exp.run()
+
+ss = exp.hypervolume(objectives=[1,1])
+print(ss)
 
 
 #exp.save("jaspion")

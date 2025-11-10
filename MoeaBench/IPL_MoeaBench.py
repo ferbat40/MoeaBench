@@ -142,6 +142,7 @@ class IPL_MoeaBench(I_MoeaBench):
 
     @staticmethod
     def allowed_obj_equal(element, data, experiments, objectives, obj = ('get_M',)):
+        print("aqui")
         list_valid = list(map(lambda o: o.get_M(), filter(lambda o: all(hasattr(o,m) for m in obj), element)))
         if not all(np.array_equal(data.get_M(),arr) for arr in list_valid):
             objs = [f'{experiments[idx]} = {i.get_M()} objectives' for idx, i in enumerate(element, start = 0)]

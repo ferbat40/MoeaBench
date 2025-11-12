@@ -15,8 +15,12 @@ def DTLZ1(M = 3, K = 5, P = 700):
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) information on possible error types
         
         """
-        problem = problems(DTLZ1.__name__)
-        bk = problem.get_problem(M, K, P)
-        bk.set_BENCH_conf() 
-        bk.POFsamples()
-        return bk
+        try:
+            problem = problems(DTLZ1.__name__)
+            bk = problem.get_problem(M, K, P)
+            bk.P_validate(P)
+            bk.set_BENCH_conf() 
+            bk.POFsamples()
+            return bk
+        except Exception as e:
+            print(e)

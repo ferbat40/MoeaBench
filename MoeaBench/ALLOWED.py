@@ -6,6 +6,12 @@ class ALLOWED:
         return True
     
 
+    def P_validate(self,P):
+        if not P > 0:
+            raise ValueError("this value of 'P' is not valid, it must be greater than 0")#
+        return True
+    
+
     def M_validate(self,M):
         if not  M > 2:
             raise ValueError("this value of 'M' is not valid, it must be greater or equal than 2" )#

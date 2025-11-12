@@ -25,8 +25,12 @@ def DTLZ8(M = 3, N = 10, P = 700):
          - Para obter informações detalhadas sobre a método:
          https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ8/DTLZ8/       
         """
-        problem = problems(DTLZ8.__name__)
-        bk = problem.get_problem(M , N , P)
-        bk.set_BENCH_conf() 
-        bk.POFsamples()
-        return bk
+        try:
+            problem = problems(DTLZ8.__name__)
+            bk = problem.get_problem(M , N , P)
+            bk.P_validate(P)
+            bk.set_BENCH_conf() 
+            bk.POFsamples()
+            return bk
+        except Exception as e:
+            print(e)

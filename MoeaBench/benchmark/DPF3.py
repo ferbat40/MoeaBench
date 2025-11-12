@@ -25,8 +25,12 @@ def DPF3(M = 3, K = 5, D = 2, P = 700):
          - Para obter informações detalhadas sobre a método:
          https://moeabench-rgb.github.io/MoeaBench/problems/DPF3/DPF3/        
         """
-        problem = problems(DPF3.__name__)
-        bk = problem.get_problem(M, K, P, D)
-        bk.set_BENCH_conf() 
-        bk.POFsamples()
-        return bk
+        try:
+            problem = problems(DPF3.__name__)
+            bk = problem.get_problem(M, K, P, D)
+            bk.P_validate(P)
+            bk.set_BENCH_conf() 
+            bk.POFsamples()
+            return bk
+        except Exception as e:
+            print(e)

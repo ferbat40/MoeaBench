@@ -26,8 +26,12 @@ def DTLZ2(M = 3, K = 5, P = 700):
          https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/
    
         """
-        problem = problems(DTLZ2.__name__)
-        bk = problem.get_problem(M, K, P)
-        bk.set_BENCH_conf() 
-        bk.POFsamples()
-        return bk
+        try:
+            problem = problems(DTLZ2.__name__)
+            bk = problem.get_problem(M, K, P)
+            bk.P_validate(P)
+            bk.set_BENCH_conf() 
+            bk.POFsamples()
+            return bk
+        except Exception as e:
+            print(e)

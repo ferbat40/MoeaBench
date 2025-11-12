@@ -25,9 +25,12 @@ def DTLZ5(M = 3, K = 5, P = 700):
          - Para obter informações detalhadas sobre a método:
          https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ5/DTLZ5/     
         """
-
-        problem = problems(DTLZ5.__name__)
-        bk = problem.get_problem(M, K, P)
-        bk.set_BENCH_conf() 
-        bk.POFsamples()
-        return bk
+        try:
+            problem = problems(DTLZ5.__name__)
+            bk = problem.get_problem(M, K, P)
+            bk.P_validate(P)
+            bk.set_BENCH_conf() 
+            bk.POFsamples()
+            return bk
+        except Exception as e:
+            print(e)

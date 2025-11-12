@@ -26,8 +26,13 @@ def DPF1(M = 3, K = 5, D = 2, P = 700):
          - Para obter informações detalhadas sobre a método:
          https://moeabench-rgb.github.io/MoeaBench/problems/DPF1/DPF1/
         """
-        problem = problems(DPF1.__name__)
-        bk = problem.get_problem(M, K, P, D)
-        bk.set_BENCH_conf() 
-        bk.POFsamples()
-        return bk
+        try:
+            problem = problems(DPF1.__name__)
+            bk = problem.get_problem(M, K, P, D)
+            bk.P_validate(P)
+            bk.set_BENCH_conf() 
+            bk.POFsamples()
+            return bk
+        except Exception as e:
+             print(e)
+        

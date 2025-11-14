@@ -46,17 +46,7 @@ class MoeaBench(I_UserMoeaBench):
 
 
     @property
-    def problem(self) -> "problem":
-        """
-        - veriable:
-        Click on the links for more
-        ...
-                - experiment.problem:
-                      - sinxtase:
-                      experiment.moea = moeabench.MOEA.U_NSGA_3(args)  
-                      - [general](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/example_code/example_code/#variable-experimentproblem) references and more...
-               
-        """
+    def problem(self):
         return self._problem
     
 
@@ -109,6 +99,19 @@ class MoeaBench(I_UserMoeaBench):
         
         
     def run(self):
+        """
+        - run the genetic algorithm:
+        Click on the links for more
+        ...
+                - SPEA-II:
+                      - sinxtase:
+                      experiment.moea = moeabench.MOEA.SPEA_II(args)  
+                      - [general](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) references and  more...
+           
+        """
+
+
+        
         try:
             name_moea=None
             name_benchmark=None

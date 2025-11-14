@@ -10,8 +10,8 @@ def NSGA_III(problem, *, population = 100, generations = 300, seed = 1):
                 - NSGA-III:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.NSGA_III(args)  
-                      - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF1/) references
-                      - ([arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/arguments/) custom and default settings problem
+                      - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/NSGA3/) references ane more...
+                      - ([arguments](https://moeabench-rgb.github.io/MoeaBench/algorithms/arguments/) custom and default settings problem
                       - [configurations](https://moeabench-rgb.github.io/MoeaBench/algorithms/configuration/) algorithm configuration adopted by MoeaBench
         
         """

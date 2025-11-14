@@ -43,11 +43,9 @@ class MoeaBench(I_UserMoeaBench):
     def moea(self,value):
         self._moea=value
         self.result=value
-
-
-    @property
-    def problem(self):
-        """
+   
+    
+    """
         - veriable:
         Click on the links for more
         ...
@@ -56,7 +54,9 @@ class MoeaBench(I_UserMoeaBench):
                       experiment.moea = moeabench.MOEA.U_NSGA_3(args)  
                       - [general](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/example_code/example_code/#variable-experimentproblem) references and more...
                
-        """
+    """
+    @property
+    def problem(self):
         return self._problem
     
 

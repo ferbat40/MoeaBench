@@ -103,15 +103,11 @@ class MoeaBench(I_UserMoeaBench):
         - run the genetic algorithm:
         Click on the links for more
         ...
-                - SPEA-II:
                       - sinxtase:
-                      experiment.moea = moeabench.MOEA.SPEA_II(args)  
-                      - [general](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) references and  more...
+                      experiment.run() 
+                      - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
            
-        """
-
-
-        
+        """    
         try:
             name_moea=None
             name_benchmark=None

@@ -4,18 +4,26 @@ from .problems import problems
 @staticmethod
 def DTLZ7(M = 3, K = 5, P = 700):
         """
-        - benchmark problem:
-        Click on the links for more
-        ...
-                - DTLZ7:
-                      - sinxtase:
-                      experiment.problem = moeabench.benchmark.DTLZ7(args) 
-                      - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ7/) POF sampling, results obtained in tests 
-                      with genetic algorithms, references and more... 
-                      - [implementation](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ7/DTLZ7/) detailed implementation information
-                      - ([arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/arguments/)) custom and default settings problem
-                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/exceptions/) information on possible error types
+        - ARG: 
+            M (int): número de objetivos do problema:        
+            K (int): tamnanho do vetor |XM|, que receberá a influência da função G(XM).
+            P (int): números de pontos gerados randomicamente. 
+             
+        - Default:
+            M = 3
+            K = 5
+            P = 700
+
+        - Exemplo:
+            dtlz7 = problem.DTLZ7(problem)
+
+        - Exception:                
+            O valor de M deve ser M > 2.
+            O valor de K deve ser K > 0.
         
+        - NOTES:
+         - Para obter informações detalhadas sobre a método:
+         https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ7/DTLZ7/      
         """
         try:
             problem = problems(DTLZ7.__name__)

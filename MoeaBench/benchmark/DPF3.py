@@ -3,27 +3,18 @@ from .problems import problems
 
 def DPF3(M = 3, K = 5, D = 2, P = 700):
         """
-        - ARG: 
-            M (int): número de objetivos do problema:        
-            N (int): número de variáveis de decisão.
-            P (int): números de pontos gerados randomicamente. 
-             
-        - Default:
-            M = 3
-            K = 5
-            D = 2
-            P = 700
-
-        - Exemplo:
-            dpf3 = problem.DPF3problem)
-
-        - Exception:                
-            O valor de M deve ser M > 2.
-            O valor de M deve ser M < N.
-           
-        - NOTES:
-         - Para obter informações detalhadas sobre a método:
-         https://moeabench-rgb.github.io/MoeaBench/problems/DPF3/DPF3/        
+        - benchmark problem:
+        Click on the links for more
+        ...
+                - DPF3:
+                      - sinxtase:
+                      experiment.problem = moeabench.benchmark.DPF3(args) 
+                      - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF3/) POF sampling, results obtained in tests 
+                      with genetic algorithms, references and more... 
+                      - [implementation](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF3/DPF3/) detailed implementation information
+                      - ([arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/arguments/)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/exceptions/) information on possible error types
+        
         """
         try:
             problem = problems(DPF3.__name__)

@@ -1,81 +1,34 @@
+
 """     
         - Benchmarks:       
-            MoeaBench has implementations of several benchmark problems. 
-            Click on the link for the respective benchmark problem of each experiment to 
-            obtain more information about the problem.
+            MoeaBench uses several evolutionary algorithms from the pymoo library.
                ...
-               - DTLZ1:
+               - NSGA-III:
                       - sinxtase:
-                      experiment.problem = moeabench.benchmark.DTLZ1(args) 
-                      - [DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ1/) detailed information about the problem
+                      experiment.moea = moeabench.MOEA.NSGA_III(args) 
+                      - [NSGA-III](https://moeabench-rgb.github.io/MoeaBench/algorithms/NSGA3/) Information about the algorithm
                ... 
-               - DTLZ2:
+               - U-NSGA-III:
                       - sinxtase:
-                      experiment.problem = moeabench.benchmark.DTLZ2(args) 
-                      - [DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ2/) detailed information about the problem
+                      experiment.moea = moeabench.MOEA.U_NSGA_III(args)
+                      - [U-NSGA-3](https://moeabench-rgb.github.io/MoeaBench/algorithms/UNSGA3/) detailed information about the problem
                 ...
-               - DTLZ3:
+               - SPEA-II:
                       - sinxtase:
-                      experiment.problem = moeabench.benchmark.DTLZ3(args) 
-                      - [DTLZ3](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ3/) detailed information about the problem
+                      experiment.moea = moeabench.MOEA.SPEA_II(args) 
+                      - [DTLZ3](https://moeabench-rgb.github.io/MoeaBench/algorithms/SPEA2/) detailed information about the problem
                ... 
-               - DTLZ4:
+               - MOEA/D:
                       - sinxtase:
-                      experiment.problem = moeabench.benchmark.DTLZ4(args) 
-                      - [DTLZ4](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ4/) detailed information about the problem
+                      experiment.moea = moeabench.MOEA.MOEAD(args) 
+                      - [DTLZ4](https://moeabench-rgb.github.io/MoeaBench/algorithms/MOEAD/) detailed information about the problem
                  ... 
-               - DTLZ5:
+               - RVEA:
                       - sinxtase:
-                      experiment.problem = moeabench.benchmark.DTLZ5(args) 
-                      - [DTLZ5](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ5/) detailed information about the problem
+                      experiment.moea = moeabench.MOEA.RVEA(args) 
+                      - [DTLZ5](https://moeabench-rgb.github.io/MoeaBench/algorithms/RVEA/) detailed information about the problem
                 ... 
-               - DTLZ6:
-                      - sinxtase:
-                      experiment.problem = moeabench.benchmark.DTLZ6(args) 
-                      - [DTLZ6](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ6/) detailed information about the problem
-                ...
-                - DTLZ7:
-                      - sinxtase:
-                      experiment.problem = moeabench.benchmark.DTLZ7(args) 
-                      - [DTLZ7](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ7/) detailed information about the problem
-                 ...
-                - DTLZ8:
-                      - sinxtase:
-                      experiment.problem = moeabench.benchmark.DTLZ8(args) 
-                      - [DTLZ8](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ8/) detailed information about the problem
-                 ...
-                - DTLZ9:
-                      - sinxtase:
-                      experiment.problem = moeabench.benchmark.DTLZ9(args) 
-                      - [DTLZ9](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ9/) detailed information about the problem
-                 ...
-                - DPF1:
-                      - sinxtase:
-                      experiment.problem = moeabench.benchmark.DPF1(args) 
-                      - [DPF1](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF1/) detailed information about the problem
-                 ...
-                - DPF2:
-                      - sinxtase:
-                      experiment.problem = moeabench.benchmark.DPF2(args) 
-                      - [DPF2](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF2/) detailed information about the problem
-                 ...
-                - DPF3:
-                      - sinxtase:
-                      experiment.problem = moeabench.benchmark.DPF3(args) 
-                      - [DPF3](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF3/) detailed information about the problem
-                 ...
-                - DPF4:
-                      - sinxtase:
-                      experiment.problem = moeabench.benchmark.DPF4(args) 
-                      - [DPF4](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF4/) detailed information about the problem
-                 ...
-                - DPF5:
-                      - sinxtase:
-                      experiment.problem = moeabench.benchmark.DPF5(args) 
-                      - [DPF5](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF5/) detailed information about the problem
-                 ...
-                
-
+              
                 
                 
                 """

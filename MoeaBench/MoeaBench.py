@@ -109,14 +109,14 @@ class MoeaBench(I_UserMoeaBench):
         - 3D graph for Pareto front:
         Click on the links for more
         ...
-
-             - informations
+                - Informations:
                       - sinxtase:
-                      moeabench.pareto(exp.problem, experiment2_result, experiment.pof...) 
+                      moeabench.pareto(exp.problem, experiment2_result, experiment.pof...)  
                       - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto/) information about the method, accepted variable types, and more...
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
 
         """
+       
 
         caller = inspect.currentframe().f_back.f_locals.items()
         experiment, data, benk, arr = analyse_obj.extract_pareto_result(args,caller)       

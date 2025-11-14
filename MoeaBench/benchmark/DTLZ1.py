@@ -10,9 +10,10 @@ def DTLZ1(M = 3, K = 5, P = 700):
                 - DTLZ1:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ1(args) 
-                      - [DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) detailed information about the problem
-                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/#arguments)) custom and default settings problem
-                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) information on possible error types
+                      - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ1/) POF sampling, results obtained in tests with Moeas, references and more
+                      - [implementation](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ1/DTLZ1/) detailed implementation information
+                      - ([arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/arguments/)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/exceptions/) information on possible error types
         
         """
         try:

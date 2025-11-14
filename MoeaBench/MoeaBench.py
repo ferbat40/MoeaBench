@@ -47,11 +47,6 @@ class MoeaBench(I_UserMoeaBench):
 
     @property
     def problem(self):
-        return self._problem
-    
-
-    @problem.setter
-    def problem(self,value):
         """
         - veriable:
         Click on the links for more
@@ -62,7 +57,11 @@ class MoeaBench(I_UserMoeaBench):
                       - [general](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/example_code/example_code/#variable-experimentproblem) references and more...
                
         """
-        
+        return self._problem
+    
+
+    @problem.setter
+    def problem(self,value):
         self._problem=value
         self.pof=value
 

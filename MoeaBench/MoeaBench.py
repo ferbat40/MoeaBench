@@ -88,10 +88,11 @@ class MoeaBench(I_UserMoeaBench):
 
     def pareto_surface(self, *args, objectives = []):
         """
-        - 3D graph of the Pareto boundary surface::
+        - 3D graph of the Pareto boundary surface:
+        Click on the links for more
         ... 
 
-              - Click on the links
+              - Informations
                       - sinxtase:
                       moeabench.pareto(exp.problem, experiment2_result, experiment.pof...) 
                       - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/) information about the method, accepted variable types, and more...
@@ -106,9 +107,10 @@ class MoeaBench(I_UserMoeaBench):
     def pareto(self, *args, objectives = []):
         """
         - 3D graph for Pareto front:
+        Click on the links for more
         ...
 
-             - Click on the links
+             - informations
                       - sinxtase:
                       moeabench.pareto(exp.problem, experiment2_result, experiment.pof...) 
                       - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto/) information about the method, accepted variable types, and more...
@@ -124,9 +126,10 @@ class MoeaBench(I_UserMoeaBench):
     def run(self):
         """
         - run the genetic algorithm:
+        Click on the links for more
         ...
 
-             - Click on the links        
+             - informations
                       - sinxtase:
                       experiment.run() 
                       - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.

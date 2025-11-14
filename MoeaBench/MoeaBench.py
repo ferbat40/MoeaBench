@@ -57,30 +57,85 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def plot_hypervolume(self,*args, generations = [], objectives = []):   
+        """
+        - 2D graph for hypervolume:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      moeabench.plot_hypervolume(args) 
+                      - [hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_hypervolume/) information about the method, accepted variable types, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
+
+        """
         caller = inspect.currentframe().f_back.f_locals.items()
         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)   
         analyse_metric_gen.IPL_plot_Hypervolume(args,generations,experiments = experiment, objectives = objectives, bench = benk)
 
 
     def plot_GD(self,*args, generations = [], objectives = []):   
+         """
+        - 2D graph for GD:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      moeabench.plot_GD(args) 
+                      - [GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GD/) information about the method, accepted variable types, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
+
+        """
          caller = inspect.currentframe().f_back.f_locals.items()
          experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)  
          analyse_metric_gen.IPL_plot_GD(args,generations,experiments = experiment, objectives = objectives, bench = benk)
 
 
     def plot_GDplus(self,*args, generations = [], objectives = []):  
+         """
+         - 2D graph for GD+:
+         Click on the links for more
+         ...
+                - Informations:
+                      - sinxtase:
+                      moeabench.plot_GDplus(args) 
+                      - [GD+](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GDplus/) information about the method, accepted variable types, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
+
+         """
          caller = inspect.currentframe().f_back.f_locals.items()
          experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)  
          analyse_metric_gen.IPL_plot_GDplus(args,generations,experiments = experiment, objectives = objectives, bench = benk)
 
     
     def plot_IGD(self,*args, generations = [], objectives = []):   
+         """
+         - 2D graph for IGD:
+         Click on the links for more
+         ...
+                - Informations:
+                      - sinxtase:
+                      moeabench.plot_IGD(args) 
+                      - [IGD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGD/) information about the method, accepted variable types, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
+
+         """
          caller = inspect.currentframe().f_back.f_locals.items()
          experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)  
          analyse_metric_gen.IPL_plot_IGD(args,generations,experiments = experiment, objectives = objectives, bench = benk)
 
 
     def plot_IGDplus(self,*args, generations = [], objectives = []):   
+         """
+         - 2D graph for IGD+:
+         Click on the links for more
+         ...
+                - Informations:
+                      - sinxtase:
+                      moeabench.plot_IGDplus(args) 
+                      - [IGD+](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGDplus/) information about the method, accepted variable types, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
+
+         """
          caller = inspect.currentframe().f_back.f_locals.items()
          experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)  
          analyse_metric_gen.IPL_plot_IGDplus(args,generations,experiments = experiment, objectives = objectives, bench = benk)
@@ -94,7 +149,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       moeabench.pareto_surface(exp.problem, experiment2_result, experiment.pof...)  
-                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/) information about the method, accepted variable types, and more...
+                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/) information about the method, accepted variable types, examples and more...
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
        
         """
@@ -111,8 +166,8 @@ class MoeaBench(I_UserMoeaBench):
         ...
                 - Informations:
                       - sinxtase:
-                      moeabench.pareto(exp.problem, experiment2_result, experiment.pof...)  
-                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto/) information about the method, accepted variable types, and more...   
+                      moeabench.pareto(args)  
+                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto/) information about the method, accepted variable types, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
 
         """
@@ -158,6 +213,17 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def hypervolume(self, generations = [], objectives = []):
+        """
+        - array with hypervolume in generations:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.hypervolume(args)  
+                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/) information about the method, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
+
+        """
         try:
             return self.result_metric.IPL_hypervolume(self.result, generations, objectives)
         except Exception as e:
@@ -165,6 +231,17 @@ class MoeaBench(I_UserMoeaBench):
      
 
     def GD(self, generations = [], objectives = []):
+        """
+        - array with GD in generations:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.GD(args)  
+                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GD/) information about the method, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
+
+        """
         try:
             return self.result_metric.IPL_GD(self.result, generations, objectives)
         except Exception as e:
@@ -172,6 +249,17 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def GDplus(self, generations = [], objectives = []):
+        """
+        - array with GD+ in generations:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.GDplus(args)  
+                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GDplus/) information about the method, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
+
+        """
         try:
             return self.result_metric.IPL_GDplus(self.result, generations, objectives)
         except Exception as e:
@@ -179,6 +267,17 @@ class MoeaBench(I_UserMoeaBench):
     
 
     def IGD(self, generations = [], objectives = []):
+        """
+        - array with IGD in generations:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.IGD(args)  
+                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/IGD/) information about the method, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
+
+        """
         try:
             return self.result_metric.IPL_IGD(self.result, generations, objectives)
         except Exception as e:
@@ -186,6 +285,17 @@ class MoeaBench(I_UserMoeaBench):
     
 
     def IGDplus(self, generations = [], objectives = []):
+        """
+        - array with IGD+ in generations:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.IGDplus(args)  
+                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/IGDplus/) information about the method, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
+
+        """
         try:
             return self.result_metric.IPL_IGDplus(self.result, generations, objectives)
         except Exception as e:
@@ -193,6 +303,17 @@ class MoeaBench(I_UserMoeaBench):
 
             
     def objective(self, objective, generations = []):
+        """
+        - array with objectives in generations:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.objective(args)  
+                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/data/objective/) information about the method, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
+
+        """
         try:
             return self.result_obj.IPL_objectives(self.result, generations, objective)
         except Exception as e:
@@ -200,6 +321,17 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def variable(self, variable, generations = []):
+        """
+        - array with decision variables in generations:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.variable(args)  
+                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/variables/data/variable/) information about the method, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
+
+        """
         try:
             return self.result_var.IPL_variables(self.result, generations, variable)
         except Exception as e:
@@ -207,6 +339,16 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def load(self,file):
+        """
+        - Loads a user experiment into MoeaBench:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.load(nameFile)  
+                      - [save](https://moeabench-rgb.github.io/MoeaBench/experiments/load_experiment/load_experiment/) information about the method, 
+                     
+        """
         try:
             loader.IPL_loader(self,file)      
         except Exception as e:
@@ -214,6 +356,16 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def save(self, file):
+        """
+        - save the user's experiment in a zip file:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.save(nameFile)  
+                      - [save](https://moeabench-rgb.github.io/MoeaBench/experiments/save_experiment/save_experiment/) information about the method, 
+                     
+        """
         try:
             save.IPL_save(self,file)
         except Exception as e:
@@ -221,11 +373,31 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def add_benchmark(self,problem):
+        """
+        - Integrates a user benchmark problem implementation in MoeaBench:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.add_benchmark(module)  
+                      - [integration](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/integration/integration/) information about the method 
+                     
+        """
         import MoeaBench.benchmark as bk
         setattr(bk,problem.__name__,problem)
 
 
     def add_moea(self,moea):
+        """
+        - integrates a user genetic algorithm implementation into MoeaBench:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.add_benchmark(module)  
+                      - [integration](https://moeabench-rgb.github.io/MoeaBench/implement_moea/integration/integration/) information about the method 
+                     
+        """
         import MoeaBench.MOEA as algotithm
         setattr(algotithm,moea.__name__,moea)
 

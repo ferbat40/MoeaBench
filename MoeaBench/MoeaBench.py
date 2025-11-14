@@ -90,15 +90,15 @@ class MoeaBench(I_UserMoeaBench):
         """
         - 3D graph of the Pareto boundary surface:
         Click on the links for more
-        ... 
-
-              - Informations
+        ...
+                - Informations:
                       - sinxtase:
-                      moeabench.pareto(exp.problem, experiment2_result, experiment.pof...) 
+                      moeabench.pareto_surface(exp.problem, experiment2_result, experiment.pof...)  
                       - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/) information about the method, accepted variable types, and more...
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
-                      
+       
         """
+        
         caller = inspect.currentframe().f_back.f_locals.items()
         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)       
         analyse_surface_obj.IPL_plot_3D(experiment, data, benk, arr, objectives)  
@@ -112,7 +112,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       moeabench.pareto(exp.problem, experiment2_result, experiment.pof...)  
-                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto/) information about the method, accepted variable types, and more...
+                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto/) information about the method, accepted variable types, and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
 
         """
@@ -128,13 +128,12 @@ class MoeaBench(I_UserMoeaBench):
         - run the genetic algorithm:
         Click on the links for more
         ...
-
-             - informations
+                - Informations:
                       - sinxtase:
-                      experiment.run() 
+                      experiment.run()   
                       - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
-           
-        """    
+
+        """
         try:
             name_moea=None
             name_benchmark=None

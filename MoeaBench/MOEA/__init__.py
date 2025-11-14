@@ -6,27 +6,27 @@
                - NSGA-III:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.NSGA_III(args) 
-                      - [NSGA-III](https://moeabench-rgb.github.io/MoeaBench/algorithms/NSGA3/) Information about the algorithm
+                      - [NSGA-III](https://moeabench-rgb.github.io/MoeaBench/algorithms/NSGA3/) information about the genetic algorithm
                ... 
                - U-NSGA-III:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.U_NSGA_III(args)
-                      - [U-NSGA-3](https://moeabench-rgb.github.io/MoeaBench/algorithms/UNSGA3/) detailed information about the problem
+                      - [U-NSGA-3](https://moeabench-rgb.github.io/MoeaBench/algorithms/UNSGA3/) information about the genetic algorithm
                 ...
                - SPEA-II:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.SPEA_II(args) 
-                      - [SPEA-II](https://moeabench-rgb.github.io/MoeaBench/algorithms/SPEA2/) detailed information about the problem
+                      - [SPEA-II](https://moeabench-rgb.github.io/MoeaBench/algorithms/SPEA2/) information about the genetic algorithm
                ... 
                - MOEA/D:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.MOEAD(args) 
-                      - [MOEA/D](https://moeabench-rgb.github.io/MoeaBench/algorithms/MOEAD/) detailed information about the problem
+                      - [MOEA/D](https://moeabench-rgb.github.io/MoeaBench/algorithms/MOEAD/) information about the genetic algorithm
                  ... 
                - RVEA:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.RVEA(args) 
-                      - [RVEA](https://moeabench-rgb.github.io/MoeaBench/algorithms/RVEA/) detailed information about the problem
+                      - [RVEA](https://moeabench-rgb.github.io/MoeaBench/algorithms/RVEA/) information about the genetic algorithm
                 ... 
               
                 

@@ -7,73 +7,101 @@
                - DTLZ1:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ1(args) 
-                      - [DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ1/) detailed information about the problem
+                      - [DTLZ1](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ1/DTLZ1/) information on possible error types
                ... 
                - DTLZ2:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ2(args) 
-                      - [DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ2/) detailed information about the problem
-                ...
+                      - [DTLZ2](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ2/DTLZ2/) information on possible error types
+               ...
                - DTLZ3:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ3(args) 
-                      - [DTLZ3](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ3/) detailed information about the problem
+                      - [DTLZ3](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ3/DTLZ3/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ3/DTLZ3/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ3/DTLZ3/) information on possible error types
                ... 
                - DTLZ4:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ4(args) 
-                      - [DTLZ4](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ4/) detailed information about the problem
-                 ... 
+                      - [DTLZ4](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ4/DTLZ4/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ4/DTLZ4/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ4/DTLZ4/) information on possible error types
+               ... 
                - DTLZ5:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ5(args) 
-                      - [DTLZ5](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ5/) detailed information about the problem
-                ... 
+                      - [DTLZ5](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ5/DTLZ5/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ5/DTLZ5/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ5/DTLZ5/) information on possible error types
+               ... 
                - DTLZ6:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ6(args) 
-                      - [DTLZ6](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ6/) detailed information about the problem
+                      - [DTLZ6](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ6/DTLZ6/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ6/DTLZ6/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ6/DTLZ6/) information on possible error types
                 ...
                 - DTLZ7:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ7(args) 
-                      - [DTLZ7](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ7/) detailed information about the problem
-                 ...
+                      - [DTLZ7](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ7/DTLZ7/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ7/DTLZ7/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ7/DTLZ7/) information on possible error types
+                ...
                 - DTLZ8:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ8(args) 
-                      - [DTLZ8](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ8/) detailed information about the problem
-                 ...
+                      - [DTLZ8](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ8/DTLZ8/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ8/DTLZ8/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ8/DTLZ8/) information on possible error types
+                ...
                 - DTLZ9:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ9(args) 
-                      - [DTLZ9](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ9/) detailed information about the problem
-                 ...
+                      - [DTLZ9](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ9/DTLZ9/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ9/DTLZ9/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ9/DTLZ9/) information on possible error types
+                ...
                 - DPF1:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DPF1(args) 
-                      - [DPF1](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF1/) detailed information about the problem
-                 ...
+                      - [DPF1](https://moeabench-rgb.github.io/MoeaBench/problems/DPF1/DPF1/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DPF1/DPF1/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DPF1/DPF1/) information on possible error types
+                ...
                 - DPF2:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DPF2(args) 
-                      - [DPF2](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF2/) detailed information about the problem
-                 ...
+                      - [DPF2](https://moeabench-rgb.github.io/MoeaBench/problems/DPF2/DPF2/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DPF2/DPF2/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DPF2/DPF2/) information on possible error types
+                ...
                 - DPF3:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DPF3(args) 
-                      - [DPF3](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF3/) detailed information about the problem
-                 ...
+                      - [DPF3](https://moeabench-rgb.github.io/MoeaBench/problems/DPF3/DPF3/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DPF3/DPF3/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DPF3/DPF3/) information on possible error types
+                ...
                 - DPF4:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DPF4(args) 
-                      - [DPF4](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF4/) detailed information about the problem
-                 ...
+                      - [DPF4](https://moeabench-rgb.github.io/MoeaBench/problems/DPF4/DPF4/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DPF4/DPF4/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DPF4/DPF4/) information on possible error types
+                ...
                 - DPF5:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DPF5(args) 
-                      - [DPF5](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF5/) detailed information about the problem
-                 ...
+                      - [DPF5](https://moeabench-rgb.github.io/MoeaBench/problems/DPF5/DPF5/) detailed information about the problem
+                      - ([args](https://moeabench-rgb.github.io/MoeaBench/problems/DPF5/DPF5/#arguments)) custom and default settings problem
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DPF5/DPF5/) information on possible error types
+                ...
                 
 
                 

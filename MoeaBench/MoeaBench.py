@@ -52,6 +52,17 @@ class MoeaBench(I_UserMoeaBench):
 
     @problem.setter
     def problem(self,value):
+        """
+        - veriable:
+        Click on the links for more
+        ...
+                - experiment.problem:
+                      - sinxtase:
+                      experiment.moea = moeabench.MOEA.U_NSGA_3(args)  
+                      - [general](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/example_code/example_code/#variable-experimentproblem) references and more...
+               
+        """
+        
         self._problem=value
         self.pof=value
 

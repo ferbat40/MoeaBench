@@ -10,8 +10,8 @@ def MOEAD(problem, *, population = 100, generations = 300, seed = 1):
                 - MOEA/D:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.MOEAD(args)  
-                      - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/MOEAD/) references ane more...
-                      - ([arguments](https://moeabench-rgb.github.io/MoeaBench/algorithms/arguments/) custom and default settings problem
+                      - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/MOEAD/) references and more...
+                      - ([arguments])(https://moeabench-rgb.github.io/MoeaBench/algorithms/arguments/) custom and default settings problem
                       - [configurations](https://moeabench-rgb.github.io/MoeaBench/algorithms/configuration/) algorithm configuration adopted by MoeaBench
         
         """

@@ -87,12 +87,33 @@ class MoeaBench(I_UserMoeaBench):
 
 
     def pareto_surface(self, *args, objectives = []):
+        """
+        - 3D graph of the Pareto boundary surface::
+        Click on the links for more
+        ...
+                      - sinxtase:
+                      moeabench.pareto(exp.problem, experiment2_result, experiment.pof...) 
+                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/) information about the method, accepted variable types, and more...
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
+                      
+        """
         caller = inspect.currentframe().f_back.f_locals.items()
         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)       
         analyse_surface_obj.IPL_plot_3D(experiment, data, benk, arr, objectives)  
 
 
     def pareto(self, *args, objectives = []):
+        """
+        - 3D graph for Pareto front:
+        Click on the links for more
+        ...
+                      - sinxtase:
+                      moeabench.pareto(exp.problem, experiment2_result, experiment.pof...) 
+                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto/) information about the method, accepted variable types, and more...
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
+
+        """
+
         caller = inspect.currentframe().f_back.f_locals.items()
         experiment, data, benk, arr = analyse_obj.extract_pareto_result(args,caller)       
         analyse_obj.IPL_plot_3D(experiment, data, benk, arr, objectives)     

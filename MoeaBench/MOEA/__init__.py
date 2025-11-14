@@ -16,17 +16,17 @@
                - SPEA-II:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.SPEA_II(args) 
-                      - [DTLZ3](https://moeabench-rgb.github.io/MoeaBench/algorithms/SPEA2/) detailed information about the problem
+                      - [SPEA-II](https://moeabench-rgb.github.io/MoeaBench/algorithms/SPEA2/) detailed information about the problem
                ... 
                - MOEA/D:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.MOEAD(args) 
-                      - [DTLZ4](https://moeabench-rgb.github.io/MoeaBench/algorithms/MOEAD/) detailed information about the problem
+                      - [MOEA/D](https://moeabench-rgb.github.io/MoeaBench/algorithms/MOEAD/) detailed information about the problem
                  ... 
                - RVEA:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.RVEA(args) 
-                      - [DTLZ5](https://moeabench-rgb.github.io/MoeaBench/algorithms/RVEA/) detailed information about the problem
+                      - [RVEA](https://moeabench-rgb.github.io/MoeaBench/algorithms/RVEA/) detailed information about the problem
                 ... 
               
                 

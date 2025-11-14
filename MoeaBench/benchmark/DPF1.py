@@ -11,7 +11,7 @@ def DPF1(M = 3, K = 5, D = 2, P = 700):
                       experiment.problem = moeabench.benchmark.DPF1(args) 
                       - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF1/) POF sampling, results obtained in tests 
                       with genetic algorithms, references and more... 
-                      - [implementation](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF/DPF1/) detailed implementation information
+                      - [implementation](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF1/DPF1/) detailed implementation information
                       - ([arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/arguments/)) custom and default settings problem
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/exceptions/) information on possible error types
         

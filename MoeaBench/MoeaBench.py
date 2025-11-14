@@ -250,7 +250,7 @@ class MoeaBench(I_UserMoeaBench):
 
     def GDplus(self, generations = [], objectives = []):
         """
-        - array with GD+ in generations:
+        - array with GD+ in generations :
         Click on the links for more
         ...
                 - Informations:

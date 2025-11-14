@@ -149,7 +149,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       moeabench.pareto_surface(exp.problem, experiment2_result, experiment.pof...)  
-                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/) information about the method, accepted variable types, examples and more...
+                      - [pareto surface](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/) information about the method, accepted variable types, examples and more...
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
        
         """
@@ -220,7 +220,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.hypervolume(args)  
-                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/) information about the method, examples and more...   
+                      - [hyoervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/) information about the method, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """
@@ -238,7 +238,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.GD(args)  
-                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GD/) information about the method, examples and more...   
+                      - [GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GD/) information about the method, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """
@@ -256,7 +256,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.GDplus(args)  
-                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GDplus/) information about the method, examples and more...   
+                      - [GD+](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GDplus/) information about the method, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """
@@ -274,7 +274,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.IGD(args)  
-                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/IGD/) information about the method, examples and more...   
+                      - [IGD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/IGD/) information about the method, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """
@@ -292,7 +292,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.IGDplus(args)  
-                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/IGDplus/) information about the method, examples and more...   
+                      - [IGD+](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/IGDplus/) information about the method, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """
@@ -310,7 +310,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.objective(args)  
-                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/data/objective/) information about the method, examples and more...   
+                      - [objective](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/data/objective/) information about the method, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """
@@ -328,7 +328,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.variable(args)  
-                      - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/variables/data/variable/) information about the method, examples and more...   
+                      - [variable](https://moeabench-rgb.github.io/MoeaBench/analysis/variables/data/variable/) information about the method, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """

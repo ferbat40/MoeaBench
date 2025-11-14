@@ -18,7 +18,8 @@ def DTLZ3(M = 3, K = 5, P = 700):
         
         """
         try:
-            problem = problems(DTLZ3.__name__)
+            name = DTLZ3.__name__
+            problem = problems(name)
             bk = problem.get_problem(M, K, P)
             bk.P_validate(P)
             bk.set_BENCH_conf() 

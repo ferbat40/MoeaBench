@@ -1,7 +1,7 @@
 from .problems import problems
 
 
-@staticmethod
+
 def DTLZ1(M = 3, K = 5, P = 700):
         """
         - benchmark problem:

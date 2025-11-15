@@ -32,6 +32,16 @@ class runner(I_MOEA):
         
 
     def my_new_moea(self,problem,population,generations):
+        """
+        - accesses in memory an implementation of a user algoritimo evolutivo.
+        Click on the links for more:
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.problem = experiment.benchmark.my_new_benchmark(args)
+                      - [my_new_benchmark](https://moeabench-rgb.github.io/MoeaBench/implement_moea/memory/memory/) information about the method, 
+                     
+        """
         try:
              my_moea = self.get_moea()
              self.result.get_DATA_conf().set_DATA_MOEA(my_moea(problem,population,generations),problem)

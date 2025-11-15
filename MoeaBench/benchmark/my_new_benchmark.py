@@ -6,6 +6,16 @@ M_register = {}
 
 @staticmethod
 def my_new_benchmark():
+        """
+        - accesses in memory an implementation of a user benchmark problem.
+        Click on the links for more:
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.problem = experiment.benchmark.my_new_benchmark(args)
+                      - [my_new_benchmark](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/memory/memory/) information about the method, 
+                     
+        """
         try:
             problem = problems(my_new_benchmark.__name__)
             my_benchmark = get_benchmark()

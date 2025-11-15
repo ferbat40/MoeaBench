@@ -346,7 +346,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.load(nameFile)  
-                      - [save](https://moeabench-rgb.github.io/MoeaBench/experiments/load_experiment/load_experiment/) information about the method, 
+                      - [load](https://moeabench-rgb.github.io/MoeaBench/experiments/load_experiment/load_experiment/) information about the method, 
                      
         """
         try:

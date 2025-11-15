@@ -27,11 +27,13 @@
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.RVEA(args) 
                       - [RVEA](https://moeabench-rgb.github.io/MoeaBench/algorithms/RVEA/) information about the genetic algorithm
-                ... 
-              
-                
-                
-                """
+                 ...       
+               - my_new_moea:      
+                      - sinxtase:
+                      experiment.problem = experiment.Moea.my_new_moea       
+                      - [my_new_moea](https://moeabench-rgb.github.io/MoeaBench/implement_moea/memory/memory/) information about the method, 
+                 ...          
+"""
 
 import os, importlib
 

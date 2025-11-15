@@ -74,11 +74,12 @@
                       experiment.problem = moeabench.benchmark.DPF5(args) 
                       - [DPF5](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF5/) detailed information about the problem
                  ...
-                
-
-                
-                
-                """
+                - my_new_benchmark:      
+                      - sinxtase:
+                      experiment.problem = experiment.benchmark.my_new_benchmark()        
+                      - [my_new_benchmark](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/memory/memory/) information about the method 
+                                            
+"""
 import os, importlib
 import MoeaBench.benchmark.my_new_benchmark as m_bk
 

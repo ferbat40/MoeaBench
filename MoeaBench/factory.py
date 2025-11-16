@@ -7,19 +7,19 @@ class _MoeaBenchWrapper:
             development of benchmark problems for validating the performance     
             of genetic algorithms.
                ...
-               - genetic algorithms:
+                   - genetic algorithms:
                       - sinxtase:
                       moeabench.MOEA
                       - [NSGA-III](https://moeabench-rgb.github.io/MoeaBench/algorithms/NSGA3/) information about the genetic algorithm
                       - [U-NSGA-3](https://moeabench-rgb.github.io/MoeaBench/algorithms/UNSGA3/) information about the genetic algorithm
  
-                ... 
-               - benchmark problems:
+               ... 
+                   - benchmark problems:
                       - sinxtase:
                       moeabench.benchmark
                       - [NSGA-III](https://moeabench-rgb.github.io/MoeaBench/algorithms/NSGA3/) information about the genetic algorithm
                       - [U-NSGA-3](https://moeabench-rgb.github.io/MoeaBench/algorithms/UNSGA3/) information about the genetic algorithm
-                ...
+               ...
               
               
 """

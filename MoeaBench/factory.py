@@ -9,7 +9,7 @@ class _MoeaBenchWrapper:
              
           - how to start
             Click the link for a step-by-step guide:
-            https://moeabench-rgb.github.io/MoeaBench/
+            https://moeabench-rgb.github.io/MoeaBench/step_by_step/
     """
 
     

@@ -20,11 +20,9 @@ class MoeaBench(I_UserMoeaBench):
         self.problem=None
         self.pof=None
         self.result=None
-        self.Moea=RUN()
         self.result_metric=result_metric()
         self.result_obj=result_obj()
         self.result_var=result_var()
-        self.Moea_user=RUN_user()
 
 
     def __getattr__(self,name):
@@ -193,11 +191,12 @@ class MoeaBench(I_UserMoeaBench):
             name_moea=None
             name_benchmark=None
             try:
-                name_moea = self.Moea.get_moea().__name__
+                name_moea = self.MOEA.my_moea.get_moea().__name__
+                register_moea = self.MOEA.my_moea.M_register.values()
             except Exception as e:
                 pass
             
-            execute = self.Moea_user if len(self.Moea.M_register.values()) == 1 or isinstance(self.result,tuple ) else self.Moea
+            execute = RUN_user() if len(register_moea) == 1 or isinstance(self.result,tuple ) else RUN()
             name_moea = self.result[2] if isinstance(self.result,tuple) else name_moea
             self.result = self.result[0] if isinstance(self.result,tuple) else self.result
            
@@ -206,7 +205,6 @@ class MoeaBench(I_UserMoeaBench):
                 name_benchmark = self.problem.__class__.__name__.split("_")[1]
             except Exception as e:
                 name_benchmark = self.problem.__class__.__name__
-
             return execute.MOEA_execute(self.result,self.problem,name_moea,name_benchmark)
         except Exception as e:
             print(e)

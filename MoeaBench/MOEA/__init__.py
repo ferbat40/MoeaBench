@@ -30,12 +30,13 @@
                  ...       
                - my_new_moea:      
                       - sinxtase:
-                      experiment.problem = experiment.Moea.my_new_moea       
+                      experiment.problem = experiment.MOEA.my_new_moea(args)       
                       - [my_new_moea](https://moeabench-rgb.github.io/MoeaBench/implement_moea/memory/memory/) information about the method, 
                  ...          
 """
 
 import os, importlib
+import MoeaBench.MOEA.my_new_moea as my_moea
 
 
 _dir = os.path.dirname(__file__)
@@ -53,4 +54,4 @@ my_module_cache = importlib.import_module("MoeaBench.CACHE")
 globals()['CACHE'] = my_module_cache.CACHE
 my_module_cache = importlib.import_module("MoeaBench.CACHE_bk_user")
 globals()['CACHE_bk_user'] = my_module_cache.CACHE_bk_user
-    
+globals()['register_moea'] = my_moea.register_moea

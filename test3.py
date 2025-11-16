@@ -11,6 +11,9 @@ os.system("cls")
 
 experiment10 = moeabench()
 
+
+
+
 class E_DTLZ(Enum):
        F1   = 1
        F2   = 2
@@ -20,9 +23,9 @@ class E_DTLZ(Enum):
 @experiment10.benchmark.register_benchmark()
 class dtlz5(BaseBenchmark):
 
-    def __init__(self, benchmark = None, type = None, M = 3, P = 700, K = 10, N = None, D = None, n_ieq_constr=1):
+    def __init__(self, type : str = None, M : int = 3, P : int = 700, K : int = 10, N : int = 0, D : int = 2, n_ieq_constr : int = 1):
         N=K+M-1
-        super().__init__(benchmark, type, M, P, K, N)
+        super().__init__(type, M, P, K, N, n_ieq_constr)
         self.llist_E_DTLZ = list(E_DTLZ)
 
 
@@ -127,7 +130,7 @@ from deap import base, creator, tools, algorithms
 import array
 import numpy as np
 
-@experiment10.Moea.register_moea()
+@experiment10.MOEA.register_moea()
 class NSGA2deap(BaseMoea):
 
   def __init__(self,problem=None,population=0,generations=0):
@@ -165,7 +168,7 @@ class NSGA2deap(BaseMoea):
       if self.resul["feasible"]:
        return True
     return False
-  
+
 
   def evaluation(self):
     pop = self.toolbox.population(n=self.get_population())
@@ -197,20 +200,22 @@ class NSGA2deap(BaseMoea):
     F = np.column_stack([np.array([ind.fitness.values for ind in pop ])])
     return F_gen_all,X_gen_all,F,self.get_generations(),self.get_population()
 
-
 experiment10.problem = experiment10.benchmark.my_new_benchmark()
-experiment10.moea = experiment10.Moea.my_new_moea(problem = experiment10.problem,population = 160 ,generations = 300)
+experiment10.moea = experiment10.MOEA.my_new_moea(problem = experiment10.problem,population = 160 ,generations = 300)
 experiment10.run()
 
-
-experiment10.save("gav")
-kamen = moeabench()
-kamen.load("gav")
+experiment10.save("kikaider")
+experiment10.load("kikaider")
 
 
+#experiment10.save("gav")
+#kamen = moeabench()
+#kamen.load("gav")
 
-HV_all = kamen.hypervolume()
-print(HV_all)
+
+
+#HV_all = kamen.hypervolume()
+#print(HV_all)
 
 #print(len(obj), "   ",len(obj[1]F))
 #IGD_2_3 = exp3.IGD(generations = [50,60], objectives =  [2,3,3,3])

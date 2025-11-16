@@ -3,12 +3,11 @@ from .MoeaBench import MoeaBench
 class _MoeaBenchWrapper:
     """
         - Description:   
-            MoeaBench is a framework for experimentation, analysis, and 
-            development of benchmark problems for validating the performance     
-            of genetic algorithms.
+          MoeaBench is a framework for experimentation, analysis, and 
+          development of benchmark problems for validating the performance     
+          of genetic algorithms.
              
-        - how to start
-            experiment = moeabench()
+          - how to start
             Click the link for a step-by-step guide:
             https://moeabench-rgb.github.io/MoeaBench/
     """

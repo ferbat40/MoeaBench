@@ -177,7 +177,10 @@ class MoeaBench(I_UserMoeaBench):
         
         
     def run(self):
-        name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__
+        if isinstance(self.result,tuple):
+            name_moea = self.result[2]
+        else:
+            name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__
         list_moea = dir(self.MOEA.kernel_moea)
         """
         - run the genetic algorithm:
@@ -191,8 +194,8 @@ class MoeaBench(I_UserMoeaBench):
         """
         try:
             name_benchmark=None
-            execute = RUN() if name_moea in list_moea or isinstance(self.result,tuple ) in list_moea else RUN_user()
-            name_moea = self.result[2] if isinstance(self.result,tuple) else name_moea
+            execute = RUN() if name_moea in list_moea else RUN_user()
+            #name_moea = self.result[2] if isinstance(self.result,tuple) else name_moea
             self.result = self.result[0] if isinstance(self.result,tuple) else self.result
             try:
                 name_benchmark = self.problem.__class__.__name__.split("_")[1]

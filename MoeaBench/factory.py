@@ -14,7 +14,7 @@ class _MoeaBenchWrapper:
                       - [U-NSGA-3](https://moeabench-rgb.github.io/MoeaBench/algorithms/UNSGA3/) information about the genetic algorithm
  
                 ... 
-                 - benchmark problems:
+               - benchmark problems:
                       - sinxtase:
                       moeabench.benchmark
                       - [NSGA-III](https://moeabench-rgb.github.io/MoeaBench/algorithms/NSGA3/) information about the genetic algorithm

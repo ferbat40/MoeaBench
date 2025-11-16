@@ -6,7 +6,7 @@ class DATA_conf(I_DATA_conf):
     def set_DATA_MOEA(self,DATA_MOEA,problem):
         self.__DATA_MOEA=DATA_MOEA
         self.__problem=problem
-
+        
 
     def set(self,description,generations,population,arr_DATA,F_GEN,X_GEN):
         self.__description=description

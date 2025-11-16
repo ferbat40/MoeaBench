@@ -199,14 +199,19 @@ class NSGA2deap(BaseMoea):
       X_gen_all.append(np.column_stack([np.array([np.array(ind) for ind in pop ])]))
     F = np.column_stack([np.array([ind.fitness.values for ind in pop ])])
     return F_gen_all,X_gen_all,F,self.get_generations(),self.get_population()
+  
+exp4 = moeabench()
+exp4.problem = moeabench.benchmark.DPF5(M = 3)
+exp4.moea = moeabench.MOEA.MOEAD(problem=exp4.problem, population = 150, generations = 300)
+exp4.run()
+
 
 experiment10.problem = experiment10.benchmark.my_new_benchmark()
 experiment10.moea = experiment10.MOEA.my_new_moea(problem = experiment10.problem,population = 160 ,generations = 300)
 experiment10.run()
 
-experiment10.save("kikaider")
-experiment10.load("kikaider")
 
+  
 
 #experiment10.save("gav")
 #kamen = moeabench()

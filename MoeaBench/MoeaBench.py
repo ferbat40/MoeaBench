@@ -177,6 +177,8 @@ class MoeaBench(I_UserMoeaBench):
         
         
     def run(self):
+        name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__
+        list_moea = dir(self.MOEA.kernel_moea)
         """
         - run the genetic algorithm:
         Click on the links for more
@@ -188,19 +190,10 @@ class MoeaBench(I_UserMoeaBench):
 
         """
         try:
-            name_moea=None
             name_benchmark=None
-            try:
-                name_moea = self.MOEA.my_moea.get_moea().__name__
-                register_moea = self.MOEA.my_moea.M_register.values()
-            except Exception as e:
-                pass
-            
-            execute = RUN_user() if len(register_moea) == 1 or isinstance(self.result,tuple ) else RUN()
+            execute = RUN() if name_moea in list_moea or isinstance(self.result,tuple ) in list_moea else RUN_user()
             name_moea = self.result[2] if isinstance(self.result,tuple) else name_moea
             self.result = self.result[0] if isinstance(self.result,tuple) else self.result
-           
-
             try:
                 name_benchmark = self.problem.__class__.__name__.split("_")[1]
             except Exception as e:

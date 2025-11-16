@@ -14,6 +14,19 @@ import importlib
 
 
 class MoeaBench(I_UserMoeaBench):
+    """
+        - Description:   
+            MoeaBench is a framework for experimentation, analysis, and 
+            development of benchmark problems for validating the performance     
+            of genetic algorithms.
+             
+        - Example :
+            experiment = moeabench()
+           
+        - NOTES:
+            - For more information about the framework, please visit the link:
+              https://moeabench-rgb.github.io/MoeaBench/
+    """
    
 
     def __init__(self):
@@ -82,7 +95,7 @@ class MoeaBench(I_UserMoeaBench):
                       - [GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GD/) information about the method, accepted variable types, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
-        """
+         """
          caller = inspect.currentframe().f_back.f_locals.items()
          experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)  
          analyse_metric_gen.IPL_plot_GD(args,generations,experiments = experiment, objectives = objectives, bench = benk)
@@ -195,7 +208,6 @@ class MoeaBench(I_UserMoeaBench):
         try:
             name_benchmark=None
             execute = RUN() if name_moea in list_moea else RUN_user()
-            #name_moea = self.result[2] if isinstance(self.result,tuple) else name_moea
             self.result = self.result[0] if isinstance(self.result,tuple) else self.result
             try:
                 name_benchmark = self.problem.__class__.__name__.split("_")[1]
@@ -388,7 +400,7 @@ class MoeaBench(I_UserMoeaBench):
         ...
                 - Informations:
                       - sinxtase:
-                      experiment.add_benchmark(module)  
+                      experiment.add_moea(module)  
                       - [integration](https://moeabench-rgb.github.io/MoeaBench/implement_moea/integration/integration/) information about the method 
                      
         """

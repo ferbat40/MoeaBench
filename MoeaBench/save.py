@@ -25,7 +25,8 @@ class save(file):
         dt_MoeaBench.append(f'objectives: {bench.get_M()}')
         dt_MoeaBench.append(f'decision variabels: {bench.get_Nvar()}')
         dt_MoeaBench.append(f'size vector K: {bench.get_K()}')
-        dt_MoeaBench.append(f'essencial objectves D: {bench.get_D()}')
+        if bench.get_D() > 0:
+            dt_MoeaBench.append(f'essencial objectves D: {bench.get_D()}')
         dt_MoeaBench.append(f'simulated POF solutions: {pof.shape[0]}')
         dt_MoeaBench.append(f'\nThe zip file contains the following:\n')
         dt_MoeaBench.append(f'pof.csv file contains sample simulations of Pareto-optimal front solutions')
@@ -41,13 +42,16 @@ class save(file):
        
         
         with zipfile.ZipFile(path_z, 'w') as zf:
+            header_result = ",".join([f'objective {i}' for i in range(1, bench.get_M()+1)])
             zf.writestr('problem.txt',"\n".join(dt_MoeaBench))
             mem_csv_pof =  StringIO()
-            np.savetxt(mem_csv_pof,pof, delimiter=",", fmt="%.16f")
+            np.savetxt(mem_csv_pof,pof, delimiter=",", fmt="%.16f", header=header_result, comments='')
             zf.writestr('pof.csv',mem_csv_pof.getvalue())
 
             mem_csv_result =  StringIO()
-            np.savetxt(mem_csv_result,result, delimiter=",", fmt="%.16f")
+            
+
+            np.savetxt(mem_csv_result,result, delimiter=",", fmt="%.16f", header=header_result, comments='')
             zf.writestr('result.csv',mem_csv_result.getvalue())
 
             mem_obj =  BytesIO()

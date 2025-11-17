@@ -360,10 +360,10 @@ class MoeaBench(I_UserMoeaBench):
                       - [save](https://moeabench-rgb.github.io/MoeaBench/experiments/save_experiment/save_experiment/) information about the method, 
                      
         """
-        try:
-            save.IPL_save(self,file)
-        except Exception as e:
-            print(e)
+        #try:
+        save.IPL_save(self,file)
+        #except Exception as e:
+            #print(e)
 
 
     def add_benchmark(self,problem):

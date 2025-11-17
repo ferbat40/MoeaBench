@@ -19,10 +19,10 @@ exp.run()
 #ff = exp.hypervolume( objectives= [1,2])
 
 
-#exp.save("jaspion")
+exp.save("experiment")
 
 #exp3 = moeabench()
-#exp3.load("jaspion")
+exp.load("experiment")
 
 #HV_all = exp.hypervolume()
 #print(HV_all)

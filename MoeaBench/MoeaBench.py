@@ -214,7 +214,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.hypervolume(args)  
-                      - [hyoervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/) information about the method, examples and more...   
+                      - [hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/) information about the method, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """

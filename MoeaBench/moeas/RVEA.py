@@ -3,7 +3,7 @@ from .moea_algorithm import moea_algorithm
 
 class RVEA:
 
-    def __init__(self,population = 100, generations = 300, seed = 1):
+    def __init__(self,population = 150, generations = 300, seed = 1):
         self.population=population
         self.generations=generations
         self.seed = seed

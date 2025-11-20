@@ -41,6 +41,7 @@ class MoeaBench(I_UserMoeaBench):
         self._moea=value
         if isinstance(value, tuple):
             print(value,"  sim ",)
+            self.result = value[0]
         self.result = value.set_problem(self.benchmark)
 
 

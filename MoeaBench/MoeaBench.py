@@ -14,11 +14,9 @@ import importlib
 
 
 class MoeaBench(I_UserMoeaBench):
-    
-   
-
+      
     def __init__(self):
-        self.problem=None
+        self.benchmark=None
         self.pof=None
         self.result=None
         self.result_metric=result_metric()
@@ -41,18 +39,19 @@ class MoeaBench(I_UserMoeaBench):
     @moea.setter
     def moea(self,value):
         self._moea=value
-        self.result=value
+        self.result = value.set_problem(self.benchmark)
 
 
     @property
-    def problem(self):
-        return self._problem
+    def benchmark(self):
+        return self._benchmark
     
 
-    @problem.setter
-    def problem(self,value):
-        self._problem=value
+    @benchmark.setter
+    def benchmark(self,value):
+        self._benchmark=value
         self.pof=value
+        
 
 
     def plot_hypervolume(self,*args, generations = [], objectives = []):   
@@ -182,7 +181,7 @@ class MoeaBench(I_UserMoeaBench):
             name_moea = self.result[2]
         else:
             name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__
-        list_moea = dir(self.MOEA.kernel_moea)
+        list_moea = dir(self.moeas.kernel_moea)
         """
         - run the genetic algorithm:
         Click on the links for more
@@ -198,10 +197,10 @@ class MoeaBench(I_UserMoeaBench):
             execute = RUN() if name_moea in list_moea else RUN_user()
             self.result = self.result[0] if isinstance(self.result,tuple) else self.result
             try:
-                name_benchmark = self.problem.__class__.__name__.split("_")[1]
+                name_benchmark = self.benchmark.__class__.__name__.split("_")[1]
             except Exception as e:
-                name_benchmark = self.problem.__class__.__name__
-            return execute.MOEA_execute(self.result,self.problem,name_moea,name_benchmark)
+                name_benchmark = self.benchmark.__class__.__name__
+            return execute.MOEA_execute(self.result,self.benchmark,name_moea,name_benchmark)
         except Exception as e:
             print(e)
 
@@ -360,10 +359,10 @@ class MoeaBench(I_UserMoeaBench):
                       - [save](https://moeabench-rgb.github.io/MoeaBench/experiments/save_experiment/save_experiment/) information about the method, 
                      
         """
-        #try:
-        save.IPL_save(self,file)
-        #except Exception as e:
-            #print(e)
+        try:
+            save.IPL_save(self,file)
+        except Exception as e:
+            print(e)
 
 
     def add_benchmark(self,problem):
@@ -377,7 +376,7 @@ class MoeaBench(I_UserMoeaBench):
                       - [integration](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/integration/integration/) information about the method 
                      
         """
-        import MoeaBench.benchmark as bk
+        import MoeaBench.benchmarks as bk
         setattr(bk,problem.__name__,problem)
 
 
@@ -392,7 +391,7 @@ class MoeaBench(I_UserMoeaBench):
                       - [integration](https://moeabench-rgb.github.io/MoeaBench/implement_moea/integration/integration/) information about the method 
                      
         """
-        import MoeaBench.MOEA as algotithm
+        import MoeaBench.moeas as algotithm
         setattr(algotithm,moea.__name__,moea)
 
     

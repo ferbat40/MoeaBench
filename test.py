@@ -10,8 +10,9 @@ os.system("cls")
 exp = moeabench()
 
 
-exp.problem = moeabench.benchmark.DTLZ1(M=3)
-exp.moea = moeabench.MOEA.NSGA_III(problem=exp.problem, population = 100, generations = 300)
+
+exp.benchmark = moeabench.benchmarks.DTLZ1()
+exp.moea = moeabench.moeas.RVEA(population = 150, generations = 450)
 exp.run()
 
 #ss = exp.objective(objective = [2])
@@ -19,10 +20,10 @@ exp.run()
 #ff = exp.hypervolume( objectives= [1,2])
 
 
-exp.save("experiment")
+exp.save("bbbb")
 
 #exp3 = moeabench()
-exp.load("experiment")
+#exp.load("experiment")
 
 #HV_all = exp.hypervolume()
 #print(HV_all)

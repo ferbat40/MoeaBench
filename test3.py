@@ -9,7 +9,7 @@ from MoeaBench import moeabench
 
 os.system("cls")  
 
-experiment10 = moeabench()
+
 
 
 
@@ -20,7 +20,7 @@ class E_DTLZ(Enum):
        F3   = 3 
        Fm   = 5
 
-@experiment10.benchmark.register_benchmark()
+@moeabench.benchmarks.register_benchmark()
 class dtlz5(BaseBenchmark):
 
     def __init__(self, type : str = None, M : int = 3, P : int = 700, K : int = 10, N : int = 0, D : int = 2, n_ieq_constr : int = 1):
@@ -130,10 +130,10 @@ from deap import base, creator, tools, algorithms
 import array
 import numpy as np
 
-@experiment10.MOEA.register_moea()
+@moeabench.moeas.register_moea()
 class NSGA2deap(BaseMoea):
 
-  def __init__(self,problem=None,population=0,generations=0):
+  def __init__(self,problem=None,population = 160 ,generations = 300):
     super().__init__(self,problem,population,generations)
     creator.create("FitnessMin", base.Fitness, weights=(-1.0,) * self.get_M())
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
@@ -200,17 +200,18 @@ class NSGA2deap(BaseMoea):
     F = np.column_stack([np.array([ind.fitness.values for ind in pop ])])
     return F_gen_all,X_gen_all,F,self.get_generations(),self.get_population()
   
-exp4 = moeabench()
-exp4.problem = moeabench.benchmark.DPF5(M = 3)
-exp4.moea = moeabench.MOEA.MOEAD(problem=exp4.problem, population = 150, generations = 300)
-exp4.run()
+exp = moeabench()
+exp.benchmark = moeabench.benchmarks.DPF5()
+exp.moea = moeabench.moeas.MOEAD()
+exp.run()
+exp.save("dragon")
 
 
-experiment10.problem = experiment10.benchmark.my_new_benchmark()
-experiment10.moea = experiment10.MOEA.my_new_moea(problem = experiment10.problem,population = 160 ,generations = 300)
-experiment10.run()
-
-
+exp2 = moeabench()
+exp2.benchmark= moeabench.benchmarks.my_new_benchmark()
+exp2.moea = moeabench.moeas.my_new_moea()
+exp2.run()
+exp2.save("pegasu")
   
 
 #experiment10.save("gav")

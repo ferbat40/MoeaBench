@@ -41,7 +41,7 @@ class MoeaBench(I_UserMoeaBench):
         self._moea=value
         if isinstance(value, tuple):
             print(value,"  sim ",)
-            self.result = value[0]
+            self.result = value
         else:
             self.result = value.set_problem(self.benchmark)
 
@@ -196,17 +196,17 @@ class MoeaBench(I_UserMoeaBench):
                       - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
 
         """
-        #try:
-        name_benchmark=None
-        execute = RUN() if name_moea in list_moea else RUN_user()
-        self.result = self.result[0] if isinstance(self.result,tuple) else self.result
         try:
+            name_benchmark=None
+            execute = RUN() if name_moea in list_moea else RUN_user()
+            self.result = self.result[0] if isinstance(self.result,tuple) else self.result
+            try:
                 name_benchmark = self.benchmark.__class__.__name__.split("_")[1]
-        except Exception as e:
+            except Exception as e:
                 name_benchmark = self.benchmark.__class__.__name__
-        return execute.MOEA_execute(self.result,self.benchmark,name_moea,name_benchmark)
-        #except Exception as e:
-            #print(e)
+            return execute.MOEA_execute(self.result,self.benchmark,name_moea,name_benchmark)
+        except Exception as e:
+            print(e)
 
 
     def hypervolume(self, generations = [], objectives = []):

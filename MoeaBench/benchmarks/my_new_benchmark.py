@@ -32,8 +32,6 @@ def register_benchmark():
         def decorator(cls):
             try:
                 name = cls.__name__
-                if len(M_register) > 0:
-                     raise MemoryError("There is already an implementation of the user's Benchmark registered")
                 M_register[name] = cls
             except Exception as e:
                  print(e)

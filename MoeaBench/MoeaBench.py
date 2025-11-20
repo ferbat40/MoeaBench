@@ -39,8 +39,8 @@ class MoeaBench(I_UserMoeaBench):
     @moea.setter
     def moea(self,value):
         self._moea=value
-        if isinstance(self.benchmark, tuple):
-            print(self.benchmark,"  sim ",)
+        if isinstance(value, tuple):
+            print(value,"  sim ",)
         self.result = value.set_problem(self.benchmark)
 
 

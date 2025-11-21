@@ -134,7 +134,7 @@ import numpy as np
 class NSGA2deap(BaseMoea):
 
   def __init__(self,problem=None,population = 160 ,generations = 300):
-    super().__init__(self,problem,population,generations)
+    super().__init__(problem,population,generations)
     creator.create("FitnessMin", base.Fitness, weights=(-1.0,) * self.get_M())
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
     self.toolbox = base.Toolbox()

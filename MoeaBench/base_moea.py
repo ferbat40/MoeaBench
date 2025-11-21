@@ -6,11 +6,10 @@ import numpy as np
 class BaseMoea(ABC):
      
      @abstractmethod
-     def __init__(self,moea, problem,population,generations):
+     def __init__(self,problem,population,generations):
           self.__problem=problem
           self.__population=population
           self.__generations=generations
-          self.__moea=moea
           self.__CACHE = CACHE()
 
 
@@ -21,10 +20,6 @@ class BaseMoea(ABC):
 
      def get_CACHE(self):
           return self.__CACHE
-     
-     
-     def get_MOEA(self):
-          return self.__moea
      
 
      def get_generations(self):
@@ -55,10 +50,7 @@ class BaseMoea(ABC):
           return self.get_problem().evaluation(np.array([X]),self.get_n_ieq_constr())
      
 
-     def add_MOEA(self):
-          moea =  self.get_CACHE()
-          moea.get_DATA_conf().set_DATA_MOEA(self.get_MOEA(),self.get_problem()) 
-          return (moea,self.get_MOEA().__class__,self.get_MOEA().__class__.__name__)
+  
 
      
 

@@ -22,8 +22,6 @@ class MoeaBench(I_UserMoeaBench):
         self.result_metric=result_metric()
         self.result_obj=result_obj()
         self.result_var=result_var()
-        self.list_moea = []
-        self.list_benchmark = []
 
 
     def __getattr__(self,name):
@@ -41,17 +39,18 @@ class MoeaBench(I_UserMoeaBench):
     @moea.setter
     def moea(self,value):
         self._moea=value
-        self.list_moea = [name  for name in dir(self.moeas.kernel_moea) 
+        list_moea = [name  for name in dir(self.moeas) 
                           if not name.startswith("__") and not name.endswith("__")]
         name_moea = value.__class__.__name__
-        if name_moea not in self.list_moea and name_moea is not None:
+        if name_moea not in list_moea and name_moea is not None:
+
              try:
                  algorithm = value.instance(self.benchmark)
                  repository = self.moeas.repository()
                  self.result = repository.add_MOEA(algorithm)
              except Exception as e:
                  self.result = value.set_problem(self.benchmark)            
-        else:
+        elif name_moea in list_moea and name_moea is not None:
             self.result = value.set_problem(self.benchmark)
 
 
@@ -64,18 +63,19 @@ class MoeaBench(I_UserMoeaBench):
     @benchmark.setter
     def benchmark(self,value):
         
-        self.list_benchmark = [name  for name in dir(self.benchmarks.problem_benchmark) 
+        list_benchmark = [name  for name in dir(self.benchmarks.problem_benchmark) 
                           if not name.startswith("__") and not name.endswith("__")]
         name_benchmark = value.__class__.__name__
-
-        if name_benchmark not in self.list_benchmark and value is not None:
+       
+        if name_benchmark not in list_benchmark and value is not None:
             bench = value.instance()
             repository_bench = self.benchmarks.repository()
             self._benchmark = repository_bench.add_benchmark(bench)
             self.pof = self._benchmark
-        elif name_benchmark in self.list_benchmark and value is not None:
+        elif name_benchmark in list_benchmark and value is not None:
             self._benchmark=value
             self.pof=value   
+           
 
 
     def plot_hypervolume(self,*args, generations = [], objectives = []):   
@@ -201,11 +201,6 @@ class MoeaBench(I_UserMoeaBench):
         
         
     def run(self):
-        if isinstance(self.result,tuple):
-            name_moea = self.result[2]
-        else:
-            name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__
-
         """
         - run the genetic algorithm:
         Click on the links for more
@@ -216,15 +211,27 @@ class MoeaBench(I_UserMoeaBench):
                       - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
 
         """
+
+        if isinstance(self.result,tuple):
+            name_moea = self.result[2]
+        else:
+            name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__
+        
+        list_moea = [name  for name in dir(self.moeas.kernel_moea) 
+                          if not name.startswith("__") and not name.endswith("__")]
+    
+       
         try:
             name_benchmark=None
-            execute = RUN() if name_moea in self.list_moea else RUN_user()
+            execute = RUN() if name_moea in list_moea else RUN_user()
             self.result = self.result[0] if isinstance(self.result,tuple) else self.result
+
             try:
                 name_benchmark = self.benchmark.__class__.__name__.split("_")[1]
             except Exception as e:
                 name_benchmark = self.benchmark.__class__.__name__
-                return execute.MOEA_execute(self.result,self.benchmark,name_moea,name_benchmark)
+                
+            return execute.MOEA_execute(self.result,self.benchmark,name_moea,name_benchmark)
         except Exception as e:
             print(e)
 

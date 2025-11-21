@@ -1,8 +1,7 @@
 
 import os
 from MoeaBench import moeabench
-from MoeaBench.NSGA2deap import my_NSGA2deap
-from MoeaBench.my_dtlz5 import my_dtlz5
+
 
 
 
@@ -11,21 +10,26 @@ os.system("cls")
 exp = moeabench()
 
 
-exp.add_benchmark(my_dtlz5)
-exp.add_moea(my_NSGA2deap)
 
 
-exp.benchmark = moeabench.benchmarks.my_dtlz5()
-exp.moea = moeabench.moeas.my_NSGA2deap()
-exp.run()
+
+exp2 = moeabench()
+exp2.benchmark = moeabench.benchmarks.DTLZ7()
+exp2.moea = moeabench.moeas.U_NSGAIII()
+exp2.run()
+
+HV = exp2.hypervolume(generations = [130,150], objectives = [1,3])
+print(HV)
+
+
 
 #ss = exp.objective(objective = [2])
 #ss = exp.variable(variable = "x")
 #ff = exp.hypervolume( objectives= [1,2])
 
 
-exp.save("metalder")
-exp.load("metalder")
+#exp.save("metalder")
+#exp.load("metalder")
 
 #exp.load("yrinfrt")
 

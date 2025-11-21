@@ -23,6 +23,7 @@ class MoeaBench(I_UserMoeaBench):
         self.result_obj=result_obj()
         self.result_var=result_var()
         self.list_moea = []
+        self.list_benchmark = []
 
 
     def __getattr__(self,name):
@@ -43,7 +44,7 @@ class MoeaBench(I_UserMoeaBench):
         self.list_moea = [name  for name in dir(self.moeas.kernel_moea) 
                           if not name.startswith("__") and not name.endswith("__")]
         name_moea = value.__class__.__name__
-        if name_moea not in self.list_moea:
+        if name_moea not in self.list_moea and name_moea is not None:
              try:
                  algorithm = value.instance(self.benchmark)
                  repository = self.moeas.repository()
@@ -62,9 +63,19 @@ class MoeaBench(I_UserMoeaBench):
 
     @benchmark.setter
     def benchmark(self,value):
-        self._benchmark=value
-        self.pof=value
         
+        self.list_benchmark = [name  for name in dir(self.benchmarks.problem_benchmark) 
+                          if not name.startswith("__") and not name.endswith("__")]
+        name_benchmark = value.__class__.__name__
+
+        if name_benchmark not in self.list_benchmark and value is not None:
+            bench = value.instance()
+            repository_bench = self.benchmarks.repository()
+            self._benchmark = repository_bench.add_benchmark(bench)
+            self.pof = self._benchmark
+        elif name_benchmark in self.list_benchmark and value is not None:
+            self._benchmark=value
+            self.pof=value   
 
 
     def plot_hypervolume(self,*args, generations = [], objectives = []):   
@@ -205,17 +216,17 @@ class MoeaBench(I_UserMoeaBench):
                       - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
 
         """
-        #try:
-        name_benchmark=None
-        execute = RUN() if name_moea in self.list_moea else RUN_user()
-        self.result = self.result[0] if isinstance(self.result,tuple) else self.result
         try:
+            name_benchmark=None
+            execute = RUN() if name_moea in self.list_moea else RUN_user()
+            self.result = self.result[0] if isinstance(self.result,tuple) else self.result
+            try:
                 name_benchmark = self.benchmark.__class__.__name__.split("_")[1]
-        except Exception as e:
+            except Exception as e:
                 name_benchmark = self.benchmark.__class__.__name__
-        return execute.MOEA_execute(self.result,self.benchmark,name_moea,name_benchmark)
-        #except Exception as e:
-            #print(e)
+                return execute.MOEA_execute(self.result,self.benchmark,name_moea,name_benchmark)
+        except Exception as e:
+            print(e)
 
 
     def hypervolume(self, generations = [], objectives = []):

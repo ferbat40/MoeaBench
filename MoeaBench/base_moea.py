@@ -15,7 +15,7 @@ class BaseMoea(ABC):
 
      @abstractmethod
      def evaluation(self):
-          raise NotImplementedError('The evaluation() method must be implemented by the user')
+          pass
      
 
      def get_CACHE(self):

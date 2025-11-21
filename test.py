@@ -2,6 +2,7 @@
 import os
 from MoeaBench import moeabench
 from MoeaBench.NSGA2deap import my_NSGA2deap
+from MoeaBench.my_dtlz5 import my_dtlz5
 
 
 
@@ -10,9 +11,11 @@ os.system("cls")
 exp = moeabench()
 
 
-
-exp.benchmark = moeabench.benchmarks.DTLZ1()
+exp.add_benchmark(my_dtlz5)
 exp.add_moea(my_NSGA2deap)
+
+
+exp.benchmark = moeabench.benchmarks.my_dtlz5()
 exp.moea = moeabench.moeas.my_NSGA2deap()
 exp.run()
 
@@ -21,9 +24,10 @@ exp.run()
 #ff = exp.hypervolume( objectives= [1,2])
 
 
-exp.save("yrinfrt")
+exp.save("metalder")
+exp.load("metalder")
 
-exp.load("yrinfrt")
+#exp.load("yrinfrt")
 
 #exp3 = moeabench()
 #exp.load("experiment")

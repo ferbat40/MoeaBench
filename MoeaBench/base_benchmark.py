@@ -16,7 +16,6 @@ class BaseBenchmark(ABC):
         self.__type=types
     
 
-
      def get_CACHE(self):
           return self.__CACHE
      

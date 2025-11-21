@@ -1,15 +1,16 @@
 from MoeaBench.base_moea import BaseMoea
-from MoeaBench.base_repository import base_repository
+from MoeaBench.integration_moea import integration_moea
 import random
 from deap import base, creator, tools, algorithms
 import array
 import numpy as np
 
-class my_NSGA2deap(base_repository):
+class my_NSGA2deap(integration_moea):
         
-        def __init__(self,population = 160,generations=300):
+        def __init__(self,population = 160, generations = 300):
           self.population=population
           self.generations=generations
+      
       
         def instance(self,problem):
           return NSGA2deap(problem,self.population,self.generations)
@@ -17,7 +18,7 @@ class my_NSGA2deap(base_repository):
 
 class NSGA2deap(BaseMoea):
 
-  def __init__(self,problem=None,population = 160,generations=300):
+  def __init__(self,problem=None,population = 160, generations = 300):
     super().__init__(problem,population,generations)
     creator.create("FitnessMin", base.Fitness, weights=(-1.0,) * self.get_M())
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)

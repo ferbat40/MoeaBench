@@ -43,14 +43,14 @@ class NSGA2deap(BaseMoea):
 
 
   def evaluate(self,X):
-    self.resul = self.evaluation_benchmark(X)
-    return self.resul['F'][0]
+    self.result = self.evaluation_benchmark(X)
+    return self.result['F'][0]
 
 
   def feasible(self,X):
     self.evaluate(X)
-    if 'G' in self.resul:
-      if self.resul["feasible"]:
+    if 'G' in self.result:
+      if self.result["feasible"]:
        return True
     return False
   

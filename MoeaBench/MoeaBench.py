@@ -301,7 +301,7 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
 
             
-    def objective(self, objective, generations = []):
+    def objective(self, objective = 1, generations = []):
         """
         - array with objectives in generations:
         Click on the links for more
@@ -319,7 +319,7 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
 
 
-    def variable(self, variable, generations = []):
+    def variable(self, variable = 1, generations = []):
         """
         - array with decision variables in generations:
         Click on the links for more

@@ -208,14 +208,14 @@ class NSGA2deap(BaseMoea):
 
 
 #exp.load("dragon")
+exp5 = moeabench()
+exp5.benchmark= moeabench.benchmarks.my_new_benchmark()
+exp5.moea = moeabench.moeas.my_new_moea()
+exp5.run()
 
 
-exp2 = moeabench()
-exp2.benchmark= moeabench.benchmarks.my_new_benchmark()
-exp2.moea = moeabench.moeas.my_new_moea()
-exp2.run()
-exp2.save("pegasu")
-exp2.load("pegasu")
+exp5.save("pegasu")
+exp5.load("pegasu")
 
 #experiment10.save("gav")
 #kamen = moeabench()

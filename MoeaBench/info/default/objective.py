@@ -1,4 +1,5 @@
 class objective:
+      
       """
         - array with objectives in generations:
         default mode
@@ -7,10 +8,10 @@ class objective:
                       - arguments:
                         - objective: returns the first objective  
                         - generations: It returns the goal for all generations.
-        """
+      """
 
-      def __init__(self):
-            print(self.__class__.__doc__)
+      def __repr__(self):
+            return self.__class__.__doc__
       
           
      

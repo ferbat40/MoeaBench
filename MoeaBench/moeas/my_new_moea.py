@@ -1,7 +1,7 @@
 import MoeaBench.CACHE as cache_module
 
-M_register = {}
 
+M_register = {}
 
 class my_new_moea:
       
@@ -10,7 +10,7 @@ class my_new_moea:
             self.generations=generations         
 
 
-      def set_problem(self,problem):
+      def __call__(self, problem, default = None):
         """
         - accesses in memory an implementation of a user evolutionary algorithm.
         Click on the links for more:

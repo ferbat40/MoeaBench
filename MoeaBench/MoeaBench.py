@@ -37,22 +37,9 @@ class MoeaBench(I_UserMoeaBench):
     
 
     @moea.setter
-    def moea(self,value):
+    def moea(self,value):  
+        self.result = value(self.benchmark, self.moeas) if callable(value) else value
         self._moea=value
-        list_moea = [name  for name in dir(self.moeas) 
-                          if not name.startswith("__") and not name.endswith("__")]
-        name_moea = value.__class__.__name__
-        if name_moea not in list_moea and name_moea is not None:
-
-             try:
-                 algorithm = value.instance(self.benchmark)
-                 repository = self.moeas.repository()
-                 self.result = repository.add_MOEA(algorithm)
-             except Exception as e:
-                 self.result = value.set_problem(self.benchmark)            
-        elif name_moea in list_moea and name_moea is not None:
-            self.result = value.set_problem(self.benchmark)
-
 
 
     @property
@@ -62,20 +49,8 @@ class MoeaBench(I_UserMoeaBench):
 
     @benchmark.setter
     def benchmark(self,value):
-        
-        list_benchmark = [name  for name in dir(self.benchmarks.problem_benchmark) 
-                          if not name.startswith("__") and not name.endswith("__")]
-        name_benchmark = value.__class__.__name__
-       
-        if name_benchmark not in list_benchmark and value is not None:
-            bench = value.instance()
-            repository_bench = self.benchmarks.repository()
-            self._benchmark = repository_bench.add_benchmark(bench)
-            self.pof = self._benchmark
-        elif name_benchmark in list_benchmark and value is not None:
-            self._benchmark=value
-            self.pof=value   
-           
+        self._benchmark=value(self.benchmarks) if callable(value) else value
+        self.pof=self._benchmark 
 
 
     def plot_hypervolume(self,*args, generations = [], objectives = []):   

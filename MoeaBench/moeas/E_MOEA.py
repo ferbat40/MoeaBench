@@ -6,4 +6,5 @@ class E_MOEA(Enum):
   U_NSGAIII = 2
   MOEAD = 3
   RVEA = 4
+  my_new_moea = 5
   

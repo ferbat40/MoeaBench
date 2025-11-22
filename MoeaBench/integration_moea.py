@@ -9,5 +9,5 @@ class integration_moea(ABC):
 
 
      @abstractmethod
-     def instance(self):
+     def __call__(self):
           pass

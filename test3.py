@@ -200,11 +200,14 @@ class NSGA2deap(BaseMoea):
     F = np.column_stack([np.array([ind.fitness.values for ind in pop ])])
     return F_gen_all,X_gen_all,F,self.get_generations(),self.get_population()
   
-exp = moeabench()
-exp.benchmark = moeabench.benchmarks.DPF5()
-exp.moea = moeabench.moeas.MOEAD()
-exp.run()
-exp.save("dragon")
+#exp = moeabench()
+#exp.benchmark = moeabench.benchmarks.DTLZ8()
+#exp.moea = moeabench.moeas.NSGAIII()
+#exp.run()
+#exp.save("dragon")
+
+
+#exp.load("dragon")
 
 
 exp2 = moeabench()
@@ -212,7 +215,7 @@ exp2.benchmark= moeabench.benchmarks.my_new_benchmark()
 exp2.moea = moeabench.moeas.my_new_moea()
 exp2.run()
 exp2.save("pegasu")
-  
+exp2.load("pegasu")
 
 #experiment10.save("gav")
 #kamen = moeabench()

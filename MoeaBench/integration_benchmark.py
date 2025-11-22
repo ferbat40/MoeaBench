@@ -9,5 +9,5 @@ class integration_benchmark(ABC):
 
 
      @abstractmethod
-     def instance(self):
+     def __call__(self):
           pass

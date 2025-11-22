@@ -1,6 +1,10 @@
 class repository:
         
-        def add_MOEA(self,algorithm):
-          moea =  algorithm.get_CACHE()
-          moea.get_DATA_conf().set_DATA_MOEA(algorithm,algorithm.get_problem()) 
-          return (moea,algorithm.__class__,algorithm.__class__.__name__)
+        def __init__(self, algorithm):
+            self.algorithm = algorithm
+
+        
+        def __call__(self):
+          moea = self.algorithm.get_CACHE()
+          moea.get_DATA_conf().set_DATA_MOEA(self.algorithm,self.algorithm.get_problem()) 
+          return (moea,self.algorithm.__class__,self.algorithm.__class__.__name__)

@@ -45,7 +45,7 @@ class NSGA_pymoo(Problem):
             verbose=False
             )  
         NSGA_algorithm={
-            "NSGA-3" :np.column_stack([res_NSGA.F])
+            "NSGAIII" :np.column_stack([res_NSGA.F])
         }    
         return (NSGA_algorithm,self.generations,self.population,res_NSGA.history,res_NSGA.X)
     

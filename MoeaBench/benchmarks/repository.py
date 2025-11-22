@@ -1,9 +1,13 @@
 class repository:
         
-        def add_benchmark(self, bench):
-          samples = bench.benchmark.POFsamples()
-          bench.get_CACHE().DATA_store(bench.__class__.__name__,bench.get_type(),bench.get_M(),bench.get_N(),bench.get_n_ieq_constr(),samples,bench.get_P() ,bench.get_K())
-          return bench
+        def __init__(self, bench):
+             self.bench = bench
+             
+        
+        def __call__(self):
+          samples = self.bench.benchmark.POFsamples()
+          self.bench.get_CACHE().DATA_store(self.bench.__class__.__name__,self.bench.get_type(),self.bench.get_M(),self.bench.get_N(),self.bench.get_n_ieq_constr(),samples,self.bench.get_P() ,self.bench.get_K())
+          return self.bench
         
          
   

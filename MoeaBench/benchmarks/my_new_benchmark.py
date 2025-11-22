@@ -3,9 +3,10 @@ from .problems import problems
 
 M_register = {}
 
-
-@staticmethod
-def my_new_benchmark():
+class my_new_benchmark:
+      
+      
+      def __call__(self, default = None):
         """
         - accesses in memory an implementation of a user benchmark problem.
         Click on the links for more:
@@ -17,7 +18,7 @@ def my_new_benchmark():
                      
         """
         try:
-            problem = problems(my_new_benchmark.__name__)
+            problem = problems()
             my_benchmark = get_benchmark()
             my_bk = my_benchmark(problem.get_CACHE_USER())
             F =  my_bk.POFsamples()

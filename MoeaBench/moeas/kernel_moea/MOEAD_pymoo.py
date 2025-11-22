@@ -47,7 +47,7 @@ class MOEAD_pymoo(Problem):
             verbose=False
             )          
         MOEAD_algorithm={
-            "MOEAD" :np.column_stack([res_MOEAD.F])
+            "MOEA/D" :np.column_stack([res_MOEAD.F])
         }    
         return (MOEAD_algorithm,self.generations,self.population,res_MOEAD.history,res_MOEAD.X)
     

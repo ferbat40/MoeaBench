@@ -1,7 +1,15 @@
 from .problems import problems
 
 
-def DTLZ7(M = 3, K = 5, P = 700):
+class DTLZ7:
+     
+     def __init__(self, M = 3, K = 5, P = 700):
+          self.M = M
+          self.K = K
+          self.P = P
+     
+     
+     def __call__(self, default = None):
         """
         - benchmark problem:
         Click on the links for more
@@ -17,11 +25,13 @@ def DTLZ7(M = 3, K = 5, P = 700):
         
         """
         try:
-            problem = problems(DTLZ7.__name__)
-            bk = problem.get_problem(M, K, P)
-            bk.P_validate(P)
-            bk.set_BENCH_conf() 
-            bk.POFsamples()
-            return bk
+            problem = problems()
+            bk = problem.get_problem(self.__class__.__name__)
+            class_bk =  getattr(bk[0],bk[1].name)
+            instance = class_bk(self.M, self.K, self.P, problem.get_CACHE())
+            instance.P_validate(self.P)
+            instance.set_BENCH_conf()
+            instance.POFsamples()
+            return instance
         except Exception as e:
             print(e)

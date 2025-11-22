@@ -1,7 +1,16 @@
 from .problems import problems
 
 
-def DPF3(M = 3, K = 5, D = 2, P = 700):
+class DPF3:
+     
+     def __init__(self, M = 3, K = 5, D = 2, P = 700):
+          self.M = M
+          self.K = K
+          self.D = D
+          self.P = P
+
+
+     def __call__(self, default = None):
         """
         - benchmark problem:
         Click on the links for more
@@ -17,11 +26,19 @@ def DPF3(M = 3, K = 5, D = 2, P = 700):
         
         """
         try:
-            problem = problems(DPF3.__name__)
-            bk = problem.get_problem(M, K, P, D)
-            bk.P_validate(P)
-            bk.set_BENCH_conf() 
-            bk.POFsamples()
-            return bk
+            problem = problems()
+            bk = problem.get_problem(self.__class__.__name__)
+            class_bk =  getattr(bk[0],bk[1].name)
+            instance = class_bk(self.M, self.K, self.D, self.P, problem.get_CACHE())
+            instance.P_validate(self.P)
+            instance.set_BENCH_conf()
+            instance.POFsamples()
+            return instance
         except Exception as e:
             print(e)
+
+
+            
+
+
+            

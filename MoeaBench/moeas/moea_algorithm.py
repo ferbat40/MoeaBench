@@ -7,30 +7,33 @@ if TYPE_CHECKING: from MoeaBench.CACHE import CACHE
 
 class moea_algorithm:
 
-    def __init__(self,name):
+    def __init__(self):
         self.__memory=moeas.CACHE()
-        self.__name = name
     
 
-    def MOEAD(self, problem,population,generations,seed):
-        return moeas.MOEAD_pymoo(problem,population,generations,seed)
+    def MOEAD(self):
+        return moeas.kernel_moea.MOEAD_pymoo, moeas.E_MOEA_algorithm.MOEAD_pymoo
+               
+
+    def NSGAIII(self):
+        return moeas.kernel_moea.NSGA_pymoo, moeas.E_MOEA_algorithm.NSGA_pymoo
+    
+
+    def SPEAII(self,):
+        return moeas.kernel_moea.SPEA_pymoo, moeas.E_MOEA_algorithm.SPEA_pymoo
+            
+
+    def U_NSGAIII(self):
+        return moeas.kernel_moea.UNSGA_pymoo, moeas.E_MOEA_algorithm.UNSGA_pymoo,
 
 
-    def NSGAIII(self, problem,population,generations,seed):
-        return moeas.NSGA_pymoo(problem,population,generations,seed)
-       
+    def RVEA(self):
+        return moeas.kernel_moea.RVEA_pymoo, moeas.E_MOEA_algorithm.RVEA_pymoo
+    
 
-    def SPEAII(self, problem,population,generations,seed):
-        return moeas.SPEA_pymoo(problem,population,generations,seed)
+    def my_new_moea(self):
+        return moeas.my_new_moea, moeas.my_new_moea.__name__
 
-
-    def U_NSGAIII(self, problem,population,generations,seed):
-        return moeas.UNSGA_pymoo(problem,population,generations,seed)
-
-
-    def RVEA(self, problem,population,generations,seed):
-        return moeas.RVEA_pymoo(problem,population,generations,seed)
-        
 
     def dict_data(self):
         return {moeas.E_MOEA.NSGAIII : self.NSGAIII,
@@ -38,6 +41,7 @@ class moea_algorithm:
                 moeas.E_MOEA.U_NSGAIII : self.U_NSGAIII,
                 moeas.E_MOEA.MOEAD : self.MOEAD,
                 moeas.E_MOEA.RVEA: self.RVEA,
+                moeas.E_MOEA.my_new_moea: self.my_new_moea
                 }
 
 
@@ -45,8 +49,7 @@ class moea_algorithm:
         return self.__memory
     
 
-    def get_MOEA(self, problem = None ,population = None ,generations = None ,seed = None):
-        moea = [moea for moea in list(moeas.E_MOEA) if moea.name == self.__name][0]
-        return self.dict_data()[moea](problem,population,generations,seed)
-
+    def get_MOEA(self,name):
+        moea = [moea for moea in list(moeas.E_MOEA) if moea.name == name]
+        return self.dict_data()[moea[0]]() if len(moea) > 0 else False
 

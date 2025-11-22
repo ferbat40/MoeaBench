@@ -8,66 +8,69 @@ if TYPE_CHECKING: from MoeaBench.CACHE_bk_user import CACHE_bk_user
 
 class problems(I_problems):
 
-    def __init__(self,name):
+    def __init__(self):
         self.__memory=benchmarks.CACHE()
         self.__memory_user=benchmarks.CACHE_bk_user()
-        self.__name = name
     
 
-    def DPF1(self, M, K, P, D):
-        return benchmarks.P_DPF1(M, K, D, P, self.get_CACHE())
+    def DPF1(self):
+        return benchmarks.problem_benchmark.P_DPF1,benchmarks.E_problems_bk.P_DPF1
 
 
-    def DPF2(self, M, K, P, D):
-        return benchmarks.P_DPF2(M, K, D, P, self.get_CACHE())
+    def DPF2(self):
+        return benchmarks.problem_benchmark.P_DPF2,benchmarks.E_problems_bk.P_DPF2
 
 
-    def DPF3(self, M, K, P, D):
-        return benchmarks.P_DPF3(M, K, D, P, self.get_CACHE())
+    def DPF3(self):
+        return benchmarks.problem_benchmark.P_DPF3,benchmarks.E_problems_bk.P_DPF3
 
 
-    def DPF4(self, M, K, P, D):
-        return benchmarks.P_DPF4(M, K, D, P, self.get_CACHE())
+    def DPF4(self):
+        return benchmarks.problem_benchmark.P_DPF4,benchmarks.E_problems_bk.P_DPF4
 
 
-    def DPF5(self, M, K, P, D):
-        return benchmarks.P_DPF5(M, K, D, P, self.get_CACHE())
-
-    
-    def DTLZ1(self, M, K, P, D):
-        return benchmarks.P_DTLZ1(M, K, P, self.get_CACHE())
+    def DPF5(self):
+        return benchmarks.problem_benchmark.P_DPF5,benchmarks.E_problems_bk.P_DPF5
 
     
-    def DTLZ2(self, M, K, P, D):
-        return benchmarks.P_DTLZ2(M, K, P, self.get_CACHE())
+    def DTLZ1(self):
+        return benchmarks.problem_benchmark.P_DTLZ1,benchmarks.E_problems_bk.P_DTLZ1
+
+    
+    def DTLZ2(self):
+        return benchmarks.problem_benchmark.P_DTLZ2,benchmarks.E_problems_bk.P_DTLZ2
 
 
-    def DTLZ3(self, M, K, P, D):
-        return benchmarks.P_DTLZ3(M, K, P, self.get_CACHE())
+    def DTLZ3(self):
+        return benchmarks.problem_benchmark.P_DTLZ3,benchmarks.E_problems_bk.P_DTLZ3
 
 
-    def DTLZ4(self, M, K, P, D):
-        return benchmarks.P_DTLZ4(M, K, P, self.get_CACHE())
+    def DTLZ4(self):
+        return benchmarks.problem_benchmark.P_DTLZ4,benchmarks.E_problems_bk.P_DTLZ4
 
 
-    def DTLZ5(self, M, K, P, D):
-        return benchmarks.P_DTLZ5(M, K, P, self.get_CACHE())
+    def DTLZ5(self):
+        return benchmarks.problem_benchmark.P_DTLZ5,benchmarks.E_problems_bk.P_DTLZ5
 
 
-    def DTLZ6(self, M, K, P, D):
-        return benchmarks.P_DTLZ6(M, K, P, self.get_CACHE())
+    def DTLZ6(self):
+        return benchmarks.problem_benchmark.P_DTLZ6,benchmarks.E_problems_bk.P_DTLZ6
 
 
-    def DTLZ7(self, M, K, P, D):
-        return benchmarks.P_DTLZ7(M, K, P, self.get_CACHE())
+    def DTLZ7(self):
+        return benchmarks.problem_benchmark.P_DTLZ7,benchmarks.E_problems_bk.P_DTLZ7
 
 
-    def DTLZ8(self, M, K, P, D):
-        return benchmarks.P_DTLZ8(M , K , P, self.get_CACHE())
+    def DTLZ8(self):
+        return benchmarks.problem_benchmark.P_DTLZ8,benchmarks.E_problems_bk.P_DTLZ8
 
 
-    def DTLZ9(self, M, K, P, D):
-        return benchmarks.P_DTLZ9(M, K, P, self.get_CACHE())
+    def DTLZ9(self):
+        return benchmarks.problem_benchmark.P_DTLZ9,benchmarks.E_problems_bk.P_DTLZ9
+    
+
+    def my_new_benchmark(self):
+        return benchmarks.my_new_benchmark,benchmarks.my_new_benchmark.__name__
 
 
     def dict_data(self):
@@ -85,6 +88,7 @@ class problems(I_problems):
                 benchmarks.E_problems.DTLZ7 : self.DTLZ7,
                 benchmarks.E_problems.DTLZ8 : self.DTLZ8,
                 benchmarks.E_problems.DTLZ9 : self.DTLZ9,
+                benchmarks.E_problems.my_new_benchmark: self.my_new_benchmark
                 }
 
 
@@ -96,7 +100,7 @@ class problems(I_problems):
         return self.__memory_user
     
 
-    def get_problem(self,M = None, K = None, P = None, D = None):
-        problem = [problem for problem in list(benchmarks.E_problems) if problem.name == self.__name][0]
-        return self.dict_data()[problem](M, K, P, D)
+    def get_problem(self, name):
+        problem = [problem for problem in list(benchmarks.E_problems) if problem.name == name]
+        return self.dict_data()[problem[0]]() if len(problem) > 0  else False
 

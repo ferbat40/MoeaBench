@@ -9,7 +9,7 @@ class MOEAD:
         self.seed = seed
 
 
-    def set_problem(self,problem):
+    def __call__(self, problem, default = None):
         """
         - genetic algorithm:
         Click on the links for more
@@ -22,9 +22,11 @@ class MOEAD:
                       - [configurations](https://moeabench-rgb.github.io/MoeaBench/algorithms/configuration/) algorithm configuration adopted by MoeaBench
         
         """
-        moea = moea_algorithm(self.__class__.__name__)
-        algorithm = moea.get_MOEA(problem,self.population,self.generations,self.seed)
+        moea = moea_algorithm()
+        algoritm = moea.get_MOEA(self.__class__.__name__)
+        class_algoritm = getattr(algoritm[0],algoritm[1].name)
+        instance = class_algoritm(problem,self.population,self.generations,self.seed)
         result = moea.get_CACHE()
-        result.get_DATA_conf().set_DATA_MOEA(algorithm,problem)
+        result.get_DATA_conf().set_DATA_MOEA(instance,problem)
         return result 
                  

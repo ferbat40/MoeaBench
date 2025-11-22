@@ -58,11 +58,6 @@ class BaseBenchmark(ABC):
           pass
       
 
-     def add_benchmark(self):
-          samples = self.benchmark.POFsamples()
-          self.get_CACHE().DATA_store(self.benchmark.__class__.__name__,self.get_type(),self.get_M(),self.get_N(),self.get_n_ieq_constr(),samples,self.get_P() ,self.get_K())
-          
-
      
 
 

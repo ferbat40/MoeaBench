@@ -2,7 +2,7 @@ class variable:
       """
       - array with variables in generations:
 
-        ● default mode: experiment.variable():
+        ● default mode: var = experiment.variable():
              
           ○ arguments:             
             ● variable: returns the first objective  

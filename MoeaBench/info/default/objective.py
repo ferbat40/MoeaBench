@@ -2,7 +2,7 @@ class objective:
       """
       - array with objectives in generations:
 
-        ● default mode: experiment.objective():
+        ● default mode: obj = experiment.objective():
              
           ○ arguments:             
             ● objective: returns the first objective  

@@ -13,6 +13,7 @@ from .loader import loader
 import importlib
 
 
+
 class MoeaBench(I_UserMoeaBench):
       
     def __init__(self):
@@ -39,7 +40,7 @@ class MoeaBench(I_UserMoeaBench):
     @moea.setter
     def moea(self,value):  
         self.result = value(self.benchmark, self.moeas) if callable(value) else value
-        self._moea=value
+        self._moea = value
 
 
     @property
@@ -384,6 +385,20 @@ class MoeaBench(I_UserMoeaBench):
         """
         import MoeaBench.benchmarks as bk
         setattr(bk,problem.__name__,problem)
+    
+
+    def default(self):
+        """
+        - integrates a user genetic algorithm implementation into MoeaBench:
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.add_moea(module)  
+                      - [integration](https://moeabench-rgb.github.io/MoeaBench/implement_moea/integration/integration/) information about the method 
+                     
+        """
+        return self.__doc__
 
 
     def add_moea(self,moea):

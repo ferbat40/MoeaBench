@@ -20,6 +20,7 @@ class E_DTLZ(Enum):
        F3   = 3 
        Fm   = 5
 
+
 @moeabench.benchmarks.register_benchmark()
 class dtlz5(BaseBenchmark):
 
@@ -205,12 +206,15 @@ exp5.benchmark= moeabench.benchmarks.my_new_benchmark()
 exp5.moea = moeabench.moeas.my_new_moea()
 exp5.run()
 
-
+#exp5.objectivet().default()
 obj = exp5.objective()
-print(obj)
+#print(obj)
+
+moeabench.info.default.objective
 
 
-#var = exp5.variable()
+
+#var = exp5.variable()  
 #print(var)
 #exp5.save("pegasu")
 #exp5.load("pegasu")

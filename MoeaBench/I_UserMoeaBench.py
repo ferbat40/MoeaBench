@@ -69,9 +69,9 @@ class I_UserMoeaBench(ABC):
         pass
 
     
-    @abstractmethod
-    def objective(self):
-        pass
+    #@abstractmethod
+    #def objective(self):
+       # pass
 
 
     @abstractmethod

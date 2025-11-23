@@ -6,3 +6,6 @@ from .hypervolume import hypervolume
 objective = objective()()
 variable = variable()()
 hypervolume = hypervolume()()
+
+
+__all__ = ["hypervolume","variable","objective"]

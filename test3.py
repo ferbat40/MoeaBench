@@ -202,7 +202,7 @@ class NSGA2deap(BaseMoea):
     return F_gen_all,X_gen_all,F,self.get_generations(),self.get_population()
   
 exp5 = moeabench()
-exp5.benchmark= moeabench.benchmarks.my_new_benchmark()
+exp5.benchmark= moeabench.benchmarks.DTLZ1()
 exp5.moea = moeabench.moeas.my_new_moea()
 exp5.run()
 
@@ -212,7 +212,7 @@ obj = exp5.objective()
 
 moeabench.info.default.objective
 
-
+print(moeabench.info.default.DTLZ1)
 
 #var = exp5.variable()  
 #print(var)

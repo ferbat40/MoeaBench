@@ -25,14 +25,7 @@ class P_DTLZ1(K_DTLZ1):
         self.set_Constraits(0.5)
          
 
-    def POFsamples(self):  
-        """  
-        - Método: dtlz1.POFsamples().
-        - Gera amostras da frente ótima de Pareto.
-        - NOTES:
-         https://evobench.github.io/benchmark/problems/DTLZ1/inPOF/
-
-        """   
+    def POFsamples(self):    
         try:
             if self.K_validate(self.get_CACHE().get_BENCH_CI().get_K()) == True and self.M_validate(self.get_CACHE().get_BENCH_CI().get_M()) == True:
                 F,X = self.minimize()

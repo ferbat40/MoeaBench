@@ -21,7 +21,7 @@ class DPF3:
 
           ○ for more information:
             
-            ● [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DPF3/) general information about the problem.
+            ● [general](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF3/) general information about the problem.
             ● [arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/arguments/) custom and default settings problem. 
             ● [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/exceptions/) information on possible error types
                   

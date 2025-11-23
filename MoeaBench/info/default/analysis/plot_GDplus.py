@@ -1,8 +1,8 @@
-class GDplus:  
+class plot_GDplus:  
       """
-      - array containing the GDplus metric calculation:
+      - calculate the GDplus metric for any number of experiments and plot the graph:
 
-      - default mode: gd_plus = experiment.GDplus()
+      - default mode: moeabench.plot_GDplus(exp1.result, exp2.result...)
              
         ○ arguments (default setting if no arguments are provided):     
               
@@ -11,17 +11,17 @@ class GDplus:
 
       - Notes:
           
-        ○ selecting 'GDplus':
+        ○ selecting "plot_GDplus':
             
-          ● gd_plus = experiment.GDplus()
+          ● moeabench.plot_GDplus(exp1.result, exp2.result...)
             ○ You can access more information about the method.
 
         ○ for more information:
             
-          ● [GD+](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GDplus/) 
-            - information about the method, examples and more.
+          ● [GDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GDplus/)
+            - information about the method, accepted variable types, examples and more.
             
-          ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
+          ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) 
             - information on possible error types.
       """
    

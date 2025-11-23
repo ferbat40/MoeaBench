@@ -1,8 +1,8 @@
-class IGD:  
+class plot_IGD:  
       """
-      - array containing the IGD metric calculation:
+      - calculate the IGD metric for any number of experiments and plot the graph:
 
-      - default mode: igd = experiment.IGD()
+      - default mode: moeabench.plot_IGD(exp1.result, exp2.result...)
              
         ○ arguments (default setting if no arguments are provided):     
               
@@ -11,17 +11,17 @@ class IGD:
 
       - Notes:
           
-        ○ selecting 'IGD':
+        ○ selecting "plot_IGD':
             
-          ● igd = experiment.IGD()
+          ● moeabench.plot_IGD(exp1.result, exp2.result...)
             ○ You can access more information about the method.
 
         ○ for more information:
             
-          ● [IGD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/IGD/) 
-            - information about the method, examples and more.
+          ● [IGD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGD/)
+            - information about the method, accepted variable types, examples and more.
             
-          ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
+          ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) 
             - information on possible error types.
       """
    

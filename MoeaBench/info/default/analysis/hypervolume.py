@@ -1,6 +1,3 @@
-from IPython.display import Markdown, display
-
-
 class hypervolume:  
       """
       - array containing the hypervolume metric calculation:

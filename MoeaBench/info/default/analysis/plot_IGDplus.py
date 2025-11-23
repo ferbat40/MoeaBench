@@ -1,8 +1,8 @@
-class IGDplus:  
+class plot_IGDplus:  
       """
-      - array containing the IGDplus metric calculation:
+      - calculate the IGDplus metric for any number of experiments and plot the graph:
 
-      - default mode: igd_plus = experiment.IGDplus()
+      - default mode: moeabench.plot_IGDplus(exp1.result, exp2.result...)
              
         ○ arguments (default setting if no arguments are provided):     
               
@@ -11,17 +11,17 @@ class IGDplus:
 
       - Notes:
           
-        ○ selecting 'IGDplus':
+        ○ selecting "plot_IGDplus':
             
-          ● igd_plus = experiment.IGDplus()
+          ● moeabench.plot_IGDplus(exp1.result, exp2.result...)
             ○ You can access more information about the method.
 
         ○ for more information:
             
-          ● [IGDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/IGDplus/) 
-            - information about the method, examples and more.
+          ● [IGDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGDplus/)
+            - information about the method, accepted variable types, examples and more.
             
-          ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
+          ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) 
             - information on possible error types.
       """
    

@@ -1,8 +1,8 @@
-class GD:  
+class plot_GD:  
       """
-      - array containing the GD metric calculation:
+      - calculate the GD metric for any number of experiments and plot the graph:
 
-      - default mode: gd = experiment.GD()
+      - default mode: moeabench.plot_GD(exp1.result, exp2.result...)
              
         ○ arguments (default setting if no arguments are provided):     
               
@@ -11,17 +11,17 @@ class GD:
 
       - Notes:
           
-        ○ selecting 'GD':
+        ○ selecting "plot_GD':
             
-          ● gd = experiment.GD()
+          ● moeabench.plot_GD(exp1.result, exp2.result...)
             ○ You can access more information about the method.
 
         ○ for more information:
             
-          ● [GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GD/) 
-            - information about the method, examples and more.
+          ● [GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GD/)
+            - information about the method, accepted variable types, examples and more.
             
-          ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
+          ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) 
             - information on possible error types.
       """
    

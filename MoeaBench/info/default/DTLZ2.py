@@ -22,7 +22,7 @@ class DTLZ2:
           ○ for more information:
             
             ● [implementation](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ2/DTLZ2/) detailed implementation information.
-            ● ([arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/arguments/)) custom and default settings problem. 
+            ● [arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/arguments/) custom and default settings problem. 
             ● [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/exceptions/) information on possible error types
             
       """

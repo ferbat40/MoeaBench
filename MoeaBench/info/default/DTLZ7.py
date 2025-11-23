@@ -1,4 +1,4 @@
-class DTLZ2:  
+class DTLZ7:  
       """
       - array with objectives in generations:
 

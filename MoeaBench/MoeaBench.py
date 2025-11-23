@@ -29,7 +29,6 @@ class MoeaBench(I_UserMoeaBench):
         if name.startswith("__") and name.endswith("__"):
             return super().__getattribute__(name)
         if name.startswith("_") and name in ["_benchmark","_moea","_result","_pof"]:
-           print(name)
            raise AttributeError(name)
         try:
             return importlib.import_module(f"MoeaBench.{name}")

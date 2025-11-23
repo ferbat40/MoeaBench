@@ -210,12 +210,11 @@ exp5.run()
 obj = exp5.objective()
 #print(obj)
 
-moeabench.info.default.analysis.objective
-
-print(moeabench.info.default.benchmark.DTLZ1)
 
 
-print(moeabench.info.default.moea.MOEAD)
+moeabench.info.default.analysis.hypervolume
+
+
 
 #var = exp5.variable()  
 #print(var)

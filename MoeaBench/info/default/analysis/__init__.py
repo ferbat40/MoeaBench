@@ -5,4 +5,4 @@ from .hypervolume import hypervolume
 
 objective = objective()
 variable = variable()
-hypervolume = hypervolume
+hypervolume = hypervolume()

@@ -25,3 +25,6 @@ class DTLZ9:
             ● [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ8/exceptions/) information on possible error types
             
       """
+
+      def __repr__(self):
+            return self.__class__.__doc__

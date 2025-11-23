@@ -5,7 +5,7 @@ class hypervolume:
       
    
 
-       def show(self):
+       def __call__(self):
         display(Markdown("""
 - **Array containing the hypervolume metric calculation**
 

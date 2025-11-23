@@ -20,9 +20,14 @@ class DTLZ5:
 
       - for more information:
             
-            ● [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ5/) general information about the problem.
-            ● [arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/arguments/) custom and default settings problem. 
-            ● [exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/exceptions/) information on possible error types
+            ● [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ5/) 
+              - general information about the problem.
+
+            ● [arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/arguments/) 
+              - custom and default settings problem. 
+
+            ● [exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/exceptions/) 
+              - information on possible error types
             
       """
 

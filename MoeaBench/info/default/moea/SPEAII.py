@@ -19,9 +19,14 @@ class SPEAII:
 
       - for more information:
             
-            ● [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/SPEAII/) references and more...
-            ● [arguments](https://moeabench-rgb.github.io/MoeaBench/algorithms/arguments/) custom and default settings problem. 
-            ● [configurations](https://moeabench-rgb.github.io/MoeaBench/algorithms/configuration/) algorithm configuration adopted by MoeaBench.               
+            ● [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/SPEAII/) 
+              - references and more.
+
+            ● [arguments](https://moeabench-rgb.github.io/MoeaBench/algorithms/arguments/) 
+              - custom and default settings problem. 
+
+            ● [configurations](https://moeabench-rgb.github.io/MoeaBench/algorithms/configuration/) 
+              - algorithm configuration adopted by MoeaBench.               
       """
    
       def __repr__(self):

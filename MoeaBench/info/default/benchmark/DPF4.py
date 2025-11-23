@@ -21,9 +21,14 @@ class DPF4:
 
       - for more information:
             
-            ● [general](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF4/) general information about the problem.
-            ● [arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/arguments/) custom and default settings problem. 
-            ● [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/exceptions/) information on possible error types
+            ● [general](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF4/) 
+              - general information about the problem.
+
+            ● [arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/arguments/) 
+              - custom and default settings problem. 
+
+            ● [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/exceptions/) 
+              - information on possible error types
                 
       """
 

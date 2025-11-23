@@ -1,8 +1,8 @@
 
 import os
 from MoeaBench import moeabench
-from MoeaBench.NSGA2deap import my_NSGA2deap
-from MoeaBench.my_dtlz5 import my_dtlz5
+#from MoeaBench.NSGA2deap import my_NSGA2deap
+#from MoeaBench.my_dtlz5 import my_dtlz5
 
 
 
@@ -11,13 +11,13 @@ os.system("cls")
 exp = moeabench()
 
 
-exp.add_benchmark(my_dtlz5)
-exp.add_moea(my_NSGA2deap)
+#exp.add_benchmark(my_dtlz5)
+#exp.add_moea(my_NSGA2deap)
 
 
-exp.benchmark = moeabench.benchmark.my_dtlz5()
-exp.moea = moeabench.moea.my_NSGA2deap()
-exp.run()
+#exp.benchmark = moeabench.benchmark.my_dtlz5()
+#exp.moea = moeabench.moea.my_NSGA2deap()
+#exp.run()
 #exp.save("savage")
 
 exp2 = moeabench()

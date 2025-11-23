@@ -2,7 +2,11 @@ from IPython.display import Markdown, display
 
 
 class hypervolume:  
-      """
+
+   
+
+      def __call__(self):
+        display(Markdown("""
       - array containing the hypervolume metric calculation:
 
       - default mode: hv = experiment.hypervolume()
@@ -25,8 +29,4 @@ class hypervolume:
             - information about the method, examples and more.
           ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
             - information on possible error types.
-      """
-   
-
-      def __call__(self):
-        display(Markdown(self.__class__.__doc__))
+      """))

@@ -1,13 +1,12 @@
 class DTLZ1:  
       """
-      - array with objectives in generations:
+      - benchmark problem for multi-objective optimization:
 
         ● default mode: experiment.benchmark = experiment.benchmarks.DTLZ1():
              
           ○ arguments:     
 
             ● M = 3:   number of problem objectives 
-            ● K = 10:  number represents the size of the vector K related to the decision variables.
             ● K = 5:   number represents the size of the vector K related to the decision variables.
             ● P = 700: number of samples to the Pareto optimum.
 

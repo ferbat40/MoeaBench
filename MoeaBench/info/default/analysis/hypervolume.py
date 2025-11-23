@@ -28,7 +28,7 @@ class hypervolume:
       """
    
 
-      def __repr__(self):
+      def show(self):
             return display(Markdown(f"""< - array containing the hypervolume metric calculation:
 
       - default mode: hv = experiment.hypervolume()

@@ -4,7 +4,8 @@ class DTLZ1:
 
         ● default mode: experiment.benchmark = experiment.benchmarks.DTLZ1():
              
-          ○ arguments:             
+          ○ arguments:     
+                  
             ● M = 3: number of problem objectives 
             ● K = 10: 
             ● K = 5: The number represents the size of the vector K related to the decision variables.

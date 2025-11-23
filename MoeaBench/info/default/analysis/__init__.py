@@ -3,9 +3,8 @@ from .variable import variable
 from .hypervolume import hypervolume
 
 
-objective = objective()()
-variable = variable()()
-hypervolume = hypervolume()()
+objective = objective()
+variable = variable()
+hypervolume = hypervolume()
 
 
-__all__ = ["hypervolume","variable","objective"]

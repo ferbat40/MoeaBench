@@ -1,3 +1,6 @@
+from IPython.display import Markdown, display
+
+
 class hypervolume:  
       """
       - array containing the hypervolume metric calculation:
@@ -26,7 +29,7 @@ class hypervolume:
    
 
       def __repr__(self):
-            return """< - array containing the hypervolume metric calculation:
+            return display(Markdown(f"""< - array containing the hypervolume metric calculation:
 
       - default mode: hv = experiment.hypervolume()
              
@@ -47,4 +50,4 @@ class hypervolume:
           ● [hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/) 
             - information about the method, examples and more.
           ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
-            - information on possible error types.    >"""
+            - information on possible error types.    >"""))

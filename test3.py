@@ -210,9 +210,12 @@ exp5.run()
 obj = exp5.objective()
 #print(obj)
 
-moeabench.info.default.objective
+moeabench.info.default.analysis.objective
 
-print(moeabench.info.default.DTLZ1)
+print(moeabench.info.default.benchmark.DTLZ1)
+
+
+print(moeabench.info.default.moea.MOEAD)
 
 #var = exp5.variable()  
 #print(var)

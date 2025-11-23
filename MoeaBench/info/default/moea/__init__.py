@@ -1,0 +1,12 @@
+from .NSGAIII import NSGAIII
+from .U_NSGAIII import U_NSGAIII
+from .SPEAII import SPEAII
+from .RVEA import RVEA
+from .MOEAD import MOEAD
+
+
+NSGAIII = NSGAIII()
+U_NSGAIII = U_NSGAIII()
+SPEAII = SPEAII()
+RVEA = RVEA()
+MOEAD = MOEAD()

@@ -3,6 +3,6 @@ from .variable import variable
 from .hypervolume import hypervolume
 
 
-objective = objective()
-variable = variable()
+objective = objective()()
+variable = variable()()
 hypervolume = hypervolume()()

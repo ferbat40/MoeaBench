@@ -11,8 +11,8 @@ class objective:
     - obj = experiment.objective():
              
 - **arguments (default setting if no arguments are provided):**             
-    - objective: returns the first objective  
-    - generations: It returns the goal for all generations.
+    - objective = [1]: returns the first objective  
+    - generations = [0,N]: It returns the goal for all generations.
 
                      
 - **Notes:**
@@ -23,9 +23,9 @@ class objective:
 
     - for more information:
             
-      - [objective](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/data/objective/) 
+      - [Ibjective docs](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/data/objective/) 
         - information about the method.
-      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
+      - [Possible exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
         - information on possible error types. 
             
 """))

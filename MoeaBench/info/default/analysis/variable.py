@@ -1,28 +1,33 @@
-class variable:  
-      """
-      - array with variables in generations:
+from IPython.display import Markdown, display
 
-        ● default mode: var = experiment.variable():
+
+class variable:  
+
+
+
+    def __call__(self):
+        display(Markdown("""
+- **array with variables in generations:**
+
+- **default mode:**
+    - var = experiment.variable():
              
-          ○ arguments:             
-            ● variable: returns the first objective  
-            ● generations: It returns the goal for all generations.
+- **arguments (default setting if no arguments are provided):**             
+    - variable = [1]: returns the first decision variable 
+    - generations = [0,N]: It returns the goal for all generations.
 
                      
-        ● Notes:
+- **Notes:**
           
-          ○ selecting 'variable' in:
-            
-            ● var = experiment.variable()
-              ○ You can access more information about the method.
+    - selecting 'variable':        
+      - var = experiment.variable()
+        - You can access more information about the method.
 
-          ○ for more information:
+    - for more information:
             
-            ● [variable](https://moeabench-rgb.github.io/MoeaBench/analysis/variables/data/variable/) information about the method.
-            ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types. 
+      - [Ibjective docs](https://moeabench-rgb.github.io/MoeaBench/analysis/variables/data/variable/) 
+        - information about the method.
+      - [Possible exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
+        - information on possible error types. 
             
-      """
-
-
-      def __repr__(self):
-            return self.__class__.__doc__
+"""))

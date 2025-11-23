@@ -3,15 +3,7 @@ from .problems import problems
 
 class DPF4:
      
-     def __init__(self, M = 3, K = 5, D = 2, P = 700):
-          self.M = M
-          self.K = K
-          self.D = D
-          self.P = P
-
-
-     def __call__(self, default = None):
-        """
+     """
         - benchmark problem:
         Click on the links for more
         ...
@@ -25,6 +17,16 @@ class DPF4:
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/exceptions/) information on possible error types
         
         """
+     
+     def __init__(self, M = 3, K = 5, D = 2, P = 700):
+          self.M = M
+          self.K = K
+          self.D = D
+          self.P = P
+
+
+     def __call__(self, default = None):
+
         try:
             problem = problems()
             bk = problem.get_problem(self.__class__.__name__)

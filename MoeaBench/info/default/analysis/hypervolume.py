@@ -2,52 +2,23 @@ from IPython.display import Markdown, display
 
 
 class hypervolume:  
-      """
-      - array containing the hypervolume metric calculation:
-
-      - default mode: hv = experiment.hypervolume()
-             
-        ○ arguments (default setting if no arguments are provided):     
-              
-          ● objective = [1,2...N]: calculates the hypervolume metric for all objectives. 
-          ● generations = [0,N]: calculates the hypervolume metric for all generations.
-
-      - Notes:
-          
-        ○ selecting 'hypervolume':
-            
-          ● hv = experiment.hypervolume()
-            ○ You can access more information about the method.
-
-        ○ for more information:
-            
-          ● [hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/) 
-            - information about the method, examples and more.
-          ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
-            - information on possible error types.
-      """
+      
    
 
-      def show(self):
-            return display(Markdown(f"""< - array containing the hypervolume metric calculation:
+       def show(self):
+        display(Markdown("""
+- **Array containing the hypervolume metric calculation**
 
-      - default mode: hv = experiment.hypervolume()
-             
-        ○ arguments (default setting if no arguments are provided):     
-              
-          ● objective = [1,2...N]: calculates the hypervolume metric for all objectives. 
-          ● generations = [0,N]: calculates the hypervolume metric for all generations.
+- **Default mode:** `hv = experiment.hypervolume()`
+    
+  - **Arguments (default if none provided):**
+      - `objective = [1,2,...,N]`: calculates the hypervolume metric for all objectives
+      - `generations = [0,N]`: calculates the hypervolume metric for all generations
 
-      - Notes:
-          
-        ○ selecting 'hypervolume':
-            
-          ● hv = experiment.hypervolume()
-            ○ You can access more information about the method.
-
-        ○ for more information:
-            
-          ● [hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/) 
-            - information about the method, examples and more.
-          ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
-            - information on possible error types.    >"""))
+- **Notes:**
+    - Selecting 'hypervolume':
+        - `hv = experiment.hypervolume()` → You can access more information about the method
+    - For more information:
+        - [hypervolume metric documentation](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/)
+        - [Possible exceptions](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/)
+"""))

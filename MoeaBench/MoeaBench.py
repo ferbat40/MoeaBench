@@ -14,10 +14,10 @@ import importlib
 
 
 
+
 class MoeaBench(I_UserMoeaBench):
       
     def __init__(self):
-        self.benchmark=None
         self.pof=None
         self.result=None
         self.result_metric=result_metric()
@@ -28,8 +28,13 @@ class MoeaBench(I_UserMoeaBench):
     def __getattr__(self,name):
         if name.startswith("__") and name.endswith("__"):
             return super().__getattribute__(name)
-        module = importlib.import_module(f"MoeaBench.{name}")
-        return module
+        if name.startswith("_") and name in ["_benchmark","_moea","_result","_pof"]:
+           print(name)
+           raise AttributeError(name)
+        try:
+            return importlib.import_module(f"MoeaBench.{name}")
+        except ModuleNotFoundError:
+            raise AttributeError(name)
     
 
     @property
@@ -39,7 +44,7 @@ class MoeaBench(I_UserMoeaBench):
 
     @moea.setter
     def moea(self,value):  
-        self.result = value(self.benchmark, self.moeas) if callable(value) else value
+        self.result = value(self.benchmark, self.moea) if callable(value) else value
         self._moea = value
 
 
@@ -50,7 +55,7 @@ class MoeaBench(I_UserMoeaBench):
 
     @benchmark.setter
     def benchmark(self,value):
-        self._benchmark=value(self.benchmarks) if callable(value) else value
+        self._benchmark=value(self.benchmark) if callable(value) else value
         self.pof=self._benchmark 
 
 
@@ -192,14 +197,10 @@ class MoeaBench(I_UserMoeaBench):
             name_moea = self.result[2]
         else:
             name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__
-        
-        list_moea = [name  for name in dir(self.moeas.kernel_moea) 
-                          if not name.startswith("__") and not name.endswith("__")]
-    
-       
+         
         try:
             name_benchmark=None
-            execute = RUN() if name_moea in list_moea else RUN_user()
+            execute = RUN() if self.moea.__module__.find(".moea") >= 0 else RUN_user()
             self.result = self.result[0] if isinstance(self.result,tuple) else self.result
 
             try:
@@ -383,7 +384,7 @@ class MoeaBench(I_UserMoeaBench):
                       - [integration](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/integration/integration/) information about the method 
                      
         """
-        import MoeaBench.benchmarks as bk
+        import MoeaBench.benchmark as bk
         setattr(bk,problem.__name__,problem)
     
 
@@ -412,7 +413,7 @@ class MoeaBench(I_UserMoeaBench):
                       - [integration](https://moeabench-rgb.github.io/MoeaBench/implement_moea/integration/integration/) information about the method 
                      
         """
-        import MoeaBench.moeas as algotithm
+        import MoeaBench.moea as algotithm
         setattr(algotithm,moea.__name__,moea)
     
 

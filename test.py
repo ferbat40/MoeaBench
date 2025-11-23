@@ -15,17 +15,18 @@ exp.add_benchmark(my_dtlz5)
 exp.add_moea(my_NSGA2deap)
 
 
-exp.benchmark = moeabench.benchmarks.my_dtlz5()
-exp.moea = moeabench.moeas.my_NSGA2deap()
+exp.benchmark = moeabench.benchmark.my_dtlz5()
+exp.moea = moeabench.moea.my_NSGA2deap()
 exp.run()
 #exp.save("savage")
 
-#exp2 = moeabench()
-#exp2.benchmark = moeabench.benchmarks.DTLZ7()
-#exp2.moea = moeabench.moeas.U_NSGAIII()
-#exp2.run()
+exp2 = moeabench()
+exp2.benchmark = moeabench.benchmark.DTLZ7()
+exp2.moea = moeabench.moea.U_NSGAIII()
+exp2.run()
 
-#exp.load("savage")
+exp.save("savagef")
+exp.load("savagef")
 
 #HV = exp2.hypervolume(generations = [130,150], objectives = [1,3])
 #print(HV)

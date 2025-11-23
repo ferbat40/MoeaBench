@@ -11,7 +11,7 @@ from .DTLZ7 import DTLZ7
 objective = objective()
 variable = variable()
 DTLZ1 = DTLZ1()
-DTLZ2 = DTLZ1()
+DTLZ2 = DTLZ2()
 DTLZ3 = DTLZ3()
 DTLZ4 = DTLZ4()
 DTLZ5 = DTLZ5()

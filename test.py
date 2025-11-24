@@ -26,6 +26,7 @@ exp2.moea = moeabench.moea.U_NSGAIII()
 exp2.run()
 
 
+moeabench.info.implementation.benchmark.code
 
 #exp.save("savagef")
 #exp.load("savagef")

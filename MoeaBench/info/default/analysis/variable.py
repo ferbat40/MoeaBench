@@ -1,13 +1,9 @@
 from IPython.display import  display, Markdown
 
-
 class variable:  
 
-
-      def __call__(self):
-            
-            display(Markdown(f"""
-                          
+      def __call__(self):           
+            display(Markdown(f"""                          
 - array with variables in generations:
 
   - default mode: var = experiment.variable():
@@ -24,7 +20,7 @@ class variable:
       - var = experiment.variable()
       - You can access more information about the method.
 
-  - for more information:
+  - for more information access the links:
             
     - [variable](https://moeabench-rgb.github.io/MoeaBench/analysis/variables/data/variable/) 
       - information about the method.

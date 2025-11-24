@@ -47,6 +47,13 @@ class integration:
     - **Example**:
       
         - NSGA-II algorithm implemented with the DEAP library.
+                           
+    - **Notes:**
+          
+    - selecting 'add_moea':
+            
+      moeabench.add_moea()
+      - You can access more information about the method.
         
 
     - **For more information access the link:**

@@ -47,7 +47,11 @@ class integration:
     - **Example**:
       
         - Deb's DTLZ5 benchmark problem.
-        
+                           
+    - selecting 'add_benchmark':
+            
+      moeabench.add_benchmark()
+      - You can access more information about the method.       
 
     - **For more information access the link:**
             

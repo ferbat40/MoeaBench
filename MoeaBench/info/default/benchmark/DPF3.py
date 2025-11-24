@@ -18,7 +18,7 @@ class DPF3:
 
   - Notes:
           
-    - selecting 'DPF3' in:
+    - selecting 'DPF3':
             
       - experiment.benchmark = experiment.benchmarks.DPF3()
         - You can access more information about the method.

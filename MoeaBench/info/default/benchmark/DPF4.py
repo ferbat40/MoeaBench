@@ -18,7 +18,7 @@ class DPF4:
 
   - Notes:
           
-    - selecting 'DPF4' in:
+    - selecting 'DPF4':
             
       - experiment.benchmark = experiment.benchmarks.DPF4()
         - You can access more information about the method.

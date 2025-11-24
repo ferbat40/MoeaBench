@@ -15,7 +15,7 @@ class objective:
                      
   - Notes:
           
-    - selecting 'objective' in:
+    - selecting 'objective':
             
       - obj = experiment.objective()
         - You can access more information about the method.

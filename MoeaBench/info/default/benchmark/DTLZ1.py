@@ -17,7 +17,7 @@ class DTLZ1:
 
   - Notes:
           
-    - selecting 'DTLZ1' in:
+    - selecting 'DTLZ1':
             
       - experiment.benchmark = experiment.benchmarks.DTLZ1()
         - You can access more information about the method.

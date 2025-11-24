@@ -11,11 +11,11 @@ class DTLZ7:
     - arguments (default setting if no arguments are provided):     
                   
       - M = 3:   
-        - number of problem objectives 
+        number of problem objectives 
       - K = 5:   
-        - umber represents the size of the vector K related to the decision variables.
+        umber represents the size of the vector K related to the decision variables.
       - P = 700: 
-        - number of samples to the Pareto optimum.
+        number of samples to the Pareto optimum.
 
 
   - **Notes:**
@@ -28,11 +28,11 @@ class DTLZ7:
   - **for more information access the links:**
             
     - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ7/) 
-      - general information about the problem.
+      general information about the problem.
 
     - [arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/arguments/) 
-      - custom and default settings problem. 
+      custom and default settings problem. 
 
     - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/exceptions/) 
-      - information on possible error types           
+      information on possible error types           
       """))

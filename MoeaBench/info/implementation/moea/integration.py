@@ -10,7 +10,7 @@ class integration:
     native implementation.
                         
     
-    - usage example:
+    - **usage example**:
       
       - on the user side:                     
                            

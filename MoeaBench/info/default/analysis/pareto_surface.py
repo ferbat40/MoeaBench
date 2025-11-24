@@ -1,6 +1,5 @@
 from IPython.display import  display, Markdown
 
-
 class pareto_surface:  
   
       def __call__(self):

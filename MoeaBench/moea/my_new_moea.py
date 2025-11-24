@@ -4,14 +4,7 @@ import MoeaBench.CACHE as cache_module
 M_register = {}
 
 class my_new_moea:
-      
-      def __init__(self,population = 160 ,generations = 300):
-            self.population=population   
-            self.generations=generations         
-
-
-      def __call__(self, problem, default = None):
-        """
+      """
         - accesses in memory an implementation of a user evolutionary algorithm.
         Click on the links for more:
         ...
@@ -21,6 +14,13 @@ class my_new_moea:
                       - [my_new_moea](https://moeabench-rgb.github.io/MoeaBench/implement_moea/memory/memory/) information about the method, 
                      
         """
+      
+      def __init__(self,population = 160 ,generations = 300):
+            self.population=population   
+            self.generations=generations         
+
+
+      def __call__(self, problem, default = None):
         try:
              result = cache_module.CACHE()
              my_moea = get_moea()

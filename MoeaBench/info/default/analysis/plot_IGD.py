@@ -22,7 +22,7 @@ class plot_IGD:
 
   - for more information access the links:
             
-    - [IGD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGD/)
+    - [plot_IGD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGD/)
       - information about the method, accepted variable types, examples and more.
             
     - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) 

@@ -22,7 +22,7 @@ class plot_GD:
 
   - for more information access the links:
             
-    - [GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GD/)
+    - [plot_GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GD/)
       - information about the method, accepted variable types, examples and more.
             
     - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) 

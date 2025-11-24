@@ -28,7 +28,7 @@ class pareto_surface:
 
   - for more information access the links:
             
-    - [pareto surface](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/)
+    - [pareto_surface](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/)
       - information about the method, accepted variable types, examples and more.
             
     - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) 

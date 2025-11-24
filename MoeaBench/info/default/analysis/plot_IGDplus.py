@@ -22,7 +22,7 @@ class plot_IGDplus:
 
   - for more information access the links:
             
-    - [IGDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGDplus/)
+    - [plot_IGDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGDplus/)
       - information about the method, accepted variable types, examples and more.
             
     - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) 

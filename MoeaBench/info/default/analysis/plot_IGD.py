@@ -20,7 +20,7 @@ class plot_IGD:
     - selecting "plot_IGD':
             
       moeabench.plot_IGD(exp1.result, exp2.result...)
-      You can access more information about the method.
+      - You can access more information about the method.
 
   - **for more information access the links:**
             

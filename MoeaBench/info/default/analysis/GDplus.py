@@ -20,7 +20,7 @@ class GDplus:
     - selecting 'GDplus':
             
       gd_plus = experiment.GDplus()
-      You can access more information about the method.
+      - You can access more information about the method.
 
   - **for more information access the links:**
             

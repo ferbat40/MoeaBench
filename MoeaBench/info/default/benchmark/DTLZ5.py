@@ -23,7 +23,7 @@ class DTLZ5:
     - selecting 'DTLZ5':
             
       experiment.benchmark = experiment.benchmark.DTLZ5()
-      You can access more information about the method.
+      - You can access more information about the method.
 
   - **for more information access the links:**
             

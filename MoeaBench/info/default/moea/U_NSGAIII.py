@@ -22,7 +22,7 @@ class U_NSGAIII:
     - selecting 'U_NSGAIII':
             
       experiment.moea = experiment.moea.U_NSGAIII()
-      You can access more information about the method.
+      - You can access more information about the method.
 
   - **for more information access the links:**
             

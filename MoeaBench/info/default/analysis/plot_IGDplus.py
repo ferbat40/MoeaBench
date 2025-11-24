@@ -20,7 +20,7 @@ class plot_IGDplus:
     - selecting "plot_IGDplus':
             
       moeabench.plot_IGDplus(exp1.result, exp2.result...)
-      You can access more information about the method.
+      - You can access more information about the method.
 
   - **for more information access the links:**
             

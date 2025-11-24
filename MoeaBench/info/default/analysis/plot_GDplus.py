@@ -10,8 +10,10 @@ class plot_GDplus:
              
     - arguments (default setting if no arguments are provided):     
               
-      - objective = [1,2...N]: calculates the GDplus metric for all objectives. 
-      - generations = [0,N]: calculates the GDplus metric for all generations.
+      - objective = [1,2...N]: 
+        - calculates the GDplus metric for all objectives. 
+      - generations = [0,N]: 
+        - calculates the GDplus metric for all generations.
 
   - **Notes:**
           

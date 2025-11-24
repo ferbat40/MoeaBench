@@ -10,9 +10,12 @@ class DTLZ9:
              
     - arguments (default setting if no arguments are provided):    
                   
-      - M = 3:   number of problem objectives 
-      - N = 10:  number of decision variables.
-      - P = 700: number of samples to the Pareto optimum.
+      - M = 3:   
+        - number of problem objectives 
+      - N = 10:  
+        - number of decision variables.
+      - P = 700: 
+        - number of samples to the Pareto optimum.
 
 
   - **Notes:**

@@ -10,10 +10,14 @@ class DPF2:
              
     - arguments (default setting if no arguments are provided):    
 
-      - M = 3:   number of problem objectives 
-      - K = 5:   number represents the size of the vector K related to the decision variables.
-      - D = 2:   number of essential objectives
-      - P = 700: number of samples to the Pareto optimum.
+      - M = 3:   
+        - number of problem objectives 
+      - K = 5:   
+        - number represents the size of the vector K related to the decision variables.
+      - D = 2:   
+        - number of essential objectives
+      - P = 700: 
+        - number of samples to the Pareto optimum.
 
 
   - **Notes:**

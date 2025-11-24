@@ -9,8 +9,10 @@ class variable:
   - **default mode: var = experiment.variable():**
              
     - arguments (default setting if no arguments are provided):           
-      - variable = 1: returns the first objective  
-      - generations = [0,N]: It returns the goal for all generations.
+      - variable = 1: 
+        - returns the first objective  
+      - generations = [0,N]: 
+        - It returns the goal for all generations.
 
                      
   - **Notes:**

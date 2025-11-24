@@ -17,7 +17,8 @@ class pareto_surface:
              
     - arguments (default setting if no arguments are provided):     
               
-    - objective = [1,2,3]: Plot the graph considering the first three objectives.
+    - objective = [1,2,3]: 
+      - plot the graph considering the first three objectives.
 
   - **Notes:**
           

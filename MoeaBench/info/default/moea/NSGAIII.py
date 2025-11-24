@@ -31,4 +31,5 @@ class NSGAIII:
 
     - [configurations](https://moeabench-rgb.github.io/MoeaBench/algorithms/configuration/) 
       algorithm configuration adopted by MoeaBench.               
+      
       """))

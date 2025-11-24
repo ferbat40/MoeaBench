@@ -26,7 +26,7 @@ class DPF2:
     
     - selecting *benchmark*:
             
-      experiment.benchmark = experiment.benchmark.DPF2()
+      experiment.benchmark
       - You can access a list of benchmark issues and their respective links for more information.
 
   - **For more information access the links:**

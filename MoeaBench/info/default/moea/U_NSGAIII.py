@@ -23,7 +23,7 @@ class U_NSGAIII:
                              
     - selecting *moea*:
             
-      experiment.moea = experiment.moea.U_NSGAIII()
+      experiment.moea
       - You can access a list of evolutionary algorithm problems and their respective links to obtain more information.
 
 

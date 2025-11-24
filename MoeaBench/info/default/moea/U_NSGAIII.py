@@ -23,7 +23,7 @@ class U_NSGAIII:
 
   - for more information access the links:
             
-    - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/U_NSGAIII/) 
+    - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/UNSGA3/) 
       - references and more.
 
     - [arguments](https://moeabench-rgb.github.io/MoeaBench/algorithms/arguments/) 

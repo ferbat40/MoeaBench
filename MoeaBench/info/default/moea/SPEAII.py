@@ -23,7 +23,7 @@ class SPEAII:
 
   - for more information access the links:
             
-    - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/SPEAII/) 
+    - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/SPEA2/) 
       - references and more.
 
     - [arguments](https://moeabench-rgb.github.io/MoeaBench/algorithms/arguments/) 

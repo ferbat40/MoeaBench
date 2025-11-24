@@ -4,9 +4,9 @@ class DTLZ6:
       
       def __call__(self):
             display(Markdown(f"""
-- benchmark problem for multi-objective optimization:
+- **benchmark problem for multi-objective optimization:**
 
-  - default mode: experiment.benchmark = experiment.benchmark.DTLZ6():
+  - **default mode: experiment.benchmark = experiment.benchmark.DTLZ6():**
              
     - arguments (default setting if no arguments are provided):     
                   
@@ -15,14 +15,14 @@ class DTLZ6:
       - P = 700: number of samples to the Pareto optimum.
 
 
-  - Notes:
+  - **Notes:**
           
     - selecting 'DTLZ6':
             
       - experiment.benchmark = experiment.benchmark.DTLZ6()
         - You can access more information about the method.
 
-  - for more information access the links:
+  - **for more information access the links:**
             
     - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ6/) 
       - general information about the problem.

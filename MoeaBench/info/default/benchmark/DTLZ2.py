@@ -4,9 +4,9 @@ class DTLZ2:
       
       def __call__(self):
             display(Markdown(f"""
-- benchmark problem for multi-objective optimization:
+- **benchmark problem for multi-objective optimization:**
 
-  - default mode: experiment.benchmark = experiment.benchmark.DTLZ2():
+  - **default mode: experiment.benchmark = experiment.benchmark.DTLZ2():**
              
     - arguments (default setting if no arguments are provided):     
                   
@@ -15,14 +15,14 @@ class DTLZ2:
       - P = 700: number of samples to the Pareto optimum.
 
 
-  - Notes:
+  - **Notes:**
           
     - selecting 'DTLZ2':
             
       - experiment.benchmark = experiment.benchmark.DTLZ2()
         - You can access more information about the method.
 
-  - for more information access the links:
+  - **for more information access the links:**
             
     - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ2/) 
       - general information about the problem.

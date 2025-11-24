@@ -4,7 +4,7 @@ class DPF1:
     
       def __call__(self):
             display(Markdown(f"""
-- ***benchmark problem for multi-objective optimization:***
+- **benchmark problem for multi-objective optimization:**
 
   - **default mode: experiment.benchmark = experiment.benchmark.DPF1():**
              

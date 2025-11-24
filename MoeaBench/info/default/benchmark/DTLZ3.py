@@ -4,9 +4,9 @@ class DTLZ3:
       
       def __call__(self):
             display(Markdown(f"""
-- benchmark problem for multi-objective optimization:
+- **benchmark problem for multi-objective optimization:**
 
-  - default mode: experiment.benchmark = experiment.benchmark.DTLZ3():
+  - **default mode: experiment.benchmark = experiment.benchmark.DTLZ3():**
              
     - arguments (default setting if no arguments are provided):     
                   
@@ -14,14 +14,14 @@ class DTLZ3:
       - K = 5:   number represents the size of the vector K related to the decision variables.
       - P = 700: number of samples to the Pareto optimum.
 
-  - Notes:
+  - **Notes:**
           
     - selecting 'DTLZ3':
             
       - experiment.benchmark = experiment.benchmark.DTLZ3()
         - You can access more information about the method.
 
-  - for more information access the links:
+  - **for more information access the links:**
             
     - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ3/) 
       - general information about the problem.

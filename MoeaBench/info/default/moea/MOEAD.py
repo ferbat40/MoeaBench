@@ -6,7 +6,7 @@ class MOEAD:
             display(Markdown(f"""
 - **Evolutionary algorithm for multi-objective optimization problems:**
 
-  - **Default mode: experiment.moea = moeabench.moea.MOEAD():**
+  - **Default mode: experiment.moea = moeabench.moeas.MOEAD():**
              
     - arguments (default setting if no arguments are provided):     
 
@@ -18,7 +18,7 @@ class MOEAD:
           
     - selecting *MOEAD*:
             
-      experiment.moea = moeabench.moea.MOEAD()
+      experiment.moea = moeabench.moeas.MOEAD()
       - You can access more information about the method.
                              
 

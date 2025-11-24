@@ -9,7 +9,7 @@ class DPF4:
         ...
                 - DPF4:
                       - sinxtase:
-                      experiment.problem = moeabench.benchmark.DPF4(args) 
+                      experiment.benchmark = moeabench.benchmarks.DPF4(args) 
                       - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF4/) POF sampling, results obtained in tests 
                       with genetic algorithms, references and more... 
                       - [implementation](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF4/DPF4/) detailed implementation information

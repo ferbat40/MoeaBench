@@ -8,7 +8,7 @@ class SPEAII:
         ...
                 - SPEA-II:
                       - sinxtase:
-                      experiment.moea = moeabench.MOEA.SPEA_II(args)  
+                      experiment.moea = moeabench.moeas.SPEA_II(args)  
                       - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/SPEA2/) references and  more...
                       - ([arguments](https://moeabench-rgb.github.io/MoeaBench/algorithms/arguments/)) custom and default settings problem
                       - [configurations](https://moeabench-rgb.github.io/MoeaBench/algorithms/configuration/) algorithm configuration adopted by MoeaBench

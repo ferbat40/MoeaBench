@@ -6,7 +6,7 @@ class SPEAII:
             display(Markdown(f"""
 - **Evolutionary algorithm for multi-objective optimization problems:**
 
-  - **Default mode: experiment.moea = moeabench.moea.SPEAII():**
+  - **Default mode: experiment.moea = moeabench.moeas.SPEAII():**
              
     - arguments (default setting if no arguments are provided):    
 
@@ -18,7 +18,7 @@ class SPEAII:
           
     - selecting *SPEAII*:
             
-      experiment.moea = moeabench.moea.SPEAII()
+      experiment.moea = moeabench.moeas.SPEAII()
       - You can access more information about the method.
                              
     - selecting *moea*:

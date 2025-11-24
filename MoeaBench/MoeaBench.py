@@ -41,7 +41,7 @@ class MoeaBench(I_UserMoeaBench):
 
     @moea.setter
     def moea(self,value):  
-        self.result = value(self.benchmark, self.moea) if callable(value) else value
+        self.result = value(self.benchmark, self.moeas) if callable(value) else value
         self._moea = value
 
 
@@ -52,7 +52,7 @@ class MoeaBench(I_UserMoeaBench):
 
     @benchmark.setter
     def benchmark(self,value):
-        self._benchmark=value(self.benchmark) if callable(value) else value
+        self._benchmark=value(self.benchmarks) if callable(value) else value
         self.pof=self._benchmark 
 
 

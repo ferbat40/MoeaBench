@@ -6,7 +6,7 @@ class DTLZ8:
             display(Markdown(f"""
 - **Benchmark problem for multi-objective optimization:**
 
-  - **Default mode: experiment.benchmark = moeabench.benchmark.DTLZ8():**
+  - **Default mode: experiment.benchmark = moeabench.benchmarks.DTLZ8():**
              
     - arguments (default setting if no arguments are provided):     
                   
@@ -19,7 +19,7 @@ class DTLZ8:
           
     - selecting *DTLZ8*:
             
-      experiment.benchmark = moeabench.benchmark.DTLZ8()
+      experiment.benchmark = moeabench.benchmarks.DTLZ8()
       - You can access more information about the method.
                              
 

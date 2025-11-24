@@ -8,7 +8,7 @@ class MOEAD:
         ...
                 - MOEA/D:
                       - sinxtase:
-                      experiment.moea = moeabench.MOEA.MOEAD(args)  
+                      experiment.moea = moeabench.moeas.MOEAD(args)  
                       - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/MOEAD/) references and more...
                       - ([arguments](https://moeabench-rgb.github.io/MoeaBench/algorithms/arguments/)) custom and default settings problem
                       - [configurations](https://moeabench-rgb.github.io/MoeaBench/algorithms/configuration/) algorithm configuration adopted by MoeaBench

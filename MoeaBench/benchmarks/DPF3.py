@@ -9,7 +9,7 @@ class DPF3:
         ...
                 - DPF3:
                       - sinxtase:
-                      experiment.problem = moeabench.benchmark.DPF3(args) 
+                      experiment.benchmark = moeabench.benchmarks.DPF3(args) 
                       - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF3/) POF sampling, results obtained in tests 
                       with genetic algorithms, references and more... 
                       - [implementation](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF3/DPF3/) detailed implementation information

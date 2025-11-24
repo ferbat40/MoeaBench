@@ -6,7 +6,7 @@ class DPF4:
             display(Markdown(f"""
 - **Benchmark problem for multi-objective optimization:**
 
-  - **Default mode: experiment.benchmark = moeabench.benchmark.DPF4():**
+  - **Default mode: experiment.benchmark = moeabench.benchmarks.DPF4():**
              
     - arguments (default setting if no arguments are provided):     
 
@@ -20,7 +20,7 @@ class DPF4:
           
     - selecting *DPF4*:
             
-      experiment.benchmark = moeabench.benchmark.DPF4()
+      experiment.benchmark = moeabench.benchmarks.DPF4()
       - You can access more information about the method.
                              
     - selecting *benchmark*:

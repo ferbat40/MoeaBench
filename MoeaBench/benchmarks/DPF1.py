@@ -8,7 +8,7 @@ class DPF1:
         ...
                 - DPF1:
                       - sinxtase:
-                      experiment.problem = moeabench.benchmark.DPF1(args) 
+                      experiment.benchmark = moeabench.benchmarks.DPF1(args) 
                       - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF1/) POF sampling, results obtained in tests 
                       with genetic algorithms, references and more... 
                       - [implementation](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF1/DPF1/) detailed implementation information

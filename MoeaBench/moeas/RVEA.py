@@ -8,7 +8,7 @@ class RVEA:
         ...
                 - RVEA:
                       - sinxtase:
-                      experiment.moea = moeabench.MOEA.RVEA(args)  
+                      experiment.moea = moeabench.moeas.RVEA(args)  
                       - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/RVEA/) references and  more...
                       - ([arguments](https://moeabench-rgb.github.io/MoeaBench/algorithms/arguments/)) custom and default settings problem
                       - [configurations](https://moeabench-rgb.github.io/MoeaBench/algorithms/configuration/) algorithm configuration adopted by MoeaBench

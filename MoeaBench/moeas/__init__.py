@@ -5,32 +5,32 @@
                ...
                - NSGA-III:
                       - sinxtase:
-                      experiment.moea = moeabench.MOEA.NSGA_III(args) 
+                      experiment.moea = moeabench.moeas.NSGA_III(args) 
                       - [NSGA-III](https://moeabench-rgb.github.io/MoeaBench/algorithms/NSGA3/) information about the genetic algorithm
                ... 
                - U-NSGA-III:
                       - sinxtase:
-                      experiment.moea = moeabench.MOEA.U_NSGA_III(args)
+                      experiment.moea = moeabench.moeas.U_NSGA_III(args)
                       - [U-NSGA-3](https://moeabench-rgb.github.io/MoeaBench/algorithms/UNSGA3/) information about the genetic algorithm
                 ...
                - SPEA-II:
                       - sinxtase:
-                      experiment.moea = moeabench.MOEA.SPEA_II(args) 
+                      experiment.moea = moeabench.moeas.SPEA_II(args) 
                       - [SPEA-II](https://moeabench-rgb.github.io/MoeaBench/algorithms/SPEA2/) information about the genetic algorithm
                ... 
                - MOEA/D:
                       - sinxtase:
-                      experiment.moea = moeabench.MOEA.MOEAD(args) 
+                      experiment.moea = moeabench.moeas.MOEAD(args) 
                       - [MOEA/D](https://moeabench-rgb.github.io/MoeaBench/algorithms/MOEAD/) information about the genetic algorithm
                  ... 
                - RVEA:
                       - sinxtase:
-                      experiment.moea = moeabench.MOEA.RVEA(args) 
+                      experiment.moea = moeabench.moeas.RVEA(args) 
                       - [RVEA](https://moeabench-rgb.github.io/MoeaBench/algorithms/RVEA/) information about the genetic algorithm
                  ...       
                - my_new_moea:      
                       - sinxtase:
-                      experiment.problem = moeabench.MOEA.my_new_moea(args)       
+                      experiment.benchmark = moeabench.moeas.my_new_moea(args)       
                       - [my_new_moea](https://moeabench-rgb.github.io/MoeaBench/implement_moea/memory/memory/) information about the method, 
                  ...          
 """

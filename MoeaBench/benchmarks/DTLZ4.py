@@ -8,7 +8,7 @@ class DTLZ4:
         ...
                 - DTLZ4:
                       - sinxtase:
-                      experiment.problem = moeabench.benchmark.DTLZ4(args) 
+                      experiment.benchmark = moeabench.benchmarks.DTLZ4(args) 
                       - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ4) POF sampling, results obtained in tests 
                       with genetic algorithms, references and more... 
                       - [implementation](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ4/DTLZ4/) detailed implementation information

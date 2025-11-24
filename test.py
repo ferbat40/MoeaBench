@@ -21,8 +21,8 @@ exp = moeabench()
 #exp.save("savage")
 
 exp2 = moeabench()
-exp2.benchmark = moeabench.benchmark.DTLZ7()
-exp2.moea = moeabench.moea.U_NSGAIII()
+exp2.benchmark = moeabench.benchmarks.DTLZ7()
+exp2.moea = moeabench.moeas.U_NSGAIII()
 exp2.run()
 
 

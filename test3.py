@@ -21,7 +21,7 @@ class E_DTLZ(Enum):
        Fm   = 5
 
 
-@moeabench.benchmark.register_benchmark()
+@moeabench.benchmarks.register_benchmark()
 class dtlz5(BaseBenchmark):
 
     def __init__(self, type : str = None, M : int = 3, P : int = 700, K : int = 10, N : int = 0, D : int = 2, n_ieq_constr : int = 1):
@@ -131,7 +131,7 @@ from deap import base, creator, tools, algorithms
 import array
 import numpy as np
 
-@moeabench.moea.register_moea()
+@moeabench.moeas.register_moea()
 class NSGA2deap(BaseMoea):
 
   def __init__(self,problem=None,population = 160 ,generations = 300):
@@ -202,8 +202,8 @@ class NSGA2deap(BaseMoea):
     return F_gen_all,X_gen_all,F,self.get_generations(),self.get_population()
   
 exp5 = moeabench()
-exp5.benchmark= moeabench.benchmark.DTLZ1()
-exp5.moea = moeabench.moea.my_new_moea()
+exp5.benchmark= moeabench.benchmarks.DTLZ1()
+exp5.moea = moeabench.moeas.my_new_moea()
 exp5.run()
 
 #exp5.objectivet().default()

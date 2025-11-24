@@ -10,7 +10,7 @@ class my_new_moea:
         ...
                 - Informations:
                       - sinxtase:
-                      experiment.problem = moeabench.MOEA.my_new_moea(args)
+                      experiment.benchmark = moeabench.moeas.my_new_moea(args)
                       - [my_new_moea](https://moeabench-rgb.github.io/MoeaBench/implement_moea/memory/memory/) information about the method, 
                      
         """

@@ -20,7 +20,7 @@ class code:
         - Implemented in a file and coupled to MoeaBench via the user's 
         repository on GitHub.
                         
-    - **User options with:**
+    - **User options:**
                            
         - native implementations of MoeaBench algorithms.
                            

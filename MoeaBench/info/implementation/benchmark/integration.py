@@ -4,7 +4,7 @@ class integration:
       
       def __call__(self):
           display(Markdown("""
-- **Integrates the user's evolutionary algorithm into MoeaBench:**
+- ** Integrates the user's benchmark problem into MoeaBench:**
                            
     The user implementation becomes part of the framework to be used as a 
     native implementation.
@@ -20,17 +20,17 @@ class integration:
       
         The user imports their file into Colab.
         
-        - from my_implementations.NSGA2deap import my_NSGA2deap
+        - from my_implementations.my_dtlz5 import my_dtlz5
       
       - on the MoeaBench side:
                
         Add your import to MoeaBench with:
-        - moeabench.add_moea(my_NSGA2deap)
+        - moeabench.add_benchmark(my_dtlz5)
 
     - **General rules**
-             
-        - Any evolutionary algorithm can be integrated, provided it conforms 
-        to the integration rules.     
+                                        
+        - Any benchmark issue can be integrated, provided it complies with 
+        the integration rules.
                            
     
     - **Supported implementations**:
@@ -46,12 +46,12 @@ class integration:
     
     - **Example**:
       
-        - NSGA-II algorithm implemented with the DEAP library.
+        - Deb's DTLZ5 benchmark problem.
         
 
     - **For more information access the link:**
             
-        - [example code](https://moeabench-rgb.github.io/MoeaBench/implement_moea/integration/integration/) 
+        - [example code](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/integration/integration/) 
           - Detailed information about the integration process of the example mentioned.
             
         """))

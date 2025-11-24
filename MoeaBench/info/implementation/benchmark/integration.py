@@ -4,7 +4,7 @@ class integration:
       
       def __call__(self):
           display(Markdown("""
-- ** Integrates the user's benchmark problem into MoeaBench:**
+- **Integrates the user's benchmark problem into MoeaBench:**
                            
     The user implementation becomes part of the framework to be used as a 
     native implementation.

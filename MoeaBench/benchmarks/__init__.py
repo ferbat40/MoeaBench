@@ -81,7 +81,7 @@
                                             
 """
 import os, importlib
-import MoeaBench.benchmark.my_new_benchmark as m_bk
+import MoeaBench.benchmarks.my_new_benchmark as m_bk
 
 _dir = os.path.dirname(__file__)
 

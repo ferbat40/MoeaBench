@@ -36,7 +36,7 @@
 """
 
 import os, importlib
-import MoeaBench.moea.my_new_moea as my_moea
+import MoeaBench.moeas.my_new_moea as my_moea
 
 
 _dir = os.path.dirname(__file__)

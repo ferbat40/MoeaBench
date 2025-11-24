@@ -381,7 +381,7 @@ class MoeaBench(I_UserMoeaBench):
                       - [add_benchmark](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/integration/integration/) information about the method 
                      
         """
-        import MoeaBench.benchmark as bk
+        import MoeaBench.benchmarks as bk
         setattr(bk,problem.__name__,problem)
 
 
@@ -396,7 +396,7 @@ class MoeaBench(I_UserMoeaBench):
                       - [add_moea](https://moeabench-rgb.github.io/MoeaBench/implement_moea/integration/integration/) information about the method 
                      
         """
-        import MoeaBench.moea as algotithm
+        import MoeaBench.moeas as algotithm
         setattr(algotithm,moea.__name__,moea)
     
 

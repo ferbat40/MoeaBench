@@ -4,29 +4,27 @@ class hypervolume:
     
       def __call__(self):
           display(Markdown(f"""
-- **array containing the hypervolume metric calculation:**
+- **Array containing the hypervolume metric calculation:**
 
-  - **default mode: hv = experiment.hypervolume()**
+  - **Default mode: hv = experiment.hypervolume()**
              
     - arguments (default setting if no arguments are provided):     
               
-      - objective = [1,2...N]: 
-        - calculates the hypervolume metric for all objectives. 
-      - generations = [0,N]: 
-        - calculates the hypervolume metric for all generations.
+      - *objective* = [1,2...N]: calculates the hypervolume metric for all objectives. 
+      - *generations* = [0,N]: calculates the hypervolume metric for all generations.
 
   - **Notes:**
           
-    - selecting 'hypervolume':
+    - selecting *hypervolume*:
             
       hv = experiment.hypervolume()
       - ou can access more information about the method.
 
-  - **for more information access the links:**
+  - **For more information access the links:**
             
     - [hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/) 
-      - information about the method, examples and more.
+      information about the method, examples and more.
             
     - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
-      - information on possible error types.
+      information on possible error types.
       """))

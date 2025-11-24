@@ -1,30 +1,30 @@
+from IPython.display import  display, Markdown
+
 class GDplus:  
-      """
-      - array containing the GDplus metric calculation:
+      
+      def __call__(self):
+          display(Markdown(f"""
+- array containing the GDplus metric calculation:
 
-      - default mode: gd_plus = experiment.GDplus()
+  - default mode: gd_plus = experiment.GDplus()
              
-        ○ arguments (default setting if no arguments are provided):     
+    - arguments (default setting if no arguments are provided):     
               
-          ● objective = [1,2...N]: calculates the GDplus metric for all objectives. 
-          ● generations = [0,N]: calculates the GDplus metric for all generations.
+      - objective = [1,2...N]: calculates the GDplus metric for all objectives. 
+      - generations = [0,N]: calculates the GDplus metric for all generations.
 
-      - Notes:
+  - Notes:
           
-        ○ selecting 'GDplus':
+    - selecting 'GDplus':
             
-          ● gd_plus = experiment.GDplus()
-            ○ You can access more information about the method.
+      - gd_plus = experiment.GDplus()
+        - You can access more information about the method.
 
-        ○ for more information:
+  - for more information access the links:
             
-          ● [GD+](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GDplus/) 
-            - information about the method, examples and more.
+    - [GD+](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GDplus/) 
+      - information about the method, examples and more.
             
-          ● [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
-            - information on possible error types.
-      """
-   
-
-      def __repr__(self):
-          return self.__class__.__doc__
+    - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) 
+      - information on possible error types.
+      """))

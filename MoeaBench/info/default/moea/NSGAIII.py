@@ -4,9 +4,9 @@ class NSGAIII:
       
       def __call__(self):
             display(Markdown(f"""
-- **evolutionary algorithm for multi-objective optimization problems:**
+- **Evolutionary algorithm for multi-objective optimization problems:**
 
-  - **default mode: experiment.moea = experiment.moea.NSGAIII():**
+  - **Default mode: experiment.moea = experiment.moea.NSGAIII():**
              
     - arguments (default setting if no arguments are provided):    
 
@@ -21,7 +21,7 @@ class NSGAIII:
       experiment.moea = experiment.moea.NSGAIII()
       - You can access more information about the method.
 
-  - **for more information access the links:**
+  - **For more information access the links:**
             
     - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/NSGA3/) 
       references and more.

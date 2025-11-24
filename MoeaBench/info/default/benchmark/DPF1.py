@@ -4,9 +4,9 @@ class DPF1:
     
       def __call__(self):
             display(Markdown(f"""
-- **benchmark problem for multi-objective optimization:**
+- **Benchmark problem for multi-objective optimization:**
 
-  - **default mode: experiment.benchmark = experiment.benchmark.DPF1():**
+  - **Default mode: experiment.benchmark = experiment.benchmark.DPF1():**
              
     - arguments (default setting if no arguments are provided):      
 
@@ -22,7 +22,7 @@ class DPF1:
       experiment.benchmark = experiment.benchmark.DPF1()
       - You can access more information about the method.
 
-  - **for more information access the links:**
+  - **For more information access the links:**
             
     - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF1/) 
       general information about the problem.

@@ -3,7 +3,7 @@ from .problems import problems
 
 class DPF1:
      """
-        - benchmark problem:
+        - Benchmark problem:
         Click on the links for more
         ...
                 - DPF1:

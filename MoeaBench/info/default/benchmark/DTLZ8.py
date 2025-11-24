@@ -10,17 +10,14 @@ class DTLZ8:
              
     - arguments (default setting if no arguments are provided):     
                   
-      - M = 3:   
-        - number of problem objectives 
-      - N = 10:  
-        - number of decision variables.
-      - P = 700: 
-        - number of samples to the Pareto optimum.
+      - *M* = 3: number of problem objectives 
+      - *N* = 10: number of decision variables.
+      - *P* = 700: number of samples to the Pareto optimum.
 
 
   - **Notes:**
           
-    - selecting 'DTLZ8':
+    - selecting *DTLZ8*:
             
       experiment.benchmark = experiment.benchmark.DTLZ8()
       - You can access more information about the method.
@@ -28,11 +25,11 @@ class DTLZ8:
   - **for more information access the links:**
             
     - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ8/) 
-      - general information about the problem.
+      general information about the problem.
 
     - [arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ8/arguments/) 
-      - custom and default settings problem. 
+      custom and default settings problem. 
 
     - [Exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ8/exceptions/) 
-      - information on possible error types           
+      information on possible error types           
       """))

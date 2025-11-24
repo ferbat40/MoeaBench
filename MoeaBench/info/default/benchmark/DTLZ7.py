@@ -10,17 +10,13 @@ class DTLZ7:
              
     - arguments (default setting if no arguments are provided):     
                   
-      - M = 3:   
-        number of problem objectives 
-      - K = 5:   
-        umber represents the size of the vector K related to the decision variables.
-      - P = 700: 
-        number of samples to the Pareto optimum.
-
+      - *M* = 3: number of problem objectives 
+      - *K* = 5: number represents the size of the vector K related to the decision variables.
+      - *P* = 700: number of samples to the Pareto optimum.
 
   - **Notes:**
           
-    - selecting 'DTLZ7':
+    - selecting *DTLZ7*:
             
       experiment.benchmark = experiment.benchmark.DTLZ7()
       - You can access more information about the method.

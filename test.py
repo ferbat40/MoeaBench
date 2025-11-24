@@ -25,8 +25,10 @@ exp2.benchmark = moeabench.benchmark.DTLZ7()
 exp2.moea = moeabench.moea.U_NSGAIII()
 exp2.run()
 
-exp.save("savagef")
-exp.load("savagef")
+
+
+#exp.save("savagef")
+#exp.load("savagef")
 
 #HV = exp2.hypervolume(generations = [130,150], objectives = [1,3])
 #print(HV)

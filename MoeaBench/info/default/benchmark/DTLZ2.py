@@ -6,7 +6,7 @@ class DTLZ2:
             display(Markdown(f"""
 - benchmark problem for multi-objective optimization:
 
-  - default mode: experiment.benchmark = experiment.benchmarks.DTLZ2():
+  - default mode: experiment.benchmark = experiment.benchmark.DTLZ2():
              
     - arguments (default setting if no arguments are provided):     
                   
@@ -19,7 +19,7 @@ class DTLZ2:
           
     - selecting 'DTLZ2':
             
-      - experiment.benchmark = experiment.benchmarks.DTLZ2()
+      - experiment.benchmark = experiment.benchmark.DTLZ2()
         - You can access more information about the method.
 
   - for more information access the links:
@@ -27,9 +27,9 @@ class DTLZ2:
     - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ2/) 
       - general information about the problem.
 
-      - [arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/arguments/) 
-        - custom and default settings problem. 
+    - [arguments](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/arguments/) 
+      - custom and default settings problem. 
 
-      - [exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/exceptions/) 
-        - information on possible error types            
+    - [exception](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/exceptions/) 
+      - information on possible error types            
       """))

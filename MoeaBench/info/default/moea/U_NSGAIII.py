@@ -6,7 +6,7 @@ class U_NSGAIII:
             display(Markdown(f"""
 - evolutionary algorithm for multi-objective optimization problems:
 
-  - default mode: experiment.moea = experiment.moeas.U_NSGAIII():
+  - default mode: experiment.moea = experiment.moea.U_NSGAIII():
              
     - arguments (default setting if no arguments are provided):     
 
@@ -18,7 +18,7 @@ class U_NSGAIII:
           
     - selecting 'U_NSGAIII':
             
-      - experiment.moea = experiment.moeas.U_NSGAIII()
+      - experiment.moea = experiment.moea.U_NSGAIII()
         - You can access more information about the method.
 
   - for more information access the links:

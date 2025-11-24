@@ -6,7 +6,7 @@ class DTLZ7:
             display(Markdown(f"""
 - benchmark problem for multi-objective optimization:
 
-  - default mode: experiment.benchmark = experiment.benchmarks.DTLZ7():
+  - default mode: experiment.benchmark = experiment.benchmark.DTLZ7():
              
     - arguments (default setting if no arguments are provided):     
                   
@@ -19,7 +19,7 @@ class DTLZ7:
           
     - selecting 'DTLZ7':
             
-      - experiment.benchmark = experiment.benchmarks.DTLZ7()
+      - experiment.benchmark = experiment.benchmark.DTLZ7()
         - You can access more information about the method.
 
   - for more information access the links:

@@ -6,7 +6,7 @@ class RVEA:
             display(Markdown(f"""
 - evolutionary algorithm for multi-objective optimization problems:
 
-  - default mode: experiment.moea = experiment.moeas.RVEA():
+  - default mode: experiment.moea = experiment.moea.RVEA():
              
     - arguments (default setting if no arguments are provided):    
 
@@ -18,7 +18,7 @@ class RVEA:
           
     - selecting 'RVEA':
             
-      - experiment.moea = experiment.moeas.RVEA()
+      - experiment.moea = experiment.moea.RVEA()
         - You can access more information about the method.
 
   - for more information access the links:

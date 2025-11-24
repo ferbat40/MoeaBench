@@ -6,7 +6,7 @@ class DPF4:
             display(Markdown(f"""
 - benchmark problem for multi-objective optimization:
 
-  - default mode: experiment.benchmark = experiment.benchmarks.DPF4():
+  - default mode: experiment.benchmark = experiment.benchmark.DPF4():
              
     - arguments (default setting if no arguments are provided):     
 
@@ -20,7 +20,7 @@ class DPF4:
           
     - selecting 'DPF4':
             
-      - experiment.benchmark = experiment.benchmarks.DPF4()
+      - experiment.benchmark = experiment.benchmark.DPF4()
         - You can access more information about the method.
 
   - for more information access the links:

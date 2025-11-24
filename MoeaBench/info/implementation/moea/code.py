@@ -35,8 +35,8 @@ class code:
     - **For more information access the links:**
             
         - [example code](https://moeabench-rgb.github.io/MoeaBench/implement_moea/example_code/example_code/) 
-          - Detailed information on the implementation process of the example mentioned.
+          Detailed information on the implementation process of the example mentioned.
             
         - [possible execution combinations](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/) 
-          - MoeaBench allows combinations for running algorithms with benchmark problems.
+          MoeaBench allows combinations for running algorithms with benchmark problems.
       """))

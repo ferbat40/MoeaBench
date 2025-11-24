@@ -20,6 +20,11 @@ class SPEAII:
             
       experiment.moea = experiment.moea.SPEAII()
       - You can access more information about the method.
+                             
+    - selecting *moea*:
+            
+      experiment.moea = experiment.moea.SPEAII()
+      - You can access a list of evolutionary algorithm problems and their respective links to obtain more information.
 
   - **For more information access the links:**
             

@@ -20,6 +20,12 @@ class DTLZ4:
             
       experiment.benchmark = experiment.benchmark.DTLZ4()
       - You can access more information about the method.
+                             
+
+    - selecting *benchmark*:
+            
+      experiment.benchmark = experiment.benchmark.DTLZ4()
+      - You can access a list of benchmark issues and their respective links for more information.
 
   - **For more information access the links:**
             

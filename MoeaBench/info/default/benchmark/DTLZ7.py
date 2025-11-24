@@ -20,6 +20,11 @@ class DTLZ7:
             
       experiment.benchmark = experiment.benchmark.DTLZ7()
       - You can access more information about the method.
+                             
+    - selecting *benchmark*:
+            
+      experiment.benchmark = experiment.benchmark.DTLZ7()
+      - You can access a list of benchmark issues and their respective links for more information.
 
   - **For more information access the links:**
             

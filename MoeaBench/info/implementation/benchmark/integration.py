@@ -56,6 +56,6 @@ class integration:
     - **For more information access the link:**
             
         - [integration](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/integration/integration/) 
-          - Detailed information about the integration process of the example mentioned.
+          Detailed information about the integration process of the example mentioned.
             
         """))

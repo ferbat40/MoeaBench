@@ -3,10 +3,10 @@ from .moea_algorithm import moea_algorithm
 
 class MOEAD:
     """
-        - genetic algorithm:
+        - **genetic algorithm:**
         Click on the links for more
         ...
-                - MOEA/D:
+                - **MOEA/D:**
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.MOEAD(args)  
                       - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/MOEAD/) references and more...

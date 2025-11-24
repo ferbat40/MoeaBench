@@ -3,10 +3,10 @@ from .problems import problems
 
 class DPF1:
      """
-        - Benchmark problem:
+        - **Benchmark problem:**
         Click on the links for more
         ...
-                - DPF1:
+                - **DPF1:**
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DPF1(args) 
                       - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DPF/DPF1/) POF sampling, results obtained in tests 

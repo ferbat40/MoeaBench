@@ -58,10 +58,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def plot_hypervolume(self,*args, generations = [], objectives = []):   
         """
-        - 2D graph for hypervolume:
+        - **2D graph for hypervolume:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       moeabench.plot_hypervolume(args) 
                       - [plot_hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_hypervolume/) information about the method, accepted variable types, examples and more...   
@@ -75,10 +75,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def plot_GD(self,*args, generations = [], objectives = []):   
          """
-        - 2D graph for GD:
+        - **2D graph for GD:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       moeabench.plot_GD(args) 
                       - [plot_GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GD/) information about the method, accepted variable types, examples and more...   
@@ -92,10 +92,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def plot_GDplus(self,*args, generations = [], objectives = []):  
          """
-         - 2D graph for GD+:
+         - **2D graph for GD+:**
          Click on the links for more
          ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       moeabench.plot_GDplus(args) 
                       - [plot_GDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GDplus/) information about the method, accepted variable types, examples and more...   
@@ -109,10 +109,10 @@ class MoeaBench(I_UserMoeaBench):
     
     def plot_IGD(self,*args, generations = [], objectives = []):   
          """
-         - 2D graph for IGD:
+         - **2D graph for IGD:**
          Click on the links for more
          ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       moeabench.plot_IGD(args) 
                       - [plot_IGD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGD/) information about the method, accepted variable types, examples and more...   
@@ -126,10 +126,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def plot_IGDplus(self,*args, generations = [], objectives = []):   
          """
-         - 2D graph for IGD+:
+         - **2D graph for IGD+:**
          Click on the links for more
          ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       moeabench.plot_IGDplus(args) 
                       - [plot_IGDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGDplus/) information about the method, accepted variable types, examples and more...   
@@ -143,10 +143,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def pareto_surface(self, *args, objectives = []):
         """
-        - 3D graph of the Pareto boundary surface:
+        - **3D graph of the Pareto boundary surface:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       moeabench.pareto_surface(exp.problem, experiment2_result, experiment.pof...)  
                       - [pareto_surface](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/) information about the method, accepted variable types, examples and more...
@@ -161,10 +161,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def pareto(self, *args, objectives = []):
         """
-        - 3D graph for Pareto front:
+        - **3D graph for Pareto front:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       moeabench.pareto(args)  
                       - [pareto](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto/) information about the method, accepted variable types, examples and more...   
@@ -180,10 +180,10 @@ class MoeaBench(I_UserMoeaBench):
         
     def run(self):
         """
-        - run the genetic algorithm:
+        - **run the genetic algorithm:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       experiment.run()   
                       - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
@@ -212,10 +212,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def hypervolume(self, generations = [], objectives = []):
         """
-        - array with hypervolume in generations:
+        - **array with hypervolume in generations:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       experiment.hypervolume(args)  
                       - [hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/) information about the method, examples and more...   
@@ -230,10 +230,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def GD(self, generations = [], objectives = []):
         """
-        - array with GD in generations:
+        - **array with GD in generations:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       experiment.GD(args)  
                       - [GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GD/) information about the method, examples and more...   
@@ -248,10 +248,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def GDplus(self, generations = [], objectives = []):
         """
-        - array with GD+ in generations :
+        - **array with GD+ in generations:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       experiment.GDplus(args)  
                       - [GDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GDplus/) information about the method, examples and more...   
@@ -266,10 +266,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def IGD(self, generations = [], objectives = []):
         """
-        - array with IGD in generations:
+        - **array with IGD in generations:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       experiment.IGD(args)  
                       - [IGD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/IGD/) information about the method, examples and more...   
@@ -284,10 +284,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def IGDplus(self, generations = [], objectives = []):
         """
-        - array with IGD+ in generations:
+        - **array with IGD+ in generations:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       experiment.IGDplus(args)  
                       - [IGDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/IGDplus/) information about the method, examples and more...   
@@ -302,10 +302,10 @@ class MoeaBench(I_UserMoeaBench):
             
     def objective(self, objective = 1, generations = []):
         """
-        - array with objectives in generations:
+        - **array with objectives in generations:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       experiment.objective(args)  
                       - [objective](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/data/objective/) information about the method, examples and more...   
@@ -320,10 +320,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def variable(self, variable = 1, generations = []):
         """
-        - array with decision variables in generations:
+        - **array with decision variables in generations:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       experiment.variable(args)  
                       - [variable](https://moeabench-rgb.github.io/MoeaBench/analysis/variables/data/variable/) information about the method, examples and more...   
@@ -338,7 +338,7 @@ class MoeaBench(I_UserMoeaBench):
 
     def load(self,file):
         """
-        - Loads a user experiment into MoeaBench:
+        - **Loads a user experiment into MoeaBench:**
         Click on the links for more
         ...
                 - Informations:
@@ -355,10 +355,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def save(self, file):
         """
-        - save the user's experiment in a zip file:
+        - **save the user's experiment in a zip file:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       experiment.save(nameFile)  
                       - [save](https://moeabench-rgb.github.io/MoeaBench/experiments/save_experiment/save_experiment/) information about the method, 
@@ -372,10 +372,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def add_benchmark(self,problem):
         """
-        - Integrates a user benchmark problem implementation in MoeaBench:
+        - **Integrates a user benchmark problem implementation in MoeaBench:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       experiment.add_benchmark(module)  
                       - [add_benchmark](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/integration/integration/) information about the method 
@@ -387,10 +387,10 @@ class MoeaBench(I_UserMoeaBench):
 
     def add_moea(self,moea):
         """
-        - integrates a user genetic algorithm implementation into MoeaBench:
+        - **integrates a user genetic algorithm implementation into MoeaBench:**
         Click on the links for more
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       experiment.add_moea(module)  
                       - [add_moea](https://moeabench-rgb.github.io/MoeaBench/implement_moea/integration/integration/) information about the method 

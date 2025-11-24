@@ -5,10 +5,10 @@ M_register = {}
 
 class my_new_moea:
       """
-        - accesses in memory an implementation of a user evolutionary algorithm.
+        - **accesses in memory an implementation of a user evolutionary algorithm.**
         Click on the links for more:
         ...
-                - Informations:
+                - **Informations:**
                       - sinxtase:
                       experiment.problem = experiment.MOEA.my_new_moea(args)
                       - [my_new_moea](https://moeabench-rgb.github.io/MoeaBench/implement_moea/memory/memory/) information about the method, 

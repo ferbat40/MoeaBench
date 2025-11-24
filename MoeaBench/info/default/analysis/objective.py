@@ -9,7 +9,7 @@ class objective:
   - **default mode: obj = experiment.objective():**
              
     - arguments (default setting if no arguments are provided):             
-      - objective = [1,2...N]: returns the first objective  
+      - objective = 1: returns the first objective  
       - generations = [0,N]: It returns the goal for all generations.
 
                      

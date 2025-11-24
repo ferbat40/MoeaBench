@@ -13,8 +13,6 @@ from .loader import loader
 import importlib
 
 
-
-
 class MoeaBench(I_UserMoeaBench):
       
     def __init__(self):

@@ -3,10 +3,10 @@ from .moea_algorithm import moea_algorithm
 
 class RVEA:
     """
-        - **genetic algorithm:**
+        - genetic algorithm:
         Click on the links for more
         ...
-                - **RVEA:**
+                - RVEA:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.RVEA(args)  
                       - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/RVEA/) references and  more...

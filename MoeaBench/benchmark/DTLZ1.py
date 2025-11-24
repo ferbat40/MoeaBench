@@ -3,10 +3,10 @@ from .problems import problems
 
 class DTLZ1:
      """
-        - **benchmark problem:**
+        - benchmark problem:
         Click on the links for more
         ...
-                - **DTLZ1:**
+                - DTLZ1:
                       - sinxtase:
                       experiment.problem = moeabench.benchmark.DTLZ1(args) 
                       - [general](https://moeabench-rgb.github.io/MoeaBench/problems/DTLZ/DTLZ1/) POF sampling, results obtained in tests 

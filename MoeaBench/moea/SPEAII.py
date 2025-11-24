@@ -3,10 +3,10 @@ from .moea_algorithm import moea_algorithm
 
 class SPEAII:
     """
-        - **genetic algorithm:**
+        - genetic algorithm:
         Click on the links for more
         ...
-                - **SPEA-II:**
+                - SPEA-II:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.SPEA_II(args)  
                       - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/SPEA2/) references and  more...

@@ -4,7 +4,7 @@
         ...
                 - Informations:
                       - sinxtase:
-                      experiment.problem = experiment.MOEA.my_new_moea(args)
+                      experiment.problem = moeabench.MOEA.my_new_moea(args)
                       - [my_new_moea](https://moeabench-rgb.github.io/MoeaBench/implement_moea/memory/memory/) information about the method, 
                      
 """

@@ -3,10 +3,10 @@ from .moea_algorithm import moea_algorithm
 
 class U_NSGAIII:
     """
-        - **genetic algorithm:**
+        - genetic algorithm:
         Click on the links for more
         ...
-                - **U_NSGA-II:**
+                - U_NSGA-II:
                       - sinxtase:
                       experiment.moea = moeabench.MOEA.U_NSGA_3(args)  
                       - [general](https://moeabench-rgb.github.io/MoeaBench/algorithms/UNSGA3/) references and more...

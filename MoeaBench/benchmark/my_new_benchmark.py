@@ -13,7 +13,7 @@ class my_new_benchmark:
         ...
                 - Informations:
                       - sinxtase:
-                      experiment.problem = experiment.benchmark.my_new_benchmark(args)
+                      experiment.problem = moeabench.benchmark.my_new_benchmark(args)
                       - [my_new_benchmark](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/memory/memory/) information about the method, 
                      
         """

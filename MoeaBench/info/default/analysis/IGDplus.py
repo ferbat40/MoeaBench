@@ -19,8 +19,8 @@ class IGDplus:
           
     - selecting 'IGDplus':
             
-      - igd_plus = experiment.IGDplus()
-        - You can access more information about the method.
+      igd_plus = experiment.IGDplus()
+      You can access more information about the method.
 
   - **for more information access the links:**
             

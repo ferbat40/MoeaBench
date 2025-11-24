@@ -21,8 +21,8 @@ class MOEAD:
           
     - selecting 'MOEAD':
             
-      - experiment.moea = experiment.moea.MOEAD()
-        - You can access more information about the method.
+      experiment.moea = experiment.moea.MOEAD()
+      You can access more information about the method.
 
   - **for more information access the links:**
             

@@ -21,8 +21,8 @@ class DTLZ4:
           
     - selecting 'DTLZ4':
             
-      - experiment.benchmark = experiment.benchmark.DTLZ4()
-        - You can access more information about the method.
+      experiment.benchmark = experiment.benchmark.DTLZ4()
+      You can access more information about the method.
 
   - **for more information access the links:**
             

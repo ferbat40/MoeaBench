@@ -21,8 +21,8 @@ class SPEAII:
           
     - selecting 'SPEAII':
             
-      - experiment.moea = experiment.moea.SPEAII()
-        - You can access more information about the method.
+      experiment.moea = experiment.moea.SPEAII()
+      You can access more information about the method.
 
   - **for more information access the links:**
             

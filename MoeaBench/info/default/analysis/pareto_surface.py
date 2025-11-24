@@ -24,8 +24,8 @@ class pareto_surface:
           
     - selecting "pareto_surface':
             
-      - moeabench.pareto_surface(exp1.result, exp2.pof, exp2.result...)
-        - You can access more information about the method.
+      moeabench.pareto_surface(exp1.result, exp2.pof, exp2.result...)
+      You can access more information about the method.
 
   - **for more information access the links:**
             

@@ -19,8 +19,8 @@ class IGD:
           
     - selecting 'IGD':
             
-      - igd = experiment.IGD()
-        - You can access more information about the method.
+      igd = experiment.IGD()
+      You can access more information about the method.
 
   - **for more information access the links:**
             

@@ -19,8 +19,8 @@ class variable:
           
     - selecting 'variable':
             
-      - var = experiment.variable()
-      - You can access more information about the method.
+      var = experiment.variable()
+      You can access more information about the method.
 
   - **for more information access the links:**
             

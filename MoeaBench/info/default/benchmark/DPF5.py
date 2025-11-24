@@ -24,8 +24,8 @@ class DPF5:
           
     - selecting 'DPF5':
             
-      - experiment.benchmark = experiment.benchmark.DPF5()
-        - You can access more information about the method.
+      experiment.benchmark = experiment.benchmark.DPF5()
+      You can access more information about the method.
 
   - **for more information access the links:**
             

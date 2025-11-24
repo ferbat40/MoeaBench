@@ -19,8 +19,8 @@ class plot_hypervolume:
           
     - selecting "plot_hypervolume':
             
-      - moeabench.plot_hypervolume(exp1.result, exp2.result...)
-        - You can access more information about the method.
+      moeabench.plot_hypervolume(exp1.result, exp2.result...)
+      You can access more information about the method.
 
   - **for more information access the links:**
             

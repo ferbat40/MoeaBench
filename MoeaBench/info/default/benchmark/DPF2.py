@@ -24,8 +24,8 @@ class DPF2:
           
     - selecting 'DPF2':
             
-      - experiment.benchmark = experiment.benchmark.DPF2()
-        - You can access more information about the method.
+      experiment.benchmark = experiment.benchmark.DPF2()
+      You can access more information about the method.
 
   - **for more information access the links:**
             

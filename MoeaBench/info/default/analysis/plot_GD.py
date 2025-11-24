@@ -19,8 +19,8 @@ class plot_GD:
           
     - selecting "plot_GD':
             
-      - moeabench.plot_GD(exp1.result, exp2.result...)
-        - You can access more information about the method.
+      moeabench.plot_GD(exp1.result, exp2.result...)
+      You can access more information about the method.
 
   - **for more information access the links:**
             

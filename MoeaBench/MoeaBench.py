@@ -66,7 +66,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       moeabench.plot_hypervolume(args) 
-                      - [hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_hypervolume/) information about the method, accepted variable types, examples and more...   
+                      - [plot_hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_hypervolume/) information about the method, accepted variable types, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
         """
@@ -83,7 +83,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       moeabench.plot_GD(args) 
-                      - [GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GD/) information about the method, accepted variable types, examples and more...   
+                      - [plot_GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GD/) information about the method, accepted variable types, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
          """
@@ -100,7 +100,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       moeabench.plot_GDplus(args) 
-                      - [GD+](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GDplus/) information about the method, accepted variable types, examples and more...   
+                      - [plot_GDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GDplus/) information about the method, accepted variable types, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
          """
@@ -117,7 +117,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       moeabench.plot_IGD(args) 
-                      - [IGD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGD/) information about the method, accepted variable types, examples and more...   
+                      - [plot_IGD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGD/) information about the method, accepted variable types, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
          """
@@ -134,7 +134,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       moeabench.plot_IGDplus(args) 
-                      - [IGD+](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGDplus/) information about the method, accepted variable types, examples and more...   
+                      - [plot_IGDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_IGDplus/) information about the method, accepted variable types, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
          """
@@ -151,7 +151,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       moeabench.pareto_surface(exp.problem, experiment2_result, experiment.pof...)  
-                      - [pareto surface](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/) information about the method, accepted variable types, examples and more...
+                      - [pareto_surface](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/) information about the method, accepted variable types, examples and more...
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
        
         """
@@ -256,7 +256,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.GDplus(args)  
-                      - [GD+](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GDplus/) information about the method, examples and more...   
+                      - [GDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GDplus/) information about the method, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """
@@ -292,7 +292,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.IGDplus(args)  
-                      - [IGD+](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/IGDplus/) information about the method, examples and more...   
+                      - [IGDplus](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/IGDplus/) information about the method, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """
@@ -380,25 +380,11 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.add_benchmark(module)  
-                      - [integration](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/integration/integration/) information about the method 
+                      - [add_benchmark](https://moeabench-rgb.github.io/MoeaBench/implement_benchmark/integration/integration/) information about the method 
                      
         """
         import MoeaBench.benchmark as bk
         setattr(bk,problem.__name__,problem)
-    
-
-    def default(self):
-        """
-        - integrates a user genetic algorithm implementation into MoeaBench:
-        Click on the links for more
-        ...
-                - Informations:
-                      - sinxtase:
-                      experiment.add_moea(module)  
-                      - [integration](https://moeabench-rgb.github.io/MoeaBench/implement_moea/integration/integration/) information about the method 
-                     
-        """
-        return self.__doc__
 
 
     def add_moea(self,moea):
@@ -409,7 +395,7 @@ class MoeaBench(I_UserMoeaBench):
                 - Informations:
                       - sinxtase:
                       experiment.add_moea(module)  
-                      - [integration](https://moeabench-rgb.github.io/MoeaBench/implement_moea/integration/integration/) information about the method 
+                      - [add_moea](https://moeabench-rgb.github.io/MoeaBench/implement_moea/integration/integration/) information about the method 
                      
         """
         import MoeaBench.moea as algotithm

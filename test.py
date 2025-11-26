@@ -3,7 +3,8 @@ import os
 from MoeaBench import moeabench
 #from MoeaBench.NSGA2deap import my_NSGA2deap
 #from MoeaBench.my_dtlz5 import my_dtlz5
-
+import numpy as np
+from MoeaBench.base_benchmark import BaseBenchmark
 
 
 os.system("cls")  
@@ -20,13 +21,21 @@ exp = moeabench()
 #exp.run()
 #exp.save("savage")
 
+
+exp = moeabench()
+exp.benchmark = moeabench.benchmarks.DTLZ8()
+exp.moea = moeabench.moeas.MOEAD()
+exp.run()
+
 exp2 = moeabench()
-exp2.benchmark = moeabench.benchmarks.DTLZ7()
-exp2.moea = moeabench.moeas.U_NSGAIII()
+exp2.benchmark = moeabench.benchmarks.DTLZ8()
+exp2.moea = moeabench.moeas.SPEAII()
 exp2.run()
 
+moeabench.stats.kstest(exp2.objective(objective = 4, last = True), exp.objective(objective = 3, last = True))
 
-moeabench.info.implementation.benchmark.code
+#print(exp.objective()[-1])
+#exp2.hypervolume()
 
 #exp.save("savagef")
 #exp.load("savagef")
@@ -71,10 +80,10 @@ moeabench.info.implementation.benchmark.code
 
 
 
-
-
-
-
+ #ks = [b.get_F_GEN()[-1] for i in args for b in i.get_elements()[0]  if hasattr(b.__class__,"get_F_GEN")]
+        #for obj, begin in enumerate(range(0,3), start = 1):
+         #stat, value = ks_2samp(ks[0][:,begin],ks[1][:,begin])
+         #print(f'objective {obj} KS stats {stat},  p-value {value}')
 
 
 

@@ -300,7 +300,7 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
 
             
-    def objective(self, objective = 1, generations = []):
+    def objective(self, objective = 1, generations = [], last = False):
         """
         - **array with objectives in generations:**
         Click on the links for more
@@ -313,7 +313,7 @@ class MoeaBench(I_UserMoeaBench):
 
         """
         try:
-            return self.result_obj.IPL_objectives(self.result, generations, objective)
+            return self.result_obj.IPL_objectives(self.result, generations, objective, last)
         except Exception as e:
             print(e)
 

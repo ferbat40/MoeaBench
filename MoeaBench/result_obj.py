@@ -11,9 +11,9 @@ class result_obj(result):
             raise TypeError(f"Objective = {objective} not be allowed. It must be between 1 and {max}" )
     
 
-    def IPL_objectives(self, result, generation, objective):
+    def IPL_objectives(self, result, generation, objective, last):
         self.allowed_obj(result, objective)
-        return self.DATA(result,generation, objective)[0]
+        return self.DATA(result,generation, objective)[0] if last is False else self.DATA(result,generation, objective)[0][-1]
         
         
     

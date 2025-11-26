@@ -1,5 +1,5 @@
 import os, importlib
-from .kstest import kstest
+
 
 
 _dir = os.path.dirname(__file__)

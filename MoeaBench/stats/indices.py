@@ -36,8 +36,8 @@ class indices:
                 table["mean"].append(np.mean(i))
                 table["variance"].append(np.var(i))
                 table["std_dev"].append(np.std(i))
-                table["skewness"].append(stats.skew(i))
-                table["kurtosis"].append(stats.kurtosis(i))
+                table["skewness"].append(stats.skew(i)[0])
+                table["kurtosis"].append(stats.kurtosis(i)[0])
             df = pd.DataFrame(table)
             df.index = df.index+1
             display(df)

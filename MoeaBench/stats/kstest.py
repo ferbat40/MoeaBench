@@ -21,7 +21,7 @@ class kstest:
         try:
             self.allowed_array(args)
             stat, value = ks_2samp(args[0],args[1])
-            display(f'KS stats {stat[0]},  p-value {value[0]}')
+            print(f'KS stats {stat[0]},  p-value {value[0]}')
         except Exception as e:
             print(e)  
        

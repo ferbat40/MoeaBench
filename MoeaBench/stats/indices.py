@@ -40,6 +40,6 @@ class indices:
                 table["kurtosis"].append(stats.kurtosis(i))
             df = pd.DataFrame(table)
             df.index = df.index+1
-            display(df)
+            print(df)
         except Exception as e:
             print(e)  

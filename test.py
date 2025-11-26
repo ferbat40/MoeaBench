@@ -32,7 +32,11 @@ exp2.benchmark = moeabench.benchmarks.DTLZ8()
 exp2.moea = moeabench.moeas.SPEAII()
 exp2.run()
 
-moeabench.stats.kstest(exp2.objective(objective = 4, last = True), exp.objective(objective = 3, last = True))
+moeabench.stats.kstest(exp2.objective(objective = 3, last = True), exp.objective(objective = 3, last = True))
+moeabench.stats.indices(exp2.objective(last = True), exp.objective(last = True))
+
+
+
 
 #print(exp.objective()[-1])
 #exp2.hypervolume()

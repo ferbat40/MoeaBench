@@ -369,6 +369,10 @@ class MoeaBench(I_UserMoeaBench):
         except Exception as e:
             print(e)
 
+    
+    def indices(self):
+        self.result
+
 
     def add_benchmark(self,problem):
         """

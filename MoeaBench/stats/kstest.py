@@ -12,9 +12,9 @@ class kstest:
     def allowed_array(self,args):
         results = [False if not (isinstance(i,np.ndarray)) else True for i in args ]
         if False in results:
-            raise ValueError("only arrays are allowed for the metric calculation.")
+            raise ValueError("Only arrays are allowed for the metric calculation.")
         if not 0 < len(results) < 3:
-            raise ValueError("only two arrays are allowed for the metric calculation.")
+            raise ValueError("Only two arrays are allowed for the metric calculation.")
 
 
     def __call__(self,args):

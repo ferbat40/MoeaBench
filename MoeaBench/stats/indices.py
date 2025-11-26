@@ -7,7 +7,7 @@ import pandas as pd
 class indices:
     
     def __init__(self, *args):
-        self.__call__(args)
+        self.__call__(*args)
 
     
     def allowed_array(self,args):
@@ -17,7 +17,7 @@ class indices:
         
 
 
-    def __call__(self,args):
+    def __call__(self,*args):
        
         try:
             self.allowed_array(args)
@@ -40,6 +40,6 @@ class indices:
                 table["kurtosis"].append(stats.kurtosis(i))
             df = pd.DataFrame(table)
             df.index = df.index+1
-            print(df)
+            display(df)
         except Exception as e:
             print(e)  

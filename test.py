@@ -5,11 +5,13 @@ from MoeaBench import moeabench
 #from MoeaBench.my_dtlz5 import my_dtlz5
 import numpy as np
 from MoeaBench.base_benchmark import BaseBenchmark
-
+from IPython.display import  display
 
 os.system("cls")  
 
 exp = moeabench()
+stat = moeabench()
+
 
 
 #exp.add_benchmark(my_dtlz5)
@@ -32,10 +34,20 @@ exp2.benchmark = moeabench.benchmarks.DTLZ8()
 exp2.moea = moeabench.moeas.SPEAII()
 exp2.run()
 
-moeabench.stats.kstest(exp2.objective(objective = 3, last = True), exp.objective(objective = 3, last = True))
-moeabench.stats.indices(exp2.objective(last = True), exp.objective(last = True))
-hv = exp.hypervolume()
-print(hv)
+
+stat = moeabench()
+
+stat.kstest = moeabench.stat.kstest(exp.objective(), exp2.objective())
+display(stat.kstest)
+
+
+stat.indice = moeabench.stat.indice(exp.objective(), exp2.objective())
+display(stat.indice)
+
+#moeabench.stats.kstest(exp2.objective(objective = 3), exp.objective(objective = 3))
+#moeabench.stats.indices(exp2.objective(), exp.objective())
+#hv = exp.hypervolume()
+#print(hv)
 
 
 

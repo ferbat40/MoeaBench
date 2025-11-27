@@ -33,6 +33,25 @@ class MoeaBench(I_UserMoeaBench):
         except ModuleNotFoundError:
             raise AttributeError(name)
     
+    @property
+    def kstest(self):
+        return self._kstest
+    
+
+    @kstest.setter
+    def kstest(self,value):
+        self._kstest=value()
+
+
+    @property
+    def indice(self):
+        return self._indice
+    
+
+    @indice.setter
+    def indice(self,value):
+        self._indice=value()
+
 
     @property
     def moea(self):
@@ -300,7 +319,7 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
 
             
-    def objective(self, objective = 1, generations = [], last = False):
+    def objective(self, objective = 1, generations = []):
         """
         - **array with objectives in generations:**
         Click on the links for more
@@ -313,7 +332,7 @@ class MoeaBench(I_UserMoeaBench):
 
         """
         try:
-            return self.result_obj.IPL_objectives(self.result, generations, objective, last)
+            return self.result_obj.IPL_objectives(self.result, generations, objective)
         except Exception as e:
             print(e)
 

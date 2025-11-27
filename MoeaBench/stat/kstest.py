@@ -1,6 +1,7 @@
 from scipy.stats import ks_2samp
 from IPython.display import  display
 import numpy as np
+import pandas as pd
 
 
 class kstest:
@@ -18,10 +19,20 @@ class kstest:
 
 
     def __call__(self):
+
+        table = {
+            "KS stats" : [],
+            "p-value" : [],
+            }
+
         try:
             self.allowed_array( self.args)
             stat, value = ks_2samp(self.args[0][-1],self.args[1][-1])
-            return (f'KS stats {stat[0]},  p-value {value[0]}')     
+            table["KS stats"].append(stat[0])
+            table["p-value"].append(value[0])
+            df = pd.DataFrame(table)
+            df.index = df.index+1
+            return df   
         except Exception as e:
             print(e)  
        

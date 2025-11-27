@@ -32,26 +32,26 @@ exp.run()
 exp2 = moeabench()
 exp2.benchmark = moeabench.benchmarks.DTLZ8()
 exp2.moea = moeabench.moeas.SPEAII()
-exp2.run()
+#exp2.run()
 
 
-stat = moeabench()
+#stat = moeabench()
 
-stat.kstest = moeabench.stat.kstest(exp.objective(), exp2.objective())
-display(stat.kstest)
+#stat.kstest = moeabench.stat.kstest(exp.objective(), exp2.objective())
+#display(stat.kstest)
 
 
-stat.indice = moeabench.stat.indice(exp.objective(), exp2.objective())
-display(stat.indice)
+#stat.indice = moeabench.stat.indice(exp.objective(), exp2.objective())
+#display(stat.indice)
 
 #moeabench.stats.kstest(exp2.objective(objective = 3), exp.objective(objective = 3))
 #moeabench.stats.indices(exp2.objective(), exp.objective())
 hv = exp.hypervolume()
-print(hv)
-print("ultimo ",hv[-1])
+#print(hv)
+#print("ultimo ",hv[-1])
 
 
-#print(exp.objective()[-1])
+exp.objective()
 #exp2.hypervolume()
 
 #exp.save("savagef")

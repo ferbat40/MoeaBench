@@ -52,19 +52,19 @@ class result_metric(result):
     def IPL_GDplus(self, result, generation, objective):
         F_GEN, F =  self.DATA(result,generation, objective)
         gdplus_gen = result_metric.set_GDplus(F_GEN,F)
-        return [gdplus.evaluate() for gdplus in gdplus_gen][0]
+        return [gdplus.evaluate().flatten() for gdplus in gdplus_gen][0]
     
 
     def IPL_IGD(self, result, generation, objective):
         F_GEN, F =  self.DATA(result,generation, objective)
         igd_gen = result_metric.set_IGD(F_GEN,F)
-        return [igd.evaluate() for igd in igd_gen][0]
+        return [igd.evaluate().flatten() for igd in igd_gen][0]
     
 
     def IPL_IGDplus(self, result, generation, objective):
         F_GEN, F =  self.DATA(result,generation, objective)
         igdplus_gen = result_metric.set_IGD_plus(F_GEN,F)
-        return [igdplus.evaluate() for igdplus in igdplus_gen][0]
+        return [igdplus.evaluate().flatten() for igdplus in igdplus_gen][0]
     
     
     

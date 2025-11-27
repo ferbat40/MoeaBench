@@ -40,31 +40,32 @@ class result_metric(result):
     def IPL_hypervolume(self, result, generation, objective):
         F_GEN, F =  self.DATA(result,generation, objective)
         hv_gen = result_metric.set_hypervolume(F_GEN,F)
-        return [hv.evaluate().flatten() for hv in hv_gen][0]
+        hv = [hv.evaluate().flatten() for hv in hv_gen][0]
+        return hv
             
 
     def IPL_GD(self, result, generation, objective):
         F_GEN, F =  self.DATA(result,generation, objective)
         gd_gen = result_metric.set_GD(F_GEN,F)
-        return [gd.evaluate().flatten() for gd in gd_gen][0]
+        return [float(gd.evaluate().flatten()) for gd in gd_gen][0]
     
 
     def IPL_GDplus(self, result, generation, objective):
         F_GEN, F =  self.DATA(result,generation, objective)
         gdplus_gen = result_metric.set_GDplus(F_GEN,F)
-        return [gdplus.evaluate().flatten() for gdplus in gdplus_gen][0]
+        return [float(gdplus.evaluate().flatten()) for gdplus in gdplus_gen][0]
     
 
     def IPL_IGD(self, result, generation, objective):
         F_GEN, F =  self.DATA(result,generation, objective)
         igd_gen = result_metric.set_IGD(F_GEN,F)
-        return [igd.evaluate().flatten() for igd in igd_gen][0]
+        return [float(igd.evaluate().flatten()) for igd in igd_gen][0]
     
 
     def IPL_IGDplus(self, result, generation, objective):
         F_GEN, F =  self.DATA(result,generation, objective)
         igdplus_gen = result_metric.set_IGD_plus(F_GEN,F)
-        return [igdplus.evaluate().flatten() for igdplus in igdplus_gen][0]
+        return [float(igdplus.evaluate().flatten()) for igdplus in igdplus_gen][0]
     
     
     

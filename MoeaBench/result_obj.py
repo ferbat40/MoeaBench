@@ -13,7 +13,7 @@ class result_obj(result):
 
     def IPL_objectives(self, result, generation, objective):
         self.allowed_obj(result, objective)
-        return self.DATA(result,generation, objective) 
+        return self.DATA(result,generation, objective)[0] 
         
     
 

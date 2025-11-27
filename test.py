@@ -31,7 +31,7 @@ exp.run()
 
 exp2 = moeabench()
 exp2.benchmark = moeabench.benchmarks.DTLZ8()
-exp2.moea = moeabench.moeas.SPEAII()
+exp2.moea = moeabench.moeas.SPEAII(population = 100, generations = 150)
 #exp2.run()
 
 
@@ -47,11 +47,13 @@ exp2.moea = moeabench.moeas.SPEAII()
 #moeabench.stats.kstest(exp2.objective(objective = 3), exp.objective(objective = 3))
 #moeabench.stats.indices(exp2.objective(), exp.objective())
 hv = exp.hypervolume()
-#print(hv)
+#print(hv[-1])
 #print("ultimo ",hv[-1])
+obj = exp.objective()
 
 
-exp.objective()
+print(obj[-1].shape,"   ",len(obj))
+#exp.objective()
 #exp2.hypervolume()
 
 #exp.save("savagef")

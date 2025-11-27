@@ -1,32 +1,25 @@
 from scipy.stats import ks_2samp
-from IPython.display import  display
-import numpy as np
 import pandas as pd
+from MoeaBench import stat
 
 
-class kstest:
+class kstest(stat.allowed):
     
     def __init__(self, *args):
         self.args = args
-
-    
-    def allowed_array(self,args):
-        results = [False if not (isinstance(i[-1],np.ndarray)) else True for i in args ]
-        if False in results:
-            raise ValueError("Only arrays are allowed for the metric calculation.")
-        if len(results) != 2:
-            raise ValueError("Only two arrays are allowed for the metric calculation.")
-
+        
 
     def __call__(self):
-
+        
         table = {
             "KS stats" : [],
             "p-value" : [],
             }
 
         try:
-            self.allowed_array( self.args)
+            results = super().allowed_array(self.args)
+            if results is not None and len(results) != 2:
+                raise ValueError("Only two arrays are allowed for the metric calculation.")
             stat, value = ks_2samp(self.args[0][-1],self.args[1][-1])
             table["KS stats"].append(stat[0])
             table["p-value"].append(value[0])

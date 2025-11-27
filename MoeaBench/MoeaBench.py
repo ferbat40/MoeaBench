@@ -33,6 +33,7 @@ class MoeaBench(I_UserMoeaBench):
         except ModuleNotFoundError:
             raise AttributeError(name)
     
+
     @property
     def kstest(self):
         return self._kstest

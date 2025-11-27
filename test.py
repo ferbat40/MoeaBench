@@ -46,9 +46,9 @@ display(stat.indice)
 
 #moeabench.stats.kstest(exp2.objective(objective = 3), exp.objective(objective = 3))
 #moeabench.stats.indices(exp2.objective(), exp.objective())
-#hv = exp.hypervolume()
-#print(hv)
-
+hv = exp.hypervolume()
+print(hv)
+print("ultimo ",hv[-1])
 
 
 #print(exp.objective()[-1])

@@ -1,27 +1,21 @@
 from scipy import stats
 import numpy as np
 import pandas as pd
+from MoeaBench import stat
 
 
-class indice:
-
+class indice(stat.allowed):
 
     def __init__(self, *args):
         self.args = args 
     
-    
-    def allowed_array(self,args):
-        results = [False if not (isinstance(i[-1],np.ndarray)) else True for i in args ]
-        if False in results:
-            raise ValueError("Only arrays are allowed for the metric calculation.")
-        
-
 
     def __call__(self):
        
         try:
-            self.allowed_array(self.args)
-            
+            results = super().allowed_array(self.args)
+            if results is not None and len(results) < 1:
+                raise ValueError("No array passed as a parameter.")
             table = {
             "array" : [],
             "mean" : [],

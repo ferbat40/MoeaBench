@@ -49,10 +49,10 @@ exp2.moea = moeabench.moeas.SPEAII(population = 100, generations = 150)
 hv = exp.hypervolume()
 #print(hv[-1])
 #print("ultimo ",hv[-1])
-obj = exp.objective()
+obj = exp.objective(objective = 2, generations = [150,160])
 
 
-print(obj[-1].shape,"   ",len(obj))
+print(obj[0].shape,"   ",len(obj))
 #exp.objective()
 #exp2.hypervolume()
 

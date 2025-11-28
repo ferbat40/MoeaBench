@@ -1,5 +1,6 @@
 from .MoeaBench import MoeaBench
 
+
 class _MoeaBenchWrapper:
     """
         - Description:   
@@ -17,8 +18,10 @@ class _MoeaBenchWrapper:
         inst = MoeaBench()
         return getattr(inst, name)
 
+
     def __call__(self, *args, **kwargs):
         return MoeaBench(*args,  **kwargs)
+
     
     def help(self):
         print(self.__class__.__doc__)

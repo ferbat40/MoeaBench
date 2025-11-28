@@ -11,6 +11,7 @@ from .I_UserMoeaBench import I_UserMoeaBench
 from .save import save
 from .loader import loader
 import importlib
+from .experiment import experiment
 
 
 class MoeaBench(I_UserMoeaBench):
@@ -21,6 +22,10 @@ class MoeaBench(I_UserMoeaBench):
         self.result_metric=result_metric()
         self.result_obj=result_obj()
         self.result_var=result_var()
+
+
+    def experiment(self):
+        return experiment(self)
 
 
     def __getattr__(self,name):

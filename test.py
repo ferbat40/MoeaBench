@@ -9,8 +9,18 @@ from IPython.display import  display
 
 os.system("cls")  
 
-exp = moeabench()
-stat = moeabench()
+exp = moeabench.experiment()
+exp.benchmark = moeabench.benchmarks.DTLZ8()
+exp.moea = moeabench.moeas.MOEAD()
+exp.run()
+
+
+
+
+
+
+
+#stat = moeabench()
 
 
 
@@ -24,14 +34,14 @@ stat = moeabench()
 #exp.save("savage")
 
 
-exp = moeabench()
-exp.benchmark = moeabench.benchmarks.DTLZ8()
-exp.moea = moeabench.moeas.MOEAD()
-exp.run()
+#exp = moeabench()
+#exp.benchmark = moeabench.benchmarks.DTLZ8()
+#exp.moea = moeabench.moeas.MOEAD()
+#exp.run()
 
-exp2 = moeabench()
-exp2.benchmark = moeabench.benchmarks.DTLZ8()
-exp2.moea = moeabench.moeas.SPEAII(population = 100, generations = 150)
+#exp2 = moeabench()
+#exp2.benchmark = moeabench.benchmarks.DTLZ8()
+#exp2.moea = moeabench.moeas.SPEAII(population = 100, generations = 150)
 #exp2.run()
 
 
@@ -46,13 +56,13 @@ exp2.moea = moeabench.moeas.SPEAII(population = 100, generations = 150)
 
 #moeabench.stats.kstest(exp2.objective(objective = 3), exp.objective(objective = 3))
 #moeabench.stats.indices(exp2.objective(), exp.objective())
-hv = exp.hypervolume()
+#hv = exp.hypervolume()
 #print(hv[-1])
 #print("ultimo ",hv[-1])
-obj = exp.objective(objective = 2, generations = [150,160])
+#obj = exp.objective(objective = 2, generations = [150,160])
 
 
-print(obj[0].shape,"   ",len(obj))
+#print(obj[0].shape,"   ",len(obj))
 #exp.objective()
 #exp2.hypervolume()
 

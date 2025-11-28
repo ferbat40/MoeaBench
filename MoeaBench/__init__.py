@@ -12,4 +12,3 @@
 
 from .factory import moeabench
 
-

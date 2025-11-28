@@ -3,6 +3,8 @@ from .RUN_user import RUN_user
 from .result_metric import result_metric
 from .result_obj import result_obj
 from .result_var import result_var
+from .save import save
+from .loader import loader
 
 
 class experiment:
@@ -163,6 +165,39 @@ class experiment:
         except Exception as e:
             print(e)
 
+
+    def load(self,file):
+        """
+        - **Loads a user experiment into MoeaBench:**
+        Click on the links for more
+        ...
+                - Informations:
+                      - sinxtase:
+                      experiment.load(nameFile)  
+                      - [load](https://moeabench-rgb.github.io/MoeaBench/experiments/load_experiment/load_experiment/) information about the method, 
+                     
+        """
+        try:
+            loader.IPL_loader(self,file)      
+        except Exception as e:
+            print(e)
+
+
+    def save(self, file):
+        """
+        - **save the user's experiment in a zip file:**
+        Click on the links for more
+        ...
+                - **Informations:**
+                      - sinxtase:
+                      experiment.save(nameFile)  
+                      - [save](https://moeabench-rgb.github.io/MoeaBench/experiments/save_experiment/save_experiment/) information about the method, 
+                     
+        """
+        try:
+            save.IPL_save(self,file)
+        except Exception as e:
+            print(e)
 
 
     def run(self):

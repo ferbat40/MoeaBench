@@ -1,21 +1,22 @@
 from scipy import stats
 import numpy as np
 import pandas as pd
-from MoeaBench import stat
 
 
-class indice(stat.allowed):
+
+class indice:
 
     def __init__(self, *args):
         self.args = args 
+        print("aqui ",args  )
     
 
     def __call__(self):
        
         try:
-            results = super().allowed_array(self.args)
-            if results is not None and len(results) < 1:
-                raise ValueError("No array passed as a parameter.")
+            #results = super().allowed_array(self.args)
+            #if results is not None and len(results) < 1:
+               # raise ValueError("No array passed as a parameter.")
             table = {
             "array" : [],
             "mean" : [],

@@ -1,9 +1,9 @@
 from scipy.stats import ks_2samp
 import pandas as pd
-from MoeaBench import stat
+from MoeaBench import statistics
 
 
-class kstest(stat.allowed):
+class kstest(statistics.allowed):
     
     def __init__(self, *args):
         self.args = args

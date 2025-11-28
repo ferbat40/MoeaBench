@@ -15,6 +15,9 @@ class DTLZ1:
       - *P* = 700: number of samples to the Pareto optimum.
 
 
+                             
+
+                             
   - **Notes:**
           
     - selecting *DTLZ1*:

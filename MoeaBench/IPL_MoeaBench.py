@@ -188,12 +188,12 @@ class IPL_MoeaBench(I_MoeaBench):
                 try:
                     if i == val.result:
                         experiment.append(f'{key}.result')
-                        arr.append(i.get_elements()[0][0].get_arr_DATA())
+                        arr.append(i.get_elements()[0][0].get_F_GEN())
                         data.append(i.get_elements()[0][0])
                         benk.append(i.get_elements()[0][1])
                     elif i == val.pof:
                         experiment.append(f'{key}.pof')
-                        arr.append(i.get_CACHE().get_elements()[0][0].get_arr_DATA())
+                        arr.append(i.get_CACHE().get_elements()[0][0].get_F_GEN())
                         data.append(i.get_CACHE().get_elements()[0][0])
                         benk.append(i.get_CACHE().get_elements()[0][1])
                 except Exception as e:

@@ -5,9 +5,10 @@ from .result_obj import result_obj
 from .result_var import result_var
 from .save import save
 from .loader import loader
+from .I_UserExperiment import I_UserExperiment
 
 
-class experiment:
+class experiment(I_UserExperiment):
 
     def __init__(self, imports):
         self.pof=None

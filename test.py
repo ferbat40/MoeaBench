@@ -10,116 +10,26 @@ from IPython.display import  display
 os.system("cls")  
 
 exp = moeabench.experiment()
-exp.benchmark = moeabench.benchmarks.DTLZ8()
-exp.moea = moeabench.moeas.MOEAD(population = 100, generations = 200)
+exp.benchmark = moeabench.benchmarks.DTLZ1(M = 3)
+exp.moea = moeabench.moeas.NSGAIII(population = 100, generations = 200)
 exp.run()
-print(exp.moea)
 
 
 
 
+exp2 = moeabench.experiment()
+exp2.benchmark = moeabench.benchmarks.DTLZ8()
+exp2.moea = moeabench.moeas.SPEAII(population = 100, generations = 200)
+exp2.run()
 
+moeabench.pareto(exp.result, exp2.result, generations = [30,50])
 
+#arr1 = exp.objective()[0]
 
-#stat = moeabench()
+#arr2 = exp2.objective()[0]
 
-
-
-#exp.add_benchmark(my_dtlz5)
-#exp.add_moea(my_NSGA2deap)
-
-
-#exp.benchmark = moeabench.benchmark.my_dtlz5()
-#exp.moea = moeabench.moea.my_NSGA2deap()
-#exp.run()
-#exp.save("savage")
-
-
-#exp = moeabench()
-#exp.benchmark = moeabench.benchmarks.DTLZ8()
-#exp.moea = moeabench.moeas.MOEAD()
-#exp.run()
-
-#exp2 = moeabench()
-#exp2.benchmark = moeabench.benchmarks.DTLZ8()
-#exp2.moea = moeabench.moeas.SPEAII(population = 100, generations = 150)
-#exp2.run()
-
-
-#stat = moeabench()
-
-#stat.kstest = moeabench.stat.kstest(exp.objective(), exp2.objective())
-#display(stat.kstest)
-
-
-#stat.indice = moeabench.stat.indice(exp.objective(), exp2.objective())
-#display(stat.indice)
-
-#moeabench.stats.kstest(exp2.objective(objective = 3), exp.objective(objective = 3))
-#moeabench.stats.indices(exp2.objective(), exp.objective())
-hv = exp.hypervolume()
-print(hv[-1])
-#print("ultimo ",hv[-1])
-#obj = exp.objective(objective = 2, generations = [150,160])
-
-
-#print(obj[0].shape,"   ",len(obj))
-#exp.objective()
-#exp2.hypervolume()
-
-#exp.save("savagef")
-#exp.load("savagef")
-
-#HV = exp2.hypervolume(generations = [130,150], objectives = [1,3])
-#print(HV)
-
-#HV2 = exp.hypervolume(generations = [130,150], objectives = [1,3])
-#print(HV2)
-
-#ss = exp.objective(objective = [2])
-#ss = exp.variable(variable = "x")
-#ff = exp.hypervolume( objectives= [1,2])
-
-
-#exp.save("metalder")
-#exp.load("metalder")
-
-#exp.load("yrinfrt")
-
-#exp3 = moeabench()
-#exp.load("experiment")
-
-#HV_all = exp.hypervolume()
-#print(HV_all)
-
-#exp3 = moeabench()
-#exp3.problem = moeabench.benchmark.DTLZ1(M=3)
-#exp3.moea = moeabench.Moea.SPEA2(problem=exp3.problem, population = 200, generations = 300)
-#exp3.run()
-
-
-#print(exp.result.get_elements()[0][0].get_F_GEN())
-
-#moeabench.plot_hypervolume(exp.result,  objectives = [2,3])
-
-
-
-
-
-
-
-
-
- #ks = [b.get_F_GEN()[-1] for i in args for b in i.get_elements()[0]  if hasattr(b.__class__,"get_F_GEN")]
-        #for obj, begin in enumerate(range(0,3), start = 1):
-         #stat, value = ks_2samp(ks[0][:,begin],ks[1][:,begin])
-         #print(f'objective {obj} KS stats {stat},  p-value {value}')
-
-
-
-
-
-
+#stat = moeabench.stat()
+#stat.indice = moeabench.indice(arr1)
 
 
 

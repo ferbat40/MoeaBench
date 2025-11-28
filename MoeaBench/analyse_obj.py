@@ -6,7 +6,7 @@ class analyse_obj(plot_3D):
       
     @staticmethod
     def IPL_plot_3D(experiments, data, bench, array, objectives):
-        arr = [np.concatenate(   (array[i][0],array[i][0])) for i in range(0, len(array))]
+        arr = [np.concatenate(   (array[i][1],array[i][1])) for i in range(0, len(array))]
         #for i in arr:
             #print(i.shape)
             #join = np.concatenate(   (array[0][50],array[0][-1]))

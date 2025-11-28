@@ -11,8 +11,9 @@ os.system("cls")
 
 exp = moeabench.experiment()
 exp.benchmark = moeabench.benchmarks.DTLZ8()
-exp.moea = moeabench.moeas.MOEAD()
+exp.moea = moeabench.moeas.MOEAD(population = 100, generations = 200)
 exp.run()
+print(exp.moea)
 
 
 
@@ -56,8 +57,8 @@ exp.run()
 
 #moeabench.stats.kstest(exp2.objective(objective = 3), exp.objective(objective = 3))
 #moeabench.stats.indices(exp2.objective(), exp.objective())
-#hv = exp.hypervolume()
-#print(hv[-1])
+hv = exp.hypervolume()
+print(hv[-1])
 #print("ultimo ",hv[-1])
 #obj = exp.objective(objective = 2, generations = [150,160])
 

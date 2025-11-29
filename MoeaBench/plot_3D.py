@@ -24,8 +24,11 @@ class plot_3D(analyse_pareto):
 
      def configure(self):
          self.figure=go.Figure()
-         for i in range(0, len(self.vet_pts)):
-            for b in range(0,len(self.generations)):
+         #for i in range(0, len(self.vet_pts)):
+            #for b in range(0,len(self.generations)):
+         for b in range(0,len(self.generations)):
+               for i in range(0, len(self.vet_pts)):
+                         #print(experiments[i],"  ",generations[b],"  ",array[i][b])
                 ax = self.vet_pts[i][self.generations[b]][:,self.axis[0]]
                 ay = self.vet_pts[i][self.generations[b]][:,self.axis[1]]
                 az = self.vet_pts[i][self.generations[b]][:,self.axis[2]]

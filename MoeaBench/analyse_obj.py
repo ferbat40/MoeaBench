@@ -6,6 +6,9 @@ class analyse_obj(plot_3D):
       
     @staticmethod
     def IPL_plot_3D(experiments, data, bench, array, objectives, generations = []):
+                 # ax = self.vet_pts[i][self.generations[b]][:,self.axis[0]]
+                #ay = self.vet_pts[i][self.generations[b]][:,self.axis[1]]
+               # az = self.vet_pts[i][self.generations[b]][:,self.axis[2]]
     
         #try:
             analyse_obj.allowed_obj(bench,bench[0],experiments,objectives)

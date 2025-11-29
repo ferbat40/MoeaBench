@@ -16,7 +16,7 @@ class result_metric(result):
  
 
     def DATA(self,result,generation, objective):
-        gen_f_test = [b[0].get_F_GEN() for b in result.get_elements()]
+        gen_f_test = [b[0].get_F_gen_non_dominate() for b in result.get_elements()]
         gen_f_max = max([len(gen)  for gen in gen_f_test])
         generations = [0,gen_f_max] if isinstance(generation, (list)) and len(generation) == 0 else generation
         result_metric.allowed_gen(generations)
@@ -24,7 +24,7 @@ class result_metric(result):
         objectives = [1,2,3] if isinstance(objective, (list)) and  len(objective) == 0 else objective  
         result_metric.allowed_obj(objectives,result)
              
-        gen_f_valid = [b[0].get_F_GEN()[generations[0]:generations[1]] for b in result.get_elements()]
+        gen_f_valid = [b[0].get_F_gen_non_dominate()[generations[0]:generations[1]] for b in result.get_elements()]
         slicing = [[i-1,i]  for i in objectives]
         F_gen = []
         for i in range(len(gen_f_valid)):

@@ -144,7 +144,8 @@ class MoeaBench(I_UserMoeaBench):
 
         """
         caller = inspect.currentframe().f_back.f_locals.items()
-        experiment, data, benk, arr = analyse_obj.extract_pareto_result(args,caller)       
+        
+        experiment, data, benk, arr= analyse_obj.extract_pareto_result(args,caller)       
         analyse_obj.IPL_plot_3D(experiment, data, benk, arr, objectives, generations)     
         
 

@@ -152,7 +152,7 @@ class IPL_MoeaBench(I_MoeaBench):
             raise ValueError (f'Objective(s) {less} can´t be greather than {element[0].get_M()}')  
  
 
-    def allowed_DATA(LIST,experiments):
+    def allowed_DATA(LIST, experiments):             
         for IDATA,exp in zip(LIST,experiments):
             print(exp.__class__.__name__,"  ", len(IDATA.get_arr_DATA()))
 
@@ -182,23 +182,23 @@ class IPL_MoeaBench(I_MoeaBench):
         experiment = [] 
         data = []
         benk = []
-        arr = []
+        arr_gen = []
         for i in args:
             for key, val in caller:
                 try:
                     if i == val.result:
                         experiment.append(f'{key}.result')
-                        arr.append(i.get_elements()[0][0].get_F_GEN())
+                        arr_gen.append(i.get_elements()[0][0].get_F_GEN())
                         data.append(i.get_elements()[0][0])
                         benk.append(i.get_elements()[0][1])
                     elif i == val.pof:
                         experiment.append(f'{key}.pof')
-                        arr.append(i.get_CACHE().get_elements()[0][0].get_F_GEN())
+                        arr_gen.append(i.get_CACHE().get_elements()[0][0].get_F_GEN())
                         data.append(i.get_CACHE().get_elements()[0][0])
                         benk.append(i.get_CACHE().get_elements()[0][1])
                 except Exception as e:
                     pass
-        return experiment, data, benk, arr
+        return experiment, data, benk, arr_gen
 
 
 

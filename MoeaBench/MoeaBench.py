@@ -125,14 +125,13 @@ class MoeaBench(I_UserMoeaBench):
                       - [pareto_surface](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/pareto_surface/) information about the method, accepted variable types, examples and more...
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
        
-        """
-        
+        """       
         caller = inspect.currentframe().f_back.f_locals.items()
         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)       
         analyse_surface_obj.IPL_plot_3D(experiment, data, benk, arr, objectives)  
 
 
-    def pareto(self, *args, objectives = [], generations = None):
+    def pareto(self, *args, objectives = [], generations = []):
         """
         - **3D graph for Pareto front:**
         Click on the links for more
@@ -144,13 +143,10 @@ class MoeaBench(I_UserMoeaBench):
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
 
         """
-       
-
         caller = inspect.currentframe().f_back.f_locals.items()
         experiment, data, benk, arr = analyse_obj.extract_pareto_result(args,caller)       
-        analyse_obj.IPL_plot_3D(experiment, data, benk, arr, objectives)     
+        analyse_obj.IPL_plot_3D(experiment, data, benk, arr, objectives, generations)     
         
-
 
     def add_benchmark(self,problem):
         """

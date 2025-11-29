@@ -13,30 +13,37 @@ except ImportError:
 
 class plot_3D(analyse_pareto):
     
-     def __init__(self,BENCH,vet_pt,experiments,axis, type = 'pareto-optimal front'):
+     def __init__(self,BENCH,vet_pt,experiments,axis, generations = [], type = 'pareto-optimal front'):
          self.vet_pts=vet_pt
          self.BENCH=BENCH
          self.experiments=experiments
          self.axis = axis
          self.type=type
-         
+         self.generations=generations
+           
 
      def configure(self):
+         #print("self.axis[0] ",self.axis[0])
          self.figure=go.Figure()
-         for exp,pts in zip (self.experiments,self.vet_pts):
+         for i in range(0, len(self.vet_pts)):
+            for b in range(0,len(self.generations)):
+                #print(self.experiments[i],"  ",self.generations[b],"  ", self.vet_pts[i][b][:,self.axis[0]])
 
-                ax = pts[:,self.axis[0]]
-                ay = pts[:,self.axis[1]]
-                az = pts[:,self.axis[2]]
+       
+         #for exp,pts in zip (self.experiments,self.vet_pts):
+
+                ax = self.vet_pts[i][b][:,self.axis[0]]
+                ay = self.vet_pts[i][b][:,self.axis[1]]
+                az = self.vet_pts[i][b][:,self.axis[2]]
                 msk = ~(np.isnan(ax) | np.isnan(ay) | np.isnan(az))
                 if np.any(msk):
                  self.figure.add_trace(go.Scatter3d(
                  x=ax, y=ay, z=az,
                  mode='markers',
                  marker=dict(size=3),  
-                 name=f'{exp}',                       
+                 name=f'{self.experiments[i]} GEN {self.generations[b]}',                       
                  showlegend=True,
-                 hovertemplate = (f"{exp}<br>"
+                 hovertemplate = (f"{self.experiments[i]}<br>"
                                   f"{self.axis[0]+1}: %{{x}}<br>"
                                   f"{self.axis[1]+1}: %{{y}}<br>"
                                   f"{self.axis[2]+1}: %{{z}}<br><extra></extra>"),

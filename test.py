@@ -22,7 +22,7 @@ exp2.benchmark = moeabench.benchmarks.DTLZ8()
 exp2.moea = moeabench.moeas.SPEAII(population = 100, generations = 200)
 exp2.run()
 
-moeabench.pareto(exp.result, exp2.result, generations = [30,50])
+moeabench.pareto(exp.result, exp2.result, generations = [30,50,70,100])
 
 #arr1 = exp.objective()[0]
 

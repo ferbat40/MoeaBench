@@ -24,11 +24,8 @@ class plot_3D(analyse_pareto):
 
      def configure(self):
          self.figure=go.Figure()
-         #for i in range(0, len(self.vet_pts)):
-            #for b in range(0,len(self.generations)):
          for b in range(0,len(self.generations)):
                for i in range(0, len(self.vet_pts)):
-                         #print(experiments[i],"  ",generations[b],"  ",array[i][b])
                 ax = self.vet_pts[i][self.generations[b]][:,self.axis[0]]
                 ay = self.vet_pts[i][self.generations[b]][:,self.axis[1]]
                 az = self.vet_pts[i][self.generations[b]][:,self.axis[2]]
@@ -38,9 +35,9 @@ class plot_3D(analyse_pareto):
                  x=ax, y=ay, z=az,
                  mode='markers',
                  marker=dict(size=3),  
-                 name=f'{self.experiments[i]} GEN {self.generations[b]}',                       
+                 name=f'GEN {self.generations[b]} for {self.experiments[i]}',                       
                  showlegend=True,
-                 hovertemplate = (f"{self.experiments[i]} GEN {self.generations[b]}<br>"
+                 hovertemplate = (f"GEN {self.generations[b]} for {self.experiments[i]}<br>"
                                   f"{self.axis[0]+1}: %{{x}}<br>"
                                   f"{self.axis[1]+1}: %{{y}}<br>"
                                   f"{self.axis[2]+1}: %{{z}}<br><extra></extra>"),

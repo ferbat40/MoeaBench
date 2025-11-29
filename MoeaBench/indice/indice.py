@@ -8,7 +8,6 @@ class indice:
 
     def __init__(self, *args):
         self.args = args 
-        print("aqui ",args  )
     
 
     def __call__(self):

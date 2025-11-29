@@ -1,7 +1,7 @@
 class stat:
     
     def __init__(self, imports):
-        print(imports.statistics," chegoy")
+        pass
 
     @property
     def kstest(self):

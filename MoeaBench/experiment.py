@@ -206,7 +206,7 @@ class experiment(I_UserExperiment):
         - **run the genetic algorithm:**
         Click on the links for more
         ...
-                - **Informations:**
+               - **Informations:**
                       - sinxtase:
                       experiment.run()   
                       - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
@@ -216,11 +216,11 @@ class experiment(I_UserExperiment):
         if isinstance(self.result,tuple):
             name_moea = self.result[2]
         else:
-            name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__
+              name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__
          
         try:
             name_benchmark=None
-            execute = RUN() if self.moea.__module__.find(".moea") >= 0 else RUN_user()
+            execute = RUN() if self.moea.__module__.find(".MoeaBench.moeas") >= 0 else RUN_user()
             self.result = self.result[0] if isinstance(self.result,tuple) else self.result
 
             try:

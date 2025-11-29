@@ -4,8 +4,7 @@ from .problems import problems
 M_register = {}
 
 class my_new_benchmark:
-      
-      
+         
       def __call__(self, default = None):
         """
         - accesses in memory an implementation of a user benchmark problem.

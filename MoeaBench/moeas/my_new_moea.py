@@ -1,4 +1,4 @@
-import MoeaBench.CACHE as cache_module
+import MoeaBench.CACHE_bk_user as cache_module
 
 
 M_register = {}
@@ -22,7 +22,7 @@ class my_new_moea:
 
       def __call__(self, problem, default = None):
         try:
-             result = cache_module.CACHE()
+             result = cache_module.CACHE_bk_user()
              my_moea = get_moea()
              result.get_DATA_conf().set_DATA_MOEA(my_moea(problem,self.population,self.generations),problem)
              return result

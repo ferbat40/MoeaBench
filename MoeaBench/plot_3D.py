@@ -23,18 +23,12 @@ class plot_3D(analyse_pareto):
            
 
      def configure(self):
-         #print("self.axis[0] ",self.axis[0])
          self.figure=go.Figure()
          for i in range(0, len(self.vet_pts)):
             for b in range(0,len(self.generations)):
-                #print(self.experiments[i],"  ",self.generations[b],"  ", self.vet_pts[i][b][:,self.axis[0]])
-
-       
-         #for exp,pts in zip (self.experiments,self.vet_pts):
-
-                ax = self.vet_pts[i][b][:,self.axis[0]]
-                ay = self.vet_pts[i][b][:,self.axis[1]]
-                az = self.vet_pts[i][b][:,self.axis[2]]
+                ax = self.vet_pts[i][self.generations[b]][:,self.axis[0]]
+                ay = self.vet_pts[i][self.generations[b]][:,self.axis[1]]
+                az = self.vet_pts[i][self.generations[b]][:,self.axis[2]]
                 msk = ~(np.isnan(ax) | np.isnan(ay) | np.isnan(az))
                 if np.any(msk):
                  self.figure.add_trace(go.Scatter3d(

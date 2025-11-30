@@ -6,6 +6,7 @@ from .result_var import result_var
 from .save import save
 from .loader import loader
 from .I_UserExperiment import I_UserExperiment
+import inspect
 
 
 class experiment(I_UserExperiment):
@@ -202,32 +203,39 @@ class experiment(I_UserExperiment):
 
 
     def run(self):
-        """
-        - **run the genetic algorithm:**
-        Click on the links for more
-        ...
-               - **Informations:**
-                      - sinxtase:
-                      experiment.run()   
-                      - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
+        #"""
+       # - **run the genetic algorithm:**
+       # Click on the links for more
+        #...
+         #      - **Informations:**
+        #              - sinxtase:
+        #              experiment.run()   
+         #             - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
 
-        """
+       # """
 
-        if isinstance(self.result,tuple):
-            name_moea = self.result[2]
-        else:
+            if isinstance(self.result,tuple):
+               name_moea = self.result[2]
+            else:
               name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__
          
-        try:
+        #try:
             name_benchmark=None
-            execute = RUN() if self.moea.__module__.find(".MoeaBench.moeas") >= 0 else RUN_user()
+            moea_found = self.imports.moeas.moea_algorithm()
+            algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
+            execute = RUN() if not inspect.isclass(algoritm[0]) else RUN_user()
             self.result = self.result[0] if isinstance(self.result,tuple) else self.result
-
             try:
                 name_benchmark = self.benchmark.__class__.__name__.split("_")[1]
             except Exception as e:
                 name_benchmark = self.benchmark.__class__.__name__
                 
             return execute.MOEA_execute(self.result,self.benchmark,name_moea,name_benchmark)
-        except Exception as e:
-            print(e)
+        #except Exception as e:
+           # print(e)
+#cls = getattr(mod, "NSGA_pymoo")
+#2. Depois verifica o método:
+#python
+#Copiar código
+#has_exec = hasattr(cls, "exec") and callable(getattr(cls, "exec"))
+#print(has_exec)

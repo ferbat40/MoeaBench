@@ -19,7 +19,7 @@ class experiment(I_UserExperiment):
         self.result_obj=result_obj()
         self.result_var=result_var()
 
-
+    
     @property
     def moea(self):
         return self._moea
@@ -40,7 +40,7 @@ class experiment(I_UserExperiment):
     def benchmark(self,value):
         self._benchmark=value(self.imports.benchmarks) if callable(value) else value
         self.pof=self._benchmark 
-
+      
 
     def hypervolume(self, generations = [], objectives = []):
         """
@@ -203,24 +203,21 @@ class experiment(I_UserExperiment):
 
 
     def run(self):
-        #"""
-       # - **run the genetic algorithm:**
-       # Click on the links for more
-        #...
-         #      - **Informations:**
-        #              - sinxtase:
-        #              experiment.run()   
-         #             - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
+        """
+        - **run the genetic algorithm:**
+        Click on the links for more
+        ...
+               - **Informations:**
+                      - sinxtase:
+                      experiment.run()   
+                      - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
 
-       # """
-
-            if isinstance(self.result,tuple):
-               name_moea = self.result[2]
-            else:
-              name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__
-         
-        #try:
-            
+        """
+        if isinstance(self.result,tuple):
+            name_moea = self.result[2]
+        else:
+            name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__       
+        try:
             moea_found = self.imports.moeas.moea_algorithm()
             algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
             execute = RUN() if not isinstance(algoritm, bool ) and not inspect.isclass(algoritm[0]) else RUN_user()
@@ -232,11 +229,5 @@ class experiment(I_UserExperiment):
                 name_benchmark = self.benchmark.__class__.__name__
                 
             return execute.MOEA_execute(self.result,self.benchmark,name_moea,name_benchmark)
-        #except Exception as e:
-           # print(e)
-#cls = getattr(mod, "NSGA_pymoo")
-#2. Depois verifica o método:
-#python
-#Copiar código
-#has_exec = hasattr(cls, "exec") and callable(getattr(cls, "exec"))
-#print(has_exec)
+        except Exception as e:
+            print(e)

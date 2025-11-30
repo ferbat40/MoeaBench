@@ -4,11 +4,15 @@ from .kernel_benchmark.K_DTLZ8 import K_DTLZ8
 class P_DTLZ8(K_DTLZ8):
 
     def __init__(self, M, N, P, CACHE, **kwargs):
+        super().__init__(CACHE=CACHE, **kwargs)
         self.CACHE=CACHE
+        self.N = 0
+        self.M = 0
+        self.P = 0
         self.N=N
         self.M = M
         self.P = P
-        super().__init__(CACHE=CACHE, **kwargs)
+        
 
 
     def get_CACHE(self):

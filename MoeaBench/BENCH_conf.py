@@ -28,6 +28,7 @@ class BENCH_conf(I_BENCH_conf):
          
 
     def set_M(self,M):
+        print("M aaaa",M)
         self.__M=M
 
 

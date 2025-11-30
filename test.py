@@ -15,6 +15,13 @@ moeabench.add_benchmark(my_dtlz5)
 moeabench.add_moea(my_NSGA2deap)
 
 
+exp = moeabench.experiment()
+exp.benchmark = moeabench.benchmarks.DTLZ8()
+exp.moea = moeabench.moeas.NSGAIII()
+exp.run()
+
+
+
 experiment_user = moeabench.experiment()
 experiment_user.benchmark = moeabench.benchmarks.my_dtlz5()
 experiment_user.moea = moeabench.moeas.my_NSGA2deap()

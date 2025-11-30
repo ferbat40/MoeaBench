@@ -202,10 +202,11 @@ class NSGA2deap(BaseMoea):
     return F_gen_all,X_gen_all,F,self.get_generations(),self.get_population()
   
 
-exp = moeabench.experiment()
-exp.benchmark = moeabench.benchmarks.DTLZ8()
-exp.moea = moeabench.moeas.NSGAIII()
-exp.run()
+
+#exp = moeabench.experiment()
+#exp.benchmark = moeabench.benchmarks.DTLZ8()
+#exp.moea = moeabench.moeas.NSGAIII()
+#exp.run()
   
 exp5 = moeabench.experiment()
 exp5.benchmark= moeabench.benchmarks.my_new_benchmark()

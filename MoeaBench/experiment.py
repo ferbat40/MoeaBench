@@ -220,11 +220,12 @@ class experiment(I_UserExperiment):
               name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__
          
         #try:
-            name_benchmark=None
+            
             moea_found = self.imports.moeas.moea_algorithm()
             algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
-            execute = RUN() if not inspect.isclass(algoritm[0]) else RUN_user()
+            execute = RUN() if not isinstance(algoritm, bool ) and not inspect.isclass(algoritm[0]) else RUN_user()
             self.result = self.result[0] if isinstance(self.result,tuple) else self.result
+            name_benchmark=None
             try:
                 name_benchmark = self.benchmark.__class__.__name__.split("_")[1]
             except Exception as e:

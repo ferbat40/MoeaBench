@@ -215,7 +215,25 @@ class NSGA2deap(BaseMoea):
 exp5 = moeabench.experiment()
 exp5.benchmark= moeabench.benchmarks.my_new_benchmark()
 exp5.moea = moeabench.moeas.my_new_moea()
+
+
+
+#exp5.save("caba")
+
+#exp5.moea.generations = 400
+#exp5.moea.population = 250
+
+#exp5.save("caba")
+
 exp5.run()
+exp5.save("caba")
+
+
+exp5.moea.generations = 400
+exp5.moea.population = 250
+
+
+exp5.save("robotec")
 
 dd = exp5.hypervolume()
 #print(dd)

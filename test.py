@@ -14,14 +14,19 @@ moeabench.add_moea(my_NSGA2deap)
 
 
 exp = moeabench.experiment()
-exp.benchmark = moeabench.benchmarks.DTLZ8()
+exp.benchmark = moeabench.benchmarks.DTLZ1()
 
 
-exp.moea = moeabench.moeas.NSGAIII()
-exp.moea.generations = 1000
-#exp.run()
-print(exp.moea.__dict__)
+exp.moea = moeabench.moeas.U_NSGAIII()
+exp.run()
 
+exp.save("caba")
+
+exp.moea.generations = 400
+exp.moea.population = 250
+exp.run()
+
+exp.save("robotec")
 
 
 #experiment_user = moeabench.experiment()

@@ -16,18 +16,46 @@ class my_new_moea:
         """
       
       def __init__(self,population = 160 ,generations = 300):
-            self.population=population   
-            self.generations=generations         
+            self._population=population   
+            self._generations=generations      
+            self.result = None  
 
 
       def __call__(self, problem, default = None):
+        self.problem = problem
         try:
              result = cache_module.CACHE()
              my_moea = get_moea()
-             result.get_DATA_conf().set_DATA_MOEA(my_moea(problem,self.population,self.generations),problem)
+             result.get_DATA_conf().set_DATA_MOEA(my_moea(problem,self._population,self._generations),problem)
+             self.result = result
              return result
         except Exception as e:
              print(e)
+
+
+      @property
+      def generations(self):
+        return self._generations
+    
+
+      @generations.setter
+      def generations(self,value):
+        self._generations = value   
+        if hasattr(self,"problem"):
+           self.result.edit_DATA_conf().get_DATA_MOEA().generations=value
+           print(self.result.edit_DATA_conf().get_DATA_MOEA().generations)
+
+
+      @property
+      def population(self):
+        return self._population
+    
+
+      @population.setter
+      def population(self,value):
+        self._population = value   
+        if hasattr(self,"problem"):
+           self.result.edit_DATA_conf().get_DATA_MOEA().population=value 
 
 
 @staticmethod    

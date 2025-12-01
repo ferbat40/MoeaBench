@@ -1,5 +1,6 @@
 from .memory import memory
-
+from .DATA_conf import DATA_conf
+from .BENCH_conf import BENCH_conf
 
 class CACHE(memory):
   
@@ -14,9 +15,9 @@ class CACHE(memory):
   
 
   def DATA_store(self,name_moea,generations,population,F,F_gen,X_gen,problem,name_benchmaark,F_gen_non_dominate):
-        DT_CONF=self.get_DATA_conf()
+        DT_CONF=DATA_conf()
         DT_CONF.set(name_moea,generations,population,F,F_gen,X_gen,F_gen_non_dominate)
-        BENCH=self.get_BENCH_conf()
+        BENCH=BENCH_conf()
         BENCH.set(problem.get_CACHE().get_BENCH_CI().get_M(),
                                   problem.get_CACHE().get_BENCH_CI().get_D(),
                                   name_benchmaark,

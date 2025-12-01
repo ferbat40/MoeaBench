@@ -6,7 +6,7 @@ class RUN(runner):
             data = result.edit_DATA_conf().get_DATA_MOEA().exec()
             problem = result.edit_DATA_conf().get_problem()
             GEN_Hist = self.get_history(data[3],[value for key,value in data[0].items()][0])
-            approx_ideal,approx_nadir,hist_F,n_evals,hist_n, hist_F_non_dominate = GEN_Hist.evaluate() 
+            approx_ideal,approx_nadir,hist_F,n_evals,hist_n, hist_F_non_dominate = GEN_Hist.evaluate()         
             result.DATA_store([key for key,value in data[0].items()][0],
                               data[1],
                               data[2],

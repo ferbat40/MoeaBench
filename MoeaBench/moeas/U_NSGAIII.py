@@ -16,17 +16,44 @@ class U_NSGAIII:
         """
 
     def __init__(self,population = 150, generations = 300, seed = 1):
-        self.population=population
-        self.generations=generations
+        self._population=population
+        self._generations=generations
         self.seed = seed
+        self.result = None
 
 
     def __call__(self, problem, default = None):
+        self.problem = problem
         moea = moea_algorithm()
         algoritm = moea.get_MOEA(self.__class__.__name__)
         class_algoritm = getattr(algoritm[0],algoritm[1].name)
-        instance = class_algoritm(problem,self.population,self.generations,self.seed)
+        instance = class_algoritm(problem,self._population,self._generations,self.seed)
         result = moea.get_CACHE()
         result.get_DATA_conf().set_DATA_MOEA(instance,problem)
-        return result    
+        self.result = result
+        return result   
+
+
+    @property
+    def generations(self):
+        return self._generations
+    
+
+    @generations.setter
+    def generations(self,value):
+        self._generations = value   
+        if hasattr(self,"problem"):
+           self.result.edit_DATA_conf().get_DATA_MOEA().generations=value
+
+
+    @property
+    def population(self):
+        return self._population
+    
+
+    @population.setter
+    def population(self,value):
+        self._population = value   
+        if hasattr(self,"problem"):
+           self.result.edit_DATA_conf().get_DATA_MOEA().population=value 
 

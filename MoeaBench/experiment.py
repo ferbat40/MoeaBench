@@ -198,14 +198,14 @@ class experiment(I_UserExperiment):
                       - [save](https://moeabench-rgb.github.io/MoeaBench/experiments/save_experiment/save_experiment/) information about the method, 
                      
         """
-        try:
-            moea_found = self.imports.moeas.moea_algorithm()
-            algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
-            if isinstance(algoritm, tuple ) and inspect.isclass(algoritm[0]):
-                raise TypeError("It is not possible to save implementations in memory.")
-            save.IPL_save(self,file)
-        except Exception as e:
-            print(e)
+        #try:
+        moea_found = self.imports.moeas.moea_algorithm()
+        algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
+            #if isinstance(algoritm, tuple ) and inspect.isclass(algoritm[0]):
+                #raise TypeError("It is not possible to save implementations in memory.")
+        save.IPL_save(self,file)
+        #except Exception as e:
+            #print(e)
 
 
     def run(self):

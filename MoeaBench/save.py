@@ -9,12 +9,11 @@ class save(file):
     
     @staticmethod
     def IPL_save(obj, folder):
-        result =  obj.result.get_elements()[0][0].get_arr_DATA()
-        bench = obj.result.get_elements()[0][1]
-        NonDominate = obj.result.get_elements()[0][0]
+        NonDominate = result.get_elements()[0][0].get_arr_DATA()
         Dominate = obj.result.get_elements()[0][0].get_F_GEN()[-1]
-        data = NonDominate if len(NonDominate) > 0 else Dominate
-        
+        result =  NonDominate if len(NonDominate) > 0 else Dominate
+        bench = obj.result.get_elements()[0][1]
+        data = obj.result.get_elements()[0][0]
         pof =  obj.pof.get_CACHE().get_elements()[0][0].get_arr_DATA()     
         path_z = save.DATA(folder)
         if path_z.exists():

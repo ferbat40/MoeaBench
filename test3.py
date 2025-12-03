@@ -126,29 +126,33 @@ class dtlz5(BaseBenchmark):
 
 
 from MoeaBench.base_moea import BaseMoea
+from MoeaBench.integration_moea import integration_moea
 import random
 from deap import base, creator, tools, algorithms
 import array
 import numpy as np
 
+
 @moeabench.moeas.register_moea()
 class NSGA2deap(BaseMoea):
 
-  def __init__(self,problem=None,population = 160 ,generations = 300):
-    super().__init__(problem,population,generations)
+  toolbox = base.Toolbox()
+  result_evaluate = None
+
+  def __init__(self,problem=None,population = 160, generations = 300):
+    super().__init__(problem,population,generations)  
     creator.create("FitnessMin", base.Fitness, weights=(-1.0,) * self.get_M())
-    creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
-    self.toolbox = base.Toolbox()
-    self.toolbox.register("attr_float", self.uniform, 0, 1, self.get_N())
-    self.toolbox.register("individual", tools.initIterate, creator.Individual, self.toolbox.attr_float)
-    self.toolbox.register("population", tools.initRepeat, list, self.toolbox.individual)
-    self.toolbox.register("evaluate",self.evaluate)
-    self.evalue = self.toolbox.evaluate
+    creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)   
+    NSGA2deap.toolbox.register("attr_float", self.uniform, 0, 1, self.get_N())
+    NSGA2deap.toolbox.register("individual", tools.initIterate, creator.Individual, NSGA2deap.toolbox.attr_float)
+    NSGA2deap.toolbox.register("population", tools.initRepeat, list, NSGA2deap.toolbox.individual)
+    NSGA2deap.toolbox.register("evaluate",self.evaluate)
+    self.evalue = NSGA2deap.toolbox.evaluate
     random.seed(None)
-    self.toolbox.decorate("evaluate", tools.DeltaPenality(self.feasible,1000))
-    self.toolbox.register("mate", tools.cxSimulatedBinaryBounded, low=0, up=1, eta=20)
-    self.toolbox.register("mutate", tools.mutPolynomialBounded, low=0, up=1, eta=20, indpb=1/self.get_N())
-    self.toolbox.register("select", tools.selNSGA2)
+    NSGA2deap.toolbox.decorate("evaluate", tools.DeltaPenality(self.feasible,1000))
+    NSGA2deap.toolbox.register("mate", tools.cxSimulatedBinaryBounded, low=0, up=1, eta=20)
+    NSGA2deap.toolbox.register("mutate", tools.mutPolynomialBounded, low=0, up=1, eta=20, indpb=1/self.get_N())
+    NSGA2deap.toolbox.register("select", tools.selNSGA2)
 
 
   def uniform(self,low, up, size=None):
@@ -159,22 +163,22 @@ class NSGA2deap(BaseMoea):
 
 
   def evaluate(self,X):
-    self.resul = self.evaluation_benchmark(X)
-    return self.resul['F'][0]
+    NSGA2deap.result_evaluate = self.evaluation_benchmark(X)
+    return NSGA2deap.result_evaluate['F'][0]
 
 
   def feasible(self,X):
     self.evaluate(X)
-    if 'G' in self.resul:
-      if self.resul["feasible"]:
+    if 'G' in NSGA2deap.result_evaluate:
+      if NSGA2deap.result_evaluate["feasible"]:
        return True
     return False
-
+  
 
   def evaluation(self):
-    pop = self.toolbox.population(n=self.get_population())
+    pop = NSGA2deap.toolbox.population(n=self.get_population())
     invalid_ind = [ind for ind in pop if not ind.fitness.valid]
-    fitnesses = self.toolbox.map(self.toolbox.evaluate, invalid_ind)
+    fitnesses = NSGA2deap.toolbox.map(NSGA2deap.toolbox.evaluate, invalid_ind)
     F_gen_all=[]
     X_gen_all=[]
     hist_F_non_dominate=[]
@@ -182,61 +186,56 @@ class NSGA2deap(BaseMoea):
       ind.fitness.values = fit
     F_gen_all.append(np.column_stack([np.array([ind.fitness.values for ind in pop ])]))
     X_gen_all.append(np.column_stack([np.array([np.array(ind) for ind in pop ])]))
-    pop = self.toolbox.select(pop, len(pop))
+    pop = NSGA2deap.toolbox.select(pop, len(pop))
     for gen in range(1, self.get_generations()):
       offspring = tools.selTournamentDCD(pop, len(pop))
-      offspring = [self.toolbox.clone(ind) for ind in offspring]
+      offspring = [NSGA2deap.toolbox.clone(ind) for ind in offspring]
       for ind1, ind2 in zip(offspring[::2], offspring[1::2]):
         if random.random() <= 0.9:
-          self.toolbox.mate(ind1, ind2)
-        self.toolbox.mutate(ind1)
-        self.toolbox.mutate(ind2)
+          NSGA2deap.toolbox.mate(ind1, ind2)
+        NSGA2deap.toolbox.mutate(ind1)
+        NSGA2deap.toolbox.mutate(ind2)
         del ind1.fitness.values, ind2.fitness.values
       invalid_ind = [ind for ind in offspring if not ind.fitness.valid]
-      fitnesses = self.toolbox.map(self.toolbox.evaluate, invalid_ind)
+      fitnesses = NSGA2deap.toolbox.map(NSGA2deap.toolbox.evaluate, invalid_ind)
       for ind, fit in zip(invalid_ind, fitnesses):
         ind.fitness.values = fit
-      pop = self.toolbox.select(pop + offspring, len(pop))
+      pop = NSGA2deap.toolbox.select(pop + offspring, len(pop))
       F_gen_all.append(np.column_stack([np.array([ind.fitness.values for ind in pop ])]))
       X_gen_all.append(np.column_stack([np.array([np.array(ind) for ind in pop ])]))
       non_dominate = tools.sortNondominated(pop, len(pop), first_front_only=True)[0]
       hist_F_non_dominate.append(np.column_stack([np.array([np.array(ind) for ind in non_dominate ])]))
-      
     F = np.column_stack([np.array([ind.fitness.values for ind in pop ])])
-    return F_gen_all,X_gen_all,F,self.get_generations(),self.get_population(),hist_F_non_dominate
-  
-
+    return F_gen_all,X_gen_all,F,hist_F_non_dominate
 
 #exp = moeabench.experiment()
 #exp.benchmark = moeabench.benchmarks.DTLZ8()
 #exp.moea = moeabench.moeas.NSGAIII()
 #exp.run()
-  
+#exp.save('fenix') 
+#exp.moea.generations = 500
+#exp.moea.population = 200
+#exp.run()
+#exp.save('cisne')
+
 exp5 = moeabench.experiment()
 exp5.benchmark= moeabench.benchmarks.my_new_benchmark()
 exp5.moea = moeabench.moeas.my_new_moea()
 
 
 
-#exp5.save("caba")
-
-#exp5.moea.generations = 400
-#exp5.moea.population = 250
-
-#exp5.save("caba")
-
 exp5.run()
-exp5.save("caba")
+
 
 
 exp5.moea.generations = 400
-exp5.moea.population = 250
+exp5.moea.population = 260
+
+exp5.run()
 
 
-exp5.save("robotec")
-
-dd = exp5.hypervolume()
-#print(dd)
+hv = exp5.hypervolume()
+print(hv)
 
 
 

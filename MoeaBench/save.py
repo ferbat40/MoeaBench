@@ -9,7 +9,7 @@ class save(file):
     
     @staticmethod
     def IPL_save(obj, folder):
-        NonDominate = result.get_elements()[0][0].get_arr_DATA()
+        NonDominate = obj.get_elements()[0][0].get_arr_DATA()
         Dominate = obj.result.get_elements()[0][0].get_F_GEN()[-1]
         result =  NonDominate if len(NonDominate) > 0 else Dominate
         bench = obj.result.get_elements()[0][1]

@@ -103,9 +103,6 @@ class IPL_MoeaBench(I_MoeaBench):
     
     @staticmethod
     def slicing_arr(slc,arr):
-        print(len(arr))
-        #for i in arr:
-         # print(type(i),"  ",i.shape)
         return np.hstack([arr[:,i:j]  for i,j in slc])
     
 

@@ -14,7 +14,7 @@ exp.benchmark = moeabench.benchmarks.DTLZ5()
 exp.moea = moeabench.moeas.NSGAIII()
 exp.run()
 
-#exp.save("gavan")
+exp.save("gavan")
 
 
 
@@ -23,10 +23,11 @@ exp.moea.generations = 600
 exp.moea.population = 260
 exp.run()
 
-#exp.save("sharivan")
+exp.save("sharivan")
 
 
-
+exp4 = moeabench.experiment()
+exp4.load("sharivan")
 
 
 

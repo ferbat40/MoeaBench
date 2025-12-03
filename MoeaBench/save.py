@@ -11,6 +11,7 @@ class save(file):
     def IPL_save(obj, folder):
         NonDominate = obj.result.get_elements()[0][0].get_arr_DATA()
         Dominate = obj.result.get_elements()[0][0].get_F_GEN()[-1]
+      
         result =  NonDominate if NonDominate.shape[0] > 1 else Dominate
         bench = obj.result.get_elements()[0][1]
         data = obj.result.get_elements()[0][0]
@@ -22,7 +23,8 @@ class save(file):
         dt_MoeaBench.append(f'{data.get_description()} Evolucionary algorithm data:\n')
         dt_MoeaBench.append(f'generations: {data.get_generations()}')
         dt_MoeaBench.append(f'population: {data.get_population()}')
-        dt_MoeaBench.append(f'solutions found: {result.shape[0]}')
+        solutions =  f'non-dominated solutions of the Pareto front' if NonDominate.shape[0] > 1 else f'Only Pareto-dominated solutions were found.'   
+        dt_MoeaBench.append(f'{solutions}: {result.shape[0]}')
         dt_MoeaBench.append(f'\n{bench.get_BENCH()} problem test benchmark data:\n')
         dt_MoeaBench.append(f'objectives: {bench.get_M()}')
         dt_MoeaBench.append(f'decision variabels: {bench.get_Nvar()}')

@@ -11,7 +11,7 @@ class save(file):
     def IPL_save(obj, folder):
         NonDominate = obj.result.get_elements()[0][0].get_arr_DATA()
         Dominate = obj.result.get_elements()[0][0].get_F_GEN()[-1]
-        result =  NonDominate if len(NonDominate) > 0 else Dominate
+        result =  NonDominate if NonDominate.shape[0] > 1 else Dominate
         bench = obj.result.get_elements()[0][1]
         data = obj.result.get_elements()[0][0]
         pof =  obj.pof.get_CACHE().get_elements()[0][0].get_arr_DATA()     

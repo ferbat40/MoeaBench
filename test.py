@@ -9,15 +9,21 @@ from MoeaBench.my_dtlz5 import my_dtlz5
 
 os.system("cls")  
 
-experiment_user = moeabench.experiment()
-experiment_user.benchmark = moeabench.benchmarks.DTLZ5()
-experiment_user.moea = moeabench.moeas.NSGAIII()
-experiment_user.run()
+exp = moeabench.experiment()
+exp.benchmark = moeabench.benchmarks.DTLZ5()
+exp.moea = moeabench.moeas.NSGAIII()
+exp.run()
 
-experiment_user.moea.population = 260
+#exp.save("gavan")
 
 
-experiment_user.run()
+
+
+exp.moea.generations = 600
+exp.moea.population = 260
+exp.run()
+
+#exp.save("sharivan")
 
 
 

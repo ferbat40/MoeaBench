@@ -225,7 +225,7 @@ exp5.moea = moeabench.moeas.my_new_moea()
 
 
 exp5.run()
-
+exp5.save("gavan")
 
 
 exp5.moea.generations = 400

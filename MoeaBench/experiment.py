@@ -18,6 +18,7 @@ class experiment(I_UserExperiment):
         self.result_metric=result_metric()
         self.result_obj=result_obj()
         self.result_var=result_var()
+        self.hist_M = []
     
 
     @property
@@ -40,7 +41,7 @@ class experiment(I_UserExperiment):
     def benchmark(self,value):
         self._benchmark=value(self.imports.benchmarks) if callable(value) else value
         self.pof=self._benchmark 
-      
+
 
     def hypervolume(self, generations = [], objectives = []):
         """
@@ -198,14 +199,10 @@ class experiment(I_UserExperiment):
                       - [save](https://moeabench-rgb.github.io/MoeaBench/experiments/save_experiment/save_experiment/) information about the method, 
                      
         """
-        #try:
-        moea_found = self.imports.moeas.moea_algorithm()
-        algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
-            #if isinstance(algoritm, tuple ) and inspect.isclass(algoritm[0]):
-                #raise TypeError("It is not possible to save implementations in memory.")
-        save.IPL_save(self,file)
-        #except Exception as e:
-            #print(e)
+        try:
+            save.IPL_save(self,file)
+        except Exception as e:
+            print(e)
 
 
     def run(self):
@@ -227,14 +224,19 @@ class experiment(I_UserExperiment):
             moea_found = self.imports.moeas.moea_algorithm()
             algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
             execute = RUN() if not isinstance(algoritm, bool ) and not inspect.isclass(algoritm[0]) else RUN_user()
-            self.result = self.result[0] if isinstance(self.result,tuple) else self.result
-            name_benchmark=None
-          
+  
+            M = self.benchmark.M if isinstance(self.result,tuple) else None
+            self.hist_M.append(M)
+            self.result = self.result if len(set(self.hist_M)) == 1 else self.moea(self.benchmark, self.imports.moeas)
+            self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
+            
             try:
                 name_benchmark = self.benchmark.__class__.__name__.split("_")[1]
             except Exception as e:
                 name_benchmark = self.benchmark.__class__.__name__
                 
-            return execute.MOEA_execute(self.result,self.benchmark,name_moea,name_benchmark)
+            return execute.MOEA_execute(self.result_moea,self.benchmark,name_moea,name_benchmark)
         except Exception as e:
             print(e)
+           
+           

@@ -8,7 +8,7 @@ class BENCH_conf(I_BENCH_conf):
         self.__Nvar=N
         self.__n_ieq_constr=n_ieq_constr
         self.__P=P
-        self.__K=0
+        self.__K=K
         self.__D=D
         self.__BENCH_Nvar=1
 

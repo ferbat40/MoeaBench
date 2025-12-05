@@ -9,14 +9,16 @@ class save(file):
     
     @staticmethod
     def IPL_save(obj, folder):
-        NonDominate = obj.result.get_elements()[0][0].get_arr_DATA()
-        Dominate = obj.result.get_elements()[0][0].get_F_GEN()[-1]
+
+
+        result_moea = obj.result[0] if isinstance(obj.result,tuple) else obj.result
+        NonDominate = result_moea.get_elements()[0][0].get_arr_DATA()
+        Dominate = result_moea.get_elements()[0][0].get_F_GEN()[-1]
       
         result =  NonDominate if NonDominate.shape[0] > 1 else Dominate
-        solutions =  f'non-dominated solutions of the Pareto front' if NonDominate.shape[0] > 1 else f'Only Pareto-dominated solutions were found.'   
-        
-        bench = obj.result.get_elements()[0][1]
-        data = obj.result.get_elements()[0][0]
+        solutions =  f'non-dominated solutions of the Pareto front' if NonDominate.shape[0] > 1 else f'Only Pareto-dominated solutions were found.'        
+        bench = result_moea.get_elements()[0][1]
+        data = result_moea.get_elements()[0][0]
         pof =  obj.pof.get_CACHE().get_elements()[0][0].get_arr_DATA()     
         path_z = save.DATA(folder)
         if path_z.exists():

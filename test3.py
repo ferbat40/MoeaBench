@@ -205,8 +205,6 @@ class NSGA2deap(BaseMoea):
       X_gen_all.append(np.column_stack([np.array([np.array(ind) for ind in pop ])]))
       non_dominate = tools.sortNondominated(pop, len(pop), first_front_only=True)[0]
       hist_F_non_dominate.append(np.column_stack([np.array([ind.fitness.values for ind in non_dominate ])]))
-    #for i in hist_F_non_dominate:
-         # print(type(i),"  ",i.shape)
     F = np.column_stack([np.array([ind.fitness.values for ind in pop ])])
     return F_gen_all,X_gen_all,F,hist_F_non_dominate
 
@@ -221,14 +219,15 @@ class NSGA2deap(BaseMoea):
 #exp.save('cisne')
 
 exp5 = moeabench.experiment()
-exp5.benchmark= moeabench.benchmarks.DTLZ1()
-exp5.moea = moeabench.moeas.SPEAII()
+exp5.benchmark= moeabench.benchmarks.my_new_benchmark()
+exp5.moea = moeabench.moeas.my_new_moea()
 
 
+exp5.benchmark.M = 5
 
-exp5.run()
+#exp5.run()
 
-moeabench.plot_hypervolume(exp5.result)
+#moeabench.plot_hypervolume(exp5.result)
 #exp5.save("gavan")
 
 

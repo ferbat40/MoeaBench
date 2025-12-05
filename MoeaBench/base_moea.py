@@ -7,16 +7,22 @@ class BaseMoea(ABC):
      
      @abstractmethod
      def __init__(self, problem, population : int = 160, generations :int = 300):
-          self.__problem=problem
+          self.__problem=self.update_benchmark(problem)
           self.population=population
           self.generations=generations
           self.__CACHE = CACHE()
+     
 
+     def update_benchmark(self,problem):
+          samples = problem.POFsamples()
+          problem.get_CACHE().DATA_store(problem.__class__.__name__,problem.get_type(),problem.get_M(),problem.get_N(),problem.get_n_ieq_constr(),samples,problem.get_P() ,problem.get_K()) 
+          return problem
 
+  
      @abstractmethod
      def evaluation(self):
           pass
-     
+
 
      @property
      def generations(self):

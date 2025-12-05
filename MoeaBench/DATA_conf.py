@@ -37,7 +37,11 @@ class DATA_conf(I_DATA_conf):
     def get_generations(self):
         return self.__generations
     
+
+    def set_arr_DATA(self, value):
+        self.__arr_DATA = value
     
+
     def get_arr_DATA(self):
         return self.__arr_DATA
     

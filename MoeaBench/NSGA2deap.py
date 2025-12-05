@@ -9,16 +9,8 @@ import numpy as np
 class my_NSGA2deap(integration_moea):
                
         def __init__(self,population = 160, generations = 300):
-          super().__init__(population,generations)
-          self.result=None
-      
-      
-        def __call__(self, problem, moa):
-          self.problem = problem
-          result = moa.repository(NSGA2deap(problem,self.get_population(),self.get_generations()))()
-          self.result = result
-          return result
-              
+          super().__init__(NSGA2deap,population,generations)
+                  
 
 class NSGA2deap(BaseMoea):
 

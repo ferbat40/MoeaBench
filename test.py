@@ -5,7 +5,7 @@ import numpy as np
 from MoeaBench.base_benchmark import BaseBenchmark
 from IPython.display import  display
 from MoeaBench.NSGA2deap import my_NSGA2deap
-from MoeaBench.my_dtlz5 import my_dtlz5
+from MoeaBench.dtlz5 import my_dtlz5
 
 os.system("cls")  
 

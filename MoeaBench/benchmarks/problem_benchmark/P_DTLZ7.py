@@ -32,3 +32,41 @@ class P_DTLZ7(K_DTLZ7):
             print(e)
 
 
+    @property
+    def M(self):
+         return self._M 
+     
+
+    @M.setter
+    def M(self, value):
+         self._M = value
+         if hasattr(self,"_H_DTLZ__arr_ENUM"):
+             self.set_BENCH_conf()
+             self.POFsamples()
+         
+
+    @property
+    def K(self):
+         return self._K
+        
+     
+
+    @K.setter
+    def K(self, value):
+         self._K = value
+         if hasattr(self,"_H_DTLZ__arr_ENUM"):
+             self.set_BENCH_conf()
+             self.POFsamples()
+
+
+    @property
+    def P(self):
+         return self._P 
+     
+
+    @P.setter
+    def P(self, value):
+         self._P = value
+         if hasattr(self,"_H_DTLZ__arr_ENUM"):
+             self.set_BENCH_conf()
+             self.POFsamples()

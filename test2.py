@@ -17,14 +17,16 @@ moeabench.add_moea(my_NSGA2deap)
 
 
 exp = moeabench.experiment()
-exp.benchmark = moeabench.benchmarks.my_dtlz5()
-#print(exp.moea.creator)
-exp.moea = moeabench.moeas.my_NSGA2deap()
+#exp.benchmark = moeabench.benchmarks.my_dtlz5(M = 3, D = 2, P = 1000, K = 5)
+#exp.moea = moeabench.moeas.my_NSGA2deap(generations =100 , population = 100)
 
+exp.benchmark = moeabench.benchmarks.DPF5()
+exp.moea = moeabench.moeas.NSGAIII()
 exp.run()
-exp.save("jaspion")
+exp.save("DPF5")
 
 exp.benchmark.M=4
+#print(exp.benchmark.M)
 
 
 exp.benchmark.K=15
@@ -32,19 +34,19 @@ exp.benchmark.K=15
 
 exp.benchmark.P=2000
 
+
 exp.benchmark.D=3
 
 
-exp.moea.population = 180
-exp.moea.generations = 320
+exp.moea.population = 200
+exp.moea.generations = 400
 exp.run()
 
 
-#print("exp.benchmark.P ",exp.benchmark.P)#exp.run()
-exp.save("gavan")
+exp.save("DPF5_up")
 
-exp4  = moeabench.experiment()
-exp4.load("gavan")
+#exp4  = moeabench.experiment()
+#exp4.load("gavan")
 
-df = exp4.hypervolume()
-print(df)
+#df = exp4.hypervolume()
+#print(df)

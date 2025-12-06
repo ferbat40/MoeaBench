@@ -31,7 +31,8 @@ class save(file):
         dt_MoeaBench.append(f'\n{bench.get_BENCH()} problem test benchmark data:\n')
         dt_MoeaBench.append(f'objectives: {bench.get_M()}')
         dt_MoeaBench.append(f'decision variabels: {bench.get_Nvar()}')
-        dt_MoeaBench.append(f'size vector K: {bench.get_K()}')
+        if bench.get_K() > 0:
+            dt_MoeaBench.append(f'size vector K: {bench.get_K()}')
         if bench.get_D() > 0:
             dt_MoeaBench.append(f'essencial objectves D: {bench.get_D()}')
         dt_MoeaBench.append(f'simulated POF solutions: {pof.shape[0]}')

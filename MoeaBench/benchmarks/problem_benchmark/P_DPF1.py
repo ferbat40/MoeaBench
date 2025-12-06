@@ -34,3 +34,54 @@ class P_DPF1(K_DPF1):
         except Exception as e:
             print(e)
 
+    
+    @property
+    def M(self):
+         return self._M 
+     
+
+    @M.setter
+    def M(self, value):
+         self._M = value
+         if hasattr(self,"_H_DPF__arr_ENUM"):
+             self.set_BENCH_conf()
+             self.POFsamples()
+         
+
+    @property
+    def K(self):
+         return self._K
+         
+
+    @K.setter
+    def K(self, value):
+         self._K = value
+         if hasattr(self,"_H_DPF__arr_ENUM"):
+             self.set_BENCH_conf()
+             self.POFsamples()
+
+    @property
+    def D(self):
+         return self._D 
+     
+
+    @D.setter
+    def D(self, value):
+         self._D = value
+         if hasattr(self,"_H_DPF__arr_ENUM"):
+             self.set_BENCH_conf()
+             self.POFsamples()
+
+
+    @property
+    def P(self):
+         return self._P 
+     
+
+    @P.setter
+    def P(self, value):
+         self._P = value
+         if hasattr(self,"_H_DPF__arr_ENUM"):
+             self.set_BENCH_conf()
+             self.POFsamples()
+

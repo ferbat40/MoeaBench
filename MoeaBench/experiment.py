@@ -18,7 +18,8 @@ class experiment(I_UserExperiment):
         self.result_metric=result_metric()
         self.result_obj=result_obj()
         self.result_var=result_var()
-        self.hist_M = []
+        self.hist_M_user = []
+        self.hist_M_native = []
     
 
     @property
@@ -224,12 +225,19 @@ class experiment(I_UserExperiment):
             moea_found = self.imports.moeas.moea_algorithm()
             algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
             execute = RUN() if not isinstance(algoritm, bool ) and not inspect.isclass(algoritm[0]) else RUN_user()
-  
-            M = self.benchmark.M if isinstance(self.result,tuple) else None
-            self.hist_M.append(M)
-            self.result = self.result if len(set(self.hist_M)) == 1 else self.moea(self.benchmark, self.imports.moeas)
-            self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
             
+            if isinstance(self.result,tuple):
+                self.hist_M_user.append(self.benchmark.M )
+                self.result = self.moea(self.benchmark, self.imports.moeas) if not len(set(self.hist_M_user)) == 1 else self.result
+                
+            
+            elif not isinstance(self.result,tuple):
+                self.hist_M_native.append(self.benchmark.M)
+                self.result = self.moea(self.benchmark) if not len(set(self.hist_M_native)) == 1 else self.result
+            
+            self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
+
+
             try:
                 name_benchmark = self.benchmark.__class__.__name__.split("_")[1]
             except Exception as e:

@@ -34,12 +34,12 @@ class I_UserExperiment(ABC):
   
     
     @abstractmethod
-    def objective(self):
+    def objectives(self):
         pass
 
 
     @abstractmethod
-    def variable(self):
+    def variables(self):
         pass
 
 

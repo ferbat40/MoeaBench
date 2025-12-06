@@ -134,7 +134,7 @@ class experiment(I_UserExperiment):
             print(e)
 
             
-    def objective(self, objective = 1, generations = []):
+    def objectives(self, generations = None):
         """
         - **array with objectives in generations:**
         Click on the links for more
@@ -147,12 +147,12 @@ class experiment(I_UserExperiment):
 
         """
         try:
-            return self.result_obj.IPL_objectives(self.result, generations, objective)
+            return self.result_obj.IPL_objectives(self.result, generations)
         except Exception as e:
             print(e)
 
 
-    def variable(self, variable = 1, generations = []):
+    def variables(self, generations = None):
         """
         - **array with decision variables in generations:**
         Click on the links for more
@@ -165,7 +165,7 @@ class experiment(I_UserExperiment):
 
         """
         try:
-            return self.result_var.IPL_variables(self.result, generations, variable)
+            return self.result_var.IPL_variables(self.result, generations)
         except Exception as e:
             print(e)
 

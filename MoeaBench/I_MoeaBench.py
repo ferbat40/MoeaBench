@@ -162,19 +162,9 @@ class I_MoeaBench(ABC):
     def set_IGD_plus(self):
         pass
 
-
-    @abstractmethod
-    def F(self):
-        pass
-
-
-    @abstractmethod
-    def X(self):
-        pass
-
     
     @abstractmethod
-    def dict_data(self):
+    def gen_data(self):
         pass
 
 

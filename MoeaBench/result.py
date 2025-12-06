@@ -1,32 +1,14 @@
 from .IPL_MoeaBench import IPL_MoeaBench 
+import numpy as np
 
 
-class result(IPL_MoeaBench ):
+class result(IPL_MoeaBench):
 
-    def F(self,result, generations = None):
-        return [b[0].get_F_GEN() for b in result.get_elements()] if generations is None else [b[0].get_F_GEN()[generations[0]:generations[1]] for b in result.get_elements()]
-
-    
-    def X(self,result, generations = None):
-        return [b[0].get_X_GEN() for b in result.get_elements()] if generations is None else [b[0].get_X_GEN()[generations[0]:generations[1]] for b in result.get_elements()]
+    def gen_data(self, gen_all, generations = None):
+        return gen_all[-1] if generations is None else gen_all[generations[0]]
 
 
-    def dict_data(self):
-        return {0: self.F, 1: self.X}
-
-
-    def DATA(self,resulted,generation, objective, default = 0):
-        gen_f_test = self.dict_data()[default](resulted)
-        gen_f_max = max([len(gen)  for gen in gen_f_test])
-        generations = [0,gen_f_max] if isinstance(generation, (list)) and len(generation) == 0 else generation
-        result.allowed_gen(generations)
-        result.allowed_gen_max(gen_f_max,generations[1])        
-        gen_f_valid = self.dict_data()[default](resulted,generations)
-        slicing = [[objective-1,objective]]
-        F_gen = []
-        for i in range(len(gen_f_valid)):
-            vet_aux = []
-            for z in range(len(gen_f_valid[i])):
-                vet_aux.append(result.slicing_arr(slicing,gen_f_valid[i][z]))
-            F_gen.append(vet_aux)                   
-        return F_gen 
+    def DATA(self,gen_f_max,generation):
+        result.allowed_gen(generation)
+        result.allowed_gen_max(len(gen_f_max),generation)        
+        return self.gen_data(gen_f_max,generation)

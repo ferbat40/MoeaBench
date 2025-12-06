@@ -26,4 +26,4 @@ class _MoeaBenchWrapper:
     def help(self):
         print(self.__class__.__doc__)
 
-moeabench = _MoeaBenchWrapper()
+mb = _MoeaBenchWrapper()

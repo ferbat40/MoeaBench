@@ -10,5 +10,5 @@
 """
 
 
-from .factory import moeabench
+from .factory import mb
 

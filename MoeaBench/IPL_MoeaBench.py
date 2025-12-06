@@ -37,7 +37,7 @@ class IPL_MoeaBench(I_MoeaBench):
         raise NotImplementedError("Not implemented")
     
 
-    def  IPL_GD(self):
+    def IPL_GD(self):
         raise NotImplementedError("Not implemented")
     
     
@@ -98,6 +98,10 @@ class IPL_MoeaBench(I_MoeaBench):
     
 
     def dict_data(self):
+        raise NotImplementedError("Not implemented")
+    
+
+    def verify(self):
         raise NotImplementedError("Not implemented")
     
     

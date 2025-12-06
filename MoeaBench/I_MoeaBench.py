@@ -178,6 +178,11 @@ class I_MoeaBench(ABC):
         pass
 
 
+    @abstractmethod
+    def verify(self):
+        pass
+
+
 
     
 

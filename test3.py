@@ -2,7 +2,7 @@ from MoeaBench.base_benchmark import BaseBenchmark
 from enum import Enum
 import numpy as np
 import os
-from MoeaBench import moeabench
+from MoeaBench import mb
 
 
 
@@ -21,13 +21,16 @@ class E_DTLZ(Enum):
        Fm   = 5
 
 
-@moeabench.benchmarks.register_benchmark()
+@mb.benchmarks.register_benchmark()
 class dtlz5(BaseBenchmark):
 
-    def __init__(self, type : str = None, M : int = 3, P : int = 700, K : int = 10, N : int = 0, D : int = 2, n_ieq_constr : int = 1):
-        N=K+M-1
-        super().__init__(type, M, P, K, N, n_ieq_constr)
+    def __init__(self, types : str = None, M : int = 3, P : int = 700, K : int = 10, N : int = 0, D : int = 2, n_ieq_constr : int = 1):
+        super().__init__(types, M, P, K, self.calc_N, n_ieq_constr)
         self.llist_E_DTLZ = list(E_DTLZ)
+        
+
+    def calc_N(self,K,M):
+        return K+M-1
 
 
     def constraits(self,f,parameter = 1,f_c=[]):
@@ -133,7 +136,7 @@ import array
 import numpy as np
 
 
-@moeabench.moeas.register_moea()
+@mb.moeas.register_moea()
 class NSGA2deap(BaseMoea):
 
   toolbox = base.Toolbox()
@@ -204,28 +207,32 @@ class NSGA2deap(BaseMoea):
       F_gen_all.append(np.column_stack([np.array([ind.fitness.values for ind in pop ])]))
       X_gen_all.append(np.column_stack([np.array([np.array(ind) for ind in pop ])]))
       non_dominate = tools.sortNondominated(pop, len(pop), first_front_only=True)[0]
-      hist_F_non_dominate.append(np.column_stack([np.array([ind.fitness.values for ind in non_dominate ])]))
+      hist_F_non_dominate.append(np.column_stack([nondominate  for nondominate in  ind.fitness.values for ind in non_dominate ]))
     F = np.column_stack([np.array([ind.fitness.values for ind in pop ])])
     return F_gen_all,X_gen_all,F,hist_F_non_dominate
 
-#exp = moeabench.experiment()
-#exp.benchmark = moeabench.benchmarks.DTLZ8()
-#exp.moea = moeabench.moeas.NSGAIII()
-#exp.run()
-#exp.save('fenix') 
-#exp.moea.generations = 500
-#exp.moea.population = 200
-#exp.run()
-#exp.save('cisne')
 
-exp5 = moeabench.experiment()
-exp5.benchmark= moeabench.benchmarks.my_new_benchmark()
-exp5.moea = moeabench.moeas.my_new_moea()
+exp5 = mb.experiment()
+exp5.benchmark= mb.benchmarks.my_new_benchmark()
+exp5.moea = mb.moeas.my_new_moea()
+exp5.run()
+hv = exp5.hypervolume(generations = [295,299])
+print(hv)
+
+exp5.benchmark.M = 4
+exp5.moea.generations = 400
+exp5.run()
+hv = exp5.hypervolume(generations = [395,399])
+print(hv)
 
 
 exp5.benchmark.M = 5
+exp5.moea.generations = 500
+exp5.population = 400
 
-#exp5.run()
+exp5.run()
+hv = exp5.hypervolume(generations = [495,499])
+print(hv)
 
 #moeabench.plot_hypervolume(exp5.result)
 #exp5.save("gavan")

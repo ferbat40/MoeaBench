@@ -16,15 +16,15 @@ class moea_algorithm:
         return moeas.kernel_moea.MOEAD_pymoo, moeas.E_MOEA_algorithm.MOEAD_pymoo
                
 
-    def NSGAIII(self):
+    def NSGA3(self):
         return moeas.kernel_moea.NSGA_pymoo, moeas.E_MOEA_algorithm.NSGA_pymoo
     
 
-    def SPEAII(self,):
+    def SPEA2(self,):
         return moeas.kernel_moea.SPEA_pymoo, moeas.E_MOEA_algorithm.SPEA_pymoo
             
 
-    def U_NSGAIII(self):
+    def U_NSGA3(self):
         return moeas.kernel_moea.UNSGA_pymoo, moeas.E_MOEA_algorithm.UNSGA_pymoo,
 
 
@@ -37,9 +37,9 @@ class moea_algorithm:
 
 
     def dict_data(self):
-        return {moeas.E_MOEA.NSGAIII : self.NSGAIII,
-                moeas.E_MOEA.SPEAII : self.SPEAII,
-                moeas.E_MOEA.U_NSGAIII : self.U_NSGAIII,
+        return {moeas.E_MOEA.NSGA3 : self.NSGA3,
+                moeas.E_MOEA.SPEA2 : self.SPEA2,
+                moeas.E_MOEA.U_NSGA3 : self.U_NSGA3,
                 moeas.E_MOEA.MOEAD : self.MOEAD,
                 moeas.E_MOEA.RVEA: self.RVEA,
                 moeas.E_MOEA.my_new_moea: self.my_new_moea

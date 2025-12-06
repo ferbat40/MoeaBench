@@ -1,7 +1,7 @@
 from .moea_algorithm import moea_algorithm
 
 
-class U_NSGAIII:
+class U_NSGA3:
     """
         - genetic algorithm:
         Click on the links for more

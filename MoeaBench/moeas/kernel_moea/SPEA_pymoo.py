@@ -47,7 +47,7 @@ class SPEA_pymoo(Problem):
         
 
         SPEA_algorithm={
-            "SPEAII" :np.column_stack([res_SPEA.F])
+            "SPEA2" :np.column_stack([res_SPEA.F])
         }   
         return (SPEA_algorithm,self.generations,self.population,res_SPEA.history,res_SPEA.X)
     

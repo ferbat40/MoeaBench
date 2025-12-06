@@ -44,7 +44,7 @@ class UNSGA_pymoo(Problem):
             )  
 
         UNSGA_algorithm={
-            "U-NSGAIII" :np.column_stack([res_UNSGA.F])
+            "U-NSGA3" :np.column_stack([res_UNSGA.F])
         }    
         return(UNSGA_algorithm,self.generations,self.population,res_UNSGA.history,res_UNSGA.X)
     

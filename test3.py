@@ -185,6 +185,7 @@ class NSGA2deap(BaseMoea):
     F_gen_all=[]
     X_gen_all=[]
     hist_F_non_dominate=[]
+    hist_X_non_dominate=[]
     for ind, fit in zip(invalid_ind, fitnesses):
       ind.fitness.values = fit
     F_gen_all.append(np.column_stack([np.array([ind.fitness.values for ind in pop ])]))
@@ -204,35 +205,42 @@ class NSGA2deap(BaseMoea):
       for ind, fit in zip(invalid_ind, fitnesses):
         ind.fitness.values = fit
       pop = NSGA2deap.toolbox.select(pop + offspring, len(pop))
-      F_gen_all.append(np.column_stack([np.array([ind.fitness.values for ind in pop ])]))
-      X_gen_all.append(np.column_stack([np.array([np.array(ind) for ind in pop ])]))
+      F_gen = np.column_stack([np.array([ind.fitness.values for ind in pop ])])
+      F_gen_all.append(F_gen)
+      X_gen = np.column_stack([np.array([np.array(ind) for ind in pop ])])
+      X_gen_all.append(X_gen)
       non_dominate = tools.sortNondominated(pop, len(pop), first_front_only=True)[0]
-      hist_F_non_dominate.append(np.column_stack([nondominate  for nondominate in  ind.fitness.values for ind in non_dominate ]))
+      F_non_dominate = np.column_stack([ind.fitness.values for ind in non_dominate ])
+      hist_F_non_dominate.append(F_non_dominate)
+      X_non_dominate = np.column_stack([ind for ind in non_dominate ])
+      hist_X_non_dominate.append(X_non_dominate)
     F = np.column_stack([np.array([ind.fitness.values for ind in pop ])])
-    return F_gen_all,X_gen_all,F,hist_F_non_dominate
+    for i in hist_X_non_dominate:
+       print(i.shape)
+    return F_gen_all,X_gen_all,F,hist_F_non_dominate,hist_X_non_dominate
 
 
 exp5 = mb.experiment()
 exp5.benchmark= mb.benchmarks.my_new_benchmark()
 exp5.moea = mb.moeas.my_new_moea()
 exp5.run()
-hv = exp5.hypervolume(generations = [295,299])
+hv = exp5.hypervolume(generations = [150, 155])
 print(hv)
 
-exp5.benchmark.M = 4
-exp5.moea.generations = 400
-exp5.run()
-hv = exp5.hypervolume(generations = [395,399])
-print(hv)
+#exp5.benchmark.M = 4
+#exp5.moea.generations = 400
+#exp5.run()
+#hv = exp5.hypervolume(generations = [395,399])
+#print(hv)
 
 
-exp5.benchmark.M = 5
-exp5.moea.generations = 500
-exp5.population = 400
+#exp5.benchmark.M = 5
+#exp5.moea.generations = 500
+#exp5.population = 400
 
-exp5.run()
-hv = exp5.hypervolume(generations = [495,499])
-print(hv)
+#exp5.run()
+#hv = exp5.hypervolume(generations = [495,499])
+#print(hv)
 
 #moeabench.plot_hypervolume(exp5.result)
 #exp5.save("gavan")

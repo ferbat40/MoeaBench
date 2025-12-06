@@ -20,7 +20,7 @@ class IPL_MoeaBench(I_MoeaBench):
     def axis(self):
         raise NotImplementedError("Not implemented")
 
-   
+    
     def IPL_objectives(self):
         raise NotImplementedError("Not implemented")
     
@@ -37,7 +37,7 @@ class IPL_MoeaBench(I_MoeaBench):
         raise NotImplementedError("Not implemented")
     
 
-    def IPL_GD(self):
+    def  IPL_GD(self):
         raise NotImplementedError("Not implemented")
     
     
@@ -88,12 +88,24 @@ class IPL_MoeaBench(I_MoeaBench):
     def IPL_save(self):
         raise NotImplementedError("Not implemented")
     
+    
+    def F(self):
+        raise NotImplementedError("Not implemented")
+    
 
-    def gen_data(self):
+    def X(self):
+        raise NotImplementedError("Not implemented")
+    
+
+    def dict_data(self):
         raise NotImplementedError("Not implemented")
     
 
     def verify(self):
+        raise NotImplementedError("Not implemented")
+    
+
+    def gen_data(self):
         raise NotImplementedError("Not implemented")
     
     
@@ -159,15 +171,17 @@ class IPL_MoeaBench(I_MoeaBench):
 
     @staticmethod
     def allowed_gen(generations):
-        if generations is not None and not isinstance(generations, (list)):
-            raise TypeError("Only arrays are allowed in 'generations'")    
-        if generations is not None and not len(generations) == 1:
-            raise TypeError(f"generations = {generations} not be allowed. I is necessary to follow the format: generations = [chosen generation]" )
+        if not isinstance(generations, (list)):
+            raise TypeError("Only arrays are allowed in 'generations'")
+        if not len(generations) == 2:
+            raise TypeError(f"generations = {generations} not be allowed. I is necessary to follow the format: generations = [begin, end]" )
+        if not generations[0] <= generations[1]:
+            raise TypeError("the initial generation must be smaller than the final generation")
         
 
     @staticmethod
     def allowed_gen_max(maximum, N):
-        if N is not None and not N[0] <= maximum:
+        if not N <= maximum:
             raise TypeError(f"generations = {N} not be allowed. It must be between 0 and {maximum}" )
       
     

@@ -14,9 +14,9 @@ class CACHE(memory):
         return self.__BENCH_CI 
   
 
-  def DATA_store(self,name_moea,generations,population,F,F_gen,X_gen,problem,name_benchmaark,F_gen_non_dominate):
+  def DATA_store(self,name_moea,generations,population,F,F_gen,X_gen,problem,name_benchmaark,F_gen_non_dominate,X_gen_non_dominate):
         DT_CONF=DATA_conf()
-        DT_CONF.set(name_moea,generations,population,F,F_gen,X_gen,F_gen_non_dominate)
+        DT_CONF.set(name_moea,generations,population,F,F_gen,X_gen,F_gen_non_dominate,X_gen_non_dominate)
         BENCH=BENCH_conf()
         BENCH.set(problem.get_CACHE().get_BENCH_CI().get_M(),
                                   problem.get_CACHE().get_BENCH_CI().get_D(),

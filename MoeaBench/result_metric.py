@@ -3,7 +3,7 @@ from .IPL_MoeaBench import IPL_MoeaBench
 import numpy as np
 
 
-class result_metric(result):
+class result_metric(IPL_MoeaBench):
 
     @staticmethod
     def allowed_obj(objective,result):

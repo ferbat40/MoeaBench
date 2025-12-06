@@ -8,7 +8,7 @@ class DATA_conf(I_DATA_conf):
         self.__problem=problem
         
 
-    def set(self,description,generations,population,arr_DATA,F_GEN,X_GEN,F_gen_non_dominate):
+    def set(self,description,generations,population,arr_DATA,F_GEN,X_GEN,F_gen_non_dominate,X_gen_non_dominate):
         self.__description=description
         self.__generations=generations
         self.__population=population
@@ -16,6 +16,7 @@ class DATA_conf(I_DATA_conf):
         self.__F_GEN=F_GEN
         self.__X_GEN=X_GEN
         self.__F_gen_non_dominate=F_gen_non_dominate
+        self.__X_gen_non_dominate=X_gen_non_dominate
 
 
     def get_DATA_MOEA(self):
@@ -54,6 +55,10 @@ class DATA_conf(I_DATA_conf):
         return self.__F_gen_non_dominate
     
 
+    def get_X_gen_non_dominate(self):
+        return self.__X_gen_non_dominate
+    
+    
     def get_X_GEN(self):
         return self.__X_GEN
     

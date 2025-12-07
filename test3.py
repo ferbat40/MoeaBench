@@ -223,22 +223,22 @@ class NSGA2deap(BaseMoea):
 
       non_dominate = tools.sortNondominated(pop, len(pop), first_front_only=True)[0]
       
-      F_non_dominate = np.column_stack([ind.fitness.values for ind in non_dominate ])
+      F_non_dominate = np.column_stack( [np.array(  [ind.fitness.values for ind in non_dominate ])]    )
       hist_F_non_dominate.append(F_non_dominate)
     
-      X_non_dominate = np.column_stack([ind for ind in non_dominate ])
+      X_non_dominate = np.column_stack(  [np.array(  [ind for ind in non_dominate ]) ])
       hist_X_non_dominate.append(X_non_dominate)
 
 
       dominate = [ind for ind in pop if ind not in non_dominate]
       
       F_dominate = [ind.fitness.values for ind in dominate]
-      F_dominate = F_dominate if len(F_dominate) == 0 else np.column_stack(F_dominate)
+      F_dominate = np.array(F_dominate) if len(F_dominate) == 0 else np.column_stack(  [np.array(  F_dominate)])
       hist_F_dominate.append(F_dominate)
 
 
       X_dominate = [ind for ind in dominate]
-      X_dominate = X_dominate if len(X_dominate) == 0 else np.column_stack(X_dominate)
+      X_dominate = np.array(X_dominate) if len(X_dominate) == 0 else np.column_stack( [np.array( X_dominate)])
       hist_X_dominate.append(X_dominate)
        
 
@@ -249,7 +249,19 @@ class NSGA2deap(BaseMoea):
 exp5 = mb.experiment()
 exp5.benchmark= mb.benchmarks.my_new_benchmark()
 exp5.moea = mb.moeas.my_new_moea()
+exp5.moea.population = 100
+exp5.moea.generations = 200
 exp5.run()
+
+arr = exp5.dominated.objectives(generations = [0])
+print(arr.shape)
+
+arr = exp5.front(generations = [0])
+print(arr.shape)
+
+
+arr = exp5.objectives(generations = [0])
+print(arr.shape)
 
 #opt_front = exp5.optimal.front()
 #print(opt_front)

@@ -17,17 +17,31 @@ class GEN_history:
         hist_N = []
         hist_F_non_dominate = []
         hist_X_non_dominate = []
+        hist_F_dominate = []
+        hist_X_dominate = []
         for i in self.history:
             n_evals.append(i.evaluator.n_eval)
             opt = i.opt
+            pop = i.pop
             hist_cv.append(opt.get("CV").min())
-            hist_cv_avg.append(i.pop.get("CV").mean())
+            hist_cv_avg.append(pop.get("CV").mean())
             feas = np.where(opt.get("feasible"))[0]
-            hist_F.append(i.pop.get("F"))  
-            hist_N.append(i.pop.get("X"))  
+            
+            feas_n = np.where(pop.get("feasible"))[0]
+
+            F_dominate = np.setdiff1d(np.arange(len(pop.get("F"))),feas_n)
+            X_dominate = np.setdiff1d(np.arange(len(pop.get("X"))),feas_n)
+            
+
+
+
+            hist_F.append(pop.get("F"))  
+            hist_N.append(pop.get("X"))  
             hist_F_non_dominate.append(opt.get("F")[feas])     
             hist_X_non_dominate.append(opt.get("X")[feas]) 
-        return self.F.min(axis=0),self.F.max(axis=0),hist_F,n_evals,hist_N,hist_F_non_dominate,hist_X_non_dominate
+            hist_F_dominate.append(pop.get("F")[F_dominate])
+            hist_X_dominate.append(pop.get("X")[X_dominate])
+        return self.F.min(axis=0),self.F.max(axis=0),hist_F,n_evals,hist_N,hist_F_non_dominate,hist_X_non_dominate,hist_F_dominate,hist_X_dominate
     
 
         

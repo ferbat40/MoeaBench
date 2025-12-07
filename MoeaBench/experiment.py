@@ -27,6 +27,21 @@ class experiment(I_UserExperiment):
     
 
     @property
+    def optimal(self):
+        return self.imports.optimal.optimal(self)
+    
+
+    @property
+    def dominated(self):
+        return self.imports.dominated.dominated(self)
+
+
+    @optimal.setter
+    def optimal(self, value):
+        self._optimal = value
+
+
+    @property
     def moea(self):
         return self._moea
     
@@ -156,10 +171,6 @@ class experiment(I_UserExperiment):
             print(e)
 
 
-    def optimal_front(self):
-        return [pof.get_arr_DATA() for pof_benchmark in self.pof.get_CACHE().get_elements() for pof in pof_benchmark if hasattr(pof,'get_arr_DATA')][0]
-            
-    
     def front(self, generations = None):
         try:
             return self.result_front.IPL_front(self.result, generations)
@@ -190,10 +201,6 @@ class experiment(I_UserExperiment):
             return self.result_set.IPL_set(self.result, generations)
         except Exception as e:
             print(e)
-     
-
-    def optimal_set(self):
-         return self.benchmark.get_Point_in_G()
 
 
     def load(self,file):

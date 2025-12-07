@@ -33,7 +33,7 @@ class P_DTLZ8(K_DTLZ8):
             if self.N_validate(self.get_CACHE().get_BENCH_CI().get_Nvar()) == True and self.M_validate(self.get_CACHE().get_BENCH_CI().get_M()) == True:
                 F, X = self.minimize()
                 for key,value in F.items():
-                    self.get_CACHE().DATA_store(key,0,0,value,[0],[0],self,self.__class__.__name__.split("_")[1],[0],[0]) 
+                    self.get_CACHE().DATA_store(key,0,0,value,[0],[0],self,self.__class__.__name__.split("_")[1],[0],[0],[0],[0]) 
         except Exception as e:
              print(e)
 

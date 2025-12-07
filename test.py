@@ -9,12 +9,8 @@ os.system("cls")
 
 exp = mb.experiment()
 exp.benchmark = mb.benchmarks.DTLZ1()
-exp.moea = mb.moeas.NSGA3(generations = 400, population = 190)
-#exp.run()
-
-opt_front = exp.optimal_front()
-print(opt_front.ndim)
+exp.moea = mb.moeas.NSGA3(generations = 400, population = 100)
+exp.run()
+#print(exp.dominated.objectives())
 
 
-opt_set = exp.optimal_set()
-print(opt_set.ndim)

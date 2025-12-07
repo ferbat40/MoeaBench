@@ -47,14 +47,35 @@ class I_DATA_conf(ABC):
     def get_F_gen_non_dominate(self):
         pass
 
+
+    @abstractmethod
+    def get_F_gen_dominate(self):
+        pass
     
+
     @abstractmethod
     def get_X_GEN(self):
         pass
 
+    
+    @abstractmethod
+    def get_X_gen_non_dominate(self):
+        pass
+      
+    
+    @abstractmethod
+    def get_X_gen_dominate(self):
+        pass
+
+
+    
+
+    
 
 
 
+    
+  
 
    
 

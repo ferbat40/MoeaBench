@@ -99,6 +99,17 @@ class BaseBenchmark(ABC):
      @abstractmethod
      def POFsamples(self):
           pass
+
+
+     @abstractmethod
+     def set_Point_in_G(self):
+          pass
+
+     
+     @abstractmethod
+     def get_Point_in_G(self):
+          pass
+
       
 
      

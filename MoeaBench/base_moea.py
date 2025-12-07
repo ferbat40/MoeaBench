@@ -20,16 +20,6 @@ class BaseMoea(ABC):
      
 
      @abstractmethod
-     def set_Point_in_G(self):
-          pass
-
-     
-     @abstractmethod
-     def get_Point_in_G(self):
-          pass
-
-
-     @abstractmethod
      def evaluation(self):
           pass
 

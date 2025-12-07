@@ -15,7 +15,9 @@ class RUN_user(runner):
                             problem,
                             name_benchmark,
                             data[3],
-                            data[3])
+                            data[4],
+                            data[5],
+                            data[6])
       
     
          

@@ -24,6 +24,14 @@ class IPL_MoeaBench(I_MoeaBench):
     def IPL_objectives(self):
         raise NotImplementedError("Not implemented")
     
+
+    def IPL_front(self):
+        raise NotImplementedError("Not implemented")
+    
+
+    def IPL_set(self):
+        raise NotImplementedError("Not implemented")
+    
     
     def IPL_plot_3D(self):
         raise NotImplementedError("Not implemented")

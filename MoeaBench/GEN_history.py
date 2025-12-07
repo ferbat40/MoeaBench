@@ -27,8 +27,6 @@ class GEN_history:
             hist_N.append(i.pop.get("X"))  
             hist_F_non_dominate.append(opt.get("F")[feas])     
             hist_X_non_dominate.append(opt.get("X")[feas]) 
-        for i in hist_X_non_dominate:
-            print(i.shape)
         return self.F.min(axis=0),self.F.max(axis=0),hist_F,n_evals,hist_N,hist_F_non_dominate,hist_X_non_dominate
     
 

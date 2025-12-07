@@ -69,6 +69,16 @@ class I_MoeaBench(ABC):
 
 
     @abstractmethod
+    def IPL_front(self):
+        pass
+
+
+    @abstractmethod
+    def IPL_set(self):
+        pass
+
+
+    @abstractmethod
     def IPL_variables(self):
         pass
        

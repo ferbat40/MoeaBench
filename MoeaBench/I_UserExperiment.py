@@ -37,6 +37,16 @@ class I_UserExperiment(ABC):
     def objectives(self):
         pass
 
+    
+    @abstractmethod
+    def front(self):
+        pass
+    
+
+    @abstractmethod
+    def set(self):
+        pass
+
 
     @abstractmethod
     def variables(self):

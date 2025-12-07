@@ -2,7 +2,9 @@ from .RUN import RUN
 from .RUN_user import RUN_user
 from .result_metric import result_metric
 from .result_obj import result_obj
+from .result_front import result_front
 from .result_var import result_var
+from .result_set import result_set
 from .save import save
 from .loader import loader
 from .I_UserExperiment import I_UserExperiment
@@ -17,7 +19,9 @@ class experiment(I_UserExperiment):
         self.imports = imports
         self.result_metric=result_metric()
         self.result_obj=result_obj()
+        self.result_front=result_front()
         self.result_var=result_var()
+        self.result_set=result_set()
         self.hist_M_user = []
         self.hist_M_native = []
     
@@ -150,6 +154,20 @@ class experiment(I_UserExperiment):
             return self.result_obj.IPL_objectives(self.result, generations)
         except Exception as e:
             print(e)
+
+
+    def front(self, generations = None):
+        try:
+            return self.result_front.IPL_front(self.result, generations)
+        except Exception as e:
+            print(e)
+
+    
+    def set(self, generations = None):
+        #try:
+            return self.result_set.IPL_set(self.result, generations)
+        #except Exception as e:
+            #print(e)
 
 
     def variables(self, generations = None):

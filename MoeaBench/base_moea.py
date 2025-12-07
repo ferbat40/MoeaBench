@@ -17,8 +17,18 @@ class BaseMoea(ABC):
           samples = problem.POFsamples()
           problem.get_CACHE().DATA_store(problem.__class__.__name__,problem.get_type(),problem.get_M(),problem.get_N(),problem.get_n_ieq_constr(),samples,problem.get_P() ,problem.get_K()) 
           return problem
+     
 
-  
+     @abstractmethod
+     def set_Point_in_G(self):
+          pass
+
+     
+     @abstractmethod
+     def get_Point_in_G(self):
+          pass
+
+
      @abstractmethod
      def evaluation(self):
           pass

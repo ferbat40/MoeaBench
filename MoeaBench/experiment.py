@@ -48,7 +48,7 @@ class experiment(I_UserExperiment):
         self.pof=self._benchmark 
 
 
-    def hypervolume(self, generations = [], objectives = []):
+    def hypervolume(self, generations = [], objectives = [], reference = []):
         """
         - **array with hypervolume in generations:**
         Click on the links for more
@@ -61,7 +61,7 @@ class experiment(I_UserExperiment):
 
         """
         try:
-            return self.result_metric.IPL_hypervolume(self.result, generations, objectives)
+            return self.result_metric.IPL_hypervolume(self.result, generations, objectives, reference)
         except Exception as e:
             print(e)
      
@@ -156,18 +156,15 @@ class experiment(I_UserExperiment):
             print(e)
 
 
+    def optimal_front(self):
+        return [pof.get_arr_DATA() for pof_benchmark in self.pof.get_CACHE().get_elements() for pof in pof_benchmark if hasattr(pof,'get_arr_DATA')][0]
+            
+    
     def front(self, generations = None):
         try:
             return self.result_front.IPL_front(self.result, generations)
         except Exception as e:
             print(e)
-
-    
-    def set(self, generations = None):
-        #try:
-            return self.result_set.IPL_set(self.result, generations)
-        #except Exception as e:
-            #print(e)
 
 
     def variables(self, generations = None):
@@ -186,6 +183,17 @@ class experiment(I_UserExperiment):
             return self.result_var.IPL_variables(self.result, generations)
         except Exception as e:
             print(e)
+    
+
+    def set(self, generations = None):
+        try:
+            return self.result_set.IPL_set(self.result, generations)
+        except Exception as e:
+            print(e)
+     
+
+    def optimal_set(self):
+         return self.benchmark.get_Point_in_G()
 
 
     def load(self,file):

@@ -37,7 +37,7 @@ class result_metric(IPL_MoeaBench):
         return F_gen,F_slice 
     
 
-    def IPL_hypervolume(self, result, generation, objective):
+    def IPL_hypervolume(self, result, generation, objective, reference):
         F_GEN, F =  self.DATA(result,generation, objective)
         hv_gen = result_metric.set_hypervolume(F_GEN,F)
         hv = [hv.evaluate().flatten() for hv in hv_gen][0]

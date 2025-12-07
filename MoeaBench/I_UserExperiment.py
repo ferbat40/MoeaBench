@@ -41,7 +41,17 @@ class I_UserExperiment(ABC):
     @abstractmethod
     def front(self):
         pass
-    
+
+
+    @abstractmethod
+    def optimal_front(self):
+        pass
+
+
+    @abstractmethod
+    def optimal_set(self):
+        pass
+        
 
     @abstractmethod
     def set(self):

@@ -104,13 +104,22 @@ class dtlz5(BaseBenchmark):
 
     def calc_g(self,X):
         return np.sum((X[:,self.get_M()-1:]-0.5)**2, axis = 1).reshape(X.shape[0],1)
+    
+    
+    def set_Point_in_G(self,X):
+       self._point_in_g = X
+    
+
+    def get_Point_in_G(self):
+       return self._point_in_g
 
 
     def POFsamples(self):
         X = self.get_Points()
         X[:,self.get_M()-1:self.get_N()]=0.5
+        self.set_Point_in_G(X)
         G = self.calc_g(X)
-        F = self.eval_cons(self.calc_f(X,G))
+        F = self.eval_cons(self.calc_f(self.get_Point_in_G(),G))
         return F
 
 
@@ -223,9 +232,20 @@ class NSGA2deap(BaseMoea):
 exp5 = mb.experiment()
 exp5.benchmark= mb.benchmarks.my_new_benchmark()
 exp5.moea = mb.moeas.my_new_moea()
-exp5.run()
-hv = exp5.hypervolume(generations = [150, 155])
-print(hv)
+
+
+opt_front = exp5.optimal_front()
+print(opt_front)
+
+
+opt_set = exp5.optimal_set()
+print(opt_set)
+
+
+
+#exp5.run()
+#hv = exp5.hypervolume(generations = [150, 155])
+#print(hv)
 
 #exp5.benchmark.M = 4
 #exp5.moea.generations = 400

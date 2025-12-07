@@ -99,6 +99,14 @@ class dtlz5(BaseBenchmark):
 
     def calc_g(self,X):
         return np.sum((X[:,self.get_M()-1:]-0.5)**2, axis = 1).reshape(X.shape[0],1)
+    
+
+    def set_Point_in_G(self,X):
+       self._point_in_g = X
+    
+
+    def get_Point_in_G(self):
+       return self._point_in_g
 
 
     def POFsamples(self):

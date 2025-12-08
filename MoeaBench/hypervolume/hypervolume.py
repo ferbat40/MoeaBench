@@ -54,6 +54,7 @@ class hypervolume(result_metric):
 
         if not isinstance(reference,list):
                 raise TypeError("Only arrays are allowed in 'references'")
+        
         if len(reference) > 0:  
             min_non, max_non = hypervolume.normalize(reference)
         min_slice = [float(min_non[i-1]) for i in objective] if len(min_non) > 0 else np.min(F[0], axis = 0)

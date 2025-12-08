@@ -48,7 +48,17 @@ class hypervolume(result_metric):
 
 
     def IPL_hypervolume(self, result, objective = [], reference = [], generation = []):
-        F_GEN, F =  self.DATA(result,generation, objective, reference)
-        hv_gen = hypervolume.set_hypervolume(F_GEN,F)
+        F_GEN, F =  self.DATA(result,generation, objective)
+        min_non, max_non = hypervolume.normalize(reference)
+        min_slice = [float(min_non[i-1]) for i in objective]
+        max_slice = [float(max_non[i-1]) for i in objective]
+        print(F_GEN.shape)
+        print(min_slice,"   ",min_non)
+        print(max_slice,"   ",max_non)
+
+        #slice_min = [min[0][i-1] for i in objective]
+       # print(min,"   ",slice_min)
+            
+        hv_gen = hypervolume.set_hypervolume(F_GEN, F, min_non, max_non)
         hv = [hv.evaluate().flatten() for hv in hv_gen][0]
         return hv

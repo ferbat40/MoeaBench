@@ -74,6 +74,11 @@ class I_MoeaBench(ABC):
 
 
     @abstractmethod
+    def normalize(self):
+        pass
+
+
+    @abstractmethod
     def IPL_set(self):
         pass
 

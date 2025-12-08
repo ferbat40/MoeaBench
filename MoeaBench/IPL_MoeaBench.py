@@ -116,6 +116,32 @@ class IPL_MoeaBench(I_MoeaBench):
     def gen_data(self):
         raise NotImplementedError("Not implemented")
     
+   
+    @staticmethod
+    def normalize(ref):
+            if not isinstance(ref,list):
+                raise TypeError("Only arrays are allowed in 'references'")
+            
+            data = [args.result.get_elements() 
+            if isinstance(args, object) 
+            and hasattr(args,'result') 
+            and hasattr(args.result,'get_elements') 
+            else None for args in ref ]
+        
+            if None in data:
+                raise TypeError("only arguments of type 'experiment' are allowed.")
+
+            gen = [n_dom.get_F_gen_non_dominate()[-1] 
+            for element in data 
+            for exp in element 
+            for n_dom in exp 
+            if hasattr(n_dom,"get_F_gen_non_dominate")]
+             
+            valid = [i for i in gen  if len(i) > 0]
+            min_gen = np.vstack([np.min(i, axis = 0) for i in valid  if len(i) > 0])          
+            max_gen = np.vstack([np.max(i, axis = 0) for i in valid  if len(i) > 0])
+            return np.min(min_gen, axis = 0), np.max(max_gen, axis = 0)
+
     
     @staticmethod
     def slicing_arr(slc,arr):
@@ -123,8 +149,8 @@ class IPL_MoeaBench(I_MoeaBench):
     
 
     @staticmethod
-    def set_hypervolume(F_GEN,F):
-        return [GEN_hypervolume(fgen,f.shape[1],f.min(axis=0),f.max(axis=0)) for fgen,f in zip(F_GEN,F)]
+    def set_hypervolume(F_GEN, F, min_non, max_non):
+        return [GEN_hypervolume(fgen,f.shape[1],min_non,max_non) for fgen,f in zip(F_GEN,F)]
     
     
     @staticmethod

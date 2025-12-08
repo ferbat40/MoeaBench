@@ -6,9 +6,16 @@ from .I_UserMoeaBench import I_UserMoeaBench
 import importlib
 from .experiment import experiment
 from .stat import stat
+from MoeaBench.hypervolume.hypervolume import hypervolume
 
 
 class MoeaBench(I_UserMoeaBench):
+
+
+    @property
+    def hypervolume(self):
+        return hypervolume()
+    
       
     def experiment(self):
         return experiment(self)
@@ -27,6 +34,7 @@ class MoeaBench(I_UserMoeaBench):
             return importlib.import_module(f"MoeaBench.{name}")
         except ModuleNotFoundError:
             raise AttributeError(name)
+    
     
 
     def plot_hypervolume(self,*args, generations = [], objectives = []):   

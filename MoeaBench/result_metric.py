@@ -35,13 +35,6 @@ class result_metric(IPL_MoeaBench):
         F = [b[0].get_arr_DATA() for b in result.get_elements()]
         F_slice = [np.hstack( [b[:,i:j]  for i,j in slicing]) for b in F ]        
         return F_gen,F_slice 
-    
-
-    def IPL_hypervolume(self, result, generation, objective, reference):
-        F_GEN, F =  self.DATA(result,generation, objective)
-        hv_gen = result_metric.set_hypervolume(F_GEN,F)
-        hv = [hv.evaluate().flatten() for hv in hv_gen][0]
-        return hv
             
 
     def IPL_GD(self, result, generation, objective):

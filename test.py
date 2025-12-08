@@ -1,6 +1,7 @@
 from MoeaBench import mb
-import os
+import os, importlib
 import numpy as np
+
 
 
 
@@ -9,20 +10,15 @@ os.system("cls")
 
 exp = mb.experiment()
 exp.benchmark = mb.benchmarks.DTLZ1()
-exp.moea = mb.moeas.NSGA3(generations = 400, population = 100)
+exp.moea = mb.moeas.NSGA3(generations = 300, population = 200)
 exp.run()
 
 
+hv = mb.hypervolume(exp)
+print(hv)
 
-arr = exp.dominated.objectives(generations = [350])
-print(arr.shape)
-
-arr = exp.front(generations = [350])
-print(arr.shape)
-
-
-arr = exp.objectives(generations = [350])
-print(arr.shape)
+hy_arr = mb.hypervolume.trace(exp, generations = [200,250])
+print(hy_arr)
 
 
 

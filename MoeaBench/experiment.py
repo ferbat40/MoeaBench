@@ -24,7 +24,8 @@ class experiment(I_UserExperiment):
         self.result_set=result_set()
         self.hist_M_user = []
         self.hist_M_native = []
-    
+
+
 
     @property
     def optimal(self):
@@ -62,24 +63,6 @@ class experiment(I_UserExperiment):
         self._benchmark=value(self.imports.benchmarks) if callable(value) else value
         self.pof=self._benchmark 
 
-
-    def hypervolume(self, generations = [], objectives = [], reference = []):
-        """
-        - **array with hypervolume in generations:**
-        Click on the links for more
-        ...
-                - **Informations:**
-                      - sinxtase:
-                      experiment.hypervolume(args)  
-                      - [hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/) information about the method, examples and more...   
-                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
-
-        """
-        try:
-            return self.result_metric.IPL_hypervolume(self.result, generations, objectives, reference)
-        except Exception as e:
-            print(e)
-     
 
     def GD(self, generations = [], objectives = []):
         """
@@ -254,30 +237,30 @@ class experiment(I_UserExperiment):
             name_moea = self.result[2]
         else:
             name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__       
-        #try:
-        moea_found = self.imports.moeas.moea_algorithm()
-        algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
-        execute = RUN() if not isinstance(algoritm, bool ) and not inspect.isclass(algoritm[0]) else RUN_user()
+        try:
+            moea_found = self.imports.moeas.moea_algorithm()
+            algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
+            execute = RUN() if not isinstance(algoritm, bool ) and not inspect.isclass(algoritm[0]) else RUN_user()
             
-        if isinstance(self.result,tuple):
+            if isinstance(self.result,tuple):
                 self.hist_M_user.append(self.benchmark.M )
                 self.result = self.moea(self.benchmark, self.imports.moeas) if not len(set(self.hist_M_user)) == 1 else self.result
                 
             
-        elif not isinstance(self.result,tuple):
+            elif not isinstance(self.result,tuple):
                 self.hist_M_native.append(self.benchmark.M)
                 self.result = self.moea(self.benchmark) if not len(set(self.hist_M_native)) == 1 else self.result
             
-        self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
+            self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
 
 
-        try:
+            try:
                 name_benchmark = self.benchmark.__class__.__name__.split("_")[1]
-        except Exception as e:
+            except Exception as e:
                 name_benchmark = self.benchmark.__class__.__name__
                 
-        return execute.MOEA_execute(self.result_moea,self.benchmark,name_moea,name_benchmark)
-       #except Exception as e:
-            #print(e)
+            return execute.MOEA_execute(self.result_moea,self.benchmark,name_moea,name_benchmark)
+        except Exception as e:
+            print(e)
            
            

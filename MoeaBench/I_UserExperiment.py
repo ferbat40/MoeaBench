@@ -29,11 +29,6 @@ class I_UserExperiment(ABC):
 
     
     @abstractmethod
-    def hypervolume(self):
-        pass
-  
-    
-    @abstractmethod
     def objectives(self):
         pass
 

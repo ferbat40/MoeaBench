@@ -119,9 +119,6 @@ class IPL_MoeaBench(I_MoeaBench):
    
     @staticmethod
     def normalize(ref):
-            if not isinstance(ref,list):
-                raise TypeError("Only arrays are allowed in 'references'")
-            
             data = [args.result.get_elements() 
             if isinstance(args, object) 
             and hasattr(args,'result') 

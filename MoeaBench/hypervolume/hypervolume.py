@@ -49,16 +49,15 @@ class hypervolume(result_metric):
 
     def IPL_hypervolume(self, result, objective = [], reference = [], generation = []):
         F_GEN, F =  self.DATA(result,generation, objective)
-        min_non, max_non = hypervolume.normalize(reference)
-        min_slice = [float(min_non[i-1]) for i in objective]
-        max_slice = [float(max_non[i-1]) for i in objective]
-        print(F_GEN.shape)
-        print(min_slice,"   ",min_non)
-        print(max_slice,"   ",max_non)
+        min_non = []
+        max_non = []
 
-        #slice_min = [min[0][i-1] for i in objective]
-       # print(min,"   ",slice_min)
-            
-        hv_gen = hypervolume.set_hypervolume(F_GEN, F, min_non, max_non)
+        if not isinstance(reference,list):
+                raise TypeError("Only arrays are allowed in 'references'")
+        if len(reference) > 0:  
+            min_non, max_non = hypervolume.normalize(reference)
+        min_slice = [float(min_non[i-1]) for i in objective] if len(min_non) > 0 else np.min(F[0], axis = 0)
+        max_slice = [float(max_non[i-1]) for i in objective] if len(max_non) > 0 else np.max(F[0], axis = 0)
+        hv_gen = hypervolume.set_hypervolume(F_GEN, F, min_slice, max_slice)
         hv = [hv.evaluate().flatten() for hv in hv_gen][0]
         return hv

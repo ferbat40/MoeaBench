@@ -21,26 +21,28 @@ exp2.run()
 
 
 
-
-ref = [exp,exp2]
-
-hy_arr_ref = mb.hypervolume.trace(exp, objectives = [1,3],  reference = ref)
-print(hy_arr_ref)
+mb.hypervolume.timeplot(generations = [100,200])
 
 
-hy_arr = mb.hypervolume.trace(exp, objectives = [1,3] )
-print(hy_arr)
+#ref = [exp,exp2]
+
+#hy_arr_ref = mb.hypervolume.trace(exp, objectives = [1,3],  reference = ref)
+#print(hy_arr_ref)
+
+
+#hy_arr = mb.hypervolume.trace(exp, objectives = [1,3] )
+#print(hy_arr)
 
 
 
 
-hv = mb.hypervolume(hy_arr_ref, generation = 399)
-print(hv)
+#hv = mb.hypervolume(hy_arr_ref, generation = 399)
+#print(hv)
 
 
-hv = mb.hypervolume(hy_arr, generation = 399)
-print(hv)
+#hv = mb.hypervolume(hy_arr, generation = 399)
+#print(hv)
 
 
-hv_obj = mb.hypervolume(exp)
-print(hv_obj)
+#hv_obj = mb.hypervolume(exp)
+#print(hv_obj)

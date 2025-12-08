@@ -28,16 +28,16 @@ class analyse_metric_gen(plot_gen):
         return evaluate,F_gen,F_slice 
       
     
-    @staticmethod
-    def IPL_plot_Hypervolume(args,generations, experiments, objectives, bench):
-        try:
-            evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
-            hv_gen = analyse_metric_gen.set_hypervolume(F_GEN,F)
-            hypervolume_gen = [hv.evaluate() for hv in hv_gen]
-            plot_g = analyse_metric_gen([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])
-            plot_g.configure()
-        except Exception as e:
-           print(e)
+    #@staticmethod
+    #def IPL_plot_Hypervolume(args,generations, experiments, objectives, reference, bench):
+       # try:
+           # evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
+           # hv_gen = analyse_metric_gen.set_hypervolume(F_GEN,F)
+            #hypervolume_gen = [hv.evaluate() for hv in hv_gen]
+            #plot_g = analyse_metric_gen([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])
+            #plot_g.configure()
+        #except Exception as e:
+           #print(e)
             
     
     @staticmethod

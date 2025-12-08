@@ -1,9 +1,11 @@
 from ..result_metric import result_metric
 from ..result import result
 import numpy as np
+from ..plot_gen import plot_gen
+import inspect
 
 
-class hypervolume(result_metric):
+class hypervolume(result_metric,plot_gen):
     """
         - **array with hypervolume in generations:**
         Click on the links for more
@@ -45,6 +47,27 @@ class hypervolume(result_metric):
             return self.IPL_hypervolume(args.result, objectives, reference)
         except Exception as e:
             print(e)
+
+    
+    def timeplot(self,*args, generations = [], objectives = [], reference = []):
+        caller = inspect.currentframe().f_back.f_locals.items()
+        experiment, data, benk, arr = hypervolume.extract_pareto_result(args,caller)   
+        hypervolume.IPL_plot_Hypervolume(args,generations,experiments = experiment, objectives = objectives, reference = reference, bench = benk)
+
+
+
+
+    @staticmethod
+    def IPL_plot_Hypervolume(args,generations, experiments, objectives, reference, bench):
+        print("squi")
+        #try:
+            #evaluate,F_GEN,F = hypervolume.DATA(args,generations , objectives, experiments, reference, bench)
+           # hv_gen = hypervolume.set_hypervolume(F_GEN,F)
+            #hypervolume_gen = [hv.evaluate() for hv in hv_gen]
+            #plot_g = hypervolume([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])
+           # plot_g.configure()
+        #except Exception as e:
+           #print(e)
 
 
     def IPL_hypervolume(self, result, objective = [], reference = [], generation = []):

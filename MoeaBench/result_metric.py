@@ -15,7 +15,7 @@ class result_metric(IPL_MoeaBench):
             raise ValueError (f'Objective(s) {less} can´t be greather than {M}')  
  
 
-    def DATA(self,result,generation, objective):
+    def DATA(self,result,generation, objective, reference = []):
         gen_f_test = [b[0].get_F_gen_non_dominate() for b in result.get_elements()]
         gen_f_max = max([len(gen)  for gen in gen_f_test])
         generations = [0,gen_f_max] if isinstance(generation, (list)) and len(generation) == 0 else generation

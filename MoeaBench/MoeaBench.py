@@ -35,24 +35,6 @@ class MoeaBench(I_UserMoeaBench):
         except ModuleNotFoundError:
             raise AttributeError(name)
     
-    
-
-    def plot_hypervolume(self,*args, generations = [], objectives = []):   
-        """
-        - **2D graph for hypervolume:**
-        Click on the links for more
-        ...
-                - **Informations:**
-                      - sinxtase:
-                      moeabench.plot_hypervolume(args) 
-                      - [plot_hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_hypervolume/) information about the method, accepted variable types, examples and more...   
-                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
-
-        """
-        caller = inspect.currentframe().f_back.f_locals.items()
-        experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)   
-        analyse_metric_gen.IPL_plot_Hypervolume(args,generations,experiments = experiment, objectives = objectives, bench = benk)
-
 
     def plot_GD(self,*args, generations = [], objectives = []):   
          """

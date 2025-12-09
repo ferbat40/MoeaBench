@@ -4,11 +4,6 @@ from abc import ABC, abstractmethod
 class I_UserMoeaBench(ABC):
        
     @abstractmethod
-    def plot_hypervolume(self):
-        pass
-
-
-    @abstractmethod
     def plot_GD(self):
         pass
 

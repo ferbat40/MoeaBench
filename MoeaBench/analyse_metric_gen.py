@@ -28,14 +28,29 @@ class analyse_metric_gen(plot_gen):
         return evaluate,F_gen,F_slice 
       
     
-    #@staticmethod
-    #def IPL_plot_Hypervolume(args,generations, experiments, objectives, reference, bench):
-       # try:
-           # evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
-           # hv_gen = analyse_metric_gen.set_hypervolume(F_GEN,F)
-            #hypervolume_gen = [hv.evaluate() for hv in hv_gen]
-            #plot_g = analyse_metric_gen([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])
-            #plot_g.configure()
+    @staticmethod
+    def IPL_plot_Hypervolume(args,generations, experiments, objectives, reference, bench):
+        #try:
+            evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
+
+            min_non = []
+            max_non = []
+
+            if not isinstance(reference,list):
+                raise TypeError("Only arrays are allowed in 'references'")
+        
+            if len(reference) > 0:  
+                min_non, max_non = analyse_metric_gen.normalize(reference)
+    
+            min_slice = [float(min_non[i-1]) for i in objectives] if len(min_non) > 0 else np.min(F[0], axis = 0)
+            max_slice = [float(max_non[i-1]) for i in objectives] if len(max_non) > 0 else np.max(F[0], axis = 0)
+    
+
+
+            hv_gen = analyse_metric_gen.set_hypervolume(F_GEN,F, min_slice, max_slice)
+            hypervolume_gen = [hv.evaluate() for hv in hv_gen]
+            plot_g = analyse_metric_gen([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])
+            plot_g.configure()
         #except Exception as e:
            #print(e)
             

@@ -1,6 +1,6 @@
-from ..result import result
+from ..result_population import result_population
 
-class dominated(result):
+class dominated(result_population):
 
     def __init__(self, experiment):
         self.experiment = experiment

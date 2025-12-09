@@ -2,7 +2,7 @@ from .IPL_MoeaBench import IPL_MoeaBench
 import numpy as np
 
 
-class result(IPL_MoeaBench):
+class result_population(IPL_MoeaBench):
 
     @staticmethod
     def allowed_gen(generations):
@@ -21,6 +21,6 @@ class result(IPL_MoeaBench):
 
 
     def DATA(self, gen_f_max, generation):
-        result.allowed_gen(generation)
-        result.allowed_gen_max(len(gen_f_max),generation)        
+        result_population.allowed_gen(generation)
+        result_population.allowed_gen_max(len(gen_f_max),generation)        
         return self.gen_data(gen_f_max,generation)

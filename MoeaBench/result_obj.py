@@ -1,7 +1,7 @@
-from .result import result
+from .result_population import result_population
 
 
-class result_obj(result):
+class result_obj(result_population):
       
     def IPL_objectives(self, result, generation):
         return self.DATA([dt.get_F_GEN() 

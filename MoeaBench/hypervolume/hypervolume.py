@@ -1,11 +1,11 @@
 from ..result_metric import result_metric
-from ..result import result
+from ..result_population import result_population
 import numpy as np
-from ..plot_gen import plot_gen
 import inspect
+from ..import MoeaBench as HV
 
 
-class hypervolume(result_metric,plot_gen):
+class hypervolume:
     """
         - **array with hypervolume in generations:**
         Click on the links for more
@@ -21,11 +21,11 @@ class hypervolume(result_metric,plot_gen):
 
     def __call__(self, args, generation = None):
          try:
-             result.allowed_gen(generation)
+             result_population.allowed_gen(generation)
              gen = -1 if generation is None else generation
          
              if isinstance(args, np.ndarray):
-                 result.allowed_gen_max(len(args),generation)
+                 result_population.allowed_gen_max(len(args),generation)
                  return args[gen]
          
              elif isinstance(args, object) and hasattr(args,'result') and hasattr(args.result,'get_elements'):    
@@ -35,53 +35,35 @@ class hypervolume(result_metric,plot_gen):
                           for dt in data 
                           if hasattr(dt,"get_F_gen_non_dominate")][0]
                  
-                 result.allowed_gen_max(len(gen_f_max),generation)   
+                 result_population.allowed_gen_max(len(gen_f_max),generation)   
                  
-                 return self.IPL_hypervolume(args.result)[gen]
+                 return result_metric.IPL_hypervolume(args.result)[gen]
          except Exception as e:
              print(e)
            
 
     def trace(self, args, objectives = [], reference = []):
         try:
-            return self.IPL_hypervolume(args.result, objectives, reference)
+            return result_metric.IPL_hypervolume(args.result, objectives, reference)
         except Exception as e:
             print(e)
 
     
     def timeplot(self,*args, generations = [], objectives = [], reference = []):
+        """
+        - **2D graph for hypervolume:**
+        Click on the links for more
+        ...
+                - **Informations:**
+                      - sinxtase:
+                      moeabench.plot_hypervolume(args) 
+                      - [plot_hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_hypervolume/) information about the method, accepted variable types, examples and more...   
+                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
+
+        """
         caller = inspect.currentframe().f_back.f_locals.items()
-        experiment, data, benk, arr = hypervolume.extract_pareto_result(args,caller)   
-        hypervolume.IPL_plot_Hypervolume(args,generations,experiments = experiment, objectives = objectives, reference = reference, bench = benk)
-
-
-
-
-    @staticmethod
-    def IPL_plot_Hypervolume(args,generations, experiments, objectives, reference, bench):
-        print("squi")
-        #try:
-            #evaluate,F_GEN,F = hypervolume.DATA(args,generations , objectives, experiments, reference, bench)
-           # hv_gen = hypervolume.set_hypervolume(F_GEN,F)
-            #hypervolume_gen = [hv.evaluate() for hv in hv_gen]
-            #plot_g = hypervolume([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])
-           # plot_g.configure()
-        #except Exception as e:
-           #print(e)
-
-
-    def IPL_hypervolume(self, result, objective = [], reference = [], generation = []):
-        F_GEN, F =  self.DATA(result,generation, objective)
-        min_non = []
-        max_non = []
-
-        if not isinstance(reference,list):
-                raise TypeError("Only arrays are allowed in 'references'")
+        experiment, data, benk, arr = HV.analyse_surface_obj.extract_pareto_result(args,caller)   
+        HV.analyse_metric_gen.IPL_plot_Hypervolume(args,generations,experiments = experiment, objectives = objectives, reference = reference, bench = benk)
         
-        if len(reference) > 0:  
-            min_non, max_non = hypervolume.normalize(reference)
-        min_slice = [float(min_non[i-1]) for i in objective] if len(min_non) > 0 else np.min(F[0], axis = 0)
-        max_slice = [float(max_non[i-1]) for i in objective] if len(max_non) > 0 else np.max(F[0], axis = 0)
-        hv_gen = hypervolume.set_hypervolume(F_GEN, F, min_slice, max_slice)
-        hv = [hv.evaluate().flatten() for hv in hv_gen][0]
-        return hv
+
+   

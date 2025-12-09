@@ -17,7 +17,6 @@ class experiment(I_UserExperiment):
         self.pof=None
         self.result=None
         self.imports = imports
-        self.result_metric=result_metric()
         self.result_obj=result_obj()
         self.result_front=result_front()
         self.result_var=result_var()
@@ -77,7 +76,7 @@ class experiment(I_UserExperiment):
 
         """
         try:
-            return self.result_metric.IPL_GD(self.result, generations, objectives)
+            return result_metric.IPL_GD(self.result, generations, objectives)
         except Exception as e:
             print(e)
 
@@ -95,7 +94,7 @@ class experiment(I_UserExperiment):
 
         """
         try:
-            return self.result_metric.IPL_GDplus(self.result, generations, objectives)
+            return result_metric.IPL_GDplus(self.result, generations, objectives)
         except Exception as e:
             print(e)
     
@@ -113,7 +112,7 @@ class experiment(I_UserExperiment):
 
         """
         try:
-            return self.result_metric.IPL_IGD(self.result, generations, objectives)
+            return result_metric.IPL_IGD(self.result, generations, objectives)
         except Exception as e:
             print(e)
     
@@ -131,7 +130,7 @@ class experiment(I_UserExperiment):
 
         """
         try:
-            return self.result_metric.IPL_IGDplus(self.result, generations, objectives)
+            return result_metric.IPL_IGDplus(self.result, generations, objectives)
         except Exception as e:
             print(e)
 

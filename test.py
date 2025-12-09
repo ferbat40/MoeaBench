@@ -19,10 +19,10 @@ exp2.benchmark = mb.benchmarks.DTLZ1()
 exp2.moea = mb.moeas.SPEA2(generations = 200, population = 250)
 exp2.run()
 
-ref = [exp,exp2]
+ref = [exp]
 
 obj = exp.objectives(generation = 99)
-mb.hypervolume.timeplot(exp, exp2, reference = ref)
+mb.hypervolume.timeplot(exp, exp2, objectives = [1,2], reference = ref)
 
 
 

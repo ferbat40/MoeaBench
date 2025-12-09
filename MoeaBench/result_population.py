@@ -17,7 +17,7 @@ class result_population(IPL_MoeaBench):
       
 
     def gen_data(self, gen_all, generations = None):
-        return gen_all[-1] if generations is None else gen_all[generations[0]]
+        return gen_all if generations is None else gen_all[generations][-1]
 
 
     def DATA(self, gen_f_max, generation):

@@ -17,7 +17,7 @@ class hypervolume:
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """
-    
+   
 
     def __call__(self, args, generation = None):
          try:
@@ -48,6 +48,11 @@ class hypervolume:
         except Exception as e:
             print(e)
 
+
+    @staticmethod
+    def DATA():
+        print("aqui")
+
     
     def timeplot(self,*args, generations = [], objectives = [], reference = []):
         """
@@ -62,7 +67,7 @@ class hypervolume:
 
         """
         caller = inspect.currentframe().f_back.f_locals.items()
-        experiment, data, benk, arr = HV.analyse_surface_obj.extract_pareto_result(args,caller)   
+        experiment, data, benk, arr = HV.analyse_surface_obj.extract_pareto_result(args,caller)  
         HV.analyse_metric_gen.IPL_plot_Hypervolume(args,generations,experiments = experiment, objectives = objectives, reference = reference, bench = benk)
         
 

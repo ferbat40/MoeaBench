@@ -6,7 +6,7 @@ from .analyse import analyse
 
 class plot_gen(analyse):
 
-    def __init__(self,markers,label,metric):
+    def __init__(self,markers = None, label = None, metric = None):
         self.markers=markers
         self.label=label
         self.metric=metric

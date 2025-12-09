@@ -223,18 +223,19 @@ class IPL_MoeaBench(I_MoeaBench):
         benk = []
         arr_gen = []
         for i in args:
+            obj = i if hasattr(i,'get_elements') else i.result
             for key, val in caller:
                 try:
-                    if i == val.result:
+                    if obj == val.result:
                         experiment.append(f'{key}.result')
-                        arr_gen.append(i.get_elements()[0][0].get_F_GEN())
-                        data.append(i.get_elements()[0][0])
-                        benk.append(i.get_elements()[0][1])
-                    elif i == val.pof:
+                        arr_gen.append(obj.get_elements()[0][0].get_F_GEN())
+                        data.append(obj.get_elements()[0][0])
+                        benk.append(obj.get_elements()[0][1])
+                    elif obj == val.pof:
                         experiment.append(f'{key}.pof')
-                        arr_gen.append(i.get_CACHE().get_elements()[0][0].get_F_GEN())
-                        data.append(i.get_CACHE().get_elements()[0][0])
-                        benk.append(i.get_CACHE().get_elements()[0][1])
+                        arr_gen.append(obj.get_CACHE().get_elements()[0][0].get_F_GEN())
+                        data.append(obj.get_CACHE().get_elements()[0][0])
+                        benk.append(obj.get_CACHE().get_elements()[0][1])
                 except Exception as e:
                     pass
         return experiment, data, benk, arr_gen

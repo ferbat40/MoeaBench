@@ -6,7 +6,7 @@ class analyse_metric_gen(plot_gen):
        
     @staticmethod
     def DATA(args,generation, objective, experiments, bench):
-        gen_f_test = [b[0].get_F_gen_non_dominate() for i in args for b in i.get_elements()]
+        gen_f_test = [b[0].get_F_gen_non_dominate() for i in args for b in i.result.get_elements()] 
         gen_f_max = max([len(gen)  for gen in gen_f_test])
         generations = [0,gen_f_max] if isinstance(generation, (list)) and len(generation) == 0 else generation
         analyse_metric_gen.allowed_gen(generations)
@@ -14,7 +14,7 @@ class analyse_metric_gen(plot_gen):
         objectives = [1,2,3] if isinstance(objective, (list)) and  len(objective) == 0 else objective  
         analyse_metric_gen.allowed_obj(objectives)
         analyse_metric_gen.allowed_obj_equal(bench,bench[0],experiments,objectives)
-        gen_f_valid = [b[0].get_F_gen_non_dominate()[generations[0]:generations[1]] for i in args for b in i.get_elements()]
+        gen_f_valid = [b[0].get_F_gen_non_dominate()[generations[0]:generations[1]] for i in args for b in i.result.get_elements()]
         slicing = [[i-1,i]  for i in objectives]
         F_gen = []
         for i in range(len(gen_f_valid)):
@@ -22,7 +22,7 @@ class analyse_metric_gen(plot_gen):
             for z in range(len(gen_f_valid[i])):
                 vet_aux.append(analyse_metric_gen.slicing_arr(slicing,gen_f_valid[i][z]))
             F_gen.append(vet_aux)           
-        F = [b[0].get_arr_DATA() for i in args for b in i.get_elements()]
+        F = [b[0].get_arr_DATA() for i in args for b in i.result.get_elements()]
         F_slice = [np.hstack( [b[:,i:j]  for i,j in slicing]) for b in F ]        
         evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(gen_f_valid))]
         return evaluate,F_gen,F_slice 
@@ -30,8 +30,8 @@ class analyse_metric_gen(plot_gen):
     
     @staticmethod
     def IPL_plot_Hypervolume(args,generations, experiments, objectives, reference, bench):
-        #try:
-            evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
+       # try:
+            evaluate,F_GEN,F = analyse_metric_gen.DATA(args, generations , objectives, experiments, bench)
 
             min_non = []
             max_non = []
@@ -44,15 +44,12 @@ class analyse_metric_gen(plot_gen):
     
             min_slice = [float(min_non[i-1]) for i in objectives] if len(min_non) > 0 else np.min(F[0], axis = 0)
             max_slice = [float(max_non[i-1]) for i in objectives] if len(max_non) > 0 else np.max(F[0], axis = 0)
-    
-
-
             hv_gen = analyse_metric_gen.set_hypervolume(F_GEN,F, min_slice, max_slice)
             hypervolume_gen = [hv.evaluate() for hv in hv_gen]
             plot_g = analyse_metric_gen([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])
             plot_g.configure()
-        #except Exception as e:
-           #print(e)
+       # except Exception as e:
+         #  print(e)
             
     
     @staticmethod

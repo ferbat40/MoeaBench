@@ -22,7 +22,7 @@ exp2.run()
 ref = [exp]
 
 obj = exp.objectives(generation = 99)
-mb.hypervolume.timeplot(exp, exp2, objectives = [1,2], reference = ref)
+mb.hypervolume.timeplot(exp, exp2)
 
 
 

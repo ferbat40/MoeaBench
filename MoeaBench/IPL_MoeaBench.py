@@ -133,11 +133,13 @@ class IPL_MoeaBench(I_MoeaBench):
             for exp in element 
             for n_dom in exp 
             if hasattr(n_dom,"get_F_gen_non_dominate")]
-             
-            valid = [i for i in gen  if len(i) > 0]
-            min_gen = np.vstack([np.min(i, axis = 0) for i in valid  if len(i) > 0])          
-            max_gen = np.vstack([np.max(i, axis = 0) for i in valid  if len(i) > 0])
-            return np.min(min_gen, axis = 0), np.max(max_gen, axis = 0)
+            if len(gen[0]) > 0:
+                valid = [i for i in gen  if len(i) > 0]
+                min_gen = np.vstack([np.min(i, axis = 0) for i in valid  if len(i) > 0])          
+                max_gen = np.vstack([np.max(i, axis = 0) for i in valid  if len(i) > 0])
+                return np.min(min_gen, axis = 0), np.max(max_gen, axis = 0)
+            elif len(gen[0]) == 0:
+                return [], []
 
     
     @staticmethod

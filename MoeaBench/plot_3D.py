@@ -15,7 +15,6 @@ class plot_3D(analyse_pareto):
     
      def __init__(self,BENCH,vet_pt,experiments,axis, generations = [], type = 'pareto-optimal front'):
          self.vet_pts=vet_pt
-         self.BENCH=BENCH
          self.experiments=experiments
          self.axis = axis
          self.type=type

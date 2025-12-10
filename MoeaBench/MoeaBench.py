@@ -7,7 +7,7 @@ import importlib
 from .experiment import experiment
 from .stat import stat
 from MoeaBench.hypervolume.hypervolume import hypervolume
-
+import numpy as np
 
 class MoeaBench(I_UserMoeaBench):
 
@@ -121,7 +121,7 @@ class MoeaBench(I_UserMoeaBench):
         analyse_surface_obj.IPL_plot_3D(experiment, data, benk, arr, objectives)  
 
 
-    def pareto(self, *args, objectives = [], generations = []):
+    def spaceplot(self, *args, objectives = [], generations = []):
         """
         - **3D graph for Pareto front:**
         Click on the links for more
@@ -133,10 +133,12 @@ class MoeaBench(I_UserMoeaBench):
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
 
         """
-        caller = inspect.currentframe().f_back.f_locals.items()
-        
-        experiment, data, benk, arr= analyse_obj.extract_pareto_result(args,caller)       
-        analyse_obj.IPL_plot_3D(experiment, data, benk, arr, objectives, generations)     
+      
+
+        try:     
+            analyse_obj.IPL_plot_3D(args, objectives, generations)     
+        except Exception as e:
+            print(e)
         
 
     def add_benchmark(self,problem):

@@ -21,10 +21,14 @@ exp2.run()
 
 ref = [exp]
 
-obj = exp.objectives(generation = 99)
-mb.hypervolume.timeplot(exp, exp2)
 
 
+
+#obj = exp.objectives(generation = 99)
+
+mb.spaceplot([0],exp.optimal.front(), exp2, exp.objectives(), exp2.front(generations = 100),exp,exp2,exp2.optimal.front(), exp.objectives(), exp)
+
+#print(exp.objectives().__class__.__name__)
 
 
 #hy_arr_ref = mb.hypervolume.trace(exp, objectives = [1,3],  reference = ref)

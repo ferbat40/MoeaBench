@@ -47,12 +47,7 @@ class hypervolume:
             return result_metric.IPL_hypervolume(args.result, objectives, reference)
         except Exception as e:
             print(e)
-
-
-    @staticmethod
-    def DATA():
-        print("aqui")
-
+              
     
     def timeplot(self,*args, generations = [], objectives = [], reference = []):
         """
@@ -67,7 +62,7 @@ class hypervolume:
 
         """
         caller = inspect.currentframe().f_back.f_locals.items()
-        experiment, data, benk, arr = HV.analyse_surface_obj.extract_pareto_result(args,caller)  
+        experiment, data, benk, arr = HV.analyse_metric_gen.extract_pareto_result(args,caller)  
         HV.analyse_metric_gen.IPL_plot_Hypervolume(args,generations,experiments = experiment, objectives = objectives, reference = reference, bench = benk)
         
 

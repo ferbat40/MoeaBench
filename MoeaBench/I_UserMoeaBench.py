@@ -24,7 +24,7 @@ class I_UserMoeaBench(ABC):
 
 
     @abstractmethod
-    def pareto(self):
+    def spaceplot(self):
         pass
 
 

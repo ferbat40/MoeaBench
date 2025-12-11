@@ -1,9 +1,9 @@
 from .plot_gen import plot_gen
 import numpy as np
+from itertools import repeat
 
 
 class analyse_metric_gen(plot_gen):
-
     
     @staticmethod
     def DATA(args,generation, objective, experiments, bench):
@@ -30,27 +30,30 @@ class analyse_metric_gen(plot_gen):
       
     
     @staticmethod
-    def IPL_plot_Hypervolume(args,generations, objectives, reference):
+    def IPL_plot_Hypervolume(args,generations, objectives, reference):   
+        try:
             bench, data = analyse_metric_gen.extract_pareto_result(args)
-        
-       # try:
             evaluate,F_GEN,F = analyse_metric_gen.DATA(args, generations , objectives, bench, data)
             min_non = []
             max_non = []
+           
 
             if not isinstance(reference,list):
                 raise TypeError("Only arrays are allowed in 'references'")
-        
+            M = [list (repeat(0,t.get_M()))  for i in data for b in i.get_elements() for t in b if hasattr(t,"get_M")][0]
+            print(" M ",M,"  F[0]  ",F[0],"   np.min(F[0], axis = 0) ",np.min(F[0], axis = 0))
+    
             if len(reference) > 0:  
                 min_non, max_non = analyse_metric_gen.normalize(reference)
             min_slice = [float(min_non[i-1]) for i in objectives] if len(min_non) > 0 else np.min(F[0], axis = 0)
             max_slice = [float(max_non[i-1]) for i in objectives] if len(max_non) > 0 else np.max(F[0], axis = 0)
             hv_gen = analyse_metric_gen.set_hypervolume(F_GEN,F, min_slice, max_slice)
             hypervolume_gen = [hv.evaluate() for hv in hv_gen]
+            print(hypervolume_gen)
             plot_g = analyse_metric_gen([evaluate,hypervolume_gen],bench,metric = ['Hypervolume','Generations'])
             plot_g.configure()
-        #except Exception as e:
-          # print(e)
+        except Exception as e:
+           print(e)
             
     
     @staticmethod

@@ -41,15 +41,12 @@ class analyse_metric_gen(plot_gen):
             if not isinstance(reference,list):
                 raise TypeError("Only arrays are allowed in 'references'")
             M = [list (repeat(0,t.get_M()))  for i in data for b in i.get_elements() for t in b if hasattr(t,"get_M")][0]
-            print(" M ",M,"  F[0]  ",F[0],"   np.min(F[0], axis = 0) ",np.min(F[0], axis = 0))
-    
             if len(reference) > 0:  
                 min_non, max_non = analyse_metric_gen.normalize(reference)
             min_slice = [float(min_non[i-1]) for i in objectives] if len(min_non) > 0 else M
             max_slice = [float(max_non[i-1]) for i in objectives] if len(max_non) > 0 else M
             hv_gen = analyse_metric_gen.set_hypervolume(F_GEN,F, min_slice, max_slice)
             hypervolume_gen = [hv.evaluate() for hv in hv_gen]
-            print(hypervolume_gen)
             plot_g = analyse_metric_gen([evaluate,hypervolume_gen],bench,metric = ['Hypervolume','Generations'])
             plot_g.configure()
         except Exception as e:

@@ -4,7 +4,7 @@ import numpy as np
 
 class analyse_obj(plot_3D):
         
-        
+    @staticmethod    
     def allowed_DATA(i):
         if hasattr(i,'result') and hasattr(i.result,'get_elements'):
             return True
@@ -16,7 +16,10 @@ class analyse_obj(plot_3D):
 
     @staticmethod
     def DATA(i):
-        return [z.get_F_GEN()[-1] for b in i.result.get_elements() for z in b if hasattr(z,'get_F_GEN')][0]  if hasattr(i,'result') and hasattr(i.result,'get_elements') else None
+        if hasattr(i,'result') and hasattr(i.result,'get_elements'):
+            return [z.get_F_GEN()[-1] for b in i.result.get_elements() for z in b if hasattr(z,'get_F_GEN')][0]  
+        else:
+            return None
    
 
     @staticmethod
@@ -26,7 +29,7 @@ class analyse_obj(plot_3D):
         data = []
         benk = []
        
-        if len(np.where(val == False)[0]) >= 0:
+        if len(np.where(val == False)[0]):
             raise TypeError(f'incorrect data format: {[args[i] for i in range(0,len(val)) if val[i] == False] [0]  }')
         
         it_exp = iter(idx)
@@ -37,12 +40,16 @@ class analyse_obj(plot_3D):
             arr =  arr if arr is not None else i
             data.append(arr)
             benk.append(name)
+
         return benk, data
 
       
     @staticmethod
     def IPL_plot_3D(args, objectives, generations = []):
         benk, data = analyse_obj.extract_pareto_result(args)
+        axis =  [i for i in range(0,3)]    if len(objectives) == 0 else [i-1 if i > 0 else 0 for i in objectives] 
+        plot_3D_obj =  analyse_obj(benk, data,axis, generations)
+        plot_3D_obj.configure()
         #print(data, "    ",benk)
       
         

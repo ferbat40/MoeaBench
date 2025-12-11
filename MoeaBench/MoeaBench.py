@@ -135,10 +135,10 @@ class MoeaBench(I_UserMoeaBench):
         """
       
 
-        try:     
-            analyse_obj.IPL_plot_3D(args, objectives, generations)     
-        except Exception as e:
-            print(e)
+        #try:     
+        analyse_obj.IPL_plot_3D(args, objectives, generations)     
+        #except Exception as e:
+            #print(e)
         
 
     def add_benchmark(self,problem):

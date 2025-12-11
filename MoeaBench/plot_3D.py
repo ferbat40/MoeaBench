@@ -33,9 +33,9 @@ class plot_3D(analyse_pareto):
                  x=ax, y=ay, z=az,
                  mode='markers',
                  marker=dict(size=3),  
-                 name=f'GEN {self.generations} for {self.experiments[i]}',                       
+                 name=f'{self.experiments[i]}',                       
                  showlegend=True,
-                 hovertemplate = (f"GEN {self.generations} for {self.experiments[i]}<br>"
+                 hovertemplate = (f"{self.experiments[i]}<br>"
                                   f"{self.axis[0]+1}: %{{x}}<br>"
                                   f"{self.axis[1]+1}: %{{y}}<br>"
                                   f"{self.axis[2]+1}: %{{z}}<br><extra></extra>"),

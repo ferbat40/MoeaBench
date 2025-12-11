@@ -36,7 +36,7 @@ class analyse_obj(plot_3D):
         it_arr = iter(idx)
         for i in args:
             arr = analyse_obj.DATA(i)
-            name =  f'{i.__class__.__name__}{next(it_exp)}' if arr is not None else f'{i.__class__.__name__}{next(it_arr)}'
+            name =  f'argument{i} - type {i.__class__.__name__}{next(it_exp)}' if arr is not None else f'argument{i} - type {i.__class__.__name__}{next(it_arr)}'
             arr =  arr if arr is not None else i
             data.append(arr)
             benk.append(name)

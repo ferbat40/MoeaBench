@@ -104,7 +104,7 @@ class MoeaBench(I_UserMoeaBench):
          analyse_metric_gen.IPL_plot_IGDplus(args,generations,experiments = experiment, objectives = objectives, bench = benk)
 
 
-    def pareto_surface(self, *args, objectives = []):
+    def surfaceplot(self, *args, objectives = []):
         """
         - **3D graph of the Pareto boundary surface:**
         Click on the links for more
@@ -116,12 +116,13 @@ class MoeaBench(I_UserMoeaBench):
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
        
         """       
-        caller = inspect.currentframe().f_back.f_locals.items()
-        experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)       
-        analyse_surface_obj.IPL_plot_3D(experiment, data, benk, arr, objectives)  
+        #try:
+        analyse_surface_obj.IPL_plot_3D(args, objectives)   
+        #except Exception as e:
+            #print(e)   
+        
 
-
-    def spaceplot(self, *args, objectives = [], generations = []):
+    def spaceplot(self, *args, objectives = []):
         """
         - **3D graph for Pareto front:**
         Click on the links for more
@@ -136,7 +137,7 @@ class MoeaBench(I_UserMoeaBench):
       
 
         try:     
-            analyse_obj.IPL_plot_3D(args, objectives, generations)     
+            analyse_obj.IPL_plot_3D(args, objectives)     
         except Exception as e:
             print(e)
         

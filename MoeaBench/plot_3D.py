@@ -13,12 +13,11 @@ except ImportError:
 
 class plot_3D(analyse_pareto):
     
-     def __init__(self, benk, vet_pt, axis, generations= [], type = 'pareto-optimal front'):
+     def __init__(self, benk, vet_pt, axis, type = 'pareto-optimal front'):
          self.vet_pts=vet_pt
          self.experiments=benk
          self.axis = axis
          self.type=type
-         self.generations=generations
            
 
      def configure(self):

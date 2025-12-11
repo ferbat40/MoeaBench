@@ -4,6 +4,35 @@ import numpy as np
 
 class analyse_pareto(analyse):
 
+    @staticmethod
+    def DATA(i):
+        if hasattr(i,'result') and hasattr(i.result,'get_elements'):
+            return [z.get_F_GEN()[-1] for b in i.result.get_elements() for z in b if hasattr(z,'get_F_GEN')][0]  
+        else:
+            return None
+
+
+    @staticmethod
+    def extract_pareto_result(args):
+        idx = [i for i in range(1,len(args)+1)]
+        val = np.array(list(map(lambda key: analyse_pareto.allowed_DATA(key),[i for i in args])))
+        data = []
+        benk = []
+       
+        if len(np.where(val == False)[0]):
+            raise TypeError(f'incorrect data format: {[args[i] for i in range(0,len(val)) if val[i] == False] [0]  }')
+        
+        it_exp = iter(idx)
+        it_arr = iter(idx)
+        for ind, i in enumerate(args, start = 1):
+            arr = analyse_pareto.DATA(i)
+            name =  f'{i.__class__.__name__} {next(it_exp)}' if arr is not None else f'{i.__class__.__name__} {next(it_arr)}'
+            arr =  arr if arr is not None else i
+            data.append(arr)
+            benk.append(name)
+        return benk, data
+
+
     @staticmethod    
     def allowed_DATA(i):
         if hasattr(i,'result') and hasattr(i.result,'get_elements'):

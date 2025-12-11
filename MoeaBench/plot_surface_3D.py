@@ -6,9 +6,9 @@ from .analyse_pareto import analyse_pareto
 
 class plot_surface_3D(analyse_pareto):
     
-    def __init__(self,BENCH,vet_pt,experiments,vaxis, type = 'pareto-optimal front'):
+    def __init__(self, experiments, vet_pt, vaxis,  type = 'pareto-optimal front'):
          self.vet_pts=vet_pt
-         self.BENCH=BENCH
+         #self.BENCH=BENCH
          self.experiments=experiments
          self.vaxis = vaxis
          self.type = type
@@ -55,8 +55,8 @@ class plot_surface_3D(analyse_pareto):
 
 
     def configure(self):
-     try:
-        self.list_axis = np.array([[0,1,2] for i in range(0,len(self.BENCH)+1)])
+    # try:
+        self.list_axis = np.array([[0,1,2] for i in range(0,len(self.experiments)+1)])
         self.figure=go.Figure()    
         surfaces = [self.DATA(
             exp=exp,
@@ -99,8 +99,8 @@ class plot_surface_3D(analyse_pareto):
                )
                )
         self.PLT()        
-     except Exception as e:
-          print(e)
+     #except Exception as e:
+         # print(e)
 
     
    

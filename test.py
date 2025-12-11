@@ -19,11 +19,11 @@ exp2.benchmark = mb.benchmarks.DTLZ1()
 exp2.moea = mb.moeas.SPEA2(generations = 200, population = 250)
 exp2.run()
 
-ref = [exp]
+ref = [exp, exp2]
 
 
 
-
+mb.hypervolume.timeplot (exp, reference = ref)
 
 
 #mb.surfaceplot(exp.optimal.front(), exp2, exp.objectives(), exp2.front(generations = 100),exp,exp2,exp2.optimal.front(), exp.objectives(), exp)

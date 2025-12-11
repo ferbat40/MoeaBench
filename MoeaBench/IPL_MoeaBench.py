@@ -187,7 +187,7 @@ class IPL_MoeaBench(I_MoeaBench):
         if not all(np.array_equal(data.get_M(),arr) for arr in list_valid):
             objs = [f'{experiments[idx]} = {i.get_M()} objectives' for idx, i in enumerate(element, start = 0)]
             raise ValueError (f'{objs} must be equals')   
-        less = [i if i > element[0].get_M() else f'obj' for idx, i in enumerate(objectives, start = 0)  ]
+        less = [i if i > element[0].get_elements()[0][1].get_M() else f'obj' for idx, i in enumerate(objectives, start = 0)  ]
         digit = [i for i in less if str(i).isdigit()]
         if digit:
             raise ValueError (f'Objective(s) {less} can´t be greather than {element[0].get_M()}')  

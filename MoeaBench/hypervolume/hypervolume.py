@@ -61,9 +61,9 @@ class hypervolume:
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
         """
-        caller = inspect.currentframe().f_back.f_locals.items()
-        experiment, data, benk, arr = HV.analyse_metric_gen.extract_pareto_result(args,caller)  
-        HV.analyse_metric_gen.IPL_plot_Hypervolume(args,generations,experiments = experiment, objectives = objectives, reference = reference, bench = benk)
+       # caller = inspect.currentframe().f_back.f_locals.items()
+        #experiment, data, benk, arr = HV.analyse_metric_gen.extract_pareto_result(args,caller)  
+        HV.analyse_metric_gen.IPL_plot_Hypervolume(args,generations, objectives = objectives, reference = reference)
         
 
    

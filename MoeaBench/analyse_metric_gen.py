@@ -3,7 +3,8 @@ import numpy as np
 
 
 class analyse_metric_gen(plot_gen):
-       
+
+    
     @staticmethod
     def DATA(args,generation, objective, experiments, bench):
         gen_f_test = [b[0].get_F_gen_non_dominate() for i in args for b in i.result.get_elements()] 
@@ -29,9 +30,11 @@ class analyse_metric_gen(plot_gen):
       
     
     @staticmethod
-    def IPL_plot_Hypervolume(args,generations, experiments, objectives, reference, bench):
-        try:
-            evaluate,F_GEN,F = analyse_metric_gen.DATA(args, generations , objectives, experiments, bench)
+    def IPL_plot_Hypervolume(args,generations, objectives, reference):
+            bench, data = analyse_metric_gen.extract_pareto_result(args)
+        
+       # try:
+            evaluate,F_GEN,F = analyse_metric_gen.DATA(args, generations , objectives, bench, data)
             min_non = []
             max_non = []
 
@@ -40,14 +43,14 @@ class analyse_metric_gen(plot_gen):
         
             if len(reference) > 0:  
                 min_non, max_non = analyse_metric_gen.normalize(reference)
-            min_slice = [float(min_non[i-1]) for i in objectives] if len(min_non) > 0 else np.min(F[1], axis = 0)
-            max_slice = [float(max_non[i-1]) for i in objectives] if len(max_non) > 0 else np.max(F[1], axis = 0)
+            min_slice = [float(min_non[i-1]) for i in objectives] if len(min_non) > 0 else np.min(F[0], axis = 0)
+            max_slice = [float(max_non[i-1]) for i in objectives] if len(max_non) > 0 else np.max(F[0], axis = 0)
             hv_gen = analyse_metric_gen.set_hypervolume(F_GEN,F, min_slice, max_slice)
             hypervolume_gen = [hv.evaluate() for hv in hv_gen]
-            plot_g = analyse_metric_gen([evaluate,hypervolume_gen],experiments,metric = ['Hypervolume','Generations'])
+            plot_g = analyse_metric_gen([evaluate,hypervolume_gen],bench,metric = ['Hypervolume','Generations'])
             plot_g.configure()
-        except Exception as e:
-           print(e)
+        #except Exception as e:
+          # print(e)
             
     
     @staticmethod

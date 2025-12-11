@@ -26,7 +26,7 @@ ref = [exp]
 
 
 
-mb.surfaceplot(exp.optimal.front(), exp2, exp.objectives(), exp2.front(generations = 100),exp,exp2,exp2.optimal.front(), exp.objectives(), exp)
+#mb.surfaceplot(exp.optimal.front(), exp2, exp.objectives(), exp2.front(generations = 100),exp,exp2,exp2.optimal.front(), exp.objectives(), exp)
 
 #print(exp.objectives().__class__.__name__)
 

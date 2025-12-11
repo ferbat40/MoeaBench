@@ -55,7 +55,7 @@ class plot_surface_3D(analyse_pareto):
 
 
     def configure(self):
-    # try:
+     try:
         self.list_axis = np.array([[0,1,2] for i in range(0,len(self.experiments)+1)])
         self.figure=go.Figure()    
         surfaces = [self.DATA(
@@ -99,8 +99,8 @@ class plot_surface_3D(analyse_pareto):
                )
                )
         self.PLT()        
-     #except Exception as e:
-         # print(e)
+     except Exception as e:
+          print(e)
 
     
    

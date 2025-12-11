@@ -45,8 +45,8 @@ class analyse_metric_gen(plot_gen):
     
             if len(reference) > 0:  
                 min_non, max_non = analyse_metric_gen.normalize(reference)
-            min_slice = [float(min_non[i-1]) for i in objectives] if len(min_non) > 0 else np.min(F[0], axis = 0)
-            max_slice = [float(max_non[i-1]) for i in objectives] if len(max_non) > 0 else np.max(F[0], axis = 0)
+            min_slice = [float(min_non[i-1]) for i in objectives] if len(min_non) > 0 else M
+            max_slice = [float(max_non[i-1]) for i in objectives] if len(max_non) > 0 else M
             hv_gen = analyse_metric_gen.set_hypervolume(F_GEN,F, min_slice, max_slice)
             hypervolume_gen = [hv.evaluate() for hv in hv_gen]
             print(hypervolume_gen)

@@ -6,7 +6,6 @@ class analyse_pareto(analyse):
 
     @staticmethod
     def DATA(i):
-        print("cheuei")
         if hasattr(i,'result') and hasattr(i.result,'get_elements'):
             return [z.get_F_GEN()[-1] for b in i.result.get_elements() for z in b if hasattr(z,'get_F_GEN')][0]  
         else:

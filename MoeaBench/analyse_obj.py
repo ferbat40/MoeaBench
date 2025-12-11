@@ -4,15 +4,6 @@ import numpy as np
 
 class analyse_obj(plot_3D):
         
-    @staticmethod    
-    def allowed_DATA(i):
-        if hasattr(i,'result') and hasattr(i.result,'get_elements'):
-            return True
-        elif isinstance(i,np.ndarray) and i.ndim == 2:
-            return True
-        else:
-            return False
-    
 
     @staticmethod
     def DATA(i):
@@ -34,13 +25,12 @@ class analyse_obj(plot_3D):
         
         it_exp = iter(idx)
         it_arr = iter(idx)
-        for i in args:
+        for ind, i in enumerate(args, start = 1):
             arr = analyse_obj.DATA(i)
-            name =  f'argument{i} - type {i.__class__.__name__}{next(it_exp)}' if arr is not None else f'argument{i} - type {i.__class__.__name__}{next(it_arr)}'
+            name =  f'{i.__class__.__name__}_{next(it_exp)}' if arr is not None else f'{i.__class__.__name__}_{next(it_arr)}'
             arr =  arr if arr is not None else i
             data.append(arr)
             benk.append(name)
-
         return benk, data
 
       
@@ -48,6 +38,7 @@ class analyse_obj(plot_3D):
     def IPL_plot_3D(args, objectives, generations = []):
         benk, data = analyse_obj.extract_pareto_result(args)
         axis =  [i for i in range(0,3)]    if len(objectives) == 0 else [i-1 if i > 0 else 0 for i in objectives] 
+        analyse_obj.allowed_obj(objectives, data, benk)
         plot_3D_obj =  analyse_obj(benk, data,axis, generations)
         plot_3D_obj.configure()
 
@@ -55,12 +46,6 @@ class analyse_obj(plot_3D):
         
             
     
-            #analyse_obj.allowed_obj(bench,bench[0],experiments,objectives)
-            #axis =  [i for i in range(0,3)]    if len(objectives) == 0 else [i-1 if i > 0 else 0 for i in objectives] 
-            
-            #if not len([i for i in arra_gen if len(i) == 0]) == 0:   
-                #raise ValueError (f'No results found for plot')
-            #plot_3D_obj =  analyse_obj(bench,arra_gen,experiments,axis, generations)
-            #$plot_3D_obj.configure()
+
       
     

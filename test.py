@@ -9,7 +9,7 @@ os.system("cls")
 
 
 exp = mb.experiment()
-exp.benchmark = mb.benchmarks.DTLZ1()
+exp.benchmark = mb.benchmarks.DTLZ1(M = 4)
 exp.moea = mb.moeas.NSGA3(generations = 100, population = 150)
 exp.run()
 

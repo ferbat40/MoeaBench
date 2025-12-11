@@ -23,20 +23,19 @@ class plot_3D(analyse_pareto):
 
      def configure(self):
          self.figure=go.Figure()
-         for b in range(0,len(self.generations)):
-               for i in range(0, len(self.vet_pts)):
-                ax = self.vet_pts[i][self.generations[b]][:,self.axis[0]]
-                ay = self.vet_pts[i][self.generations[b]][:,self.axis[1]]
-                az = self.vet_pts[i][self.generations[b]][:,self.axis[2]]
+         for i in range(0, len(self.vet_pts)):
+                ax = self.vet_pts[i][:,self.axis[0]]
+                ay = self.vet_pts[i][:,self.axis[1]]
+                az = self.vet_pts[i][:,self.axis[2]]
                 msk = ~(np.isnan(ax) | np.isnan(ay) | np.isnan(az))
                 if np.any(msk):
                  self.figure.add_trace(go.Scatter3d(
                  x=ax, y=ay, z=az,
                  mode='markers',
                  marker=dict(size=3),  
-                 name=f'GEN {self.generations[b]} for {self.experiments[i]}',                       
+                 name=f'GEN {self.generations} for {self.experiments[i]}',                       
                  showlegend=True,
-                 hovertemplate = (f"GEN {self.generations[b]} for {self.experiments[i]}<br>"
+                 hovertemplate = (f"GEN {self.generations} for {self.experiments[i]}<br>"
                                   f"{self.axis[0]+1}: %{{x}}<br>"
                                   f"{self.axis[1]+1}: %{{y}}<br>"
                                   f"{self.axis[2]+1}: %{{z}}<br><extra></extra>"),

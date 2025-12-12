@@ -30,7 +30,7 @@ class analyse_metric_gen(plot_gen):
       
     
     @staticmethod
-    def IPL_plot_Hypervolume(args, generations, objectives = [0, 1, 2], reference= []):   
+    def IPL_plot_Hypervolume(args, generations, objectives, reference= []):   
         bench, data = analyse_metric_gen.extract_pareto_result(args)
         evaluate,F_GEN,F = analyse_metric_gen.DATA(args, generations , objectives, bench, data)
         min_nondominate = []
@@ -40,13 +40,11 @@ class analyse_metric_gen(plot_gen):
         M = [list (repeat(0,t.get_M()))  for i in data for b in i.get_elements() for t in b if hasattr(t,"get_M")][0]
         if len(reference) > 0:  
             min_nondominate, max_nondominate = analyse_metric_gen.normalize(reference,F)
-        min_slice = [float(min_nondominate[i-1]) for i in objectives] 
-        max_slice = [float(max_nondominate[i-1]) for i in objectives] 
-        
+            min_slice = [float(min_nondominate[i-1]) for i in objectives] if min_nondominate[0] is not None else min_nondominate
+            max_slice = [float(max_nondominate[i-1]) for i in objectives] if max_nondominate[0] is not None else max_nondominate
         if len(reference) == 0:
-            min_slice = np.min(F[0], axis = 0)
-            max_slice = np.max(F[0], axis = 0)
-        
+            min_slice = np.min(F[0], axis = 0) if F[0].shape[1] < 3 else [float(np.min(F[0][i-1], axis = 0)) for i in objectives] 
+            max_slice = np.max(F[0], axis = 0) if F[0].shape[1] < 3 else [float(np.max(F[0][i-1], axis = 0)) for i in objectives] 
         
         hv_gen = analyse_metric_gen.set_hypervolume(F_GEN,F, min_slice, max_slice)
         hypervolume_gen = [hv.evaluate() for hv in hv_gen]

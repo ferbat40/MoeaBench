@@ -61,9 +61,10 @@ class hypervolume:
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
         """
-        try:
-            HV.analyse_metric_gen.IPL_plot_Hypervolume(args,generations, objectives = objectives, reference = reference)
-        except Exception as e:
-            print(e)
+        #try:
+        objectives = [1,2,3] if len(objectives) == 0 else objectives
+        HV.analyse_metric_gen.IPL_plot_Hypervolume(args,generations, objectives = objectives, reference = reference)
+        #except Exception as e:
+            #print(e)
 
    

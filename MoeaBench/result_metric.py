@@ -38,7 +38,7 @@ class result_metric(IPL_MoeaBench):
     
 
     @staticmethod
-    def IPL_hypervolume(result, objective = [], reference = [], generation = []):
+    def IPL_hypervolume(result, objective = [0, 1, 2], reference = [], generation = []):
         F_GEN, F =  result_metric.DATA(result,generation, objective)
         min_non = []
         max_non = []
@@ -48,8 +48,8 @@ class result_metric(IPL_MoeaBench):
         
         if len(reference) > 0:  
             min_non, max_non = result_metric.normalize(reference, F)
-        min_slice = [float(min_non[i-1]) for i in objective] if len(min_non) > 0 else np.min(F[0], axis = 0)
-        max_slice = [float(max_non[i-1]) for i in objective] if len(max_non) > 0 else np.max(F[0], axis = 0)
+        min_slice = [float(min_non[i-1]) for i in objective] 
+        max_slice = [float(max_non[i-1]) for i in objective] 
         hv_gen = result_metric.set_hypervolume(F_GEN, F, min_slice, max_slice)
         hv = [hv.evaluate().flatten() for hv in hv_gen][0]
         return hv

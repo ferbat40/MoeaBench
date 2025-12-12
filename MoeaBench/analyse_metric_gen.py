@@ -28,16 +28,15 @@ class analyse_metric_gen(plot_gen):
         evaluate = [np.arange(generations[0],generations[1]) for _ in range(len(gen_f_valid))]
         return evaluate,F_gen,F_slice 
       
-    
+
     @staticmethod
-    def IPL_plot_Hypervolume(args, generations, objectives, reference= []):   
+    def IPL_hypervolume(args, generations, objectives, reference= []):    
         bench, data = analyse_metric_gen.extract_pareto_result(args)
         evaluate,F_GEN,F = analyse_metric_gen.DATA(args, generations , objectives, bench, data)
         min_nondominate = []
         max_nondominate = []
         if not isinstance(reference,list):
             raise TypeError("Only arrays are allowed in 'references'")
-        M = [list (repeat(0,t.get_M()))  for i in data for b in i.get_elements() for t in b if hasattr(t,"get_M")][0]
         if len(reference) > 0:  
             min_nondominate, max_nondominate = analyse_metric_gen.normalize(reference,F)
             min_slice = [float(min_nondominate[i-1]) for i in objectives] if min_nondominate[0] is not None else min_nondominate
@@ -48,6 +47,12 @@ class analyse_metric_gen(plot_gen):
         
         hv_gen = analyse_metric_gen.set_hypervolume(F_GEN,F, min_slice, max_slice)
         hypervolume_gen = [hv.evaluate() for hv in hv_gen]
+        return evaluate,hypervolume_gen,bench
+    
+
+    @staticmethod
+    def IPL_plot_Hypervolume(args, generations, objectives, reference= []):   
+        evaluate,hypervolume_gen,bench = analyse_metric_gen.IPL_hypervolume(args, generations, objectives, reference)
         plot_g = analyse_metric_gen([evaluate,hypervolume_gen],bench,metric = ['Hypervolume','Generations'])
         plot_g.configure()
             

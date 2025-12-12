@@ -17,8 +17,6 @@ class hypervolume:
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """
-   
-
     def __call__(self, args, generation = None):
          try:
              result_population.allowed_gen(generation)
@@ -42,14 +40,17 @@ class hypervolume:
              print(e)
            
 
-    def trace(self, args, objectives = [], reference = []):
-        #try:
-            return result_metric.IPL_hypervolume(args.result, objectives, reference)
-        #except Exception as e:
-           # print(e)
+    def trace(self, *args, objectives = [], reference = []):
+        try:
+            generations = []
+            objectives = [1,2,3] if len(objectives) == 0 else objectives
+            evaluate, hypervolume_gen, bench = HV.analyse_metric_gen.IPL_hypervolume(args, generations, objectives = objectives, reference = reference)
+            return hypervolume_gen
+        except Exception as e:
+            print(e)
               
     
-    def timeplot(self,*args, generations = [], objectives = [], reference = []):
+    def timeplot(self, *args, generations = [], objectives = [], reference = []):
         """
         - **2D graph for hypervolume:**
         Click on the links for more
@@ -61,10 +62,8 @@ class hypervolume:
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
         """
-        #try:
-        objectives = [1,2,3] if len(objectives) == 0 else objectives
-        HV.analyse_metric_gen.IPL_plot_Hypervolume(args,generations, objectives = objectives, reference = reference)
-        #except Exception as e:
-            #print(e)
-
-   
+        try:
+            objectives = [1,2,3] if len(objectives) == 0 else objectives
+            HV.analyse_metric_gen.IPL_plot_Hypervolume(args,generations, objectives = objectives, reference = reference)
+        except Exception as e:
+            print(e)

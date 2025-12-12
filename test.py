@@ -28,7 +28,6 @@ print(h)
 
 
 
-
 ref = [exp, exp2]
 
 #mb.plot_GD(exp, generations = [0,90], objectives = [1,4])

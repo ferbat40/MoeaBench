@@ -42,6 +42,7 @@ class analyse(IPL_MoeaBench):
             benk.append(name)
         return benk, data
     
+    
     def PLT(self):  
          out = widgets.Output()
          with out:

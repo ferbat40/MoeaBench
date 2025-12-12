@@ -21,8 +21,8 @@ exp2.moea = mb.moeas.SPEA2(generations = 100, population = 100)
 
 ref = [exp, exp2]
 
-mb.plot_GD(exp, generations = [0,90])
-
+mb.plot_GD(exp, generations = [0,90], objectives = [1,4])
+mb.plot_GDplus(exp, generations = [0,90], objectives = [1,3])
 #mb.hypervolume.timeplot (exp)
 
 

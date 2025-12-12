@@ -59,12 +59,13 @@ class analyse_metric_gen(plot_gen):
        
 
     @staticmethod
-    def IPL_plot_GDplus(args,generations, experiments, objectives, bench):
+    def IPL_plot_GDplus(args, generations, objectives):
         try:
-            evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
+            bench, data = analyse_metric_gen.extract_pareto_result(args)
+            evaluate,F_GEN,F = analyse_metric_gen.DATA(args, generations , objectives, bench, data)
             gdplus_gen = analyse_metric_gen.set_GDplus(F_GEN,F)
             GDplus__gen = [hv.evaluate() for hv in gdplus_gen]
-            plot_g = analyse_metric_gen([evaluate, GDplus__gen],experiments,metric = ['GD plus','Generations'])
+            plot_g = analyse_metric_gen([evaluate, GDplus__gen],bench,metric = ['GD plus','Generations'])
             plot_g.configure()
         except Exception as e:
             print(e)

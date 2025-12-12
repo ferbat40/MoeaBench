@@ -84,10 +84,11 @@ class MoeaBench(I_UserMoeaBench):
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
          """
-         caller = inspect.currentframe().f_back.f_locals.items()
-         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)  
-         analyse_metric_gen.IPL_plot_IGD(args,generations,experiments = experiment, objectives = objectives, bench = benk)
-
+         try:     
+             analyse_metric_gen.IPL_plot_IGD(args, generations, objectives)     
+         except Exception as e:
+            print(e)
+        
 
     def plot_IGDplus(self,*args, generations = [], objectives = []):   
          """
@@ -101,10 +102,11 @@ class MoeaBench(I_UserMoeaBench):
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
          """
-         caller = inspect.currentframe().f_back.f_locals.items()
-         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)  
-         analyse_metric_gen.IPL_plot_IGDplus(args,generations,experiments = experiment, objectives = objectives, bench = benk)
-
+         try:     
+             analyse_metric_gen.IPL_plot_IGDplus(args, generations, objectives)     
+         except Exception as e:
+            print(e)
+            
 
     def surfaceplot(self, *args, objectives = []):
         """

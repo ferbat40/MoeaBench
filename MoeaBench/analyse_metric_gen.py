@@ -72,24 +72,26 @@ class analyse_metric_gen(plot_gen):
 
     
     @staticmethod
-    def IPL_plot_IGD(args,generations, experiments, objectives, bench):
+    def IPL_plot_IGD(args, generations, objectives):
         try:
-            evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
+            bench, data = analyse_metric_gen.extract_pareto_result(args)
+            evaluate,F_GEN,F = analyse_metric_gen.DATA(args, generations , objectives, bench, data)
             igd_gen = analyse_metric_gen.set_IGD(F_GEN,F)
             IGD__gen = [hv.evaluate() for hv in igd_gen]
-            plot_g = analyse_metric_gen([evaluate,IGD__gen],experiments,metric = ['IGD','Generations'])
+            plot_g = analyse_metric_gen([evaluate,IGD__gen],bench,metric = ['IGD','Generations'])
             plot_g.configure()
         except Exception as e:
             print(e)
         
     
     @staticmethod
-    def IPL_plot_IGDplus(args,generations, experiments, objectives, bench):
+    def IPL_plot_IGDplus(args, generations, objectives):
         try:
-            evaluate,F_GEN,F = analyse_metric_gen.DATA(args,generations , objectives, experiments, bench)
+            bench, data = analyse_metric_gen.extract_pareto_result(args)
+            evaluate,F_GEN,F = analyse_metric_gen.DATA(args, generations , objectives, bench, data)
             igdplus_gen = analyse_metric_gen.set_IGD_plus(F_GEN,F)
             IGDplus__gen = [hv.evaluate() for hv in igdplus_gen]
-            plot_g = analyse_metric_gen([evaluate,IGDplus__gen],experiments,metric = ['IGD plus','Generations'])
+            plot_g = analyse_metric_gen([evaluate,IGDplus__gen],bench,metric = ['IGD plus','Generations'])
             plot_g.configure()
         except Exception as e:
             print(e)

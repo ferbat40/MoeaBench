@@ -224,29 +224,7 @@ class IPL_MoeaBench(I_MoeaBench):
             raise TypeError(f"generations = {N} not be allowed. It must be between 0 and {maximum}" )
       
     
-    @staticmethod
-    def extract_pareto_result(args,caller):
-        experiment = [] 
-        data = []
-        benk = []
-        arr_gen = []
-        for i in args:
-            obj = i if hasattr(i,'get_elements') else i.result
-            for key, val in caller:
-                try:
-                    if obj == val.result:
-                        experiment.append(f'{key}.result')
-                        arr_gen.append(obj.get_elements()[0][0].get_F_GEN())
-                        data.append(obj.get_elements()[0][0])
-                        benk.append(obj.get_elements()[0][1])
-                    elif obj == val.pof:
-                        experiment.append(f'{key}.pof')
-                        arr_gen.append(obj.get_CACHE().get_elements()[0][0].get_F_GEN())
-                        data.append(obj.get_CACHE().get_elements()[0][0])
-                        benk.append(obj.get_CACHE().get_elements()[0][1])
-                except Exception as e:
-                    pass
-        return experiment, data, benk, arr_gen
+    
 
 
 

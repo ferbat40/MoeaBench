@@ -43,10 +43,10 @@ class hypervolume:
            
 
     def trace(self, args, objectives = [], reference = []):
-        try:
+        #try:
             return result_metric.IPL_hypervolume(args.result, objectives, reference)
-        except Exception as e:
-            print(e)
+        #except Exception as e:
+           # print(e)
               
     
     def timeplot(self,*args, generations = [], objectives = [], reference = []):

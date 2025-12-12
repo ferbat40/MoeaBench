@@ -1,7 +1,6 @@
 from ..result_metric import result_metric
 from ..result_population import result_population
 import numpy as np
-import inspect
 from ..import MoeaBench as HV
 
 

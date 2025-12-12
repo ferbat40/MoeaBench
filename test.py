@@ -24,16 +24,17 @@ exp2.moea = mb.moeas.SPEA2(generations = 50, population = 50)
 
 ref = [exp, exp2]
 h = mb.hypervolume.trace(exp, reference=ref)
-print(h)
+#print(h)
 
 
-
+hv  = mb.hypervolume(exp)   
+print(hv)
 ref = [exp, exp2]
 
 #mb.plot_GD(exp, generations = [0,90], objectives = [1,4])
 #mb.plot_IGDplus(exp, generations = [0,90], objectives = [1,3])
-mb.hypervolume.timeplot (exp, reference = ref)
-mb.hypervolume.timeplot (exp)
+#mb.hypervolume.timeplot (exp, reference = ref)
+#mb.hypervolume.timeplot (exp)
 
 #mb.spaceplot(exp.optimal.front(), exp2, exp.objectives(), exp2.front(generations = 100),exp,exp2,exp2.optimal.front(), exp.objectives(), exp)
 

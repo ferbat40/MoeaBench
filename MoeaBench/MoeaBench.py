@@ -1,4 +1,3 @@
-import inspect
 from .analyse_obj import analyse_obj
 from .analyse_surface_obj import analyse_surface_obj
 from .analyse_metric_gen import analyse_metric_gen
@@ -7,7 +6,7 @@ import importlib
 from .experiment import experiment
 from .stat import stat
 from MoeaBench.hypervolume.hypervolume import hypervolume
-import numpy as np
+
 
 class MoeaBench(I_UserMoeaBench):
 

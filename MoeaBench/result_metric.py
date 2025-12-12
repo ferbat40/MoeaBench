@@ -38,19 +38,10 @@ class result_metric(IPL_MoeaBench):
     
 
     @staticmethod
-    def IPL_hypervolume(result, objective = [0, 1, 2], reference = [], generation = []):
+    def IPL_hypervolume(result, generation = []):
+        objective = [1,2,3]
         F_GEN, F =  result_metric.DATA(result,generation, objective)
-        min_non = []
-        max_non = []
-
-        if not isinstance(reference,list):
-                raise TypeError("Only arrays are allowed in 'references'")
-        
-        if len(reference) > 0:  
-            min_non, max_non = result_metric.normalize(reference, F)
-        min_slice = [float(min_non[i-1]) for i in objective] 
-        max_slice = [float(max_non[i-1]) for i in objective] 
-        hv_gen = result_metric.set_hypervolume(F_GEN, F, min_slice, max_slice)
+        hv_gen = result_metric.set_hypervolume(F_GEN, F, np.min(F[0], axis = 0), np.max(F[0], axis = 0))
         hv = [hv.evaluate().flatten() for hv in hv_gen][0]
         return hv
             

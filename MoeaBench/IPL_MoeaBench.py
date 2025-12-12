@@ -135,7 +135,6 @@ class IPL_MoeaBench(I_MoeaBench):
            
             valid = [[np.min(i, axis = 0),np.max(i, axis = 0)]  for i in gen if len(i) > 0]
             if len(valid) > 0:
-                print("aqui")
                 individual_min = []
                 individual_max = []
                 for i in valid:
@@ -147,21 +146,7 @@ class IPL_MoeaBench(I_MoeaBench):
                 return np.min(general_mim , axis = 0), np.max(general_max , axis = 0)
             elif len(valid) == 0:
                 return np.min(F[0], axis = 0), np.max(F[0], axis = 0)
-
-
-
-
-
-
-            #valid = [i for i in gen  if len(i) > 0]
-           # print(valid)
-           # if len(valid) > 0:
-               # min_gen = np.vstack([np.min(i, axis = 0) for i in valid  if len(i) > 0])          
-               # max_gen = np.vstack([np.max(i, axis = 0) for i in valid  if len(i) > 0])
-             #   return np.min(min_gen, axis = 0), np.max(max_gen, axis = 0)
-           # elif len(valid) == 0:
-               # return [], []
-
+            
     
     @staticmethod
     def slicing_arr(slc,arr):

@@ -147,10 +147,10 @@ class experiment(I_UserExperiment):
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """
-        #try:
-        return self.result_obj.IPL_objectives(self.result, generation)
-        #except Exception as e:
-            #print(e)
+        try:
+            return self.result_obj.IPL_objectives(self.result, generation)
+        except Exception as e:
+            print(e)
 
 
     def front(self, generations = None):

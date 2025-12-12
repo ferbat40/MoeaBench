@@ -36,7 +36,7 @@ class MoeaBench(I_UserMoeaBench):
             raise AttributeError(name)
     
 
-    def plot_GD(self,*args, generations = [], objectives = []):   
+    def plot_GD(self, *args, generations = [], objectives = []):   
          """
         - **2D graph for GD:**
         Click on the links for more
@@ -48,9 +48,10 @@ class MoeaBench(I_UserMoeaBench):
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
          """
-         caller = inspect.currentframe().f_back.f_locals.items()
-         experiment, data, benk, arr = analyse_surface_obj.extract_pareto_result(args,caller)  
-         analyse_metric_gen.IPL_plot_GD(args,generations,experiments = experiment, objectives = objectives, bench = benk)
+         try:     
+             analyse_metric_gen.IPL_plot_GD(args, generations, objectives)     
+         except Exception as e:
+            print(e)
 
 
     def plot_GDplus(self,*args, generations = [], objectives = []):  
@@ -116,10 +117,10 @@ class MoeaBench(I_UserMoeaBench):
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/plot/exceptions/) information on possible error types
        
         """       
-        #try:
-        analyse_surface_obj.IPL_plot_3D(args, objectives)   
-        #except Exception as e:
-            #print(e)   
+        try:
+            analyse_surface_obj.IPL_plot_3D(args, objectives)   
+        except Exception as e:
+            print(e)   
         
 
     def spaceplot(self, *args, objectives = []):

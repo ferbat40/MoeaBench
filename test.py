@@ -17,13 +17,13 @@ exp.run()
 exp2 = mb.experiment()
 exp2.benchmark = mb.benchmarks.DTLZ1()
 exp2.moea = mb.moeas.SPEA2(generations = 100, population = 100)
-exp2.run()
+#exp2.run()
 
 ref = [exp, exp2]
 
+mb.plot_GD(exp, generations = [0,90])
 
-
-mb.hypervolume.timeplot (exp)
+#mb.hypervolume.timeplot (exp)
 
 
 #mb.spaceplot(exp.optimal.front(), exp2, exp.objectives(), exp2.front(generations = 100),exp,exp2,exp2.optimal.front(), exp.objectives(), exp)

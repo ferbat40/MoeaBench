@@ -23,7 +23,7 @@ ref = [exp, exp2]
 
 
 
-mb.hypervolume.timeplot (exp)
+mb.hypervolume.timeplot (exp, reference = ref)
 
 
 #mb.spaceplot(exp.optimal.front(), exp2, exp.objectives(), exp2.front(generations = 100),exp,exp2,exp2.optimal.front(), exp.objectives(), exp)

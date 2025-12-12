@@ -31,7 +31,7 @@ class analyse_metric_gen(plot_gen):
     
     @staticmethod
     def IPL_plot_Hypervolume(args,generations, objectives, reference):   
-        try:
+        #try:
             bench, data = analyse_metric_gen.extract_pareto_result(args)
             evaluate,F_GEN,F = analyse_metric_gen.DATA(args, generations , objectives, bench, data)
             min_non = []
@@ -49,8 +49,8 @@ class analyse_metric_gen(plot_gen):
             hypervolume_gen = [hv.evaluate() for hv in hv_gen]
             plot_g = analyse_metric_gen([evaluate,hypervolume_gen],bench,metric = ['Hypervolume','Generations'])
             plot_g.configure()
-        except Exception as e:
-           print(e)
+        #except Exception as e:
+          # print(e)
             
     
     @staticmethod

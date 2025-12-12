@@ -120,27 +120,46 @@ class IPL_MoeaBench(I_MoeaBench):
     @staticmethod
     def normalize(ref):
             data = [args.result.get_elements() 
+                   
+            for args in ref 
             if isinstance(args, object) 
             and hasattr(args,'result') 
-            and hasattr(args.result,'get_elements') 
-            else None for args in ref ]
+            and hasattr(args.result,'get_elements')]
         
-            if None in data:
-                raise TypeError("only arguments of type 'experiment' are allowed.")
-
             gen = [n_dom.get_F_gen_non_dominate()[-1] 
             for element in data 
             for exp in element 
             for n_dom in exp 
             if hasattr(n_dom,"get_F_gen_non_dominate")]
-
-            valid = [i for i in gen  if len(i) > 0]
+            
+           
+            valid = [[np.min(i, axis = 0),np.max(i, axis = 0)]  for i in gen if len(i) > 0]
             if len(valid) > 0:
-                min_gen = np.vstack([np.min(i, axis = 0) for i in valid  if len(i) > 0])          
-                max_gen = np.vstack([np.max(i, axis = 0) for i in valid  if len(i) > 0])
-                return np.min(min_gen, axis = 0), np.max(max_gen, axis = 0)
+                individual_min = []
+                individual_max = []
+                for i in valid:
+                    individual_min.append(i[0])
+                    individual_max.append(i[1])
+
+                general_mim = np.vstack((individual_min))
+                general_max = np.vstack((individual_max))
+                return np.min(general_mim , axis = 0), np.max(general_max , axis = 0)
             elif len(valid) == 0:
                 return [], []
+
+
+
+
+
+
+            #valid = [i for i in gen  if len(i) > 0]
+           # print(valid)
+           # if len(valid) > 0:
+               # min_gen = np.vstack([np.min(i, axis = 0) for i in valid  if len(i) > 0])          
+               # max_gen = np.vstack([np.max(i, axis = 0) for i in valid  if len(i) > 0])
+             #   return np.min(min_gen, axis = 0), np.max(max_gen, axis = 0)
+           # elif len(valid) == 0:
+               # return [], []
 
     
     @staticmethod

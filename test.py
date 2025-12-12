@@ -10,20 +10,20 @@ os.system("cls")
 
 exp = mb.experiment()
 exp.benchmark = mb.benchmarks.DTLZ1()
-exp.moea = mb.moeas.NSGA3(generations = 200, population = 150)
+exp.moea = mb.moeas.NSGA3(generations = 100, population = 100)
 exp.run()
 
 
 exp2 = mb.experiment()
 exp2.benchmark = mb.benchmarks.DTLZ1()
-exp2.moea = mb.moeas.SPEA2(generations = 200, population = 250)
+exp2.moea = mb.moeas.SPEA2(generations = 100, population = 100)
 exp2.run()
 
 ref = [exp, exp2]
 
 
 
-mb.hypervolume.timeplot (exp, reference = ref)
+mb.hypervolume.timeplot (exp, 2, reference = ref)
 
 
 #mb.spaceplot(exp.optimal.front(), exp2, exp.objectives(), exp2.front(generations = 100),exp,exp2,exp2.optimal.front(), exp.objectives(), exp)

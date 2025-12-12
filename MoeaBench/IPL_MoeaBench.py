@@ -116,6 +116,10 @@ class IPL_MoeaBench(I_MoeaBench):
     def gen_data(self):
         raise NotImplementedError("Not implemented")
     
+      
+    def extract_pareto_result(self):
+        raise NotImplementedError("Not implemented")
+    
    
     @staticmethod
     def normalize(ref, F):
@@ -224,8 +228,8 @@ class IPL_MoeaBench(I_MoeaBench):
             raise TypeError(f"generations = {N} not be allowed. It must be between 0 and {maximum}" )
       
     
-    
 
+       
 
 
 

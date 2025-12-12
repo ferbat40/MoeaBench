@@ -5,7 +5,7 @@ from .GEN_gd import GEN_gd
 from .GEN_gdplus import GEN_gdplus
 from .GEN_igd import GEN_igd
 from .GEN_igdplus import GEN_igdplus
-
+from itertools import repeat
 
 class IPL_MoeaBench(I_MoeaBench):
 
@@ -118,7 +118,7 @@ class IPL_MoeaBench(I_MoeaBench):
     
    
     @staticmethod
-    def normalize(ref):
+    def normalize(ref, F):
             data = [args.result.get_elements() 
                    
             for args in ref 
@@ -135,6 +135,7 @@ class IPL_MoeaBench(I_MoeaBench):
            
             valid = [[np.min(i, axis = 0),np.max(i, axis = 0)]  for i in gen if len(i) > 0]
             if len(valid) > 0:
+                print("aqui")
                 individual_min = []
                 individual_max = []
                 for i in valid:
@@ -145,7 +146,7 @@ class IPL_MoeaBench(I_MoeaBench):
                 general_max = np.vstack((individual_max))
                 return np.min(general_mim , axis = 0), np.max(general_max , axis = 0)
             elif len(valid) == 0:
-                return [], []
+                return np.min(F[0], axis = 0), np.max(F[0], axis = 0)
 
 
 

@@ -248,20 +248,23 @@ class NSGA2deap(BaseMoea):
 
 exp5 = mb.experiment()
 exp5.benchmark= mb.benchmarks.my_new_benchmark()
+exp5.benchmark.M=5
 exp5.moea = mb.moeas.my_new_moea()
 exp5.moea.population = 100
 exp5.moea.generations = 200
 exp5.run()
 
-arr = exp5.dominated.objectives(generations = [0])
+arr = exp5.dominated.objectives(generations = 5)
 print(arr.shape)
 
-arr = exp5.front(generations = [0])
+arr = exp5.front(generations = 10)
 print(arr.shape)
 
 
-arr = exp5.objectives(generations = [0])
+arr = exp5.objectives(generation = 10)
 print(arr.shape)
+
+exp5.save("batman")
 
 #opt_front = exp5.optimal.front()
 #print(opt_front)

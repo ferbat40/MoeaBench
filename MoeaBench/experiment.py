@@ -22,8 +22,6 @@ class experiment(I_UserExperiment):
         self.result_var=result_var()
         self.result_set=result_set()
         self.hist_M_user = []
-        self.hist_M_native = []
-
 
 
     @property
@@ -215,7 +213,13 @@ class experiment(I_UserExperiment):
                       - [save](https://moeabench-rgb.github.io/MoeaBench/experiments/save_experiment/save_experiment/) information about the method, 
                      
         """
+        algoritm = None
+        if (hasattr(self,'_moea')):
+            moea_found = self.imports.moeas.moea_algorithm()
+            algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
         try:
+            if isinstance(algoritm,tuple) and inspect.isclass(algoritm[0]):
+                raise ValueError("experiments using the methods @mb.benchmarks.register_benchmark() and @mb.moeas.register_moea() cannot be saved.")
             save.IPL_save(self,file)
         except Exception as e:
             print(e)
@@ -241,14 +245,13 @@ class experiment(I_UserExperiment):
             algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
             execute = RUN() if not isinstance(algoritm, bool ) and not inspect.isclass(algoritm[0]) else RUN_user()
             
-            if isinstance(self.result,tuple):
+            if isinstance(execute,RUN_user):
                 self.hist_M_user.append(self.benchmark.M )
                 self.result = self.moea(self.benchmark, self.imports.moeas) if not len(set(self.hist_M_user)) == 1 else self.result
                 
-            
-            elif not isinstance(self.result,tuple):
-                self.hist_M_native.append(self.benchmark.M)
-                self.result = self.moea(self.benchmark) if not len(set(self.hist_M_native)) == 1 else self.result
+           
+            elif isinstance(execute,RUN):
+                self.result = self.moea(self.benchmark) 
             
             self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
 

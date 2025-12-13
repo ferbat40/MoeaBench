@@ -16,6 +16,7 @@ mb.add_benchmark(my_dtlz5)
 mb.add_moea(my_NSGA2deap)
 
 
+
 exp = mb.experiment()
 exp.save("init")
 
@@ -33,6 +34,7 @@ exp4.save("init3")
 
 exp5 = mb.experiment()
 exp5.load("init3")
+exp5.benchmark.M = 4
 exp5.run()
 
 exp5.save("init4")
@@ -41,11 +43,11 @@ exp6 = mb.experiment()
 exp.load("init4")
 
 exp6.benchmark = mb.benchmarks.DPF5()
-exp6.moea = mb.moeas.SPEAII()
+exp6.moea = mb.moeas.SPEA2()
 exp6.run()
 exp6.save("repo")
 
-exp6.benchmark.M=4
+exp6.benchmark.M=5
 
 
 
@@ -75,5 +77,3 @@ exp6.save("repo_up_2")
 exp7  = mb.experiment()
 exp7.load("repo_up_2")
 
-df = exp7.hypervolume()
-print(df)

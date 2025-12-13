@@ -20,8 +20,7 @@ class NSGA3:
         self._generations=generations
         self.seed = seed
         self._result = None
-
-        
+  
         
     def __call__(self, problem, default = None):
         self.problem = problem

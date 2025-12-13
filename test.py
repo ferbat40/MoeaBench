@@ -14,22 +14,26 @@ exp.moea = mb.moeas.NSGA3(generations = 250, population = 250)
 
 
 exp.moea.generations=200
+
+exp.benchmark.M = 4
 exp.run()
+exp.save("machine")
+exp.load("machine")
 
 
-exp2 = mb.experiment()
-exp2.benchmark = mb.benchmarks.DTLZ1()
-exp2.moea = mb.moeas.SPEA2(generations = 50, population = 50)
+#exp2 = mb.experiment()
+#exp2.benchmark = mb.benchmarks.DTLZ1()
+#exp2.moea = mb.moeas.SPEA2(generations = 50, population = 50)
 #exp2.run()
 
-ref = [exp, exp2]
-h = mb.hypervolume.trace(exp, reference=ref)
+#ref = [exp, exp2]
+#h = mb.hypervolume.trace(exp, reference=ref)
 #print(h)
 
 
-hv  = mb.hypervolume(exp)   
-print(hv)
-ref = [exp, exp2]
+#hv  = mb.hypervolume(exp)   
+#print(hv)
+#ref = [exp, exp2]
 
 #mb.plot_GD(exp, generations = [0,90], objectives = [1,4])
 #mb.plot_IGDplus(exp, generations = [0,90], objectives = [1,3])

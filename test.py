@@ -4,21 +4,37 @@ import numpy as np
 
 
 
+def stop(self, n):
+    return True if n == 50 else False
+
 
 os.system("cls")  
 
 
+def stop(gen):
+    return gen == 50
+
+
 exp = mb.experiment()
 exp.benchmark = mb.benchmarks.DTLZ1()
-exp.moea = mb.moeas.NSGA3(generations = 250, population = 250)
-
-
+exp.moea = mb.moeas.RVEA(generations = 250, population = 250)
 exp.moea.generations=200
-
 exp.benchmark.M = 4
-exp.run()
-exp.save("machine")
-exp.load("machine")
+exp.stop = stop
+exp.run(repeat = 5)
+
+print("round   ",exp.round[-1])
+#exp.save('crof')
+#exp.load('crof')
+#hv  = mb.hypervolume(exp, generation = 150) 
+#print(hv)
+
+
+#exp.save("machine")
+#exp.load("machine")
+
+
+
 
 
 #exp2 = mb.experiment()

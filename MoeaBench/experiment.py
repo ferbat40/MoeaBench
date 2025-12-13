@@ -9,6 +9,7 @@ from .save import save
 from .loader import loader
 from .I_UserExperiment import I_UserExperiment
 import inspect
+import numpy as np
 
 
 class experiment(I_UserExperiment):
@@ -22,6 +23,28 @@ class experiment(I_UserExperiment):
         self.result_var=result_var()
         self.result_set=result_set()
         self.hist_M_user = []
+    
+    
+    @property
+    def round(self):
+        return self._round
+    
+
+    @round.setter
+    def round(self, value):
+        if not hasattr(self,'_round'):
+            self._round = []
+        self._round.extend(value)
+
+
+    @property
+    def stop(self):
+        return self._stop
+    
+
+    @stop.setter
+    def stop(self, value):
+        self._stop = value
 
 
     @property
@@ -46,7 +69,8 @@ class experiment(I_UserExperiment):
 
     @moea.setter
     def moea(self,value):  
-        self.result = value(self.benchmark, self.imports.moeas) if callable(value) else value
+        stop = self.stop if hasattr(self,'_stop') else None
+        self.result = value(self.benchmark, self.imports.moeas, stop) if callable(value) else value
         self._moea = value
 
 
@@ -223,9 +247,41 @@ class experiment(I_UserExperiment):
             save.IPL_save(self,file)
         except Exception as e:
             print(e)
+   
 
+    def run_moea(self, seed):
 
-    def run(self):
+        if isinstance(self.result,tuple):
+            name_moea = self.result[2]
+        else:
+            name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__       
+        try:
+            moea_found = self.imports.moeas.moea_algorithm()
+            algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
+            execute = RUN() if not isinstance(algoritm, bool ) and not inspect.isclass(algoritm[0]) else RUN_user()
+            
+            if isinstance(execute, RUN_user):
+                self.hist_M_user.append(self.benchmark.M)
+                self.result = self.moea(self.benchmark, self.imports.moeas) if not len(set(self.hist_M_user)) == 1 else self.result
+                         
+            elif isinstance(execute, RUN):
+                stop = self.stop if hasattr(self,'_stop') else None
+                self.result = self.moea(self.benchmark, None, stop) 
+            
+            self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
+
+            try:
+                name_benchmark = self.benchmark.__class__.__name__.split("_")[1]
+            except Exception as e:
+                name_benchmark = self.benchmark.__class__.__name__
+                
+            return execute.MOEA_execute(self.result_moea,self.benchmark,name_moea,name_benchmark)
+        except Exception as e:
+            print(e)
+
+    
+
+    def run(self, repeat = None):
         """
         - **run the genetic algorithm:**
         Click on the links for more
@@ -236,33 +292,20 @@ class experiment(I_UserExperiment):
                       - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
 
         """
-        if isinstance(self.result,tuple):
-            name_moea = self.result[2]
-        else:
-            name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__       
         try:
-            moea_found = self.imports.moeas.moea_algorithm()
-            algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
-            execute = RUN() if not isinstance(algoritm, bool ) and not inspect.isclass(algoritm[0]) else RUN_user()
-            
-            if isinstance(execute,RUN_user):
-                self.hist_M_user.append(self.benchmark.M )
-                self.result = self.moea(self.benchmark, self.imports.moeas) if not len(set(self.hist_M_user)) == 1 else self.result
+            seed = np.random.randint(0,10,repeat-1)
+            print(seed," random")
+            if not isinstance(repeat,int):
+                raise TypeError('Only integers are allowed as parameters for the run() method.')
+       
+            execution = repeat if isinstance(repeat,int) else 1
+            for exe in range(0,execution):
                 
-           
-            elif isinstance(execute,RUN):
-                self.result = self.moea(self.benchmark) 
-            
-            self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
-
-
-            try:
-                name_benchmark = self.benchmark.__class__.__name__.split("_")[1]
-            except Exception as e:
-                name_benchmark = self.benchmark.__class__.__name__
-                
-            return execute.MOEA_execute(self.result_moea,self.benchmark,name_moea,name_benchmark)
+                self.run_moea()
+                self.round = [b.get_F_gen_non_dominate()[-1] for i in self.result.get_elements() for b in i if hasattr(b,'get_F_gen_non_dominate')]
         except Exception as e:
             print(e)
+
+
            
            

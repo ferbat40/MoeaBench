@@ -5,7 +5,7 @@ from .GEN_gd import GEN_gd
 from .GEN_gdplus import GEN_gdplus
 from .GEN_igd import GEN_igd
 from .GEN_igdplus import GEN_igdplus
-from itertools import repeat
+
 
 class IPL_MoeaBench(I_MoeaBench):
 

@@ -1,6 +1,5 @@
 from .plot_gen import plot_gen
 import numpy as np
-from itertools import repeat
 
 
 class analyse_metric_gen(plot_gen):

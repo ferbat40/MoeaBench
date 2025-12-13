@@ -5,14 +5,30 @@ from pymoo.operators.crossover.sbx import SBX
 from pymoo.operators.mutation.pm import PolynomialMutation
 from pymoo.core.problem import Problem
 from pymoo.algorithms.moo.rvea import RVEA
+from pymoo.core.callback import Callback
+
+
+class callback_stop(Callback):
+
+    def __init__(self, stop):
+        super().__init__()
+        self.stop = stop
+
+    
+    def notify(self, algorithm):
+        #F = algorithm.pop.get("F")
+        print(algorithm.n_gen)
+        if callable(self.stop) and self.stop(algorithm.n_gen):
+            algorithm.termination.force_termination = True
 
 
 class RVEA_pymoo(Problem):
-    def __init__(self,benchmark,population,generations,seed):
+    def __init__(self,benchmark,population,generations,seed,stop):
         self.benchmark=benchmark
         self.population=population
         self.generations=generations
         self.seed=seed
+        self.stop=stop
         self.n_ieq=self.benchmark.get_CACHE().get_BENCH_CI().get_n_ieq_constr()
         self.Nvar=self.benchmark.get_CACHE().get_BENCH_CI().get_Nvar()
         self.M=self.benchmark.get_CACHE().get_BENCH_CI().get_M()
@@ -27,9 +43,10 @@ class RVEA_pymoo(Problem):
         out["F"]=result['F']
         if "G" in result:
             out["G"]=result['G']
-      
+
 
     def exec(self):
+        stopping = callback_stop(self.stop)
         ref_dirs = get_reference_directions("energy", self.M, self.population, seed = self.seed)
         muttation_prob = 1/self.Nvar
         muttation=PolynomialMutation(prob=muttation_prob, eta = 20)
@@ -37,13 +54,14 @@ class RVEA_pymoo(Problem):
         algorithm_RVEA = RVEA(ref_dirs, pop_size=self.population, crossover=crossover,mutation=muttation)    
 
         res_RVEA = minimize(
-            RVEA_pymoo(self.benchmark,self.population, self.generations,self.seed),
+            RVEA_pymoo(self.benchmark,self.population, self.generations,self.seed,self.stop),
             algorithm_RVEA,
             termination=('n_gen', self.generations),
             seed=self.seed,
             save_history=True,
             verbose=False,
-            eliminate_duplicates=True
+            eliminate_duplicates=True,
+            callback=stopping
             )  
 
         RVEA_algorithm={

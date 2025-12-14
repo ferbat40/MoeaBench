@@ -14,20 +14,18 @@ class RVEA:
                       - [configurations](https://moeabench-rgb.github.io/MoeaBench/algorithms/configuration/) algorithm configuration adopted by MoeaBench
         
         """
-
     def __init__(self,population = 150, generations = 300, seed = 1):
         self._population=population
         self._generations=generations
         self.seed = seed
-        self.result = None
     
 
-    def __call__(self, problem, default = None, stop = None):
+    def __call__(self, problem, default = None, stop = None, seed = 0):
         self.problem = problem
         moea = moea_algorithm()
         algoritm = moea.get_MOEA(self.__class__.__name__)
         class_algoritm = getattr(algoritm[0],algoritm[1].name)
-        instance = class_algoritm(problem, self._population, self._generations, self.seed, stop)
+        instance = class_algoritm(problem, self._population, self._generations, seed, stop)
         result = moea.get_CACHE()
         result.get_DATA_conf().set_DATA_MOEA(instance,problem)
         self.result = result

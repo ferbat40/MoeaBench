@@ -175,14 +175,14 @@ class experiment(I_UserExperiment):
             print(e)
 
 
-    def front(self, generations = None):
+    def front(self, generation = None):
         try:
-            return self.result_front.IPL_front(self.result, generations)
+            return self.result_front.IPL_front(self.result, generation)
         except Exception as e:
             print(e)
 
 
-    def variables(self, generations = None):
+    def variables(self, generation = None):
         """
         - **array with decision variables in generations:**
         Click on the links for more
@@ -195,14 +195,14 @@ class experiment(I_UserExperiment):
 
         """
         try:
-            return self.result_var.IPL_variables(self.result, generations)
+            return self.result_var.IPL_variables(self.result, generation)
         except Exception as e:
             print(e)
     
 
-    def set(self, generations = None):
+    def set(self, generation = None):
         try:
-            return self.result_set.IPL_set(self.result, generations)
+            return self.result_set.IPL_set(self.result, generation)
         except Exception as e:
             print(e)
 
@@ -266,7 +266,7 @@ class experiment(I_UserExperiment):
                          
             elif isinstance(execute, RUN):
                 stop = self.stop if hasattr(self,'_stop') else None
-                self.result = self.moea(self.benchmark, None, stop) 
+                self.result = self.moea(self.benchmark, None, stop, seed) 
             
             self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
 
@@ -280,7 +280,6 @@ class experiment(I_UserExperiment):
             print(e)
 
     
-
     def run(self, repeat = None):
         """
         - **run the genetic algorithm:**
@@ -293,16 +292,16 @@ class experiment(I_UserExperiment):
 
         """
         try:
-            seed = np.random.randint(0,10,repeat-1)
-            print(seed," random")
+            seed_moea = np.random.randint(1,10,repeat-1)
             if not isinstance(repeat,int):
                 raise TypeError('Only integers are allowed as parameters for the run() method.')
        
-            execution = repeat if isinstance(repeat,int) else 1
+            execution = repeat-1 if isinstance(repeat,int) else 0
             for exe in range(0,execution):
-                
-                self.run_moea()
-                self.round = [b.get_F_gen_non_dominate()[-1] for i in self.result.get_elements() for b in i if hasattr(b,'get_F_gen_non_dominate')]
+                self.run_moea(int(seed_moea[exe]))
+                self.round = [b.get_F_GEN()[-1] for i in self.result.get_elements() for b in i if hasattr(b,'get_F_GEN')]
+            self.run_moea(self.moea.seed)
+            self.round = [b.get_F_GEN()[-1] for i in self.result.get_elements() for b in i if hasattr(b,'get_F_GEN')]
         except Exception as e:
             print(e)
 

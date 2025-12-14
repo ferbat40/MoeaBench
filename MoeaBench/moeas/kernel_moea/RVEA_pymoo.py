@@ -16,8 +16,6 @@ class callback_stop(Callback):
 
     
     def notify(self, algorithm):
-        #F = algorithm.pop.get("F")
-        print(algorithm.n_gen)
         if callable(self.stop) and self.stop(algorithm.n_gen):
             algorithm.termination.force_termination = True
 

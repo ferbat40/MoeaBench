@@ -17,13 +17,13 @@ def stop(gen):
 
 exp = mb.experiment()
 exp.benchmark = mb.benchmarks.DTLZ1()
-exp.moea = mb.moeas.RVEA(generations = 250, population = 250)
+exp.moea = mb.moeas.RVEA(generations = 250, population = 250, seed = 4)
 exp.moea.generations=200
 exp.benchmark.M = 4
 exp.stop = stop
 exp.run(repeat = 5)
 
-print("round   ",exp.round[-1])
+print("round   ",len(exp.round))
 #exp.save('crof')
 #exp.load('crof')
 #hv  = mb.hypervolume(exp, generation = 150) 

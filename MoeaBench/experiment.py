@@ -280,7 +280,7 @@ class experiment(I_UserExperiment):
             print(e)
 
     
-    def run(self, repeat = None):
+    def run(self, repeat = 0):
         """
         - **run the genetic algorithm:**
         Click on the links for more
@@ -292,11 +292,11 @@ class experiment(I_UserExperiment):
 
         """
         try:
-            seed_moea = np.random.randint(1,10,repeat-1)
+            seed_moea = np.random.randint(1,10,repeat-1) if repeat > 0 else 0
             if not isinstance(repeat,int):
                 raise TypeError('Only integers are allowed as parameters for the run() method.')
        
-            execution = repeat-1 if isinstance(repeat,int) else 0
+            execution = repeat-1 if repeat > 0 else 0
             for exe in range(0,execution):
                 self.run_moea(int(seed_moea[exe]))
                 self.round = [b.get_F_GEN()[-1] for i in self.result.get_elements() for b in i if hasattr(b,'get_F_GEN')]

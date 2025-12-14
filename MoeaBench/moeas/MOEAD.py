@@ -15,7 +15,7 @@ class MOEAD:
         
         """
 
-    def __init__(self,population = 150, generations = 300, seed = 0):
+    def __init__(self,population = 150, generations = 300, seed = 1):
         self._population=population
         self._generations=generations
         self.seed = seed

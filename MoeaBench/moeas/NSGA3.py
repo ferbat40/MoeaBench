@@ -15,7 +15,7 @@ class NSGA3:
         
         """
 
-    def __init__(self,population = 150, generations = 300, seed = 1):
+    def __init__(self,population = 150, generations = 300, seed = 0):
         self._population=population
         self._generations=generations
         self.seed = seed

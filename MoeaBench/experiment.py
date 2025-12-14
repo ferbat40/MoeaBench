@@ -292,7 +292,7 @@ class experiment(I_UserExperiment):
 
         """
         try:
-            seed_moea = np.random.randint(1,10,repeat-1) if repeat > 0 else 0
+            seed_moea = np.random.randint(1,100,repeat) if repeat > 0 else 0
             if not isinstance(repeat,int):
                 raise TypeError('Only integers are allowed as parameters for the run() method.')
        
@@ -300,7 +300,8 @@ class experiment(I_UserExperiment):
             for exe in range(0,execution):
                 self.run_moea(int(seed_moea[exe]))
                 self.round = [b.get_F_GEN()[-1] for i in self.result.get_elements() for b in i if hasattr(b,'get_F_GEN')]
-            self.run_moea(self.moea.seed)
+            seed_user = int(seed_moea[len(seed_moea)-1]) if self.moea.seed == 0 else self.moea.seed
+            self.run_moea(seed_user)
             self.round = [b.get_F_GEN()[-1] for i in self.result.get_elements() for b in i if hasattr(b,'get_F_GEN')]
         except Exception as e:
             print(e)

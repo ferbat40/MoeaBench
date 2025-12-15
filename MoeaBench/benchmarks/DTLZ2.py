@@ -25,7 +25,7 @@ class DTLZ2:
 
      def __call__(self, default = None):
  
-       # try:
+        try:
             problem = problems()
             bk = problem.get_problem(self.__class__.__name__)
             class_bk =  getattr(bk[0],bk[1].name)
@@ -34,8 +34,8 @@ class DTLZ2:
             instance.set_BENCH_conf()
             instance.POFsamples()
             return instance
-        #except Exception as e:
-           # print(e)
+        except Exception as e:
+            print(e)
 
  
             

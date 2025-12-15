@@ -293,15 +293,15 @@ class experiment(I_UserExperiment):
         """
         try:
             generator = np.random.default_rng()
-            numbers = generator.integers(low= 0 , high = 100, size = repeat)
             if not isinstance(repeat,int):
                 raise TypeError('Only integers are allowed as parameters for the run() method.')
        
             execution = repeat-1 if repeat > 0 else 0
             for exe in range(0,execution):
-                self.run_moea(int(numbers[exe]))
+                self.run_moea(generator)
                 self.round = [b.get_F_GEN()[-1] for i in self.result.get_elements() for b in i if hasattr(b,'get_F_GEN')]
-            self.run_moea(self.moea.seed)
+            seed_moea = generator if self.moea.seed == 0 else self.moea.seed
+            self.run_moea(seed_moea)
             self.round = [b.get_F_GEN()[-1] for i in self.result.get_elements() for b in i if hasattr(b,'get_F_GEN')]
         except Exception as e:
             print(e)

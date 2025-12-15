@@ -27,7 +27,8 @@ class MOEAD_pymoo(Problem):
         self.benchmark=benchmark
         self.population=population
         self.generations=generations
-        self.seed=seed
+        self.seed=int(seed.integers(low= 0 , high = 100, size = 1)[0]) if not isinstance(seed, int) else seed
+        print("seed algorithm",self.seed)
         self.stop=stop
         self.Nvar=self.benchmark.get_CACHE().get_BENCH_CI().get_Nvar()
         self.M=self.benchmark.get_CACHE().get_BENCH_CI().get_M()

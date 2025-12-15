@@ -25,7 +25,7 @@ class SPEA_pymoo(Problem):
         self.benchmark=benchmark
         self.population=population
         self.generations=generations
-        self.seed=seed
+        self.seed=int(seed.integers(low= 0 , high = 100, size = 1)[0]) if not isinstance(seed, int) else seed
         self.stop=stop
         self.n_ieq=self.benchmark.get_CACHE().get_BENCH_CI().get_n_ieq_constr()
         self.Nvar=self.benchmark.get_CACHE().get_BENCH_CI().get_Nvar()

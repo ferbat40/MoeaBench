@@ -14,7 +14,7 @@ class RVEA:
                       - [configurations](https://moeabench-rgb.github.io/MoeaBench/algorithms/configuration/) algorithm configuration adopted by MoeaBench
         
         """
-    def __init__(self,population = 150, generations = 300, seed = 1):
+    def __init__(self,population = 150, generations = 300, seed = 0):
         self._population=population
         self._generations=generations
         self.seed = seed

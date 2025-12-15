@@ -17,9 +17,10 @@ def stop(gen):
 
 exp = mb.experiment()
 exp.benchmark = mb.benchmarks.DTLZ1()
-exp.moea = mb.moeas.RVEA(generations = 250, population = 250)
+exp.moea = mb.moeas.SPEA2(generations = 250, population = 250)
 exp.moea.generations=200
-exp.benchmark.M = 4
+exp.moea.seed = 4
+#exp.benchmark.M = 4
 exp.stop = stop
 exp.run(repeat = 5)
 

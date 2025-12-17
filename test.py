@@ -12,7 +12,6 @@ os.system("cls")
 
 
 def stop(experiment):
-    print(experiment)
     metric = mb.hypervolume.trace(experiment)
     hv = metric[0]
     if len(hv)  % 20 == 0:
@@ -26,12 +25,13 @@ def stop(experiment):
 exp = mb.experiment()
 exp.benchmark = mb.benchmarks.DTLZ1()
 exp.moea = mb.moeas.NSGA3(generations = 10, population = 150)
-exp.moea.generations=400
+exp.moea.generations=300
 exp.moea.seed = 4
 exp.stop = stop
-exp.run(repeat = 1)
+exp.run()
 
-
+var = exp.variables() 
+print(var)
 
 #exp.save('crof')
 #exp.load('crof')

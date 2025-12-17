@@ -23,7 +23,7 @@ class callback_stop(Callback):
         self.arr_x_dom = []
 
 
-    def save(self, gen, pop, eval):
+    def save(self, gen, pop):
         problem = self.experiment.result.edit_DATA_conf().get_problem()
         name_benchmark = problem.__class__.__name__.split("_")[1]
         self.experiment.result.DATA_store(
@@ -32,7 +32,7 @@ class callback_stop(Callback):
                               pop,
                               self.arr_f_pop[-1],
                               self.arr_f_pop,
-                              eval,
+                              self.arr_x_pop,
                               problem,
                               name_benchmark,
                               self.arr_f_nd,
@@ -64,7 +64,7 @@ class callback_stop(Callback):
         self.arr_f_dom.append(f_dom)
         self.arr_x_dom.append(x_dom)
 
-        self.save(algorithm.n_gen, len(algorithm.pop), algorithm.evaluator.n_eval)
+        self.save(algorithm.n_gen, len(algorithm.pop))
         if  callable(self.stop) and self.stop(self.experiment):
             algorithm.termination.force_termination = True
 

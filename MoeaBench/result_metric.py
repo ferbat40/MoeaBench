@@ -41,37 +41,41 @@ class result_metric(IPL_MoeaBench):
     def IPL_hypervolume(result, generation = []):
         objective = [1,2,3]
         F_GEN, F =  result_metric.DATA(result,generation, objective)
-        hv_gen = result_metric.set_hypervolume(F_GEN, F, np.min(F[0], axis = 0), np.max(F[0], axis = 0))
-        hv = [hv.evaluate().flatten() for hv in hv_gen][0]
-        return hv
+        metric = result_metric.set_hypervolume(F_GEN, F, np.min(F[0], axis = 0), np.max(F[0], axis = 0))
+        metric_evaluate = metric[0].evaluate()
+        return [float(i)  for i in metric_evaluate]
             
     
     @staticmethod
     def IPL_GD(result, generation, objective):
         F_GEN, F =  result_metric.DATA(result,generation, objective)
-        gd_gen = result_metric.set_GD(F_GEN,F)
-        return [float(gd.evaluate().flatten()) for gd in gd_gen][0]
+        metric = result_metric.set_GD(F_GEN,F)
+        metric_evaluate = metric[0].evaluate()
+        return [float(i)  for i in metric_evaluate]
     
     
     @staticmethod
     def IPL_GDplus(result, generation, objective):
         F_GEN, F =  result_metric.DATA(result,generation, objective)
-        gdplus_gen = result_metric.set_GDplus(F_GEN,F)
-        return [float(gdplus.evaluate().flatten()) for gdplus in gdplus_gen][0]
+        metric = result_metric.set_GDplus(F_GEN,F)
+        metric_evaluate = metric[0].evaluate()
+        return [float(i)  for i in metric_evaluate]
     
     
     @staticmethod
     def IPL_IGD(result, generation, objective):
         F_GEN, F = result_metric.DATA(result,generation, objective)
-        igd_gen = result_metric.set_IGD(F_GEN,F)
-        return [float(igd.evaluate().flatten()) for igd in igd_gen][0]
+        metric = result_metric.set_IGD(F_GEN,F)
+        metric_evaluate = metric[0].evaluate()
+        return [float(i)  for i in metric_evaluate]
     
     
     @staticmethod
     def IPL_IGDplus(result, generation, objective):
         F_GEN, F =  result_metric.DATA(result,generation, objective)
-        igdplus_gen = result_metric.set_IGD_plus(F_GEN,F)
-        return [float(igdplus.evaluate().flatten()) for igdplus in igdplus_gen][0]
+        metric = result_metric.set_IGD_plus(F_GEN,F)
+        metric_evaluate = metric[0].evaluate()
+        return [float(i)  for i in metric_evaluate]
     
     
     

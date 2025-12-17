@@ -29,7 +29,7 @@ class NSGA3:
         class_algoritm = getattr(algoritm[0],algoritm[1].name)
         instance = class_algoritm(problem,self._population,self._generations, seed, stop)
         result = moea.get_CACHE()
-        result.get_DATA_conf().set_DATA_MOEA(instance,problem)
+        result.get_DATA_conf().set_DATA_MOEA(instance,problem.benchmark)
         self.result  = result
         return result   
     

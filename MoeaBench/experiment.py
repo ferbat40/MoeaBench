@@ -70,14 +70,14 @@ class experiment(I_UserExperiment):
     @moea.setter
     def moea(self,value):  
         stop = self.stop if hasattr(self,'_stop') else None
-        self.result = value(self.benchmark, self.imports.moeas, stop) if callable(value) else value
+        self.result = value(self, self.imports.moeas, stop) if callable(value) else value
         self._moea = value
 
 
     @property
     def benchmark(self):
         return self._benchmark
-    
+      
 
     @benchmark.setter
     def benchmark(self,value):
@@ -266,7 +266,7 @@ class experiment(I_UserExperiment):
                          
             elif isinstance(execute, RUN):
                 stop = self.stop if hasattr(self,'_stop') else None
-                self.result = self.moea(self.benchmark, None, stop, seed) 
+                self.result = self.moea(self, None, stop, seed) 
             
             self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
 
@@ -275,7 +275,7 @@ class experiment(I_UserExperiment):
             except Exception as e:
                 name_benchmark = self.benchmark.__class__.__name__
                 
-            return execute.MOEA_execute(self.result_moea,self.benchmark,name_moea,name_benchmark)
+            return execute.MOEA_execute(self.result_moea,name_moea,name_benchmark)
         except Exception as e:
             print(e)
 

@@ -4,30 +4,39 @@ import numpy as np
 
 
 
-def stop(self, n):
-    return True if n == 50 else False
+#def stop(self, n):
+    #return True if n == 50 else False
 
 
 os.system("cls")  
 
 
-def stop(gen):
-    return gen == 50
-
+def stop(experiment):
+    print(experiment)
+    metric = mb.hypervolume.trace(experiment)
+    hv = metric[0]
+    if len(hv)  % 20 == 0:
+        gen = np.diff(hv[ -21:  ])
+        mean = np.mean(np.abs(gen))
+        std_gen = np.std(gen)
+        return mean < 1e-5 and std_gen < 1e-5 
+    return False
+       
 
 exp = mb.experiment()
 exp.benchmark = mb.benchmarks.DTLZ1()
-exp.moea = mb.moeas.SPEA2(generations = 250, population = 250)
-exp.moea.generations=200
+exp.moea = mb.moeas.NSGA3(generations = 10, population = 150)
+exp.moea.generations=400
 exp.moea.seed = 4
-#exp.benchmark.M = 4
 exp.stop = stop
-exp.run(repeat = 5)
+exp.run(repeat = 1)
 
-print("round   ",len(exp.round))
+
+
 #exp.save('crof')
 #exp.load('crof')
-#hv  = mb.hypervolume(exp, generation = 150) 
+#hv  = mb.hypervolume(exp) 
+#print(hv)
 #print(hv)
 
 

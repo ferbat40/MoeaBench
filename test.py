@@ -19,8 +19,8 @@ def stop(experiment):
         gen = np.diff(hv[ -21:  ])
         mean = np.mean(np.abs(gen))
         std_gen = np.std(gen)
-        return mean < 1e-5 and std_gen < 1e-5 
-    return False
+        return mean < 1e-3 and std_gen < 1e-3 
+ 
        
 
 exp = mb.experiment()

@@ -8,5 +8,6 @@ deap
 deepdiff
 PyGithub
 joblib
+numpy
 
 

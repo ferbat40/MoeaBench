@@ -151,8 +151,8 @@ class NSGA2deap(BaseMoea):
   toolbox = base.Toolbox()
   result_evaluate = None
 
-  def __init__(self,problem=None,population = 160, generations = 300):
-    super().__init__(problem,population,generations)  
+  def __init__(self,problem=None,population = 160, generations = 300, seed = 1):
+    super().__init__(problem,population,generations,seed)  
     creator.create("FitnessMin", base.Fitness, weights=(-1.0,) * self.get_M())
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)   
     NSGA2deap.toolbox.register("attr_float", self.uniform, 0, 1, self.get_N())
@@ -160,7 +160,7 @@ class NSGA2deap(BaseMoea):
     NSGA2deap.toolbox.register("population", tools.initRepeat, list, NSGA2deap.toolbox.individual)
     NSGA2deap.toolbox.register("evaluate",self.evaluate)
     self.evalue = NSGA2deap.toolbox.evaluate
-    random.seed(None)
+    random.seed(1)
     NSGA2deap.toolbox.decorate("evaluate", tools.DeltaPenality(self.feasible,1000))
     NSGA2deap.toolbox.register("mate", tools.cxSimulatedBinaryBounded, low=0, up=1, eta=20)
     NSGA2deap.toolbox.register("mutate", tools.mutPolynomialBounded, low=0, up=1, eta=20, indpb=1/self.get_N())
@@ -252,19 +252,20 @@ exp5.benchmark.M=5
 exp5.moea = mb.moeas.my_new_moea()
 exp5.moea.population = 100
 exp5.moea.generations = 200
-exp5.run()
 
-arr = exp5.dominated.objectives(generations = 5)
+exp5.run(repeat = 10)
+
+arr = exp5.dominated.objectives(generation = 5)
 print(arr.shape)
 
-arr = exp5.front(generations = 10)
+arr = exp5.front(generation = 10)
 print(arr.shape)
 
 
 arr = exp5.objectives(generation = 10)
 print(arr.shape)
 
-exp5.save("batman")
+
 
 #opt_front = exp5.optimal.front()
 #print(opt_front)

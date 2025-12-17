@@ -7,9 +7,6 @@ class I_MOEA(ABC):
         pass
 
 
-    @abstractmethod
-    def get_history(self):
-        pass
     
 
 

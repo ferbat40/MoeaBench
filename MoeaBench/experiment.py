@@ -255,29 +255,28 @@ class experiment(I_UserExperiment):
             name_moea = self.result[2]
         else:
             name_moea = self.result.edit_DATA_conf().get_DATA_MOEA().__class__.__name__       
-        #try:
-        moea_found = self.imports.moeas.moea_algorithm()
-        algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
-        execute = RUN() if not isinstance(algoritm, bool ) and not inspect.isclass(algoritm[0]) else RUN_user()
+        try:
+            moea_found = self.imports.moeas.moea_algorithm()
+            algoritm = moea_found.get_MOEA(self.moea.__class__.__name__)
+            execute = RUN() if not isinstance(algoritm, bool ) and not inspect.isclass(algoritm[0]) else RUN_user()
             
-        if isinstance(execute, RUN_user):
+            if isinstance(execute, RUN_user):
                 self.hist_M_user.append(self.benchmark.M)
                 self.result = self.moea(self.benchmark, self.imports.moeas) if not len(set(self.hist_M_user)) == 1 else self.result
                          
-        elif isinstance(execute, RUN):
+            elif isinstance(execute, RUN):
                 stop = self.stop if hasattr(self,'_stop') else None
                 self.result = self.moea(self, None, stop, seed) 
             
-        self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
-
-        try:
+            self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
+            try:
                 name_benchmark = self.benchmark.__class__.__name__.split("_")[1]
-        except Exception as e:
+            except Exception as e:
                 name_benchmark = self.benchmark.__class__.__name__
                 
-        return execute.MOEA_execute(self.result_moea,name_moea,name_benchmark)
-        #except Exception as e:
-           # print(e)
+            return execute.MOEA_execute(self.result_moea,name_moea,name_benchmark)
+        except Exception as e:
+            print(e)
 
     
     def run(self, repeat = 0):
@@ -292,6 +291,7 @@ class experiment(I_UserExperiment):
 
             """
        # try:
+            print("self.moea.seed ",self.moea.seed)
             generator = np.random.default_rng()
             if not isinstance(repeat,int):
                 raise TypeError('Only integers are allowed as parameters for the run() method.')

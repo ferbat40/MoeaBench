@@ -6,11 +6,12 @@ import numpy as np
 class BaseMoea(ABC):
      
      @abstractmethod
-     def __init__(self, problem, population : int = 160, generations :int = 300):
+     def __init__(self, problem, population : int = 160, generations :int = 300, seed: int = 1):
           self.__problem=self.update_benchmark(problem)
           self.population=population
           self.generations=generations
           self.__CACHE = CACHE()
+          self.seed = seed
      
 
      def update_benchmark(self,experiment):

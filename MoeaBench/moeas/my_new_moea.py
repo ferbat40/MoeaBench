@@ -15,22 +15,33 @@ class my_new_moea:
                      
         """
       
-      def __init__(self,population = 160 ,generations = 300):
-            self._population=population   
-            self._generations=generations      
+      def __init__(self,population = 160 ,generations = 300, seed = 0):
+            self.population=population   
+            self.generations=generations      
+            self.seed = seed
             self.result = cache_module.CACHE()  
 
 
-      def __call__(self, problem, default = None):
-        self.problem = problem
-        try:
-             
+      def __call__(self, problem, default = None, stop = None):
+        self.problem = problem.benchmark
+        try:     
              my_moea = get_moea()
-             self.result.get_DATA_conf().set_DATA_MOEA(my_moea(problem,self._population,self._generations),problem)
-            
+             self.result.get_DATA_conf().set_DATA_MOEA(my_moea(problem.benchmark,self.population,self.generations,self.seed),problem.benchmark)         
              return self.result
         except Exception as e:
              print(e)
+      
+
+      @property
+      def seed(self):
+        return self._seed
+    
+
+      @seed.setter
+      def seed(self,value):
+        self._seed = value   
+        if hasattr(self,"problem"):
+           self.__call__(self.seed)
 
 
       @property
@@ -42,7 +53,6 @@ class my_new_moea:
       def generations(self,value):
         self._generations = value   
         if hasattr(self,"problem"):
-    
            self.__call__(self.problem)
 
 

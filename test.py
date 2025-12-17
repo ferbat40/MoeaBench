@@ -24,14 +24,14 @@ def stop(experiment):
 
 exp = mb.experiment()
 exp.benchmark = mb.benchmarks.DTLZ1()
-exp.moea = mb.moeas.NSGA3(generations = 10, population = 150)
+exp.moea = mb.moeas.MOEAD(generations = 10, population = 150)
 exp.moea.generations=300
 exp.moea.seed = 4
 exp.stop = stop
 exp.run()
 
 var = exp.variables() 
-print(var)
+#print(var)
 
 #exp.save('crof')
 #exp.load('crof')

@@ -35,6 +35,7 @@ exp4.save("init3")
 exp5 = mb.experiment()
 exp5.load("init3")
 exp5.benchmark.M = 4
+exp5.moea.seed = 6
 exp5.run()
 
 exp5.save("init4")

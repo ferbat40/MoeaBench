@@ -4,7 +4,8 @@ from .runner import runner
 
 class RUN_user(runner):
 
-     def MOEA_execute(self,result,problem,name_moea,name_benchmark):
+     def MOEA_execute(self,result,name_moea,name_benchmark):
+          problem = result.edit_DATA_conf().get_problem()
           data = result.edit_DATA_conf().get_DATA_MOEA().evaluation()
           result.DATA_store(name_moea,
                             result.edit_DATA_conf().get_DATA_MOEA().generations,

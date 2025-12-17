@@ -4,13 +4,14 @@ from abc import ABC, abstractmethod
 class integration_moea(ABC):
      
      @abstractmethod
-     def __init__(self, module_moea : object = None, population : int = 160, generations :int = 300):
+     def __init__(self, module_moea : object = None, population : int = 160, generations :int = 300, seed : int = 1):
           self.population = population
           self.generations = generations
           self.module_moea = module_moea
+          self.seed = seed
 
 
-     def __call__(self, problem, moea):
+     def __call__(self, problem, moea, default = None):
           self._moea = moea.repository(self.module_moea(problem,self.get_population(),self.get_generations()))
           return self.execute()
      
@@ -26,6 +27,18 @@ class integration_moea(ABC):
 
      def get_generations(self):
           return self.generations
+     
+
+     @property
+     def seed(self):
+          return self._seed
+     
+
+     @seed.setter
+     def seed(self, value):
+          self._seed = value
+          if hasattr(self,"_moea"):
+               self._moea[0].edit_DATA_conf().get_DATA_MOEA().seed=value
      
      
      @property

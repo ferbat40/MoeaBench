@@ -13,7 +13,8 @@ class BaseMoea(ABC):
           self.__CACHE = CACHE()
      
 
-     def update_benchmark(self,problem):
+     def update_benchmark(self,experiment):
+          problem  = experiment.benchmark
           samples = problem.POFsamples()
           problem.get_CACHE().DATA_store(problem.__class__.__name__,problem.get_type(),problem.get_M(),problem.get_N(),problem.get_n_ieq_constr(),samples,problem.get_P() ,problem.get_K()) 
           return problem

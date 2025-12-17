@@ -3,11 +3,6 @@ import os, importlib
 import numpy as np
 
 
-
-#def stop(self, n):
-    #return True if n == 50 else False
-
-
 os.system("cls")  
 
 

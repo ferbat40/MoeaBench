@@ -8,8 +8,8 @@ import numpy as np
 
 class my_NSGA2deap(integration_moea):
                
-        def __init__(self,population = 160, generations = 300, seed = 1):
-          super().__init__(NSGA2deap,population,generations,seed)
+        def __init__(self,population = 160, generations = 300):
+          super().__init__(NSGA2deap,population,generations)
 
 
 class NSGA2deap(BaseMoea):

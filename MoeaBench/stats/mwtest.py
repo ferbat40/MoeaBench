@@ -25,8 +25,8 @@ class mwtest_instance(allowed):
             self.allowed_array(self.args)
             valid_values = [i[0] for i in self.args]
             stat, value = mannwhitneyu(valid_values[0],valid_values[1], alternative=self.alternative_metric)
-            self.statistic = stat
-            self.pvalue = value
+            self.statistic = float(stat)
+            self.pvalue = float(value)
         except Exception as e:
             print(e)  
           

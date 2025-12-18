@@ -17,8 +17,8 @@ class kstest_instance(allowed):
             for obj in range(0, valid_values[0].shape[1]):
                 values = [  exp[:,obj-1].astype(float)  for exp in valid_values  ]
                 stat, value = ks_2samp(values[0],values[1])
-                self.statistic.append(stat)
-                self.pvalue.append(value)
+                self.statistic.append(float(stat))
+                self.pvalue.append(float(value))
         except Exception as e:
             print(e)  
 

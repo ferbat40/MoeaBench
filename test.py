@@ -9,8 +9,8 @@ os.system("cls")
 def stop(experiment):
     metric = mb.hypervolume.trace(experiment)
     hv = metric[0]
-    if len(hv)  % 20 == 0:
-        gen = np.diff(hv[ -21:  ])
+    if len(hv) % 20 == 0:
+        gen = np.diff(hv[-21:])
         mean = np.mean(np.abs(gen))
         std_gen = np.std(gen)
         return mean < 1e-3 and std_gen < 1e-3 

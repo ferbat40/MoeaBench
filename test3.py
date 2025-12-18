@@ -138,9 +138,8 @@ class dtlz5(BaseBenchmark):
 
 
 from MoeaBench.base_moea import BaseMoea
-from MoeaBench.integration_moea import integration_moea
 import random
-from deap import base, creator, tools, algorithms
+from deap import base, creator, tools
 import array
 import numpy as np
 

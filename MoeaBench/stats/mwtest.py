@@ -17,12 +17,12 @@ class mwtest_instance(allowed):
         if False in valid:
             raise ValueError("only one-dimensional arrays are allowed.")    
         if valid is not None and len(valid) != 2:
-                raise ValueError("only two arrays are allowed for the metric calculation.")
-        return valid
+            raise ValueError("only two arrays are allowed for the metric calculation.")
 
 
     def __call__(self):      
         try:
+            self.allowed_array(self.args)
             valid_values = [i[0] for i in self.args]
             stat, value = mannwhitneyu(valid_values[0],valid_values[1], alternative=self.alternative_metric)
             self.statistic = stat

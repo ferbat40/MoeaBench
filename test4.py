@@ -25,13 +25,14 @@ print(ks.statistic[1])
 print(ks.pvalue[1])
 
 
-
 mw = mb.stats.mwtest(mb.hypervolume.trace(exp), 
                      mb.hypervolume.trace(exp2), alternative='less')
 
 print(mw.statistic)
 print(mw.pvalue)
 
-pr = mb.stats.paretorank(exp2)
+pr = mb.stats.paretorank(exp)
 print(pr.rank())
+
+pr.plot()
 

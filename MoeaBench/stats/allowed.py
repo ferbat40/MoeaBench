@@ -8,5 +8,5 @@ class allowed:
         if False in results:
             raise ValueError("only array or experiment data types are allowed.")    
         if results is not None and len(results) != 2:
-                raise ValueError("Only two arrays are allowed for the metric calculation.")
-        return results
+            raise ValueError("Only two arrays are allowed for the metric calculation.")
+       

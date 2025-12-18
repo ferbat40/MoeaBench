@@ -17,8 +17,8 @@ exp.run()
 exp2 = mb.experiment()
 exp2.benchmark = mb.benchmarks.DTLZ1()
 exp2.moea = mb.moeas.NSGA3(generations = 10, population = 150)
-exp2.moea.generations=150
-exp2.run(repeat = 10)
+exp2.moea.generations=300
+exp2.run(repeat = 5)
 
 ks = mb.stats.kstest(exp, exp.front(100))
 print(ks.statistic[1])
@@ -33,3 +33,5 @@ print(mw.statistic)
 print(mw.pvalue)
 
 pr = mb.stats.paretorank(exp2)
+print(pr.rank())
+

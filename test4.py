@@ -24,6 +24,8 @@ ks = mb.stats.kstest(exp, exp.front(100))
 print(ks.statistic[1])
 print(ks.pvalue[1])
 
+ks.plot()
+
 
 mw = mb.stats.mwtest(mb.hypervolume.trace(exp), 
                      mb.hypervolume.trace(exp2), alternative='less')

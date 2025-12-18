@@ -27,7 +27,6 @@ class paretorank_instance(allowed):
 
     def plot(self):
         fig = px.histogram(
-
             x = self.ranking,
             title = "histogram of ranks"
         )

@@ -1,5 +1,6 @@
 from scipy.stats import ks_2samp
 from .allowed import allowed
+import plotly.express as px
 
 class kstest_instance(allowed):
     
@@ -20,6 +21,16 @@ class kstest_instance(allowed):
                 self.pvalue.append(value)
         except Exception as e:
             print(e)  
+
+
+    def plot(self):
+        fig = px.bar(
+            x = self.statistic,
+            y = self.pvalue,
+            labels = {'x': "statistic",'y' : 'pvalue'},
+            title = "bar kstest"
+        )
+        fig.show()
           
         
 def kstest(*args):

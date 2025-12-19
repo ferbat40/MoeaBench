@@ -24,7 +24,7 @@ ks = mb.stats.kstest(exp, exp.front(100))
 print(ks.statistic[1])
 print(ks.pvalue[1])
 
-ks.plot()
+#ks.plot()
 
 
 mw = mb.stats.mwtest(mb.hypervolume.trace(exp), 
@@ -36,5 +36,6 @@ print(mw.pvalue)
 pr = mb.stats.paretorank(exp)
 print(pr.rank())
 
-pr.plot()
-
+#pr.plot()
+#ind = mb.stats.indice(exp)
+#print(ind)

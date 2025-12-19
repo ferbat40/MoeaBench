@@ -4,9 +4,9 @@ import pandas as pd
 
 
 
-class indice:
+class indice_instance:
 
-    def __init__(self, *args):
+    def __init__(self, args):
         self.args = args 
     
 
@@ -37,3 +37,9 @@ class indice:
             return df
         except Exception as e:
             print(e)  
+
+
+def indice(*args):
+    ind = indice_instance(args)
+    ind()
+    return ind

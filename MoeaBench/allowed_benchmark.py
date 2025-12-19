@@ -1,4 +1,4 @@
-class ALLOWED:    
+class allowed_benchmark:    
         
     def K_validate(self,K_N):
         if not K_N > 0:

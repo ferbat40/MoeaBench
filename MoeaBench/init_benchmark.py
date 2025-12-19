@@ -4,10 +4,10 @@ from .I_constraints import I_constraints
 from .evalue_constraits import evalue_constraits
 import numpy as np
 from .I_IBENCH import I_IBENCH
-from. ALLOWED import ALLOWED
+from.allowed_benchmark import allowed_benchmark
 
 
-class InitBenchmark(evalue_constraits,constraits_1,constraits_05,I_constraints,I_IBENCH,ALLOWED):
+class InitBenchmark(evalue_constraits,constraits_1,constraits_05,I_constraints,I_IBENCH,allowed_benchmark):
        
     def __init__(self,POF=0.5,Constraits=1):
         self.__Penalty_param=0

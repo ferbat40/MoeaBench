@@ -32,7 +32,7 @@ class indice_instance(allowed_stats):
     def __call__(self):
         try:
             valid = self.allowed(self.experiment)
-            self.generation = self.generation if self.generation is not  None else -1
+            self.generation = self.generation if self.generation > 0 else -1
             for arr in valid:            
                         self.table["GEN"].append(self.generation)
                         self.table["mean"].append(np.mean(arr.get_F_GEN()[self.generation]))

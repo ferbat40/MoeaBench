@@ -1,8 +1,9 @@
 from scipy.stats import ks_2samp
-from .allowed import allowed
+from .allowed_stats import allowed_stats
 import plotly.express as px
 
-class kstest_instance(allowed):
+
+class kstest_instance(allowed_stats):
     
     def __init__(self, args):
         self.args = args
@@ -12,7 +13,7 @@ class kstest_instance(allowed):
 
     def __call__(self):      
         try:
-            self.allowed_array(self.args)
+            self.allowed(self.args)
             valid_values = [i.objectives() if hasattr(i,'result') else i for i in self.args]
             for obj in range(0, valid_values[0].shape[1]):
                 values = [  exp[:,obj-1].astype(float)  for exp in valid_values  ]

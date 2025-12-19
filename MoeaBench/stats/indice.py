@@ -1,45 +1,52 @@
 from scipy import stats
 import numpy as np
 import pandas as pd
+from .allowed_stats import allowed_stats
+from ..result_population import result_population
 
 
+class indice_instance(allowed_stats):
 
-class indice_instance:
-
-    def __init__(self, args):
-        self.args = args 
-    
-
-    def __call__(self):
-       
-        try:
-            #results = super().allowed_array(self.args)
-            #if results is not None and len(results) < 1:
-               # raise ValueError("No array passed as a parameter.")
-            table = {
-            "array" : [],
+    def __init__(self, experiment, generation):
+        self.experiment = experiment 
+        self.generation = generation
+        self.table = {
+            "GEN" : [],
             "mean" : [],
             "variance" : [],
             "std_dev" : [],
             "skewness" : [],
             "kurtosis" : []
             }
+        
 
-            for idx, i in enumerate(self.args, start = 1):
-                table["array"].append(f'array {idx}')
-                table["mean"].append(np.mean(i[-1]))
-                table["variance"].append(np.var(i[-1]))
-                table["std_dev"].append(np.std(i[-1]))
-                table["skewness"].append(stats.skew(i[-1])[0])
-                table["kurtosis"].append(stats.kurtosis(i[-1])[0])
-            df = pd.DataFrame(table)
+    def allowed(self, exp):
+        if not hasattr(exp,'result'):
+            raise ValueError("only experiment data types are allowed.")   
+        valid = [types for exp in self.experiment.result.get_elements() for types in exp if hasattr(types,'get_F_GEN')]      
+        result_population.allowed_gen(self.generation)
+        result_population.allowed_gen_max(len(valid[0].get_F_GEN()),self.generation)
+        return valid
+
+
+    def __call__(self):
+        try:
+            valid = self.allowed(self.experiment)
+            self.generation = self.generation if self.generation is not  None else -1
+            for arr in valid:            
+                        self.table["GEN"].append(self.generation)
+                        self.table["mean"].append(np.mean(arr.get_F_GEN()[self.generation]))
+                        self.table["variance"].append(np.var(arr.get_F_GEN()[self.generation]))
+                        self.table["std_dev"].append(np.std(arr.get_F_GEN()[self.generation]))
+                        self.table["skewness"].append(stats.skew(arr.get_F_GEN()[self.generation])[0])
+                        self.table["kurtosis"].append(stats.kurtosis(arr.get_F_GEN()[self.generation])[0])
+            df = pd.DataFrame(self.table)
             df.index = df.index+1
-            return df
+            return df.to_string(index = False)
         except Exception as e:
             print(e)  
 
 
-def indice(*args):
-    ind = indice_instance(args)
-    ind()
-    return ind
+def indice(experiment = None, generation = 0):
+    ind = indice_instance(experiment, generation)
+    return ind()

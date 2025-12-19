@@ -280,7 +280,7 @@ class experiment(I_UserExperiment):
 
     
     def run(self, repeat = 0):
-            """
+        """
         - **run the genetic algorithm:**
         Click on the links for more
         ...
@@ -289,8 +289,8 @@ class experiment(I_UserExperiment):
                       experiment.run()   
                       - [run()](https://moeabench-rgb.github.io/MoeaBench/experiments/combinations/combinations/#moeabench-run-the-experiment) Information about the method and return variables.
 
-            """
-        #try:
+        """
+        try:
             generator = np.random.default_rng()
             if not isinstance(repeat,int):
                 raise TypeError('Only integers are allowed as parameters for the run() method.')
@@ -303,8 +303,8 @@ class experiment(I_UserExperiment):
             self.run_moea(seed_moea)
             self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
             self.round = [b.get_F_gen_non_dominate()[-1] for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]
-       #except Exception as e:
-           # print(e)
+        except Exception as e:
+            print(e)
 
 
            

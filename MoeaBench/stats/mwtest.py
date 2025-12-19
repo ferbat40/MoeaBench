@@ -1,9 +1,9 @@
 from scipy.stats import mannwhitneyu
-from .allowed import allowed
+from .allowed_stats import allowed_stats
 import numpy as np
 
 
-class mwtest_instance(allowed):
+class mwtest_instance(allowed_stats):
     
     def __init__(self, args, alternative_metric):
         self.args = args
@@ -12,7 +12,7 @@ class mwtest_instance(allowed):
         self.alternative_metric = alternative_metric
 
 
-    def allowed_array(self,args):
+    def allowed(self,args):
         valid = [True if isinstance(arr,list) and isinstance(arr[0],np.ndarray) and  arr[0].ndim == 1 else False for arr in args]
         if False in valid:
             raise ValueError("only one-dimensional arrays are allowed.")    
@@ -22,7 +22,7 @@ class mwtest_instance(allowed):
 
     def __call__(self):      
         try:
-            self.allowed_array(self.args)
+            self.allowedy(self.args)
             valid_values = [i[0] for i in self.args]
             stat, value = mannwhitneyu(valid_values[0],valid_values[1], alternative=self.alternative_metric)
             self.statistic = float(stat)

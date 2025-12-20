@@ -1,5 +1,3 @@
-
-
 import numpy as np
 from MoeaBench.H_DPF import H_DPF
 

@@ -22,7 +22,7 @@ class mwtest_instance(allowed_stats):
 
     def __call__(self):      
         try:
-            self.allowedy(self.args)
+            self.allowed(self.args)
             valid_values = [i[0] for i in self.args]
             stat, value = mannwhitneyu(valid_values[0],valid_values[1], alternative=self.alternative_metric)
             self.statistic = float(stat)

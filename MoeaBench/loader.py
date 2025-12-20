@@ -4,7 +4,6 @@ import zipfile
 from io import BytesIO
 import os
 import sys
-from .CACHE import CACHE
 
 
 class loader(file):

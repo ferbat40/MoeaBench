@@ -1,6 +1,3 @@
-from MoeaBench.base_benchmark import BaseBenchmark
-from enum import Enum
-import numpy as np
 import os
 from MoeaBench import mb
 from MoeaBench.my_dtlz5 import my_dtlz5

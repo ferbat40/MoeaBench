@@ -36,14 +36,18 @@ class analyse_metric_gen(plot_gen):
         max_nondominate = []
         if not isinstance(reference,list):
             raise TypeError("Only arrays are allowed in 'references'")
+        
+        if len(reference) == 0:
+            for exp in args:
+                reference.append(exp)
+                print(exp," exp")
+
         if len(reference) > 0:  
             min_nondominate, max_nondominate = analyse_metric_gen.normalize(reference,F)
             min_slice = [float(min_nondominate[i-1]) for i in objectives] if min_nondominate[0] is not None else min_nondominate
             max_slice = [float(max_nondominate[i-1]) for i in objectives] if max_nondominate[0] is not None else max_nondominate
-        if len(reference) == 0:
-            min_slice = np.min(F[0], axis = 0) if F[0].shape[1] < 3 else [float(np.min(F[0][i-1], axis = 0)) for i in objectives] 
-            max_slice = np.max(F[0], axis = 0) if F[0].shape[1] < 3 else [float(np.max(F[0][i-1], axis = 0)) for i in objectives] 
-        
+
+
         hv_gen = analyse_metric_gen.set_hypervolume(F_GEN,F, min_slice, max_slice)
         hypervolume_gen = [hv.evaluate() for hv in hv_gen]
         return evaluate,hypervolume_gen,bench

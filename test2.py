@@ -33,12 +33,14 @@ exp5 = mb.experiment()
 exp5.load("init3")
 exp5.benchmark.M = 4
 
-exp5.run()
+
 
 exp5.save("init4")
 
 exp6 = mb.experiment()
 exp.load("init4")
+
+exp6.run()
 
 exp6.benchmark = mb.benchmarks.DPF5()
 exp6.moea = mb.moeas.SPEA2()

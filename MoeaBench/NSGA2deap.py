@@ -31,7 +31,7 @@ class NSGA2deap(BaseMoea):
     NSGA2deap.toolbox.register("mate", tools.cxSimulatedBinaryBounded, low=0, up=1, eta=20)
     NSGA2deap.toolbox.register("mutate", tools.mutPolynomialBounded, low=0, up=1, eta=20, indpb=1/self.get_N())
     NSGA2deap.toolbox.register("select", tools.selNSGA2)
-
+    
 
   def uniform(self,low, up, size=None):
     try:

@@ -1,7 +1,6 @@
 from .runner import runner
 
 
-
 class RUN_user(runner):
 
      def MOEA_execute(self,result,name_moea,name_benchmark):

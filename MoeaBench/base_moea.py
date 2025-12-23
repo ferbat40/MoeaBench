@@ -1,5 +1,3 @@
-
-
 from abc import ABC, abstractmethod
 from  MoeaBench.CACHE import CACHE
 import numpy as np

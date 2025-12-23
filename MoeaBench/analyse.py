@@ -17,7 +17,7 @@ class analyse(IPL_MoeaBench):
     @staticmethod
     def DATA(i):
         if hasattr(i,'result') and hasattr(i.result,'get_elements'):
-            return i.result
+            return i
         else:
             return None
      
@@ -36,8 +36,8 @@ class analyse(IPL_MoeaBench):
         it_arr = iter(idx)
         for i in args:
             arr = analyse.DATA(i)
-            name =  f'{i.__class__.__name__} {next(it_exp)}' if arr is not None else f'{i.__class__.__name__} {next(it_arr)}'
-            arr =  arr if arr is not None else i
+            name =  f'{i.name} {next(it_exp)}' if arr is not None else f'{i.__class__.__name__} {next(it_arr)}'
+            arr =  arr.result if arr is not None else i
             data.append(arr)
             benk.append(name)
         return benk, data

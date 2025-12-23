@@ -38,7 +38,7 @@ exp5.benchmark.M = 4
 exp5.save("init4")
 
 exp6 = mb.experiment()
-exp.load("init4")
+exp6.load("init4")
 
 exp6.run()
 
@@ -69,7 +69,7 @@ exp6.save("repo_up")
 
 exp6.benchmark.M=5
 exp6.benchmark.D=4
-exp6.run(repeat = 5)
+exp6.run(repeat = 2)
 
 
 exp6.save("repo_up_2")

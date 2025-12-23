@@ -8,9 +8,11 @@ from io import BytesIO, StringIO
 class save(file):   
     
     @staticmethod
-    def verify(obj,  attribute = 'get_elements'):
-       return hasattr(obj,attribute)
-
+    def verify(obj):
+        pof =  True if hasattr(obj,'get_CACHE') and len(obj.get_CACHE().get_elements()) > 0 else False
+        result = True if hasattr(obj,'get_elements') and len(obj.get_elements()) > 0  else False
+        return True if pof or result else False
+       
     
     @staticmethod
     def IPL_save(obj, folder):
@@ -23,7 +25,7 @@ class save(file):
             solutions =  f'non-dominated solutions of the Pareto front' if NonDominate.shape[0] > 1 else f'Only Pareto-dominated solutions were found.'        
             data = result_moea.get_elements()[0][0]
 
-        pof_exists = save.verify(obj.pof, 'get_CACHE')
+        pof_exists = save.verify(obj.pof)
         if pof_exists is True:
             pof =  obj.pof.get_CACHE().get_elements()[0][0].get_arr_DATA()  
             bench_pof = obj.pof.get_CACHE().get_elements()[0][1]

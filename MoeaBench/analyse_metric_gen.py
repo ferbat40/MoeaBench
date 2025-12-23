@@ -40,7 +40,6 @@ class analyse_metric_gen(plot_gen):
         if len(reference) == 0:
             for exp in args:
                 reference.append(exp)
-                print(exp," exp")
 
         if len(reference) > 0:  
             min_nondominate, max_nondominate = analyse_metric_gen.normalize(reference,F)

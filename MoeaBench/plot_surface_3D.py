@@ -2,6 +2,7 @@ import numpy as np
 from scipy.interpolate import griddata
 import plotly.graph_objects as go
 from .analyse_pareto import analyse_pareto
+from scipy.ndimage import gaussian_filter
 
 
 class plot_surface_3D(analyse_pareto):
@@ -50,6 +51,7 @@ class plot_surface_3D(analyse_pareto):
         points=F[:,[x_axis,y_axis]]
         values=F[:,z_axis]
         Z = self.axis(points,values,X,Y)
+        Z = gaussian_filter(Z,sigma=1.0)
         return go.Surface(
             x=X,y=Y,z=Z,
             opacity=opacity,

@@ -312,7 +312,7 @@ class experiment(I_UserExperiment):
             seed_moea = generator if self.moea.seed == 0 else self.moea.seed
             self.run_moea(seed_moea)
             self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
-            self.round = [b.get_F_gen_non_dominate()[-1] for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]
+            self.round = [b.get_F_GEN()[-1] for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]
         except Exception as e:
             print(e)
 

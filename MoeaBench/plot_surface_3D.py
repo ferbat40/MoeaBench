@@ -8,7 +8,6 @@ class plot_surface_3D(analyse_pareto):
     
     def __init__(self, experiments, vet_pt, vaxis,  type = 'pareto-optimal front'):
          self.vet_pts=vet_pt
-         #self.BENCH=BENCH
          self.experiments=experiments
          self.vaxis = vaxis
          self.type = type

@@ -38,7 +38,6 @@ class analyse(IPL_MoeaBench):
             obj = analyse.DATA(i)
             name = f'{i.name}' if hasattr(obj,'_name') else False
             name = f'{i.__class__.__name__} {next(it_exp)}' if name is False else name
-            print(name)
             arr =  obj.result if obj is not None else i
             data.append(arr)
             benk.append(name)

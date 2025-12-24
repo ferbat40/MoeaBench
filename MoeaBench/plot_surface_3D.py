@@ -30,16 +30,16 @@ class plot_surface_3D(analyse_pareto):
                 return z_linear
         except Exception as e:
             pass
-        try:
-            z_nearest = griddata(points=points,values=values, xi = (X,Y), method='nearest')
-            z_linear = griddata(points=points,values=values, xi = (X,Y), method='linear')
-            return np.where(np.isnan(z_linear),z_nearest,z_linear)
-        except Exception as e:
-            pass
-        try:
-            return griddata(points=points,values=values, xi = (X,Y), method='nearest')
-        except Exception as e:
-            raise RuntimeError("No valid Z-axis value found") from e
+        #try:
+           # z_nearest = griddata(points=points,values=values, xi = (X,Y), method='nearest')
+           # z_linear = griddata(points=points,values=values, xi = (X,Y), method='linear')
+           # return np.where(np.isnan(z_linear),z_nearest,z_linear)
+        #except Exception as e:
+           # pass
+        #try:
+          #  return griddata(points=points,values=values, xi = (X,Y), method='nearest')
+        #except Exception as e:
+           # raise RuntimeError("No valid Z-axis value found") from e
 
 
     def DATA(self,exp,F=[],opacity=0.7,showscale=True, showlegend=True,colorscale=None,label=[],x_axis=[],y_axis=[],z_axis=[]):

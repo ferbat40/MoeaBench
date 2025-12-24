@@ -7,11 +7,18 @@ from .analyse_pareto import analyse_pareto
 class plot_surface_3D(analyse_pareto):
     
     def __init__(self, experiments, vet_pt, vaxis,  type = 'pareto-optimal front'):
+         self.color = {
+             0: 'viridis',
+             1: 'plasma',
+             2: 'cividis',
+             3: 'turbo'
+
+         }
          self.vet_pts=vet_pt
          self.experiments=experiments
          self.vaxis = vaxis
          self.type = type
-         self.parameter=[{"F" :value,  "opacity" : 0.9, "showscale" : False, "showlegend" : True} for index, value in enumerate(self.vet_pts, start = 0)]
+         self.parameter=[{"F" :value,  "opacity" : 0.9, "showscale" : False, "showlegend" : True, "colorscale": self.color[index] } for index, value in enumerate(self.vet_pts, start = 0)]
 
 
     def axis(self,points,values,X,Y):

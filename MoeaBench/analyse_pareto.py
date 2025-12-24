@@ -3,6 +3,12 @@ import numpy as np
 
 
 class analyse_pareto(analyse):
+    
+    @staticmethod
+    def dict_data(idx):
+        return {0: f"array {idx}"
+        }
+
 
     @staticmethod
     def DATA(i):
@@ -53,7 +59,9 @@ class analyse_pareto(analyse):
         it_arr = iter(idx)
         for i in args:
             arr = analyse_pareto.DATA(i)
-            name =  f'{i.__class__.__name__} {next(it_exp)}' if arr is not None else f'{i.__class__.__name__} {next(it_arr)}'
+            name = f'{i.name}' if hasattr(i,'_name') else False 
+            name = f'{i.__class__.__name__} {next(it_exp)}' if name is False and not isinstance(i,np.ndarray) else name
+            name =  analyse_pareto.dict_data(next(it_arr))[0]  if name is False else name
             arr =  arr if arr is not None else i
             data.append(arr)
             benk.append(name)

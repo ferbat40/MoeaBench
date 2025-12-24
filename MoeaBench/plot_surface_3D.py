@@ -42,7 +42,7 @@ class plot_surface_3D(analyse_pareto):
             raise RuntimeError("No valid Z-axis value found") from e
 
 
-    def DATA(self,exp,F=[],opacity=0.7,showscale=True, showlegend=True,label=[],x_axis=[],y_axis=[],z_axis=[]):
+    def DATA(self,exp,F=[],opacity=0.7,showscale=True, showlegend=True,colorscale=None,label=[],x_axis=[],y_axis=[],z_axis=[]):
         xi = np.linspace(F[:,x_axis].min(),F[:,x_axis].max(),40)
         yi = np.linspace(F[:,y_axis].min(),F[:,y_axis].max(),40)
         X,Y = np.meshgrid(xi,yi)
@@ -54,6 +54,7 @@ class plot_surface_3D(analyse_pareto):
             opacity=opacity,
             showscale=showscale,
             showlegend=showlegend,
+            colorscale=colorscale,
             name=label,
             hovertemplate = (f"{exp}<br>"
                                   f"{self.vaxis[0]+1}: %{{x}}<br>"

@@ -29,15 +29,21 @@ exp.moea.generations=150
 exp.moea.seed = 4
 exp.stop = stop
 exp.name = "turicer"
-exp.run()
+#exp.run()
 
 
 exp2 = mb.experiment()
 #exp2.name = 'experiment 2'
 exp2.benchmark = mb.benchmarks.DTLZ1()
-exp2.moea = mb.moeas.NSGA3(generations = 10, population = 50)
+exp2.moea = mb.moeas.NSGA3(generations = 10, population = 200)
 exp2.moea.generations=300
 exp2.run(repeat = 5)
+
+
+F_GEN = exp2.round[0].dominated.variables
+
+
+print(F_GEN.shape )
 
 ref = [exp, exp2]
 #ht = mb.hypervolume.trace(exp, reference=ref)

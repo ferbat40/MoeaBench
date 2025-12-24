@@ -5,6 +5,7 @@ from .result_obj import result_obj
 from .result_front import result_front
 from .result_var import result_var
 from .result_set import result_set
+from .moea_round import moea_round
 from .save import save
 from .loader import loader
 from .I_UserExperiment import I_UserExperiment
@@ -304,15 +305,16 @@ class experiment(I_UserExperiment):
             generator = np.random.default_rng()
             if not isinstance(repeat,int):
                 raise TypeError('Only integers are allowed as parameters for the run() method.')
-       
+            self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
             execution = repeat-1 if repeat > 0 else 0
             for exe in range(0,execution):
                 self.run_moea(generator)
-                self.round = [b.get_F_GEN()[-1] for i in self.result.get_elements() for b in i if hasattr(b,'get_F_GEN')]
+                self.round = [moea_round(b) for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]
+            
             seed_moea = generator if self.moea.seed == 0 else self.moea.seed
             self.run_moea(seed_moea)
-            self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
-            self.round = [b.get_F_GEN()[-1] for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]
+            
+            self.round = [moea_round(b) for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]
         except Exception as e:
             print(e)
 

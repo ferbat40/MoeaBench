@@ -25,9 +25,9 @@ class plot_surface_3D(analyse_pareto):
 
     def axis(self,points,values,X,Y):
         try:
-            z_linear = griddata(points=points,values=values, xi = (X,Y), method='linear')
-            if not np.isnan(z_linear).any():
-                return z_linear
+            z_cubic = griddata(points=points,values=values, xi = (X,Y), method='cubic')
+            if not np.isnan(z_cubic).any():
+                return z_cubic
         except Exception as e:
             pass
         try:

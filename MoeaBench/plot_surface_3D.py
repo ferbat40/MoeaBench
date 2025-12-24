@@ -8,10 +8,12 @@ class plot_surface_3D(analyse_pareto):
     
     def __init__(self, experiments, vet_pt, vaxis,  type = 'pareto-optimal front'):
          self.color = {
-             0: 'viridis',
-             1: 'plasma',
-             2: 'cividis',
-             3: 'turbo'
+             0: 'Viridis',
+             1: 'Plasma',
+             2: 'Cividis',
+             3: 'Turbo',
+             4: 'Inferno',
+             5: 'Magma'
 
          }
          self.vet_pts=vet_pt
@@ -70,6 +72,7 @@ class plot_surface_3D(analyse_pareto):
             opacity=pr['opacity'],
             showscale=pr['showscale'],
             showlegend=pr['showlegend'],
+            colorscale=pr['colorscale'],
             label=exp,
             x_axis=ax[0],
             y_axis=ax[1],

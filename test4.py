@@ -41,5 +41,8 @@ exp2.run()
 
 ref = [exp, exp2]
 #ht = mb.hypervolume.trace(exp, reference=ref)
-mb.hypervolume.timeplot(exp2, exp, reference=ref)
+#mb.hypervolume.timeplot(exp2, exp, reference=ref)
 #mb.spaceplot (exp, exp2, exp.front(100)) 
+
+
+mb.surfaceplot(exp, exp.objectives(generation = 10), exp2)

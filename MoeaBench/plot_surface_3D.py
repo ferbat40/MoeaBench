@@ -43,7 +43,7 @@ class plot_surface_3D(analyse_pareto):
 
 
     def DATA(self,exp,F=[],opacity=0.7,showscale=True, showlegend=True,colorscale=None,label=[],x_axis=[],y_axis=[],z_axis=[]):
-        grid = 80
+        grid = 120
         xi = np.linspace(F[:,x_axis].min(),F[:,x_axis].max(),grid)
         yi = np.linspace(F[:,y_axis].min(),F[:,y_axis].max(),grid)
         X,Y = np.meshgrid(xi,yi)

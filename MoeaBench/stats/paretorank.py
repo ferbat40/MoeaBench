@@ -33,7 +33,7 @@ class paretorank_instance(allowed_stats):
         fig = px.bar(
             y = [nd.front.shape[0] for nd in self.ranking],
             x = [round.name for round in self.ranking],
-            labels = {'x' : "nom dominated", 'y' : 'ranking'},
+            labels = {'y' : "nom dominated", 'x' : 'ranking'},
             title = "histogram of ranks"
         )
         fig.show()

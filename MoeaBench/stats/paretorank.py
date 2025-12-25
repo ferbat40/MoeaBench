@@ -34,7 +34,7 @@ class paretorank_instance(allowed_stats):
             y = [nd.front.shape[0] for nd in self.ranking],
             x = [round.name for round in self.ranking],
             labels = {'y' : "nom dominated", 'x' : 'ranking'},
-            title = "histogram of ranks"
+            title = "Rank"
         )
         fig.show()
     

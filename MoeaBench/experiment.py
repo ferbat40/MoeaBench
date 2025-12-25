@@ -307,14 +307,16 @@ class experiment(I_UserExperiment):
                 raise TypeError('Only integers are allowed as parameters for the run() method.')
             self.result_moea = self.result[0] if isinstance(self.result,tuple) else self.result
             execution = repeat-1 if repeat > 0 else 0
-            
+            cont = 0
             for exe in range(0,execution):
+                cont += 1
                 self.run_moea(generator)
-                self.round = [moea_round(b) for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]           
+                self.round = [moea_round(b, f'round {cont}') for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]           
+            cont += 1  
             seed_moea = generator if self.moea.seed == 0 else self.moea.seed
             self.run_moea(seed_moea)
             
-            self.round = [moea_round(b) for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]
+            self.round = [moea_round(b, f'round {cont}') for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]
         except Exception as e:
             print(e)
 

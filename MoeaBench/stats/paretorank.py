@@ -1,5 +1,6 @@
 from .allowed_stats import allowed_stats
 import plotly.express as px
+from ..moea_round import moea_round
 
 
 class paretorank_instance(allowed_stats):
@@ -17,18 +18,19 @@ class paretorank_instance(allowed_stats):
     def __call__(self):
         try:
             self.allowed(self.experiment)
-            self.ranking = [i.shape[0] for i in self.experiment.round]
+            rank = [i for i in self.experiment.round]
+            self.ranking = sorted(rank, key = lambda pop: pop.front.shape[0], reverse = True)
         except Exception as e:
             print(e)
     
 
     def rank(self):
-        return self.ranking
+        return [round.name for round in self.ranking]
     
 
     def plot(self):
         fig = px.histogram(
-            x = self.ranking,
+            x = [i.front.shape[0] for i in self.ranking],
             title = "histogram of ranks"
         )
         fig.show()

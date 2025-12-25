@@ -31,10 +31,10 @@ class paretorank_instance(allowed_stats):
 
     def plot(self):
         fig = px.bar(
-            x = [i.front.shape[0] for i in self.ranking],
-            y = [i.name for i in self.ranking],
+            x = [nd.front.shape[0] for nd in self.ranking],
+            y = [round.name for round in self.ranking],
             labels = {'x' : "nom dominated", 'y' : 'ranking'},
-            title = "bar kstest"
+            title = "histogram of ranks"
         )
         fig.show()
     

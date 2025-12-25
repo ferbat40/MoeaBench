@@ -28,12 +28,23 @@ class paretorank_instance(allowed_stats):
         return [round.name for round in self.ranking]
     
 
+
     def plot(self):
-        fig = px.histogram(
+        fig = px.bar(
             x = [i.front.shape[0] for i in self.ranking],
-            title = "histogram of ranks"
+            y = [i.name for i in self.ranking],
+            labels = {'x' : "nom dominated", 'y' : 'ranking'},
+            title = "bar kstest"
         )
         fig.show()
+    
+
+    #def plot(self):
+        #fig = px.histogram(
+           # x = [i.front.shape[0] for i in self.ranking],
+            #title = "histogram of ranks"
+       # )
+       # fig.show()
     
 
 def paretorank(experiment):

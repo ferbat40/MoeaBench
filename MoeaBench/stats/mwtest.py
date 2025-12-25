@@ -13,10 +13,10 @@ class mwtest_instance(allowed_stats):
 
 
     def allowed(self,args):
-        valid = [True if isinstance(arr,list) and isinstance(arr[0],np.ndarray) and  arr[0].ndim == 1 else False for arr in args]
+        valid = [True if isinstance(arr,np.ndarray) and  arr.ndim == 1 else False for arr in args]
         if False in valid:
             raise ValueError("only one-dimensional arrays are allowed.")    
-        if valid is not None and len(valid) != 1:
+        if valid is not None and len(valid) != 2:
             raise ValueError("only two arrays are allowed for the metric calculation.")
 
 

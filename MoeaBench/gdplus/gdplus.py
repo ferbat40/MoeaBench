@@ -15,8 +15,7 @@ class gdplus:
         self.analyse_metric_gen = cls_analyse_metric_gen()
       
 
-    def __call__(self, *args, generation = None, reference = None):
-        reference = [] if reference is None else reference
+    def __call__(self, *args, generation = None):
         try:
             self.result_population.allowed_gen(generation)
             gen = [-2,-1] if generation is None else [generation-1, generation] 
@@ -27,9 +26,8 @@ class gdplus:
              print(e)
            
 
-    def trace(self, *args, objectives = None, reference = None):
+    def trace(self, *args, objectives = None):
         objectives = [] if objectives is None else objectives
-        reference = [] if reference is None else reference
         try:
             generations = []
             objectives = [1,2,3] if len(objectives) == 0 else objectives
@@ -39,10 +37,9 @@ class gdplus:
             print(e)
               
     
-    def timeplot(self, *args, generations = None, objectives = None, reference = None):
+    def timeplot(self, *args, generations = None, objectives = None):
         generations = [] if generations is None else generations
         objectives = [] if objectives is None else objectives
-        reference = [] if reference is None else reference
         """
          - **2D graph for GD+:**
          Click on the links for more

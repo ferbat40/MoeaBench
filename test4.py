@@ -28,3 +28,8 @@ print(gd)
 
 gg = exp.GD(generations = [99,100])
 print(gg)
+
+h_obj= mb.gd.trace(exp, objectives=[1,2])  # Restricted to some objectives.
+print(h_obj)
+
+mb.gd.timeplot (exp, objectives=[1,2], generations = [99,100])

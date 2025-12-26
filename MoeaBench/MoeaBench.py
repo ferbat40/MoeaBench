@@ -6,15 +6,20 @@ import importlib
 from .experiment import experiment
 from .stat import stat
 from MoeaBench.hypervolume.hypervolume import hypervolume
+from MoeaBench.gd.gd import gd
 
 
 class MoeaBench(I_UserMoeaBench):
 
-
     @property
     def hypervolume(self):
-        return hypervolume()
+        return hypervolume(self.result_population.result_population, self.analyse_metric_gen.analyse_metric_gen)
     
+
+    @property
+    def gd(self):
+        return gd(self.result_population.result_population, self.analyse_metric_gen.analyse_metric_gen)
+  
       
     def experiment(self):
         return experiment(self)
@@ -35,7 +40,10 @@ class MoeaBench(I_UserMoeaBench):
             raise AttributeError(name)
     
 
-    def plot_GD(self, *args, generations = [], objectives = []):   
+    def plot_GD(self, *args, generations = None, objectives = None):  
+         generations = [] if generations is None else generations
+         objectives = [] if objectives is None else objectives
+        
          """
         - **2D graph for GD:**
         Click on the links for more
@@ -53,7 +61,9 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
 
 
-    def plot_GDplus(self,*args, generations = [], objectives = []):  
+    def plot_GDplus(self,*args, generations = None, objectives = None):  
+         generations = [] if generations is None else generations
+         objectives = [] if objectives is None else objectives
          """
          - **2D graph for GD+:**
          Click on the links for more
@@ -71,7 +81,9 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
     
     
-    def plot_IGD(self,*args, generations = [], objectives = []):   
+    def plot_IGD(self,*args, generations = None, objectives = None):   
+         generations = [] if generations is None else generations
+         objectives = [] if objectives is None else objectives
          """
          - **2D graph for IGD:**
          Click on the links for more
@@ -89,7 +101,9 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
         
 
-    def plot_IGDplus(self,*args, generations = [], objectives = []):   
+    def plot_IGDplus(self,*args, generations = None, objectives = None): 
+         generations = [] if generations is None else generations
+         objectives = [] if objectives is None else objectives  
          """
          - **2D graph for IGD+:**
          Click on the links for more
@@ -107,7 +121,8 @@ class MoeaBench(I_UserMoeaBench):
             print(e)
             
 
-    def surfaceplot(self, *args, objectives = []):
+    def surfaceplot(self, *args, objectives = None):
+        objectives = [] if objectives is None else objectives
         """
         - **3D graph of the Pareto boundary surface:**
         Click on the links for more
@@ -125,7 +140,8 @@ class MoeaBench(I_UserMoeaBench):
             print(e)   
         
 
-    def spaceplot(self, *args, objectives = []):
+    def spaceplot(self, *args, objectives = None):
+        objectives = [] if objectives is None else objectives
         """
         - **3D graph for Pareto front:**
         Click on the links for more

@@ -96,7 +96,9 @@ class experiment(I_UserExperiment):
         self.pof=self._benchmark 
 
 
-    def GD(self, generations = [], objectives = []):
+    def GD(self, generations = None, objectives = None):
+        generations = [] if generations is None else generations
+        objectives = [] if objectives is None else objectives
         """
         - **array with GD in generations:**
         Click on the links for more
@@ -114,7 +116,9 @@ class experiment(I_UserExperiment):
             print(e)
 
 
-    def GDplus(self, generations = [], objectives = []):
+    def GDplus(self, generations = None, objectives = None):
+        generations = [] if generations is None else generations
+        objectives = [] if objectives is None else objectives
         """
         - **array with GD+ in generations:**
         Click on the links for more
@@ -132,7 +136,9 @@ class experiment(I_UserExperiment):
             print(e)
     
 
-    def IGD(self, generations = [], objectives = []):
+    def IGD(self, generations = None, objectives = None):
+        generations = [] if generations is None else generations
+        objectives = [] if objectives is None else objectives
         """
         - **array with IGD in generations:**
         Click on the links for more
@@ -150,7 +156,9 @@ class experiment(I_UserExperiment):
             print(e)
     
 
-    def IGDplus(self, generations = [], objectives = []):
+    def IGDplus(self, generations = None, objectives = None):
+        generations = [] if generations is None else generations
+        objectives = [] if objectives is None else objectives
         """
         - **array with IGD+ in generations:**
         Click on the links for more

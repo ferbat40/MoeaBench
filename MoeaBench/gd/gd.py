@@ -1,12 +1,12 @@
-class hypervolume:
+class gd:
     """
-        - **array with hypervolume in generations:**
+        - **array with GD in generations:**
         Click on the links for more
         ...
                 - **Informations:**
                       - sinxtase:
-                      experiment.hypervolume(args)  
-                      - [hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/hypervolume/) information about the method, examples and more...   
+                      experiment.GD(args)  
+                      - [GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/GD/) information about the method, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
 
         """
@@ -21,8 +21,8 @@ class hypervolume:
             self.result_population.allowed_gen(generation)
             gen = [-2,-1] if generation is None else [generation-1, generation] 
             objectives = [1,2,3] 
-            evaluate, hypervolume_gen, bench = self.analyse_metric_gen.IPL_hypervolume(args, gen, objectives = objectives, reference = reference)
-            return float(hypervolume_gen[0][0])
+            evaluate, GD_gen, bench = self.analyse_metric_gen.IPL_GD(args, gen, objectives = objectives)
+            return float(GD_gen[0][0])
         except Exception as e:
              print(e)
            
@@ -33,8 +33,8 @@ class hypervolume:
         try:
             generations = []
             objectives = [1,2,3] if len(objectives) == 0 else objectives
-            evaluate, hypervolume_gen, bench = self.analyse_metric_gen.IPL_hypervolume(args, generations, objectives = objectives, reference = reference)
-            return hypervolume_gen[0]
+            evaluate, GD_gen, bench = self.analyse_metric_gen.IPL_GD(args, generations, objectives = objectives)
+            return GD_gen[0]
         except Exception as e:
             print(e)
               
@@ -44,18 +44,18 @@ class hypervolume:
         objectives = [] if objectives is None else objectives
         reference = [] if reference is None else reference
         """
-        - **2D graph for hypervolume:**
+        - **2D graph for GD:**
         Click on the links for more
         ...
                 - **Informations:**
                       - sinxtase:
-                      moeabench.plot_hypervolume(args) 
-                      - [plot_hypervolume](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_hypervolume/) information about the method, accepted variable types, examples and more...   
+                      moeabench.plot_GD(args) 
+                      - [plot_GD](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/plot_GD/) information about the method, accepted variable types, examples and more...   
                       - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/plot/exceptions/) information on possible error types
 
-        """
+         """
         try:
             objectives = [1,2,3] if len(objectives) == 0 else objectives
-            self.analyse_metric_gen.IPL_plot_Hypervolume(args,generations, objectives = objectives, reference = reference)
+            self.analyse_metric_gen.IPL_plot_GD(args,generations, objectives = objectives)
         except Exception as e:
             print(e)

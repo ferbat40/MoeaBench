@@ -26,10 +26,10 @@ class kstest_instance(allowed_stats):
 
     def plot(self):
         fig = px.bar(
-            x = self.statistic,
-            y = self.pvalue,
-            labels = {'x': "statistic",'y' : 'pvalue'},
-            title = "bar kstest"
+            y = self.statistic,
+            x = self.pvalue,
+            labels = {'y': "statistic",'x' : 'pvalue'},
+            title = "kstest"
         )
         fig.show()
           

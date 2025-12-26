@@ -57,14 +57,20 @@ class analyse_metric_gen(plot_gen):
         evaluate,hypervolume_gen,bench = analyse_metric_gen.IPL_hypervolume(args, generations, objectives, reference)
         plot_g = analyse_metric_gen([evaluate,hypervolume_gen],bench,metric = ['Hypervolume','Generations'])
         plot_g.configure()
-            
-    
+             
+
     @staticmethod
-    def IPL_plot_GD(args, generations, objectives):
+    def IPL_GD(args, generations, objectives):
         bench, data = analyse_metric_gen.extract_pareto_result(args)
         evaluate,F_GEN,F = analyse_metric_gen.DATA(args, generations , objectives, bench, data)
         gd_gen = analyse_metric_gen.set_GD(F_GEN,F)
         GD__gen = [hv.evaluate() for hv in gd_gen]
+        return evaluate,GD__gen,bench
+
+
+    @staticmethod
+    def IPL_plot_GD(args, generations, objectives):
+        evaluate,GD__gen,bench = analyse_metric_gen.IPL_GD(args, generations, objectives)  
         plot_g = analyse_metric_gen([evaluate,GD__gen],bench,metric = ['GD','Generations'])
         plot_g.configure()
        

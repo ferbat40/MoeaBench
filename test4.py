@@ -19,16 +19,12 @@ exp.name = "turicer"
 exp.run()
 
 
-exp2 = mb.experiment()
-exp2.benchmark = mb.benchmarks.DTLZ1()
-exp2.moea = mb.moeas.NSGA3(generations = 10, population = 100)
-exp2.moea.generations=300
-exp2.run(repeat = 10)
+hv  = mb.hypervolume(exp, generation = 100)   
+print(hv)
+
+gd  = mb.gd(exp, generation = 100)
+print(gd)
 
 
-nd = exp2.round[0].front
-pop = exp2.round[0].objectives
-
-
-pr = mb.stats.paretorank(exp2)
-print(pr.rank())
+gg = exp.GD(generations = [99,100])
+print(gg)

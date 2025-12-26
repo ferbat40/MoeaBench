@@ -26,10 +26,7 @@ gd  = mb.igdplus(exp, generation = 100)
 print(gd)
 
 
-gg = exp.IGDplus(generations = [99,100])
-print(gg)
-
 h_obj= mb.igdplus.trace(exp, objectives=[1,2])  # Restricted to some objectives.
 print(h_obj)
 
-mb.igdplus.timeplot (exp, objectives=[1,2], generations = [99,100])
+mb.igdplus.timeplot(exp, objectives=[1,2], generations = [99,100])

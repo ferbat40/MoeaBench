@@ -7,6 +7,9 @@ from .experiment import experiment
 from .stat import stat
 from MoeaBench.hypervolume.hypervolume import hypervolume
 from MoeaBench.gd.gd import gd
+from MoeaBench.gdplus.gdplus import gdplus
+from MoeaBench.igd.igd import igd
+from MoeaBench.igdplus.igdplus import igdplus
 
 
 class MoeaBench(I_UserMoeaBench):
@@ -19,6 +22,21 @@ class MoeaBench(I_UserMoeaBench):
     @property
     def gd(self):
         return gd(self.result_population.result_population, self.analyse_metric_gen.analyse_metric_gen)
+    
+
+    @property
+    def gdplus(self):
+        return gdplus(self.result_population.result_population, self.analyse_metric_gen.analyse_metric_gen)
+    
+
+    @property
+    def igd(self):
+        return igd(self.result_population.result_population, self.analyse_metric_gen.analyse_metric_gen)
+    
+
+    @property
+    def igdplus(self):
+        return igdplus(self.result_population.result_population, self.analyse_metric_gen.analyse_metric_gen)
   
       
     def experiment(self):

@@ -1,6 +1,5 @@
 from .RUN import RUN
 from .RUN_user import RUN_user
-from .result_metric import result_metric
 from .result_obj import result_obj
 from .result_front import result_front
 from .result_var import result_var

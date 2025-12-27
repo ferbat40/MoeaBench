@@ -1,4 +1,7 @@
-class igdplus:
+from MoeaBench.I_metric import I_metric 
+
+
+class igdplus(I_metric):
     """
         - **array with IGD+ in generations:**
         Click on the links for more

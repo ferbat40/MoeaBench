@@ -9,6 +9,7 @@ from MoeaBench.gd.gd import gd
 from MoeaBench.gdplus.gdplus import gdplus
 from MoeaBench.igd.igd import igd
 from MoeaBench.igdplus.igdplus import igdplus
+import MoeaBench as mb
 
 
 class MoeaBench(I_UserMoeaBench):
@@ -42,7 +43,7 @@ class MoeaBench(I_UserMoeaBench):
     def igdplus(self):
         return igdplus(self.result_population.result_population, self.analyse_metric_gen.analyse_metric_gen)
   
-      
+    
     def experiment(self):
         return experiment(self)
     

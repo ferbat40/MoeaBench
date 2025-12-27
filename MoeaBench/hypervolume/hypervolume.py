@@ -1,4 +1,7 @@
-class hypervolume:
+from MoeaBench.I_metric import I_metric 
+
+
+class hypervolume(I_metric):
     """
         - **array with hypervolume in generations:**
         Click on the links for more

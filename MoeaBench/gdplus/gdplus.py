@@ -1,4 +1,7 @@
-class gdplus:
+from MoeaBench.I_metric import I_metric 
+
+
+class gdplus(I_metric):
     """
         - **array with GD+ in generations:**
         Click on the links for more

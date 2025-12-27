@@ -4,7 +4,7 @@ from .analyse_metric_gen import analyse_metric_gen
 from .I_UserMoeaBench import I_UserMoeaBench
 import importlib
 from .experiment import experiment
-from .stat import stat
+from MoeaBench.stats.stats import stats
 from MoeaBench.hypervolume.hypervolume import hypervolume
 from MoeaBench.gd.gd import gd
 from MoeaBench.gdplus.gdplus import gdplus
@@ -13,6 +13,11 @@ from MoeaBench.igdplus.igdplus import igdplus
 
 
 class MoeaBench(I_UserMoeaBench):
+
+    @property
+    def stats(self):
+        return stats(self.result_population.result_population, self)
+    
 
     @property
     def hypervolume(self):
@@ -41,10 +46,6 @@ class MoeaBench(I_UserMoeaBench):
       
     def experiment(self):
         return experiment(self)
-    
-    
-    def stat(self):
-        return stat(self)
     
 
     def __getattr__(self,name):

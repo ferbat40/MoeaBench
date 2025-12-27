@@ -2,14 +2,14 @@ from scipy import stats
 import numpy as np
 import pandas as pd
 from .allowed_stats import allowed_stats
-from ..result_population import result_population
 
 
 class indice_instance(allowed_stats):
 
-    def __init__(self, experiment, generation):
+    def __init__(self, cls_result_population, experiment, generation):
         self.experiment = experiment 
         self.generation = generation
+        self.result_population = cls_result_population()
         self.table = {
             "GEN" : [],
             "mean" : [],
@@ -18,14 +18,14 @@ class indice_instance(allowed_stats):
             "skewness" : [],
             "kurtosis" : []
             }
-        
+       
 
     def allowed(self, exp):
         if not hasattr(exp,'result'):
             raise ValueError("only experiment data types are allowed.")   
         valid = [types for exp in self.experiment.result.get_elements() for types in exp if hasattr(types,'get_F_GEN')]      
-        result_population.allowed_gen(self.generation)
-        result_population.allowed_gen_max(len(valid[0].get_F_GEN()),self.generation)
+        self.result_population.allowed_gen(self.generation)
+        self.result_population.allowed_gen_max(len(valid[0].get_F_GEN()),self.generation)
         return valid
 
 
@@ -45,8 +45,3 @@ class indice_instance(allowed_stats):
             return df.to_string(index = False)
         except Exception as e:
             print(e)  
-
-
-def indice(experiment = None, generation = 0):
-    ind = indice_instance(experiment, generation)
-    return ind()

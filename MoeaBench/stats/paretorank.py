@@ -1,6 +1,5 @@
 from .allowed_stats import allowed_stats
 import plotly.express as px
-from ..moea_round import moea_round
 
 
 class paretorank_instance(allowed_stats):
@@ -37,15 +36,7 @@ class paretorank_instance(allowed_stats):
             title = "Rank"
         )
         fig.show()
-    
 
-    #def plot(self):
-        #fig = px.histogram(
-           # x = [i.front.shape[0] for i in self.ranking],
-            #title = "histogram of ranks"
-       # )
-       # fig.show()
-    
 
 def paretorank(experiment):
     pr = paretorank_instance(experiment)

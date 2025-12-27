@@ -39,9 +39,9 @@ ks = mb.stats.kstest(exp, exp)
 mw = mb.stats.mwtest(mb.hypervolume.trace(exp),
                      mb.hypervolume.trace(exp), alternative='less')
 
-#print(mw.statistic)
+print(mw.statistic)
 
 
 pr = mb.stats.paretorank(exp)  # For a single experiment.
-pr.rank()                      # The rank array.
-pr.plot()    
+#pr.rank()                      # The rank array.
+#pr.plot()    

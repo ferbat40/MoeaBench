@@ -38,7 +38,3 @@ class paretorank_instance(allowed_stats):
         fig.show()
 
 
-def paretorank(experiment):
-    pr = paretorank_instance(experiment)
-    pr()
-    return pr

@@ -1,6 +1,5 @@
 from .analyse_obj import analyse_obj
 from .analyse_surface_obj import analyse_surface_obj
-from .analyse_metric_gen import analyse_metric_gen
 from .I_UserMoeaBench import I_UserMoeaBench
 import importlib
 from .experiment import experiment
@@ -16,7 +15,7 @@ class MoeaBench(I_UserMoeaBench):
 
     @property
     def stats(self):
-        return stats(self.result_population.result_population, self)
+        return stats(self.result_population.result_population)
     
 
     @property

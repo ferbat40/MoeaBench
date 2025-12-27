@@ -11,7 +11,9 @@ class kstest_instance(allowed_stats):
         self.pvalue = []
 
 
-    def __call__(self):      
+    def __call__(self):     
+        for arr in self.args:
+            print(arr) 
         try:
             self.allowed(self.args)
             valid_values = [i.objectives() if hasattr(i,'result') else i for i in self.args]
@@ -34,7 +36,3 @@ class kstest_instance(allowed_stats):
         fig.show()
           
         
-def kstest(*args):
-    ks = kstest_instance(args)
-    ks()
-    return ks

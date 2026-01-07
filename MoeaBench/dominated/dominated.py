@@ -1,21 +1,27 @@
-from MoeaBench import dominated
+from .d_objectives import d_objectives
+from .d_variables import d_variables
 
-class front:
+class dominated:
 
     def __init__(self, cls_result_dominated, result, rounds):
-        self.cls_result_dominated = cls_result_dominated()
+        self.cls_result_dominated = cls_result_dominated() 
         self.result = result
         self.rounds = rounds
 
 
+    @property 
     def objectives(self, generation = None):
         try:
-            dm = dominated.objectives(self.cls_result_dominated, self.result, generation)
-            dm(self.result, generation)
-            return dm
+            obj = d_objectives(self.cls_result_dominated, self.result, self.rounds)
+            return obj
         except Exception as e:
             print(e)
-    
 
-    def round(self, index):
-        return self.rounds[index].front 
+
+    @property 
+    def variables(self, generation = None):
+        try:
+            var = d_variables(self.cls_result_dominated, self.result, self.rounds)
+            return var
+        except Exception as e:
+            print(e)

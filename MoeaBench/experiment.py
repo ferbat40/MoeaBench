@@ -78,7 +78,7 @@ class experiment(I_UserExperiment):
     
     @property
     def dominated(self):
-        return self.imports.dominated.dominated(self, self.imports.result_population.result_population)
+        return self.imports.dominated.dominated(self.imports.result_dominated.result_dominated, self.result, self._rounds)
 
 
     @optimal.setter

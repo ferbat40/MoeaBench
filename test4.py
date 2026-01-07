@@ -9,38 +9,26 @@ os.system("cls")
 exp = mb.experiment()
 exp.name = 'experiment 1'
 exp.benchmark = mb.benchmarks.DTLZ1()
-exp.moea = mb.moeas.MOEAD(generations = 10, population = 150)
+exp.moea = mb.moeas.NSGA3(generations = 10, population = 150)
 exp.moea.generations=250
 exp.moea.seed = 4
 exp.name = "turicer"
-exp.run()
+exp.run(repeat = 1)
+
+#var = exp.variables(generation = 1)
+#print(var.shape)
+
+#ar_r = exp.variables.round(1)
+#print(var_r.shape)
 
 
-hv  = mb.hypervolume(exp)   
-#print(hv)
-
-gd  = mb.igdplus(exp, generation = 100)
-#h_obj= mb.igdplus.trace(exp, objectives=[1,2])  # Restricted to some objectives.
+obj = exp.dominated.objectives(generation = 89)
+print(obj.shape)
 
 
-#mb.igdplus.timeplot(exp, objectives=[1,2], generations = [99,100])
+#for i in range(0,4):
+  #obj_r = exp.set.round(i)
+ # print(obj_r.shape)
 
 
-#ind = mb.stats.indice(exp, generation = 125)
-#ks = mb.stats.kstest(exp, exp)
-#print(ind)
-#print(ks)
-
-#print(mb.hypervolume.trace(exp).ndim)
-
-#mw = mb.stats.mwtest(mb.hypervolume.trace(exp),
-                    # mb.hypervolume.trace(exp), alternative='less')
-
-#print(mw.statistic)
-
-
-#pr = mb.stats.paretorank(exp)  # For a single experiment.
-#pr.rank()                      # The rank array.
-#pr.plot()    
-
-#mb.igdplus.timeplot(exp, generations=[95,145])
+#print(exp.rounds[1].variables)

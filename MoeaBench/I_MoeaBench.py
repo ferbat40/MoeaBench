@@ -82,6 +82,16 @@ class I_MoeaBench(ABC):
     def IPL_set(self):
         pass
 
+    
+    @abstractmethod
+    def IPL_dominated_objectives(sef):
+        pass
+
+
+    @abstractmethod
+    def IPL_dominated_variables(sef):
+        pass
+
 
     @abstractmethod
     def IPL_variables(self):

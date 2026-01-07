@@ -1,20 +1,21 @@
-from ..result_population import result_population
+from MoeaBench import dominated
 
-class dominated(result_population):
+class front:
 
-    def __init__(self, experiment):
-        self.experiment = experiment
+    def __init__(self, cls_result_dominated, result, rounds):
+        self.cls_result_dominated = cls_result_dominated()
+        self.result = result
+        self.rounds = rounds
 
 
     def objectives(self, generation = None):
-        return self.DATA([dt.get_F_gen_dominate() 
-                          for data in self.experiment.result.get_elements() 
-                          for dt in data 
-                          if hasattr(dt,"get_F_gen_dominate")][0],generation)    
+        try:
+            dm = dominated.objectives(self.cls_result_dominated, self.result, generation)
+            dm(self.result, generation)
+            return dm
+        except Exception as e:
+            print(e)
+    
 
-
-    def variables(self, generation = None):
-        return self.DATA([dt.get_X_gen_dominate() 
-                          for data in self.experiment.result.get_elements() 
-                          for dt in data 
-                          if hasattr(dt,"get_X_gen_dominate")][0],generation)    
+    def round(self, index):
+        return self.rounds[index].front 

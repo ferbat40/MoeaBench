@@ -1,8 +1,5 @@
 from .RUN import RUN
 from .RUN_user import RUN_user
-from .result_obj import result_obj
-from .result_front import result_front
-from .result_var import result_var
 from .result_set import result_set
 from .moea_round import moea_round
 from .save import save
@@ -18,13 +15,30 @@ class experiment(I_UserExperiment):
         self.pof=None
         self.result=None
         self.imports = imports
-        self.result_obj=result_obj()
-        self.result_front=result_front()
-        self.result_var=result_var()
         self.result_set=result_set()
         self.hist_M_user = []
+
+
+    @property
+    def variables(self):    
+        return self.imports.variables.variables(self.imports.result_var.result_var, self.result, self._rounds)
     
+
+    @property
+    def objectives(self):    
+        return self.imports.objectives.objectives(self.imports.result_obj.result_obj, self.result, self._rounds)
     
+
+    @property
+    def front(self):    
+        return self.imports.front.front(self.imports.result_front.result_front, self.result, self._rounds)
+    
+
+    @property
+    def set(self):    
+        return self.imports.set.set(self.imports.result_set.result_set, self.result, self._rounds)
+
+     
     @property
     def name(self):
         return self._name 
@@ -36,15 +50,15 @@ class experiment(I_UserExperiment):
 
 
     @property
-    def round(self):
-        return self._round
+    def rounds(self):
+        return self._rounds
     
 
-    @round.setter
-    def round(self, value):
-        if not hasattr(self,'_round'):
-            self._round = []
-        self._round.extend(value)
+    @rounds.setter
+    def rounds(self, value):
+        if not hasattr(self,'_rounds'):
+            self._rounds = []
+        self._rounds.extend(value)
 
 
     @property
@@ -61,10 +75,10 @@ class experiment(I_UserExperiment):
     def optimal(self):
         return self.imports.optimal.optimal(self)
     
-
+    
     @property
     def dominated(self):
-        return self.imports.dominated.dominated(self)
+        return self.imports.dominated.dominated(self, self.imports.result_population.result_population)
 
 
     @optimal.setter
@@ -93,57 +107,7 @@ class experiment(I_UserExperiment):
     def benchmark(self,value):
         self._benchmark=value(self.imports.benchmarks) if callable(value) else value
         self.pof=self._benchmark 
-
-            
-    def objectives(self, generation = None):
-        """
-        - **array with objectives in generations:**
-        Click on the links for more
-        ...
-                - **Informations:**
-                      - sinxtase:
-                      experiment.objective(args)  
-                      - [objective](https://moeabench-rgb.github.io/MoeaBench/analysis/objectives/data/objective/) information about the method, examples and more...   
-                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
-
-        """
-        try:
-            return self.result_obj.IPL_objectives(self.result, generation)
-        except Exception as e:
-            print(e)
-
-
-    def front(self, generation = None):
-        try:
-            return self.result_front.IPL_front(self.result, generation)
-        except Exception as e:
-            print(e)
-
-
-    def variables(self, generation = None):
-        """
-        - **array with decision variables in generations:**
-        Click on the links for more
-        ...
-                - **Informations:**
-                      - sinxtase:
-                      experiment.variable(args)  
-                      - [variable](https://moeabench-rgb.github.io/MoeaBench/analysis/variables/data/variable/) information about the method, examples and more...   
-                      - [Exception](https://moeabench-rgb.github.io/MoeaBench/analysis/metrics/data/exceptions/) information on possible error types
-
-        """
-        try:
-            return self.result_var.IPL_variables(self.result, generation)
-        except Exception as e:
-            print(e)
     
-
-    def set(self, generation = None):
-        try:
-            return self.result_set.IPL_set(self.result, generation)
-        except Exception as e:
-            print(e)
-
 
     def load(self,file):
         """
@@ -238,12 +202,12 @@ class experiment(I_UserExperiment):
             for exe in range(0,execution):
                 cont += 1
                 self.run_moea(generator)
-                self.round = [moea_round(b, f'round {cont}') for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]           
+                self.rounds = [moea_round(b, f'round {cont}') for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]           
             cont += 1  
             seed_moea = generator if self.moea.seed == 0 else self.moea.seed
             self.run_moea(seed_moea)
             
-            self.round = [moea_round(b, f'round {cont}') for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]
+            self.rounds = [moea_round(b, f'round {cont}') for i in self.result_moea.get_elements() for b in i if hasattr(b,'get_F_GEN')]
         except Exception as e:
             print(e)
 

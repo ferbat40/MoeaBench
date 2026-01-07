@@ -120,6 +120,14 @@ class IPL_MoeaBench(I_MoeaBench):
     def extract_pareto_result(self):
         raise NotImplementedError("Not implemented")
     
+
+    def IPL_dominated_objectives(self):
+        raise NotImplementedError("Not implemented")
+    
+
+    def IPL_dominated_variables(self):
+        raise NotImplementedError("Not implemented")
+    
    
     @staticmethod
     def normalize(ref, F):

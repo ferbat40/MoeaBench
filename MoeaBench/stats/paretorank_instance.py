@@ -15,18 +15,17 @@ class paretorank_instance(allowed_stats):
 
 
     def __call__(self):
-        try:
+        #try:
             self.allowed(self.experiment)
-            rank = [i for i in self.experiment.round]
+            rank = [i for i in self.experiment.rounds]
             self.ranking = sorted(rank, key = lambda pop: pop.front.shape[0], reverse = True)
-        except Exception as e:
-            print(e)
+       # except Exception as e:
+           # print(e)
     
 
     def rank(self):
         return [round.name for round in self.ranking]
     
-
 
     def plot(self):
         fig = px.bar(

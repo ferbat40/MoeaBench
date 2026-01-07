@@ -31,7 +31,8 @@ print(exp.dominated.objectives.round(1).shape)
 print(exp.dominated.variables(generation = 3).shape)
 print(exp.dominated.variables.round(1).shape)
 
-
+pr = mb.stats.paretorank(exp)
+print(pr.rank())
 
 #var = exp.dominated.variables(generation = 89)
 #@print(var.shape)

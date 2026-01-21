@@ -6,14 +6,12 @@ import numpy as np
 os.system("cls")  
 
 
-exp = mb.experiment()
-exp.name = 'experiment 1'
-exp.benchmark = mb.benchmarks.DTLZ1()
-exp.moea = mb.moeas.NSGA3(generations = 10, population = 150)
-exp.moea.generations=150
-exp.moea.seed = 4
-exp.name = "turicer"
-exp.run(repeat= 2)
+exp2 = mb.experiment()
+exp2.name = 'experiment 1'
+exp2.benchmark = mb.benchmarks.DTLZ5(M = 3)
+exp2.moea = mb.moeas.NSGA3(population=150, generations=300)
+exp2.run()
+
 
 #var = exp.variables(generation = 1)
 #print(var.shape)
@@ -21,18 +19,9 @@ exp.run(repeat= 2)
 #ar_r = exp.variables.round(1)
 #print(var_r.shape)
 #set = exp.set(generation = 89)
-#print(exp.set.round(1))
+print(exp2.set())
 
 
-print(exp.dominated.objectives(generation = 3).shape)
-print(exp.dominated.objectives.round(1).shape)
-
-
-print(exp.dominated.variables(generation = 3).shape)
-print(exp.dominated.variables.round(1).shape)
-
-pr = mb.stats.paretorank(exp)
-print(pr.rank())
 
 #var = exp.dominated.variables(generation = 89)
 #@print(var.shape)

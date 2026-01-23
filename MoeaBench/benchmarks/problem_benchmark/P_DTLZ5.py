@@ -25,13 +25,13 @@ class P_DTLZ5(K_DTLZ5):
         
       
     def POFsamples(self):
-        try:
+       # try:
             if self.K_validate(self.get_CACHE().get_BENCH_CI().get_K()) == True and self.M_validate(self.get_CACHE().get_BENCH_CI().get_M()) == True:
                 F, X = self.minimize()
                 for key,value in F.items():
                     self.get_CACHE().DATA_store(key,0,0,value,[0],[0],self,self.__class__.__name__.split("_")[1],[0],[0],[0],[0] )
-        except Exception as e:
-            print(e)
+      #  except Exception as e:
+          #  print(e)
     
 
     @property

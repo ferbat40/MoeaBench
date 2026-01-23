@@ -12,23 +12,29 @@ class K_DPF1(H_DPF):
                          **kwargs)
 
 
-    def Y1 (self,D,X,Gxr):
+    def Y1 (self,D,X,Gxr,idx):
+      # print("Y1")
        return 1/2*np.prod(X[:,0:D-1], axis = 1).reshape(X.shape[0],1)*(1+Gxr)
 
 
-    def Y2 (self,D,X,Gxr):
-        return 1/2*np.prod(X[:,0:D-2], axis = 1).reshape(X.shape[0],1)*(1-X[:,D-2:D-1])*(1+Gxr)
+    def Y2 (self,D,X,Gxr,idx):
+       # print(X[:,0:D-idx-1],"    ",X[:,D-idx-1:D-idx] )
+       # print("Y2")
+        return 1/2*np.prod(X[:,0:D-idx-1], axis = 1).reshape(X.shape[0],1)*(1-X[:,D-idx-1:D-idx])*(1+Gxr)
 
 
-    def Yd (self,D,X,Gxr):
+    def Yd (self,D,X,Gxr,idx):
+       # print("Y3")
         return 1/2*(1-X[:,0:1])*(1+Gxr)
     
 
-    def FD1(self,F,vet_chaos):
+    def FD1(self,F,vet_chaos,idx):
+       # print("Y4")
         return lambda row,D: np.dot(F,vet_chaos[row:row+D,:])
     
 
-    def FM(self,F,vet_chaos):
+    def FM(self,F,vet_chaos,idx):
+        #print("Y5")
         return lambda row,D: np.dot(F,vet_chaos[row:row+D,:])
 
 
@@ -58,13 +64,15 @@ class K_DPF1(H_DPF):
 
 
     def calc_f(self,X,G):
+       # print(" X  ",X)
         D = self.CACHE.get_BENCH_CI().get_D()
         M = self.CACHE.get_BENCH_CI().get_M()
-        vet_F_D = [self.calc_F_D(Fd,D) for Fd, i in enumerate(range(0,D), start = 1)]   
-        F = np.column_stack(list(map(lambda Key: self.param_F()[Key](D,X,G),vet_F_D)))   
+        vet_F_D = [self.calc_F_D(Fd,D) for Fd, i in enumerate(range(0,D), start = 1)]  
+        F = np.column_stack(list(map(lambda Key: self.param_F()[Key[1]](D,X,G,Key[0]),enumerate(vet_F_D))))   
         vet_chaos = self.calc_NU(1,(M-D)*D,(M-D)*D)
         vet_F_C = [self.calc_F_C(Fc,M-D) for Fc, i in enumerate(range(0,M-D), start = 1)]
-        chaos = list(map(lambda Keys: self.param_CHAOS()[Keys](F,vet_chaos),vet_F_C))
+        chaos = list(map(lambda Keys: self.param_CHAOS()[Keys[1]](F,vet_chaos,Keys[0]),enumerate(vet_F_C)))
+        #print(vet_F_D,"  ",vet_F_C ,"  ",chaos)
         return self.calc_F_PD(chaos,F,D,vet_chaos)
      
 

@@ -8,28 +8,18 @@ os.system("cls")
 
 exp2 = mb.experiment()
 exp2.name = 'experiment 1'
-exp2.benchmark = mb.benchmarks.DTLZ6(M = 10, K = 10, P = 5000)
-exp2.moea = mb.moeas.NSGA3(population=150, generations=300)
+exp2.benchmark = mb.benchmarks.DPF1(M = 10, D = 8, K=10, P = 1)
+
+
+
+#exp2.moea = mb.moeas.NSGA3(population=150, generations=300)
 #exp2.run()
+#print(exp2.benchmark.__class__.__name__.split('_')[1]," M =",exp2.benchmark.M," N =",exp2.optimal.set().shape[1])
+#exp2.benchmark.M = 5
+#exp2.benchmark.D = 4
+#print(exp2.benchmark.__class__.__name__.split('_')[1]," M =",exp2.benchmark.M," N =",exp2.optimal.set().shape[1])
+#exp2.benchmark.M = 10
+#exp2.benchmark.D = 9
+#print(exp2.benchmark.__class__.__name__.split('_')[1]," M =",exp2.benchmark.M," N =",exp2.optimal.set().shape[1])
 
 
-#var = exp.variables(generation = 1)
-#print(var.shape)
-
-#ar_r = exp.variables.round(1)
-#print(var_r.shape)
-#set = exp.set(generation = 89)
-#print(exp2.set())
-
-
-
-#var = exp.dominated.variables(generation = 89)
-#@print(var.shape)
-
-
-#for i in range(0,4):
-  #obj_r = exp.set.round(i)
- # print(obj_r.shape)
-
-
-#print(exp.rounds[1].variables)

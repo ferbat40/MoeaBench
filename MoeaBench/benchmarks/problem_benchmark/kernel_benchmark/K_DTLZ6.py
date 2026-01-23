@@ -10,12 +10,12 @@ class K_DTLZ6(H_DTLZ):
                          **kwargs)
    
     
-    def F1(self,M,th,Gxm): 
+    def F1(self,M,th,Gxm,idx): 
        theta = list(map(lambda TH: np.cos(TH), th[0:(M-1)]))
        return (1+Gxm)*np.prod(np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)
    
 
-    def F2(self,M,th,Gxm):
+    def F2(self,M,th,Gxm,idx):
         theta = list(map(lambda TH: np.cos(TH), th[0:(M-2)]))
         return (1+Gxm)*np.prod(np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)*np.column_stack(np.sin(th[(M-2):(M-1)]))
            
@@ -25,7 +25,7 @@ class K_DTLZ6(H_DTLZ):
         return (1+Gxm)*np.prod(np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)*np.column_stack(np.sin(th[(M-idx-2):(M-idx-1)]))
 
 
-    def Fm(self,M,th,Gxm):
+    def Fm(self,M,th,Gxm,idx):
         return (1+Gxm)*np.column_stack(np.sin(th[0:1]))
     
 

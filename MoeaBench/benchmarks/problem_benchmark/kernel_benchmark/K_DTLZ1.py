@@ -27,13 +27,13 @@ class K_DTLZ1(H_DTLZ):
  
  
     def calc_F_M(self,Fi,M):
-        if Fi == 1:
-            return self.get_method(0)
-        elif Fi >=2 and Fi <= M-2:
-            return self.get_method(1)
-        elif Fi > 1 and Fi == M-1:
-            return self.get_method(2)
-        elif Fi == M:
+        if Fi == 1: 
+            return self.get_method(0) 
+        elif Fi == 2: 
+            return self.get_method(1) 
+        elif Fi > 2 and Fi < M: 
+            return self.get_method(2) 
+        elif Fi == M: 
             return self.get_method(3)
 
 

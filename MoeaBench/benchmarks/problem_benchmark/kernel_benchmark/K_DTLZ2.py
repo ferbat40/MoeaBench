@@ -10,19 +10,19 @@ class K_DTLZ2(H_DTLZ):
                          **kwargs)
 
 
-    def F1(self,M,X,Gxm):
+    def F1(self,M,X,Gxm, idx):
         return (1+Gxm)*(np.prod(np.cos(X[:,:M-1]*np.pi/2), axis = 1).reshape(X.shape[0],1))
 
 
-    def F2(self,M,X,Gxm):
+    def F2(self,M,X,Gxm, idx):
         return (1+Gxm)*(np.prod(np.cos(X[:,:M-2]*np.pi/2),  axis = 1).reshape(X.shape[0],1))*np.sin(X[:,M-2:M-1]*np.pi/2)
 
 
-    def F3(self,M,X,Gxm):
-        return (1+Gxm)*(np.prod(np.cos(X[:,:M-3]*np.pi/2),  axis = 1).reshape(X.shape[0],1))*np.sin(X[:,M-3:M-2]*np.pi/2)
+    def F3(self,M,X,Gxm, idx):
+        return (1+Gxm)*(np.prod(np.cos(X[:,:(M-idx)-3]*np.pi/2),  axis = 1).reshape(X.shape[0],1))*np.sin(X[:,(M-idx)-3:(M-idx)-2]*np.pi/2)
 
 
-    def Fm(self,M,X,Gxm):
+    def Fm(self,M,X,Gxm, idx):
         return (1+Gxm)*np.sin(X[:,0:1]*np.pi/2)
 
 
@@ -39,7 +39,8 @@ class K_DTLZ2(H_DTLZ):
     def calc_f(self,X,G):
         M = self.CACHE.get_BENCH_CI().get_M()
         vet_F_M = [self.calc_F_M(F,M) for F, i in enumerate(range(0,M), start = 1)]
-        return np.column_stack(list(map(lambda Key: self.param_F()[Key](M,X,G),vet_F_M)))
+        #print(vet_F_M)
+        return np.column_stack(list(map(lambda Key: self.param_F()[Key[1]](M,X,G,Key[0]), enumerate(vet_F_M))))
 
 
     def calc_g(self,X):

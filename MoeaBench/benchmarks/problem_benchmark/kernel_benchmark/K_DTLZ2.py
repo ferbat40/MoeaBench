@@ -19,7 +19,6 @@ class K_DTLZ2(H_DTLZ):
 
 
     def F3(self,M,X,Gxm, idx):
-        #print("F3 idx",idx," cos ate 0 ate ",M-idx-2,"  seno de ",M-idx-2,"  ate ",M-idx-1)
         return (1+Gxm)*(np.prod(np.cos(X[:,:M-idx-2]*np.pi/2),  axis = 1).reshape(X.shape[0],1))*np.sin(X[:,M-idx-2:M-idx-1]*np.pi/2)
 
 
@@ -40,7 +39,6 @@ class K_DTLZ2(H_DTLZ):
     def calc_f(self,X,G):
         M = self.CACHE.get_BENCH_CI().get_M()
         vet_F_M = [self.calc_F_M(F,M) for F, i in enumerate(range(0,M), start = 1)]
-        #print(vet_F_M)
         return np.column_stack(list(map(lambda Key: self.param_F()[Key[1]](M,X,G,Key[0]), enumerate(vet_F_M))))
 
 

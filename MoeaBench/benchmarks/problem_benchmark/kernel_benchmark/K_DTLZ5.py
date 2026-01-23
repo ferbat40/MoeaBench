@@ -46,7 +46,6 @@ class K_DTLZ5(H_DTLZ):
     def calc_f(self,X,G):
         M = self.CACHE.get_BENCH_CI().get_M() 
         vet_F_M = [self.calc_F_M(F,M) for F, i in enumerate(range(0,M), start = 1)]
-        #np.column_stack(list(map(lambda Key: self.param_F()[Key](M,self.calc_TH(X,G,M),G),vet_F_M)))
         return np.column_stack(list(map(lambda Key: self.param_F()[Key[1]](M,self.calc_TH(X,G,M),G,Key[0]), enumerate(vet_F_M))))
 
 

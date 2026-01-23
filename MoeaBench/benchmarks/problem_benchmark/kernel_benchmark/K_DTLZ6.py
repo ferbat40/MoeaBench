@@ -20,9 +20,9 @@ class K_DTLZ6(H_DTLZ):
         return (1+Gxm)*np.prod(np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)*np.column_stack(np.sin(th[(M-2):(M-1)]))
            
 
-    def F3(self,M,th,Gxm):
-        theta = list(map(lambda TH: np.cos(TH), th[0:(M-3)]))
-        return (1+Gxm)*np.prod(np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)*np.column_stack(np.sin(th[(M-3):(M-2)]))
+    def F3(self,M,th,Gxm,idx):
+        theta = list(map(lambda TH: np.cos(TH), th[0:(M-idx-1)]))
+        return (1+Gxm)*np.prod(np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)*np.column_stack(np.sin(th[(M-idx-2):(M-idx-1)]))
 
 
     def Fm(self,M,th,Gxm):
@@ -46,7 +46,7 @@ class K_DTLZ6(H_DTLZ):
     def calc_f(self,X,G):
         M =  self.CACHE.get_BENCH_CI().get_M() 
         vet_F_M = [self.calc_F_M(F,M) for F, i in enumerate(range(0,M), start = 1)]
-        return np.column_stack(list(map(lambda Key: self.param_F()[Key](M,self.calc_TH(X,G,M),G),vet_F_M)))
+        return np.column_stack(list(map(lambda Key: self.param_F()[Key[1]](M,self.calc_TH(X,G,M),G,Key[0]), enumerate(vet_F_M))))
 
 
     def calc_g(self,X):

@@ -8,7 +8,7 @@ os.system("cls")
 
 exp2 = mb.experiment()
 exp2.name = 'experiment 1'
-exp2.benchmark = mb.benchmarks.DTLZ5(M = 10, K = 10, P = 5000)
+exp2.benchmark = mb.benchmarks.DTLZ6(M = 10, K = 10, P = 5000)
 exp2.moea = mb.moeas.NSGA3(population=150, generations=300)
 #exp2.run()
 

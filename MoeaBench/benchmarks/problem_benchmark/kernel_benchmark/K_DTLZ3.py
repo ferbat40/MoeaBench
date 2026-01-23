@@ -10,11 +10,11 @@ class K_DTLZ3(H_DTLZ):
                          **kwargs)
 
 
-    def F1(self,M,X,Gxm):
+    def F1(self,M,X,Gxm,idx):
         return (1+Gxm)*(np.prod(np.cos(X[:,:M-1]*np.pi/2), axis = 1).reshape(X.shape[0],1))
 
 
-    def F2(self,M,X,Gxm):
+    def F2(self,M,X,Gxm,idx):
         return (1+Gxm)*(np.prod(np.cos(X[:,:M-2]*np.pi/2),  axis = 1).reshape(X.shape[0],1))*np.sin(X[:,M-2:M-1]*np.pi/2)
 
 
@@ -22,7 +22,7 @@ class K_DTLZ3(H_DTLZ):
         return (1+Gxm)*(np.prod(np.cos(X[:,:M-idx-2]*np.pi/2),  axis = 1).reshape(X.shape[0],1))*np.sin(X[:,:M-idx-2:M-idx-1]*np.pi/2)
 
 
-    def Fm(self,M,X,Gxm):
+    def Fm(self,M,X,Gxm,idx):
         return (1+Gxm)*np.sin(X[:,0:1]*np.pi/2)
     
 

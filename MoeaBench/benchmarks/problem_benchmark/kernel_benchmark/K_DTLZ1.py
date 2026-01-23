@@ -15,8 +15,8 @@ class K_DTLZ1(H_DTLZ):
 
 
     def F2(self,M,X,Gxm,idx):
-        #print("F2 idx",idx," cos ate 0 ate ",M-idx-2,"  seno de ",M-idx-2,"  ate ",M-idx-1)
-        return 1/2*np.prod(X[:,:M-idx-2], axis = 1).reshape(X.shape[0],1)*(1-X[:,M-idx-2:M-idx-1])*(1+Gxm)
+        #print("F2 idx",idx," prod ate 0 ate ",M-idx-1,"  * prod  de ",M-idx-1,"  ate ",M-idx)
+        return 1/2*np.prod(X[:,:M-idx-1], axis = 1).reshape(X.shape[0],1)*(1-X[:,M-idx-1:M-idx])*(1+Gxm)
 
 
     def Fm1(self,M,X,Gxm,idx):
@@ -51,7 +51,7 @@ class K_DTLZ1(H_DTLZ):
     def calc_f(self,X,G):
         M = self.CACHE.get_BENCH_CI().get_M()
         vet_F_M = [self.calc_F_M(F,M) for F, i in enumerate(range(0,M), start = 1)]
-        print(vet_F_M )
+        #print(vet_F_M )
         return np.column_stack(list(map(lambda Key: self.param_F()[Key[1]](M,X,G,Key[0]), enumerate(vet_F_M))))
      
 

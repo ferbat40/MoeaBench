@@ -8,7 +8,7 @@ os.system("cls")
 
 exp2 = mb.experiment()
 exp2.name = 'experiment 1'
-exp2.benchmark = mb.benchmarks.DPF5(M = 10, D = 2, K=10, P = 100)
+exp2.benchmark = mb.benchmarks.DPF5(M = 10, D = 2, K=10, P = 20)
 
 
 

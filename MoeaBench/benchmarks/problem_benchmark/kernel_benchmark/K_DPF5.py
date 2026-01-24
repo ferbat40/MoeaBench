@@ -12,36 +12,31 @@ class K_DPF5(H_DPF):
                          **kwargs)
      
 
-    def B1(self,D,X,M,GXr,idx):
-        #print("B1   ",idx)
-
+    def B1(self,D,X,M,GXr):
         return np.prod(np.cos(self.calc_TH(X[0:M-2])))*np.cos(self.calc_TH(X[M-2:M-1]))*(1+GXr)
     
 
-    def B2(self,D,X,M,GXr,idx):
-        #print("B2   " ,X[0:M-idx-1],"   ",X[M-idx-1:M-idx])
-        return np.prod(np.cos(self.calc_TH(X[0:M-idx-1])))*np.sin(self.calc_TH(X[M-idx-1:M-idx]))*(1+GXr)
+    def B2(self,D,X,M,GXr):
+        return np.prod(np.cos(self.calc_TH(X[0:M-2])))*np.sin(self.calc_TH(X[M-2:M-1]))*(1+GXr)
     
 
-    def Bmd1(self,D,X,M,GXr,idx):
+    def Bmd1(self,D,X,M,GXr):
         return np.prod(np.cos(self.calc_TH(X[0:D-1])))*np.sin(self.calc_TH(X[D-1:D]))*(1+GXr)
     
 
-    def Y1(self,D,X,M,GXr,idx):
-        #print(idx,"   ",X[0:D-idx],"   Y1")
-        return np.sqrt(1/(M-D+1))*np.prod(np.cos(self.calc_TH(X[0:D-idx])))*(1+GXr)
+    def Y1(self,D,X,M,GXr):
+        return np.sqrt(1/(M-D+1))*np.prod(np.cos(self.calc_TH(X[0:D-1])))*(1+GXr)
     
 
-    def Y2(self,D,X,M,GXr,idx):
-        #print(idx,"   ",X[0:D-idx-1],"    ",X[D-idx-1:D-idx],"   Y2")
-        return np.prod(np.cos(self.calc_TH(X[0:D-idx-1])))*np.sin(self.calc_TH(X[D-idx-1:D-idx]))*(1+GXr)
+    def Y2(self,D,X,M,GXr):
+        return np.prod(np.cos(self.calc_TH(X[0:D-2])))*np.sin(self.calc_TH(X[D-1:D]))*(1+GXr)
 
 
-    def Yd1(self,D,X,M,GXr,idx):
+    def Yd1(self,D,X,M,GXr):
         return np.cos(self.calc_TH(X[0:1]))*np.sin(self.calc_TH(X[1:2]))*(1+GXr)
     
 
-    def Yd(self,D,X,M,GXr,idx):
+    def Yd(self,D,X,M,GXr):
         return np.sin(self.calc_TH(X[0:1]))*(1+GXr)
 
 
@@ -95,10 +90,9 @@ class K_DPF5(H_DPF):
 
 
     def calc_f(self,X,G):
-       #print("X ",X)
        M = self.CACHE.get_BENCH_CI().get_M()
        D = self.CACHE.get_BENCH_CI().get_D()
-       return np.array([list(map(lambda Keys: self.param_F()[Keys[1]](D,X[i],M,G[i],Keys[0])[0],enumerate(F_PD))) 
+       return np.array([list(map(lambda Keys: self.param_F()[Keys](D,X[i],M,G[i])[0],F_PD)) 
                         for i, F_PD in enumerate(self.calc_F_PD(D,X,M), start = 0)])
 
      

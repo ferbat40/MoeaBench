@@ -12,34 +12,32 @@ class K_DPF3(H_DPF):
                          **kwargs)
 
 
-     def Y1 (self,D,X,GXr,idx):
+     def Y1 (self,D,X,GXr):
         return (1-np.prod(np.cos(self.calc_TH(X[:,0:D-1],100)), axis = 1).reshape(X.shape[0],1))*(1+GXr)
 
 
-     def Y2 (self,D,X,GXr,idx):
-        #print("Y2 "," D-2 ",D-2," D-1 ",D-1,"   idx ",idx," D-idx-1 ",D-idx-1, " D-idx ",D-idx)
-        #print("Y2  result 1", D-idx,"  ",  X[:,0:D-idx-1],"  result 2  ",X[:,D-idx-1:D-idx])
-        return (1-np.prod(np.cos(self.calc_TH(X[:,0:D-idx-1],100)), axis = 1)
-                .reshape(X.shape[0],1)*np.sin(self.calc_TH(X[:,D-idx-1:D-idx],100)))*(1+GXr)
+     def Y2 (self,D,X,GXr):
+        return (1-np.prod(np.cos(self.calc_TH(X[:,0:D-2],100)), axis = 1)
+                .reshape(X.shape[0],1)*np.sin(self.calc_TH(X[:,D-2:D-1],100)))*(1+GXr)
 
 
-     def Yd1 (self,D,X,GXr,idx):
+     def Yd1 (self,D,X,GXr):
         return (1-np.cos(self.calc_TH(X[:,0:1],100))*np.sin(self.calc_TH(X[:,1:2],100)))*(1+GXr)
 
 
-     def Yd (self,D,X,GXr,idx):
+     def Yd (self,D,X,GXr):
         return (1-np.sin(self.calc_TH(X[:,0:1],100)))*(1+GXr)
    
 
-     def FD(self,Yd,vet_chaos,idx):
+     def FD(self,Yd,vet_chaos):
         return lambda row,col,col_next: min(Yd[row],vet_chaos[row][0])
     
 
-     def FD1(self,Yd,vet_chaos,idx):
+     def FD1(self,Yd,vet_chaos):
         return lambda row,col,col_next: min(max(Yd[row],vet_chaos[row][col]),vet_chaos[row][col_next])
      
 
-     def FM(self,Yd,vet_chaos,idx):
+     def FM(self,Yd,vet_chaos):
         return lambda row,col,col_next: max(Yd[row],vet_chaos[row][col])
      
 
@@ -47,14 +45,13 @@ class K_DPF3(H_DPF):
          M = self.CACHE.get_BENCH_CI().get_M()
          D = self.CACHE.get_BENCH_CI().get_D()
          vet_F_D = [self.calc_F_D(Fd,D) for Fd, i in enumerate(range(0,D), start = 1)]  
-         Yd1 = np.column_stack(list(map(lambda Keys: self.param_F()[Keys[1]](D,X,G,Keys[0]),enumerate(vet_F_D[:-1]))))
-         Yd = np.column_stack(list(map(lambda Keys: self.param_F()[Keys[1]](D,X,G,Keys[0]),enumerate(vet_F_D[D-1:D]))))     
+         Yd1 = np.column_stack(list(map(lambda Keys: self.param_F()[Keys](D,X,G),vet_F_D[:-1])))
+         Yd = np.column_stack(list(map(lambda Keys: self.param_F()[Keys](D,X,G),vet_F_D[D-1:D])))     
          vet_chaos = np.array((self.calc_NU(M-D,X.shape[0])))
          vet_chaos = np.insert(vet_chaos,0,vet_chaos[:,0], axis =1)
          vet_F_C = [self.calc_F_C(Fc,M-D) for Fc, i in enumerate(range(0,M-D), start = 1)]
          vet_F_C.insert(0,self.get_method_R1(0))
-         chaos = list(map(lambda Keys: self.param_CHAOS()[Keys](Yd,vet_chaos,0),vet_F_C))
-         #print(vet_F_D[:-1],"  ",vet_F_D[D-1:D])
+         chaos = list(map(lambda Keys: self.param_CHAOS()[Keys](Yd,vet_chaos),vet_F_C))
          return self.calc_F_PD(X,chaos,Yd1,vet_chaos)
                              
 

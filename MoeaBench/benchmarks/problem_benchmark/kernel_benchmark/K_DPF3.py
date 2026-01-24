@@ -54,7 +54,6 @@ class K_DPF3(H_DPF):
          vet_F_C = [self.calc_F_C(Fc,M-D) for Fc, i in enumerate(range(0,M-D), start = 1)]
          vet_F_C.insert(0,self.get_method_R1(0))
          chaos = list(map(lambda Keys: self.param_CHAOS()[Keys](Yd,vet_chaos,0),vet_F_C))
-         #print(vet_F_D[:-1],"  ",vet_F_D[D-1:D])
          return self.calc_F_PD(X,chaos,Yd1,vet_chaos)
                              
 

@@ -8,7 +8,7 @@ os.system("cls")
 
 exp2 = mb.experiment()
 exp2.name = 'experiment 1'
-exp2.benchmark = mb.benchmarks.DPF3(M = 10, D = 9, K=10, P =2)
+exp2.benchmark = mb.benchmarks.DPF3(M = 10, D = 3, K=10, P =2)
 #print(exp2.optimal.front().shape)
 #mb.spaceplot(exp2.optimal.front(), objectives = [1, 2, 3])
 

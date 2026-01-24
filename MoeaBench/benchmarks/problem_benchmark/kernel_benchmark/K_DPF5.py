@@ -19,7 +19,7 @@ class K_DPF5(H_DPF):
     
 
     def B2(self,D,X,M,GXr,idx):
-        #print("B2   M" ,M-2," a  ",M-1," idx ",M-idx-1," a ",M-idx)
+        #print(idx, " B2   M" ,X[0:M-idx-1],"  ",X[M-idx-1:M-idx])
         return np.prod(np.cos(self.calc_TH(X[0:M-idx-1])))*np.sin(self.calc_TH(X[M-idx-1:M-idx]))*(1+GXr)
     
 

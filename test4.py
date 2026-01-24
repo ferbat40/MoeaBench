@@ -9,7 +9,7 @@ os.system("cls")
 exp2 = mb.experiment()
 exp2.name = 'experiment 1'
 exp2.benchmark = mb.benchmarks.DPF5(M = 10, D = 3, K=10, P = 5)
-
+mb.spaceplot(exp2.optimal.front(), objectives = [1, 2, 3])
 
 
 #exp2.moea = mb.moeas.NSGA3(population=150, generations=300)

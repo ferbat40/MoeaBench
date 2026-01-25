@@ -22,7 +22,7 @@ class K_DTLZ5(H_DTLZ):
 
     def F3(self,M,th,Gxm,idx):
         theta = list(map(lambda TH: np.cos(TH), th[0:(M-idx-1)]))
-        return (1+Gxm)*np.prod(np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)*np.column_stack(np.sin(th[(M-idx-2):(M-idx-1)]))
+        return (1+Gxm)*np.prod(np.column_stack(theta ), axis = 1).reshape(Gxm.shape[0],1)*np.column_stack(np.sin(th[(M-idx-1):(M-idx)]))
     
 
     def Fm(self,M,th,Gxm,idx):

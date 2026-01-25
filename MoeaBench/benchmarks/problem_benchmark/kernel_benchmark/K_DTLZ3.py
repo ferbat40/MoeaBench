@@ -19,7 +19,7 @@ class K_DTLZ3(H_DTLZ):
 
 
     def F3(self,M,X,Gxm,idx):
-        return (1+Gxm)*(np.prod(np.cos(X[:,:M-idx-2]*np.pi/2),  axis = 1).reshape(X.shape[0],1))*np.sin(X[:,M-idx-2:M-idx-1]*np.pi/2)
+        return (1+Gxm)*(np.prod(np.cos(X[:,:M-idx-1]*np.pi/2),  axis = 1).reshape(X.shape[0],1))*np.sin(X[:,M-idx-1:M-idx]*np.pi/2)
             
 
     def Fm(self,M,X,Gxm,idx):

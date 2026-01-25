@@ -19,7 +19,8 @@ class K_DTLZ4(H_DTLZ):
    
 
     def F3(self,M,X,Gxm,idx):
-        return (1+Gxm)*(np.prod(np.cos(self.calc_TH(X[:,:M-idx-2],100)), axis = 1).reshape(X.shape[0],1)*np.sin(self.calc_TH(X[:,M-idx-2:M-idx-1],100)))
+        #print(X[:,:M-idx-1],"   ",X[:,M-idx-1:M-idx])
+        return (1+Gxm)*(np.prod(np.cos(self.calc_TH(X[:,:M-idx-1],100)), axis = 1).reshape(X.shape[0],1)*np.sin(self.calc_TH(X[:,M-idx-1:M-idx],100)))
 
 
     def Fm(self,M,X,Gxm,idx):
@@ -37,6 +38,7 @@ class K_DTLZ4(H_DTLZ):
 
 
     def calc_f(self,X,G):
+        #print("x ", X)
         M = self.CACHE.get_BENCH_CI().get_M()
         vet_F_M = [self.calc_F_M(F,M) for F, i in enumerate(range(0,M), start = 1)]
         return np.column_stack(list(map(lambda Key: self.param_F()[Key[1]](M,X,G,Key[0]), enumerate(vet_F_M))))

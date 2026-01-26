@@ -17,8 +17,6 @@ class K_DPF3(H_DPF):
 
 
      def Y2 (self,D,X,GXr,idx):
-        #print("Y2 "," D-2 ",D-2," D-1 ",D-1,"   idx ",idx," D-idx-1 ",D-idx-1, " D-idx ",D-idx)
-        #print("Y2  result 1", D-idx,"  ",  X[:,0:D-idx-1],"  result 2  ",X[:,D-idx-1:D-idx])
         return (1-np.prod(np.cos(self.calc_TH(X[:,0:D-idx-1],100)), axis = 1)
                 .reshape(X.shape[0],1)*np.sin(self.calc_TH(X[:,D-idx-1:D-idx],100)))*(1+GXr)
 

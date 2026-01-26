@@ -29,7 +29,7 @@ class K_DPF5(H_DPF):
     
 
     def Y2(self,D,X,M,GXr,idx):
-        return np.prod(np.cos(self.calc_TH(X[0:D-idx])))*np.sin(self.calc_TH(X[D-idx+1:D-idx+2]))*(1+GXr)
+        return np.prod(np.cos(self.calc_TH(X[0:M-idx])))*np.sin(self.calc_TH(X[M-idx:M-idx+1]))*(1+GXr)
 
 
     def Yd1(self,D,X,M,GXr,idx):
